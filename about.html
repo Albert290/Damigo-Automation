@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | Damigo Automation Ltd</title>
+    <style>
+        :root {
+            --primary-blue: #002244;
+            --dark-blue: #001a33;
+            --accent-yellow: #FFD700;
+            --accent-red: #FF4444;
+            --accent-green: #4CAF50;
+            --text-light: #f8f9fa;
+            --text-dark: #333;
+            --white: #ffffff;
+            --blue-500: #3b82f6;
+            --blue-600: #2563eb;
+            --blue-100: #dbeafe;
+            --yellow-500: #eab308;
+            --yellow-600: #ca8a04;
+            --yellow-100: #fef9c3;
+            --red-500: #ef4444;
+            --red-600: #dc2626;
+            --red-100: #fee2e2;
+            --green-500: #22c55e;
+            --gray-500: #6b7280;
+            --gray-200: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        
+        
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+          /* Brand/Logo Section */
+  .brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    
+    background-color: var(--primary-blue);
+  }
+  
+  .logo {
+    height: 40px;
+    width: auto;
+    font-weight: 1500;
+    
+    background-color: var(--primary-blue);
+  }
+  
+  .company-name {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary-blue);
+    
+    background-color: var(--primary-blue);
+  }
+
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-highlight {
+            color: var(--accent-yellow);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            padding: 0.5rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--text-light);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-cta {
+            background-color: var(--accent-yellow);
+            color: var(--primary-blue);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .hero-cta:hover {
+            background-color: var(--yellow-600);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-yellow);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .about-content h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .team-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            text-align: center;
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .team-photo {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 1.5rem;
+        }
+
+        .team-name {
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .team-position {
+            color: var(--gray-500);
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-link {
+            color: var(--primary-blue);
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .social-link:hover {
+            color: var(--accent-yellow);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s;
+            border-top: 4px solid var(--accent-yellow);
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .value-title {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background-color: var(--primary-blue);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            padding: 1rem 2rem;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--white);
+            border: 4px solid var(--accent-yellow);
+            border-radius: 50%;
+            top: 18px;
+            z-index: 1;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -13px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -13px;
+        }
+
+        .timeline-content {
+            background-color: var(--white);
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .timeline-date {
+            color: var(--primary-blue);
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--text-light);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .stat-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            color: var(--gray-500);
+            font-size: 1.1rem;
+        }
+
+        .testimonial-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 6rem;
+            position: absolute;
+            color: var(--blue-100);
+            top: 10px;
+            left: 20px;
+            font-family: Georgia, serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 1rem;
+        }
+
+        .author-info h4 {
+            color: var(--primary-blue);
+            margin-bottom: 0.3rem;
+        }
+
+        .author-company {
+            color: var(--gray-500);
+            font-style: italic;
+        }
+
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--text-light);
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            width: 30px;
+            height: 3px;
+            background-color: var(--accent-yellow);
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-200);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-icon {
+            margin-right: 0.75rem;
+            color: var(--accent-yellow);
+        }
+
+        .copyright {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--gray-500);
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* Media Queries */
+        @media (max-width: 991px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--primary-blue);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 50px;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(odd) {
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::after {
+                left: 11px !important;
+                right: auto !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-grid,
+            .team-grid,
+            .values-grid,
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <img src="assets/images/logo removebg.png" alt="Damigo Logo" class="logo">
+            <div class="logo">
+                Damigo <span class="logo-highlight">AutomationLTD</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li> 
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 class="fade-in">About Damigo Automation</h1>
+        <p class="fade-in delay-1">We're passionate about helping businesses transform through intelligent automation solutions.</p>
+    </section>
+
+    <section class="section-container">
+        <div class="about-grid">
+            <div class="about-content fade-in">
+                <h3>Our Story</h3>
+                <p>Damigo Automation was founded in ---- by a team of technology experts with a shared vision: to make powerful business automation accessible to companies of all sizes. Having worked with enterprise-level clients for years, we recognized that many small and medium-sized businesses were missing out on the tremendous benefits of automation.</p>
+                <p>We set out to bridge this gap by creating tailored automation solutions specifically for Sage and Zoho platforms - two of the most widely used business management systems. Our goal was simple: help businesses save time, reduce costs, and increase productivity through intelligent automation.</p>
+                <p>Today, we're proud to have helped hundreds of clients across various industries transform their operations through our expert automation services. Our team has grown, but our mission remains the same - to empower businesses with automation solutions that drive real results.</p>
+            </div>
+            <img src="assets/images/hero.jpg" alt="Damigo Automation Team" class="about-image fade-in delay-1">
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h2 class="section-title">Our Core Values</h2>
+        <div class="values-grid">
+            <div class="value-card fade-in">
+                <div class="value-icon">🎯</div>
+                <h3 class="value-title">Excellence</h3>
+                <p>We are committed to delivering the highest quality solutions that exceed our clients' expectations. Every automation we build is crafted with precision and care.</p>
+            </div>
+            <div class="value-card fade-in delay-1">
+                <div class="value-icon">🤝</div>
+                <h3 class="value-title">Partnership</h3>
+                <p>We view ourselves as an extension of your team. We listen, collaborate, and work together to achieve your business goals through automation.</p>
+            </div>
+            <div class="value-card fade-in delay-2">
+                <div class="value-icon">💡</div>
+                <h3 class="value-title">Innovation</h3>
+                <p>We constantly explore new technologies and methodologies to provide cutting-edge automation solutions that keep our clients ahead of the curve.</p>
+            </div>
+            <div class="value-card fade-in delay-3">
+                <div class="value-icon">🔍</div>
+                <h3 class="value-title">Transparency</h3>
+                <p>We believe in clear communication and complete honesty. You'll always know exactly what we're doing, why we're doing it, and what results to expect.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h2 class="section-title">Our Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">2018</div>
+                    <h3>Company Founded</h3>
+                    <p>Damigo Automation was established with a focus on Sage and Zoho automation solutions.</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in delay-1">
+                <div class="timeline-content">
+                    <div class="timeline-date">2019</div>
+                    <h3>First Major Clients</h3>
+                    <p>Secured partnerships with several mid-sized companies across retail and manufacturing sectors.</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in delay-2">
+                <div class="timeline-content">
+                    <div class="timeline-date">2020</div>
+                    <h3>Team Expansion</h3>
+                    <p>Doubled our team size and expanded our service offerings to include mobile automation solutions.</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in delay-3">
+                <div class="timeline-content">
+                    <div class="timeline-date">2022</div>
+                    <h3>Technology Partner Status</h3>
+                    <p>Achieved official technology partner status with both Sage and Zoho, recognizing our expertise.</p>
+                </div>
+            </div>
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-date">2024</div>
+                    <h3>International Expansion</h3>
+                    <p>Opened our first international office to better serve clients across Europe and beyond.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h2 class="section-title">Meet Our Team</h2>
+        <div class="team-grid">
+            <div class="team-card fade-in">
+                <img src="assets/images/team1.jpg" alt=" ----" class="team-photo">
+                <div class="team-info">
+                    <h3 class="team-name">-----</h3>
+                    <p class="team-position">CEO & Founder</p>
+                    <p>With over 15 years in business technology, Sarah leads our strategic vision and growth initiatives.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card fade-in delay-1">
+                <img src="assets/images/team2.jpg" alt="----" class="team-photo">
+                <div class="team-info">
+                    <h3 class="team-name">-------</h3>
+                    <p class="team-position">CTO</p>
+                    <p>Michael brings deep technical expertise and oversees all automation architecture and implementation.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card fade-in delay-2">
+                <img src="assets/images/team3.jpg" alt="----" class="team-photo">
+                <div class="team-info">
+                    <h3 class="team-name">-------</h3>
+                    <p class="team-position">Head of Client Success</p>
+                    <p>Emma ensures our clients receive exceptional support and achieve their automation goals.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="team-card fade-in delay-3">
+                <img src="assets/images/team4.jpg" alt="----" class="team-photo">
+                <div class="team-info">
+                    <h3 class="team-name">------</h3>
+                    <p class="team-position">Lead Solution Architect</p>
+                    <p>David designs custom automation solutions tailored to each client's unique business needs.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">🐦</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h2 class="section-title">Client Success Stories</h2>
+        <div class="testimonial-card fade-in">
+            <p class="testimonial-text">Damigo Automation transformed our financial processes, saving us over 20 hours per week in manual data entry. Their Sage automation solution has been a game-changer for our accounting team.</p>
+            <div class="testimonial-author"> 
+                <div class="author-info">
+                    <h4>--------</h4>
+                    <p class="author-company">-------</p>
+                </div>
+            </div>
+        </div>
+        <div class="testimonial-card fade-in delay-1">
+            <p class="testimonial-text">The team at Damigo understands not just technology, but business. They took the time to understand our unique challenges and designed a custom Zoho automation solution that increased our sales team efficiency by 35%.</p>
+            <div class="testimonial-author"> 
+                <div class="author-info">
+                    <h4>------</h4>
+                    <p class="author-company">-----</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h2 class="section-title">Our Impact</h2>
+        <div class="stats-container">
+            <div class="stat-card fade-in">
+                <div class="stat-number">300+</div>
+                <div class="stat-label">Clients Served</div>
+            </div>
+            <div class="stat-card fade-in delay-1">
+                <div class="stat-number">85%</div>
+                <div class="stat-label">Average Time Savings</div>
+            </div>
+            <div class="stat-card fade-in delay-2">
+                <div class="stat-number">50+</div>
+                <div class="stat-label">Automation Experts</div>
+            </div>
+            <div class="stat-card fade-in delay-3">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Client Satisfaction</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Start Your Automation Journey?</h2>
+            <p>Contact us today to discuss how we can help transform your business operations.</p>
+            <button class="hero-cta fade-in">Get in Touch</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Damigo Automation</h3>
+                <p>Transforming businesses through intelligent automation solutions using Sage and Zoho platforms.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Sage Automation</a></li>
+                    <li><a href="#">Zoho Automation</a></li>
+                    <li><a href="#">Systems Integration</a></li>
+                    <li><a href="#">Business Intelligence</a></li>
+                    <li><a href="#">Training & Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><span class="contact-icon">📱</span> ----------</li>
+                    <li><span class="contact-icon">✉️</span> info@dmg.com</li>
+                    <li><span class="contact-icon">📍</span> 4th floor Delta Corner<br>
+                    Westlands, Nairobi</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Damigo Automation Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+        
+        // Add animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('.about-content, .about-image, .value-card, .team-card, .timeline-item, .stat-card, .testimonial-card').forEach(element => {
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

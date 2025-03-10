@@ -1,0 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Damigo Automation Ltd</title>
+    <style>
+        :root {
+            --primary-blue: #002244;
+            --dark-blue: #001a33;
+            --accent-yellow: #FFD700;
+            --accent-red: #FF4444;
+            --accent-green: #4CAF50;
+            --text-light: #f8f9fa;
+            --text-dark: #333;
+            --white: #ffffff;
+            --blue-500: #3b82f6;
+            --blue-600: #2563eb;
+            --blue-100: #dbeafe;
+            --yellow-500: #eab308;
+            --yellow-600: #ca8a04;
+            --yellow-100: #fef9c3;
+            --red-500: #ef4444;
+            --red-600: #dc2626;
+            --red-100: #fee2e2;
+            --green-500: #22c55e;
+            --gray-500: #6b7280;
+            --gray-200: #e5e7eb;
+            --gray-100: #f3f4f6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 1rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+          /* Brand/Logo Section */
+  .brand-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.25rem;
+    
+    background-color: var(--primary-blue);
+  }
+  
+  .logo {
+    height: 40px;
+    width: auto;
+    font-weight: 1500;
+    
+    background-color: var(--primary-blue);
+  }
+  
+  .company-name {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--primary-blue);
+    
+    background-color: var(--primary-blue);
+  }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-weight: bold;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-highlight {
+            color: var(--accent-yellow);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 1.5rem;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+            padding: 0.5rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .nav-links a.active {
+            color: var(--accent-yellow);
+            border-bottom: 2px solid var(--accent-yellow);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--text-light);
+            padding: 5rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background-color: var(--accent-yellow);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* Contact Specific Styles */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info-card {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            height: fit-content;
+        }
+
+        .contact-info-card h3 {
+            color: var(--accent-yellow);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .contact-method {
+            margin-bottom: 2rem;
+        }
+
+        .contact-method h4 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .contact-icon {
+            margin-right: 0.75rem;
+            color: var(--accent-yellow);
+            font-size: 1.3rem;
+        }
+
+        .contact-method p, .contact-method a {
+            margin-left: 2rem;
+            color: var(--gray-200);
+        }
+
+        .contact-method a {
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-method a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .social-links {
+            display: flex;
+            margin-top: 2rem;
+        }
+
+        .social-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            margin-right: 1rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        .social-button:hover {
+            background-color: var(--accent-yellow);
+            color: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .contact-form {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-form h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+            box-shadow: 0 0 0 3px rgba(0, 34, 68, 0.1);
+        }
+
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-blue);
+            color: var(--text-light);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Map Section */
+        .map-container {
+            height: 450px;
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            margin-top: 3rem;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* FAQ Section */
+        .faq-container {
+            margin-top: 3rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border: 1px solid var(--gray-200);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.25rem;
+            background-color: var(--gray-100);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-blue);
+            user-select: none;
+        }
+
+        .faq-answer {
+            padding: 0;
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .faq-answer-content {
+            padding: 1.25rem;
+            border-top: 1px solid var(--gray-200);
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+
+        .faq-toggle {
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* Office Locations */
+        .office-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .office-card {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .office-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+        }
+
+        .office-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .office-info {
+            padding: 1.5rem;
+        }
+
+        .office-name {
+            color: var(--primary-blue);
+            margin-bottom: 0.75rem;
+            font-size: 1.3rem;
+        }
+
+        .office-address {
+            margin-bottom: 1rem;
+        }
+
+        .office-contact {
+            margin-top: 1rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .office-contact a {
+            color: var(--blue-500);
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s;
+        }
+
+        .office-contact a:hover {
+            color: var(--blue-600);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--text-light);
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        .cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-content h2 {
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-cta {
+            background-color: var(--accent-yellow);
+            color: var(--primary-blue);
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 1.5rem;
+            display: inline-block;
+            text-decoration: none;
+        }
+
+        .hero-cta:hover {
+            background-color: var(--yellow-600);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        footer {
+            background-color: var(--dark-blue);
+            color: var(--text-light);
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-column h3::after {
+            content: '';
+            width: 30px;
+            height: 3px;
+            background-color: var(--accent-yellow);
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-links a {
+            color: var(--gray-200);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-yellow);
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-icon {
+            margin-right: 0.75rem;
+            color: var(--accent-yellow);
+        }
+
+        .copyright {
+            margin-top: 3rem;
+            text-align: center;
+            color: var(--gray-500);
+            padding-top: 1.5rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        /* Media Queries */
+        @media (max-width: 991px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background-color: var(--primary-blue);
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem 0;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 0.5rem 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .office-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <img src="assets/images/logo removebg.png" alt="Damigo Logo" class="logo">
+            <div class="logo">
+                Damigo <span class="logo-highlight">AutomationLTD</span>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="about.html">About</a></li> 
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1 class="fade-in">Get in Touch</h1>
+        <p class="fade-in delay-1">Have questions or ready to start your automation journey? We're here to help!</p>
+    </section>
+
+    <section class="section-container">
+        <div class="contact-grid">
+            <div class="contact-info-card fade-in">
+                <h3>Contact Information</h3>
+                <div class="contact-method">
+                    <h4><span class="contact-icon">📱</span> Phone</h4>
+                    <p><a href="tel:+254700000000">+254 700 000 000</a></p>
+                </div>
+                <div class="contact-method">
+                    <h4><span class="contact-icon">✉️</span> Email</h4>
+                    <p><a href="mailto:info@dmg.com">info@dmg.com</a></p>
+                </div>
+                <div class="contact-method">
+                    <h4><span class="contact-icon">📍</span> Address</h4>
+                    <p>4th floor Delta Corner<br>Westlands, Nairobi</p>
+                </div>
+                <div class="contact-method">
+                    <h4><span class="contact-icon">🕒</span> Business Hours</h4>
+                    <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                    <p>Saturday: 9:00 AM - 1:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" class="social-button">in</a>
+                    <a href="#" class="social-button">f</a>
+                    <a href="#" class="social-button">🐦</a>
+                    <a href="#" class="social-button">ig</a>
+                </div>
+            </div>
+
+            <div class="contact-form fade-in delay-1">
+                <h3>Send Us a Message</h3>
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name*</label>
+                            <input type="text" id="firstName" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name*</label>
+                            <input type="text" id="lastName" class="form-control" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email*</label>
+                        <input type="email" id="email" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject*</label>
+                        <input type="text" id="subject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message*</label>
+                        <textarea id="message" class="form-control" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="map-container fade-in">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8176501594296!2d36.808398!3d-1.270447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173c0a1d6b55%3A0xece02b88e32c2c56!2sDelta%20Corner%20Tower%2C%20Chiromo%20Ln%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1615482322079!5m2!1sen!2ske" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h2 class="section-title">Our Offices</h2>
+        <div class="office-grid">
+            <div class="office-card fade-in">
+                <img src="/api/placeholder/400/200" alt="Nairobi Office" class="office-image">
+                <div class="office-info">
+                    <h3 class="office-name">Nairobi Headquarters</h3>
+                    <p class="office-address">4th floor Delta Corner<br>Westlands, Nairobi<br>Kenya</p>
+                    <div class="office-contact">
+                        <a href="tel:+254700000000">+254 700 000 000</a>
+                        <a href="mailto:nairobi@dmg.com">nairobi@dmg.com</a>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>How long does the typical automation implementation take?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Implementation timelines vary depending on the complexity and scope of your project. Simple automations can be completed in 2-4 weeks, while more complex enterprise solutions may take 2-3 months. During our initial consultation, we'll provide you with a detailed timeline specific to your requirements.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item fade-in delay-1">
+                <div class="faq-question">
+                    <span>Do you offer support after implementation?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Absolutely! We provide comprehensive post-implementation support and maintenance for all our automation solutions. Our support packages include regular updates, troubleshooting, and technical assistance. We offer different support tiers to match your specific needs and budget.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item fade-in delay-2">
+                <div class="faq-question">
+                    <span>Can you integrate with our existing systems?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Yes, our automation solutions are designed to integrate seamlessly with your existing systems. We have extensive experience integrating with a wide range of platforms and applications beyond just Sage and Zoho. During our discovery phase, we'll assess your current tech stack and design a solution that works harmoniously with your existing infrastructure.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item fade-in delay-3">
+                <div class="faq-question">
+                    <span>What ROI can we expect from automation?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Most of our clients see ROI within 3-6 months of implementing our automation solutions. Typical benefits include 70-85% reduction in manual data entry time, 40-60% decrease in processing errors, and 25-35% improvement in overall productivity. We can provide industry-specific case studies during our consultation to give you a better idea of expected returns for your business.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item fade-in">
+                <div class="faq-question">
+                    <span>Do you offer training for our team?</span>
+                    <span class="faq-toggle">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <div class="faq-answer-content">
+                        <p>Yes, we provide comprehensive training as part of our implementation process. Our training includes hands-on sessions, documentation, and video tutorials tailored to different user roles within your organization. We ensure your team is confident and proficient with the new automation systems before we complete the handover.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2>Ready to Transform Your Business Operations?</h2>
+            <p>Schedule a free consultation with our automation experts to discover how we can help streamline your business processes.</p>
+            <a href="#contactForm" class="hero-cta fade-in">Schedule Consultation</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Damigo Automation</h3>
+                <p>Transforming businesses through intelligent automation solutions using Sage and Zoho platforms.</p>
+            </div>
+            <div class="footer-column">
+                <h3>Services</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Sage Automation</a></li>
+                    <li><a href="#">Zoho Automation</a></li>
+                    <li><a href="#">Systems Integration</a></li>
+                    <li><a href="#">Business Intelligence</a></li>
+                    <li><a href="#">Training & Support</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Company</h3>
+                <ul class="footer-links">
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Case Studies</a></li>
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><span class="contact-icon">📱</span> +254 700 000 000</li>
+                    <li><span class="contact-icon">✉️</span> info@dmg.com</li>
+                    <li><span class="contact-icon">📍</span> 4th floor Delta Corner<br>
+                    Westlands, Nairobi</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Damigo Automation Ltd. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('navLinks').classList.toggle('active');
+        });
+        
+        // Add animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('fade-in');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+            
+            document.querySelectorAll('.fade-in').forEach(el => {
+                observer.observe(el);
+            });
+        });
+        
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentNode;
+                faqItem.classList.toggle('active');
+            });
+        });
+        
+        // Form validation and submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const submitBtn = this.querySelector('.submit-btn');
+            const originalText = submitBtn.textContent;
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            
+            // Simulate API call
+            setTimeout(() => {
+                alert('Thank you for your message! We will get back to you shortly.');
+                this.reset();
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalText;
+            }, 1500);
+        });
+    </script>
+</body>
+</html>
