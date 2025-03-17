@@ -3,649 +3,104 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Damigo Automation - Business Process Automation Experts</title>
-    <!-- External Stylesheets -->
-    <link rel="stylesheet" href="styles.css">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <title>Automation Company</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Font Awesome for hamburger menu icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
     <!-- Page Loader -->
-    <div class="loader" id="pageLoader">
-        <img src="assets/images/dmg cut logo.png" alt="Damigo Logo Loading">
+    <div id="loader-wrapper">
+        <div class="loader"></div>
     </div>
 
-   <!-- Navigation HTML -->
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="brand-wrapper">
-            <img src="assets/images/new.jpg" alt="Damigo Logo" class="logo">
-            <span class="company-name">Damigo Automation Ltd</span>
-        </div>
-
-        <div class="nav-links" id="navLinks">
-            <a href="#home">Home</a>
-            <a href="services.html">Services</a>
-            <a href="about.html">About</a>
-            <a href="contact.html">Contact</a>
-        </div>
-
-      
-
-        <button class="hamburger" id="hamburger">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </button>
-    </div>
-</nav>
-<section class="bg-primary relative overflow-hidden">
-    <div class="container mx-auto px-4 py-16 md:py-24 relative z-10">
-      <div class="grid gap-8 md:grid-cols-2 items-center">
-        <div class="space-y-6">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-            Run your business <span class="text-yellow-400">Smarter with Zoho</span>
-          </h1>
-          <p class="text-lg text-primary-foreground/90 md:pr-10">
-            At Damigo Automation, We specialize in setting up, training, and optimizing Zoho financial suites for seamless operations and better decision-making.
-          </p>
-          <div class="flex flex-col sm:flex-row gap-4 pt-4">
-            <a href="contact.html#contactForm" class="button button-lg bg-green-500 hover:bg-green-600 text-white">
-              Book an Appointment
-              <svg class="ml-2" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"></line>
-                <polyline points="12 5 19 12 12 19"></polyline>
-              </svg>
-            </a>
-            <a href="contact.html#contactForm" class="button button-lg bg-transparent text-white border-white hover:bg-white/10">
-              Contact Sales
-            </a>
-          </div>
-        </div>
-        <div class="image-container">
-          <div class="relative w-full max-w-md image-wrapper">
-            <img
-              src="assets/images/hero.jpg"
-              alt="Business Automation"
-              class="hero-image"
-              width="400"
-              height="400"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Decorative elements -->
-    <div class="absolute top-1/2 -right-24 w-96 h-96 bg-red-500 rounded-full opacity-20 blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t"></div>
-  </div>
-    </section>
-
-    <!-- Services Section -->
-    <section class="services py-16 bg-white" id="services">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md-text-4xl font-bold mb-4">Our Key Services</h2>
-                <p class="text-muted-foreground max-w-2xl mx-auto">
-                    We help businesses across all industries automate their operations and free them from manual
-                    record-keeping.
-                </p>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <!-- Logo Section -->
+            <div class="logo">
+                <!-- Replace with your actual logo image path -->
+                <a href="index.html"><img src="assets/images/new logo.jpg" alt="Company Logo"></a>
             </div>
-
-            <div class="services-grid">
-                <div class="card border-2 border-transparent hover-border-blue">
-                    <div class="card-content pt-6">
-                        <div class="bg-blue-100 p-3 rounded-full icon-container mb-4 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-blue-600"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
-                        </div>
-                        <h3 class="card-title text-xl mb-2">POS Systems</h3>
-                        <p class="card-description text-base">
-                            Modern point-of-sale systems that streamline transactions, inventory management, and customer data.
-                        </p>
-                        <ul class="mt-4 space-y-2">
-                            <li class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-green-500 mr-2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Inventory tracking</span>
-                            </li>
-                            <li class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-green-500 mr-2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Sales reporting</span>
-                            </li>
-                            <li class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-green-500 mr-2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Customer management</span>
-                            </li>
-                            <li class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-green-500 mr-2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Multi-location support</span>
-                            </li>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <!-- Navigation Links -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="services.html">Services <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-content">
+                            <li><a href="sage.html">Sage</a></li>
+                            <li><a href="zoho.html">Zoho</a></li>
                         </ul>
+                    </li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Call to Action Button -->
+            <div class="cta-button">
+                <a href="quote.html" class="btn-quote">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+<section class="hero">
+    <div class="container hero-container">
+        <div class="hero-content">
+            <h1>Automation Solutions <span>for Your Business</span></h1>
+            <p>Streamline your operations, increase efficiency, and reduce costs with our cutting-edge automation services.</p>
+            <div class="hero-cta">
+                <a href="contact.html" class="btn btn-primary">Get Started</a>
+                <a href="services.html" class="btn btn-secondary">Get a Quote</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="assets/images/hero.webp" alt="Automation Technology" class="main-image">
+            <div class="accent-shape"></div>
+        </div>
+    </div>
+    <div class="hero-features">
+        <div class="container">
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
                     </div>
+                    <h3>Intelligent Automation</h3>
+                    <p>Smart solutions that adapt to your business needs</p>
                 </div>
-
-                <div class="card border-2 border-transparent hover-border-yellow">
-                    <div class="card-content pt-6">
-                        <div class="bg-yellow-100 p-3 rounded-full icon-container mb-4 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-yellow-600"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
-                        </div>
-                        <h3 class="card-title text-xl mb-2">System Training</h3>
-                        <p class="card-description text-base">
-                            Comprehensive training on how to utilize automation systems effectively for your business needs.
-                        </p>
-                        <ul class="mt-4 space-y-2">
-                            <li class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-green-500 mr-2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Hands-on workshops</span>
-                            </li>
-                            <li class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-green-500 mr-2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Custom manuals</span>
-                            </li>
-                            <li class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-green-500 mr-2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Video tutorials</span>
-                            </li>
-                            <li class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-green-500 mr-2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Ongoing support</span>
-                            </li>
-                        </ul>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
+                    <h3>Increased Efficiency</h3>
+                    <p>Boost productivity with streamlined processes</p>
                 </div>
-
-                <div class="card border-2 border-transparent hover-border-red">
-                    <div class="card-content pt-6">
-                        <div class="bg-red-100 p-3 rounded-full icon-container mb-4 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-red-600"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-                        </div>
-                        <h3 class="card-title text-xl mb-2">Account Integration</h3>
-                        <p class="card-description text-base">
-                            Seamless integration between your business systems and accounting platforms like Zoho and Sage.
-                        </p>
-                        <ul class="mt-4 space-y-2">
-                            <li class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-green-500 mr-2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Automated reconciliation</span>
-                            </li>
-                            <li class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-green-500 mr-2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Financial reporting</span>
-                            </li>
-                            <li class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-green-500 mr-2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Tax compliance</span>
-                            </li>
-                            <li class="flex items-center">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-green-500 mr-2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                <span>Data synchronization</span>
-                            </li>
-                        </ul>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
                     </div>
+                    <h3>Reliable Security</h3>
+                    <p>Enterprise-grade protection for your systems</p>
                 </div>
             </div>
-
-            <div class="text-center mt-12">
-                <button class="btn btn-outline group">
-                    View All Services
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2 h-4 w-4 group-hover-translate-x"><polyline points="9 18 15 12 9 6"></polyline></svg>
-                </button>
-            </div>
-        </div>
-    </section>
-    <!-- Partnership Section -->
-  <section class="partnership-section py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4">Trusted Partners</h2>
-        <p class="text-muted-foreground max-w-2xl mx-auto">
-          We are official partners of industry-leading business automation platforms.
-        </p>
-      </div>
-
-      <div class="card hover-shadow-lg transition-all duration-300" id="taba">
-        <div class="card-content p-6 flex items-center space-x-6">
-          <div class="flex-shrink-0 w-16 h-24 bg-blue-600 rounded-lg flex items-center justify-center p-4">
-            <img src="assets/images/zohooo-removebg-preview.png" alt="Zoho Partner" class="max-h-16 max-w-32">
-          </div>
-        </div>
-      </div>
-      
-            <div>
-              <h3 class="card-title text-xl mb-2">Zoho Partner</h3>
-              <p class="card-description text-base">
-                We implement and customize Zoho's cloud-based solutions for CRM, accounting, and project management.
-              </p>
-              <a href="services.html" class="text-blue-600 flex items-center mt-3 hover-underline">
-                Learn more 
-                <svg class="ml-1 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="card hover-shadow-lg transition-all duration-300" id="tabbo">
-          <div class="card-content p-6 flex items-center space-x-6">
-            <div class="flex-shrink-0 w-16 h-24 bg-blue-600 rounded-lg flex items-center justify-center">
-              <img src="assets/images/sage1-removebg-preview.png" alt="Sage Partner" class="max-h-16 max-w-32">
-            </div>
-            <div>
-              <h3 class="card-title text-xl mb-2">Sage Partner</h3>
-              <p class="card-description text-base">
-                We provide expert implementation of Sage accounting, payroll, and business management software.
-              </p>
-              <a href="services.html" class="text-green-600 flex items-center mt-3 hover-underline">
-                Learn more 
-                <svg class="ml-1 h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                  <polyline points="15 3 21 3 21 9"></polyline>
-                  <line x1="10" y1="14" x2="21" y2="3"></line>
-                </svg>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-   <!-- Testimonials Section -->
-<section class="testimonials-section">
-  <div class="container">
-    <div class="section-header">
-      <h2>What Our Clients Say</h2>
-      <p class="subtitle">
-        Hear from businesses that have transformed their operations with Damigo Automation.
-      </p>
-    </div>
-    
-    <div class="testimonials-slider">
-      <div class="testimonial-slide active">
-        <blockquote>
-          "Damigo Automation transformed our business processes. Their POS system integration saved us countless
-          hours of manual work and reduced errors by 90%."
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="author-info">
-            <p class="author-name">Quincy Wachira</p>
-            <p class="author-position">CEO, Techven</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="testimonial-slide">
-        <blockquote>
-          "The training provided by Damigo was exceptional. Our team was up and running with the new system in
-          just days, not weeks as we expected."
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="author-info">
-            <p class="author-name">John Mbugua</p>
-            <p class="author-position">Operations Manager, Kwenga Retail</p>
-          </div>
-        </div>
-      </div>
-      
-      <div class="testimonial-slide">
-        <blockquote>
-          "The account integration services from Damigo helped us maintain compliance with Kenyan data laws
-          while streamlining our financial reporting."
-        </blockquote>
-        <div class="testimonial-author">
-          <div class="author-info">
-            <p class="author-name">Sarah Johnson</p>
-            <p class="author-position">Financial Director </p>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Slider navigation dots -->
-      <div class="slider-dots">
-        <span class="dot active" data-slide="0"></span>
-        <span class="dot" data-slide="1"></span>
-        <span class="dot" data-slide="2"></span>
-      </div>
-    </div>
-  </div>
-  <!-- Decorative element -->
-  <div class="decorative-element"></div>
-</section>
-
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container">
-        <div class="cta-box">
-            <div class="cta-content">
-                <h2>Ready to automate your business?</h2>
-                <p>
-                    Join the hundreds of businesses across Kenya that have simplified operations and increased efficiency
-                    with Damigo Automation.
-                </p>
-                <div class="button-group">
-                    <button class="btn btn-primary" onclick="window.location.href='contact.html#contact-form'">Book a Consultation</button>
-                    <button class="btn btn-outline" onclick="window.location.href='services.html'">View Services</button>
-                </div>
-            </div>
-            <div class="logo-container">
-                <img src="assets/images/logo removebg.png" alt="Damigo Automation Logo" class="company-logo">
-            </div>
         </div>
     </div>
 </section>
 
- <!-- Compliance Section -->
-<section class="compliance-section">
-  <div class="container">
-    <div class="compliance-container">
-      <div class="compliance-content">
-        <h3>Compliant with Kenyan Data Laws</h3>
-        <p>
-          Damigo Automation ensures all our systems and implementations comply with Kenyan data protection
-          regulations, keeping your business data secure and protected.
-        </p>
-      </div>
-      <div class="compliance-badge">
-        <div class="badge-container">
-          <div class="badge-icon">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="icon"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-            </svg>
-          </div>
-          <div class="badge-text">
-            <h4>Data Protection Certified</h4>
-            <p>Verified compliance with local regulations</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-    
-<!-- FAQ Section -->
-<section class="faq-section">
-  <div class="container">
-    <div class="faq-header">
-      <h2>Frequently Asked Questions</h2>
-      <p>Get answers to common questions about our automation services</p>
-    </div>
-    
-    <div class="faq-container">
-      <div class="faq-item">
-        <div class="faq-question">
-          <h3>What type of businesses do you automate?</h3>
-          <span class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </span>
-        </div>
-        <div class="faq-answer">
-          <p>We automate a wide range of businesses across various sectors, including:</p>
-          <ul>
-            <li><strong>Retail and E-commerce:</strong> Inventory management, order processing, customer relationship management</li>
-            <li><strong>Financial Services:</strong> Payment processing, accounting systems, reporting</li> 
-            <li><strong>Manufacturing:</strong> Production workflows, quality control, supply chain management</li> 
-            <li><strong>Professional Services:</strong> Client management, project tracking, invoicing</li>
-          </ul>
-          <p>Whether you're a small business or a large enterprise, we tailor our automation solutions to fit your specific needs and scale.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <h3>Where is your location?</h3>
-          <span class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </span>
-        </div>
-        <div class="faq-answer">
-          <p>Our headquarters is located in Nairobi, Kenya, at:</p>
-          <p><strong>Damigo Automation</strong><br>
-          4th floor Delta corner<br>
-          Westlands, Nairobi<br>
-          Kenya</p>
-          <p>We serve clients throughout Kenya and across East Africa. Our team can also work remotely with businesses anywhere in the country, providing implementation, training, and support without geographical limitations.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <h3>How much do you charge?</h3>
-          <span class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </span>
-        </div>
-        <div class="faq-answer">
-          <p>Our pricing varies based on the complexity of your automation needs, the size of your business, and the specific systems being implemented. We offer several service models:</p>
-          <p>We provide detailed, transparent quotes after an initial consultation to understand your specific requirements. We're committed to delivering solutions that offer strong ROI regardless of your budget size.</p>
-          <p>Contact us for a free consultation and quote tailored to your business needs.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <h3>Why does my business need automation?</h3>
-          <span class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </span>
-        </div>
-        <div class="faq-answer">
-          <p>In today's competitive business environment, automation is increasingly essential for several reasons:</p>
-          <ul>
-            <li><strong>Efficiency:</strong> Eliminate repetitive manual tasks, freeing your team to focus on high-value activities</li>
-            <li><strong>Accuracy:</strong> Reduce human error in critical processes</li>
-            <li><strong>Consistency:</strong> Ensure operations run the same way every time, maintaining quality</li> 
-            <li><strong>Data-Driven Decisions:</strong> Gain real-time insights from automated reporting</li>
-          </ul>
-          <p>Businesses that fail to embrace automation risk falling behind more agile competitors in terms of both operational efficiency and customer experience.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <h3>What are the benefits of automating my system?</h3>
-          <span class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </span>
-        </div>
-        <div class="faq-answer">
-          <p>Automating your business systems delivers numerous measurable benefits:</p>
-          <ul>
-            <li><strong>Cost Savings:</strong> Reduce labor costs by 40-75% for automated tasks</li>
-            <li><strong>Time Efficiency:</strong> Decrease processing time by up to 90% for workflows</li>
-            <li><strong>Error Reduction:</strong> Lower error rates from typical 1-3% to less than 0.1%</li>
-            <li><strong>Improved Customer Experience:</strong> Faster response times and consistent service</li> 
-          </ul>
-          <p>Our clients typically see ROI within 6-12 months of implementing automation solutions.</p>
-        </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question">
-          <h3>What is the process of automating my business?</h3>
-          <span class="icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="6 9 12 15 18 9"></polyline>
-            </svg>
-          </span>
-        </div>
-        <div class="faq-answer">
-          <p>Our proven automation implementation process follows these key steps:</p>
-          <ol>
-            <li><strong>Initial Consultation:</strong> We meet to understand your business goals, pain points, and current processes</li>
-            <li><strong>Process Analysis:</strong> Our team maps out your existing workflows and identifies automation opportunities</li>
-            <li><strong>Solution Design:</strong> We create a customized automation plan tailored to your specific needs</li>
-            <li><strong>Proposal and Agreement:</strong> We present our recommendations, timeline, and pricing for approval</li>
-            <li><strong>Implementation:</strong> Our technical team configures and deploys the automation solutions</li>
-            <li><strong>Testing:</strong> Rigorous testing ensures everything works correctly before going live</li>
-            <li><strong>Training:</strong> We provide comprehensive training to your team members</li> 
-            <li><strong>Support and Optimization:</strong> Ongoing assistance and continuous improvement</li>
-          </ol>
-          <p>The entire process typically takes 4-12 weeks depending on the complexity, with careful planning to minimize disruption to your operations.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-    <footer class="footer">
-      <div class="container">
-          <div class="footer-grid">
-              <!-- Quick Links -->
-              <div class="footer-section">
-                  <h3 class="footer-heading">Quick Links</h3>
-                  <ul class="footer-links">
-                      <li><a href="index.html" class="footer-link">Home</a></li>
-                      <li><a href="about.html" class="footer-link">About Us</a></li>
-                      <li><a href="services.html" class="footer-link">Services</a></li>
-                      <li><a href="contact.html" class="footer-link">Contact</a></li>
-                  </ul>
-              </div>
+    <!-- Main Content would go here -->
+    <main>
+        <!-- Your main content here -->
+    </main>
 
-              <!-- Services -->
-              <div class="footer-section">
-                  <h3 class="footer-heading">Our Services</h3>
-                  <ul class="footer-links">
-                      <li><a href="/services#pos" class="footer-link">POS Systems</a></li>
-                      <li><a href="/services#training" class="footer-link">System Training</a></li>
-                      <li><a href="/services#integration" class="footer-link">Account Integration</a></li>
-                      <li><a href="/services#zoho" class="footer-link">Zoho Solutions</a></li>
-                      <li><a href="/services#sage" class="footer-link">Sage Implementation</a></li>
-                  </ul>
-              </div>
-
-              <!-- Contact Info -->
-              <div class="footer-section">
-                  <h3 class="footer-heading">Contact Us</h3>
-                  <ul class="footer-contact">
-                      <li class="contact-item">
-                          <span class="contact-icon" aria-hidden="true">📍</span>
-                          <span class="contact-text">4th floor Delta Corner Annex Westlands</span>
-                      </li>
-                      <li class="contact-item">
-                          <span class="contact-icon" aria-hidden="true">📞</span>
-                          <span class="contact-text">+254 XXX XXX XXX</span>
-                      </li>
-                      <li class="contact-item">
-                          <span class="contact-icon" aria-hidden="true">✉️</span>
-                          <span class="contact-text">info@damigo.co.ke</span>
-                      </li>
-                  </ul>
-              </div>
-              
-              <!-- Social Links -->
-              <div class="footer-section">
-                  <p class="footer-description">
-                      Helping businesses across Kenya automate their processes and improve efficiency.
-                  </p>
-                  <div class="social-links">
-                      <a href="#" class="social-link" aria-label="Facebook">
-                          <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
-                      </a>
-                      <a href="#" class="social-link" aria-label="Twitter">
-                          <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
-                      </a>
-                      <a href="#" class="social-link" aria-label="Instagram">
-                          <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
-                      </a>
-                      <a href="#" class="social-link" aria-label="LinkedIn">
-                          <svg class="social-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
-                      </a>
-                  </div>
-              </div>
-          </div>
-
-          <div class="footer-bottom">
-              <p class="copyright">
-                  &copy; <span id="currentYear"></span> Damigo Automation Limited. All rights reserved.
-              </p>
-              <div class="legal-links">
-                  <ul class="legal-menu">
-                      <li><a href="/privacy" class="legal-link">Privacy Policy</a></li>
-                      <li><a href="/terms" class="legal-link">Terms of Service</a></li>
-                      <li><a href="/cookie-policy" class="legal-link">Cookie Policy</a></li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-  </footer>
-
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const slides = document.querySelectorAll('.testimonial-slide');
-        const dots = document.querySelectorAll('.dot');
-        let currentSlide = 0;
-        const slideInterval = 5000; // 5 seconds
-        
-        // Function to show a specific slide
-        function showSlide(index) {
-          // Hide all slides
-          slides.forEach(slide => {
-            slide.classList.remove('active');
-          });
-          
-          // Remove active class from all dots
-          dots.forEach(dot => {
-            dot.classList.remove('active');
-          });
-          
-          // Show the current slide and activate corresponding dot
-          slides[index].classList.add('active');
-          dots[index].classList.add('active');
-        }
-        
-        // Function to advance to the next slide
-        function nextSlide() {
-          currentSlide = (currentSlide + 1) % slides.length;
-          showSlide(currentSlide);
-        }
-        
-        // Start automatic slideshow
-        let slideTimer = setInterval(nextSlide, slideInterval);
-        
-        // Add click event to dots for manual navigation
-        dots.forEach((dot, index) => {
-          dot.addEventListener('click', () => {
-            clearInterval(slideTimer); // Reset timer when manually clicked
-            currentSlide = index;
-            showSlide(currentSlide);
-            slideTimer = setInterval(nextSlide, slideInterval); // Restart timer
-          });
-        });
-        
-        // Show first slide initially
-        showSlide(0);
-      });
-
-      // Set current year for copyright text
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('currentYear').textContent = new Date().getFullYear();
-});
-  </script>
-
-
-
-    <!-- External Scripts -->
     <script src="script.js"></script>
-
 </body>
 </html>
