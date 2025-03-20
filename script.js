@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Add animation delay to feature items
     featureItems.forEach((item, index) => {
-        item.style.animationDelay = `${0.2 * (index + 1)}s`;
+        item.style.animationDelay = `${0.05 * (index + 1)}s`;
         item.classList.add('fade-in');
     });
     
@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
       // Check if AOS is loaded
       if (typeof AOS !== 'undefined') {
         AOS.init({
-            duration: 800,
+            duration: 300,
             easing: 'ease-in-out',
             once: true
         });
@@ -138,8 +138,8 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => {
                 card.style.opacity = '0';
                 card.style.animation = 'fadeInUp 0.8s forwards';
-                card.style.animationDelay = `${index * 0.1}s`;
-            }, 300);
+                card.style.animationDelay = `${index * 0.05}s`;
+            }, 150);
         });
     }
 
@@ -428,36 +428,210 @@ document.addEventListener('DOMContentLoaded', function() {
         const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         return re.test(String(email).toLowerCase());
     }
+
 });
 
-// CTA Section JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    const ctaButton = document.querySelector('.cta-button');
-    const ctaSection = document.querySelector('.cta-section');
+    // Testimonial Carousel functionality
+    const testimonials = document.querySelectorAll('.testimonial-item');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.prev-btn');
+    const nextBtn = document.querySelector('.next-btn');
+    let currentIndex = 0;
     
-    // Smooth scroll animation for the button
-    ctaButton.addEventListener('click', function() {
-        // Replace with your actual form/quote section ID
-        const contactSection = document.querySelector('#contact-section') || document.querySelector('footer');
+    // Function to show a specific testimonial
+    function showTestimonial(index) {
+        // Hide all testimonials
+        testimonials.forEach(item => {
+            item.classList.remove('active');
+        });
         
-        if (contactSection) {
-            contactSection.scrollIntoView({
-                behavior: 'smooth'
-            });
-        }
-    });
-    
-    // Optional: Add scroll animation to reveal the CTA section
-    function revealCTA() {
-        const ctaPosition = ctaSection.getBoundingClientRect().top;
-        const screenPosition = window.innerHeight / 1.3;
+        // Deactivate all dots
+        dots.forEach(dot => {
+            dot.classList.remove('active');
+        });
         
-        if (ctaPosition < screenPosition) {
-            ctaSection.classList.add('reveal');
-        }
+        // Show the selected testimonial and activate the corresponding dot
+        testimonials[index].classList.add('active');
+        dots[index].classList.add('active');
+        
+        // Update current index
+        currentIndex = index;
     }
     
-    // Execute on page load and scroll
-    window.addEventListener('scroll', revealCTA);
-    revealCTA(); // Check on initial load
+    // Event listeners for dots
+    dots.forEach(dot => {
+        dot.addEventListener('click', function() {
+            const index = parseInt(this.getAttribute('data-index'));
+            showTestimonial(index);
+        });
+    });
+    
+    // Event listener for previous button
+    prevBtn.addEventListener('click', function() {
+        let newIndex = currentIndex - 1;
+        if (newIndex < 0) {
+            newIndex = testimonials.length - 1;
+        }
+        showTestimonial(newIndex);
+    });
+    
+    // Event listener for next button
+    nextBtn.addEventListener('click', function() {
+        let newIndex = currentIndex + 1;
+        if (newIndex >= testimonials.length) {
+            newIndex = 0;
+        }
+        showTestimonial(newIndex);
+    });
+    
+    // Auto rotate testimonials every 5 seconds
+    let testimonialInterval = setInterval(function() {
+        let newIndex = currentIndex + 1;
+        if (newIndex >= testimonials.length) {
+            newIndex = 0;
+        }
+        showTestimonial(newIndex);
+    }, 5000);
+    
+    // Pause auto rotation when user interacts with carousel
+    const carouselControls = document.querySelector('.carousel-controls');
+    carouselControls.addEventListener('mouseover', function() {
+        clearInterval(testimonialInterval);
+    });
+    
+    // Resume auto rotation when user stops interacting
+    carouselControls.addEventListener('mouseleave', function() {
+        testimonialInterval = setInterval(function() {
+            let newIndex = currentIndex + 1;
+            if (newIndex >= testimonials.length) {
+                newIndex = 0;
+            }
+            showTestimonial(newIndex);
+        }, 5000);
+    });
+    
+    // Add animation to logos on page load
+    const logoItems = document.querySelectorAll('.logo-item');
+    logoItems.forEach((logo, index) => {
+        setTimeout(() => {
+            logo.style.opacity = '0';
+            logo.style.transform = 'translateY(20px)';
+            
+            // Trigger reflow
+            void logo.offsetWidth;
+            
+            // Add transition
+            logo.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            
+            // Show with animation
+            logo.style.opacity = '1';
+            logo.style.transform = 'translateY(0)';
+        }, index * 200);
+    });
+    
+    
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // FAQ Toggle Functionality
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Check if current item is already active
+            const isActive = item.classList.contains('active');
+            
+            // Close all items
+            faqItems.forEach(faqItem => {
+                faqItem.classList.remove('active');
+            });
+            
+            // If the clicked item wasn't active, make it active
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
+    });
+    
+    // Form Submission
+    const ctaForm = document.getElementById('cta-contact-form');
+    
+    if (ctaForm) {
+        ctaForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(ctaForm);
+            const formValues = Object.fromEntries(formData.entries());
+            
+            // Here you would typically send the data to your server
+            // For demo purposes, we'll just log it and show a success message
+            console.log('Form submitted with values:', formValues);
+            
+            // Show success message
+            ctaForm.innerHTML = `
+                <div class="success-message">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 24 24" fill="none" stroke="#00A651" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <h3>Thank you!</h3>
+                    <p>Your request has been submitted successfully. We'll be in touch with you shortly.</p>
+                </div>
+            `;
+            
+            // Add success style
+            document.querySelector('.success-message').style.textAlign = 'center';
+            document.querySelector('.success-message h3').style.color = '#00A651';
+            document.querySelector('.success-message h3').style.margin = '15px 0';
+            document.querySelector('.success-message p').style.color = '#333';
+        });
+    }
+});   
+
+// Get modal elements
+const quoteModal = document.getElementById('quote-modal');
+const closeBtn = document.querySelector('.close-btn');
+
+// Get buttons that should open the modal
+const testimonialsBtn = document.getElementById('testimonials-btn');
+const contactBtn = document.getElementById('contact-btn');
+const openQuoteModalBtn = document.getElementById('open-quote-modal'); // "Get Started" button
+
+// Function to open modal
+function openModal(event) {
+    event.preventDefault(); // Prevent default action of <a> links
+    quoteModal.classList.add('show');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    document.getElementById('step1').classList.add('active'); // Ensure first step is shown
+}
+
+// Attach event listeners to all buttons
+testimonialsBtn.addEventListener('click', openModal);
+contactBtn.addEventListener('click', openModal);
+openQuoteModalBtn.addEventListener('click', openModal); // "Get Started" button
+
+// Function to close modal
+function closeModal() {
+    quoteModal.classList.remove('show');
+    document.body.style.overflow = ''; // Restore scrolling
+
+    // Reset form after closing
+    setTimeout(() => {
+        document.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
+        document.getElementById('step1').classList.add('active'); // Reset to step 1
+    }, 300);
+}
+
+// Close modal when clicking close button
+closeBtn.addEventListener('click', closeModal);
+
+// Close modal when clicking outside the content area
+quoteModal.addEventListener('click', function (e) {
+    if (e.target === quoteModal) {
+        closeModal();
+    }
 });
