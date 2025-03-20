@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zoho Services - Damigo Automation Ltd</title>
+    <link rel="stylesheet" href="styles/zoho.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+</head>
+<body>
+
+      <!-- Page Loader -->
+      <div id="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <!-- Logo Section -->
+            <div class="logo">
+                <!-- Replace with your actual logo image path -->
+                <a href="index.html"><img src="assets/images/new logo.jpg" alt="Company Logo"></a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <!-- Navigation Links -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" id="services-link">Services <i class="fas fa-chevron-down"></i></a>
+                         <ul class="dropdown-content">
+                            
+                            <li><a href="zoho.html">Zoho</a></li>
+                            <li><a href="sage.html">Sage</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="testimonials.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Call to Action Button -->
+            <div class="cta-button">
+                <a href="" class="btn-quotee">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+    <main class="zoho-main">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Zoho: The All-in-One Business Software Suite</h1>
+                    <p class="subtitle">Empower your business with Zoho's comprehensive cloud solutions</p>
+                    <div class="cta-buttons">
+                        <a href="#contact" class="btn btn-primary">Get Started</a>
+                        <a href="#features" class="btn btn-secondary">Explore Features</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- Replace with your actual image path -->
+                    <img src="assets/images/zoho.jpg" alt="Zoho Business Suite" class="img-fluid">
+                </div>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section class="intro" id="intro">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon green">
+                        <i class="fas fa-info-circle"></i>
+                    </div>
+                    <h2>What is Zoho?</h2>
+                </div>
+                <div class="intro-content">
+                    <div class="intro-text">
+                        <p>Zoho is a comprehensive cloud-based software suite that provides businesses with a wide range of applications for managing different aspects of their operations. It includes tools for CRM (Customer Relationship Management), finance, HR, project management, marketing automation, collaboration, and more.</p>
+                        <p>Zoho is used by over 80 million users worldwide and is known for offering affordable, scalable, and highly customizable solutions for businesses of all sizes—from startups to enterprises.</p>
+                    </div>
+                    <div class="stats-container">
+                        <div class="stat-card">
+                            <div class="stat-icon yellow">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>80+ Million</h3>
+                                <p>Global Users</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon red">
+                                <i class="fas fa-cubes"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>45+</h3>
+                                <p>Applications</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon blue">
+                                <i class="fas fa-globe"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>Worldwide</h3>
+                                <p>Availability</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon blue">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h2>Key Features & Benefits of Zoho</h2>
+                </div>
+                
+                <!-- Tab Navigation -->
+                <div class="tab-container">
+                    <div class="tab-navigation">
+                        <button class="tab-btn active" data-target="crm">
+                            <i class="fas fa-users"></i>
+                            <span>CRM</span>
+                        </button>
+                        <button class="tab-btn" data-target="finance">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Finance</span>
+                        </button>
+                        <button class="tab-btn" data-target="hr">
+                            <i class="fas fa-user-tie"></i>
+                            <span>HR</span>
+                        </button>
+                        <button class="tab-btn" data-target="projects">
+                            <i class="fas fa-tasks"></i>
+                            <span>Projects</span>
+                        </button>
+                        <button class="tab-btn" data-target="workplace">
+                            <i class="fas fa-briefcase"></i>
+                            <span>Workplace</span>
+                        </button>
+                        <button class="tab-btn" data-target="marketing">
+                            <i class="fas fa-bullhorn"></i>
+                            <span>Marketing</span>
+                        </button>
+                        <button class="tab-btn" data-target="analytics">
+                            <i class="fas fa-chart-pie"></i>
+                            <span>Analytics</span>
+                        </button>
+                        <button class="tab-btn" data-target="zoho-one">
+                            <i class="fas fa-th-large"></i>
+                            <span>Zoho One</span>
+                        </button>
+                    </div>
+                    
+                    <!-- Tab Content -->
+                    <div class="tab-content">
+                        <!-- CRM Tab -->
+                        <div class="tab-pane active" id="crm">
+                            <div class="feature-content">
+                                <div class="feature-image">
+                                    <!-- Replace with your actual image path -->
+                                    <img src="assets/images/download.jpeg" alt="Zoho CRM" class="img-fluid">
+                                </div>
+                                <div class="feature-details">
+                                    <h3>Customer Relationship Management (Zoho CRM)</h3>
+                                    <p>Zoho CRM is one of the most popular products, designed to help businesses manage customer interactions, sales, and automation.</p>
+                                    
+                                    <div class="feature-list">
+                                        <h4>Key Features:</h4>
+                                        <ul>
+                                            <li>Lead Management – Track and nurture leads.</li>
+                                            <li>Sales Automation – Automate workflows, email follow-ups, and notifications.</li>
+                                            <li>Pipeline Management – Visualize and optimize your sales pipeline.</li>
+                                            <li>AI-Powered Insights (Zia AI) – Get intelligent predictions and automation.</li>
+                                            <li>Omnichannel Communication – Manage conversations across email, phone, live chat, social media, and web forms.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="benefits">
+                                        <h4>How It Helps Businesses:</h4>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Increases sales efficiency by automating repetitive tasks.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Provides valuable insights into customer behavior.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Improves team collaboration and communication.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Finance Tab -->
+                        <div class="tab-pane" id="finance">
+                            <div class="feature-content">
+                                <div class="feature-image">
+                                    <!-- Replace with your actual image path -->
+                                    <img src="assets/images/finance.png" alt="Zoho Finance" class="img-fluid">
+                                </div>
+                                <div class="feature-details">
+                                    <h3>Finance & Accounting (Zoho Books, Zoho Invoice, Zoho Expense)</h3>
+                                    <p>Zoho offers a suite of financial tools for accounting, invoicing, and expense tracking.</p>
+                                    
+                                    <div class="feature-list">
+                                        <h4>Key Features:</h4>
+                                        <ul>
+                                            <li>Zoho Books – Full-fledged cloud accounting software for managing finances.</li>
+                                            <li>Zoho Invoice – Generate professional invoices, accept online payments.</li>
+                                            <li>Zoho Expense – Automate expense reporting and reimbursements.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="benefits">
+                                        <h4>How It Helps Businesses:</h4>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Reduces manual accounting efforts.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Improves cash flow management.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Integrates seamlessly with payment gateways like Stripe, PayPal, and Razorpay.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- HR Tab -->
+                        <div class="tab-pane" id="hr">
+                            <div class="feature-content">
+                                <div class="feature-image">
+                                    <!-- Replace with your actual image path -->
+                                    <img src="assets/images/hr.png" alt="Zoho HR" class="img-fluid">
+                                </div>
+                                <div class="feature-details">
+                                    <h3>Zoho People & Zoho Recruit (HR & Hiring)</h3>
+                                    <p>Zoho provides HR management tools to streamline hiring, employee management, and payroll processing.</p>
+                                    
+                                    <div class="feature-list">
+                                        <h4>Key Features:</h4>
+                                        <ul>
+                                            <li>Zoho People – Manage employee records, leaves, and payroll.</li>
+                                            <li>Zoho Recruit – Automate recruitment processes and manage candidate pipelines.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="benefits">
+                                        <h4>How It Helps Businesses:</h4>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Simplifies HR management.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Speeds up the hiring process.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Enhances employee engagement and performance tracking.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Projects Tab -->
+                        <div class="tab-pane" id="projects">
+                            <div class="feature-content">
+                                <div class="feature-image">
+                                    <!-- Replace with your actual image path -->
+                                    <img src="assets/images/projects.png" alt="Zoho Projects" class="img-fluid">
+                                </div>
+                                <div class="feature-details">
+                                    <h3>Zoho Projects & Zoho Sprints (Project Management)</h3>
+                                    <p>Zoho provides tools for managing projects, tasks, and teams.</p>
+                                    
+                                    <div class="feature-list">
+                                        <h4>Key Features:</h4>
+                                        <ul>
+                                            <li>Zoho Projects – Plan, track, and collaborate on projects.</li>
+                                            <li>Zoho Sprints – Agile project management for software teams.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="benefits">
+                                        <h4>How It Helps Businesses:</h4>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Keeps projects organized and on track.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Improves team collaboration.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Increases productivity with automated workflows.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Workplace Tab -->
+                        <div class="tab-pane" id="workplace">
+                            <div class="feature-content">
+                                <div class="feature-image">
+                                    <!-- Replace with your actual image path -->
+                                    <img src="assets/images/workplace.png" alt="Zoho Workplace" class="img-fluid">
+                                </div>
+                                <div class="feature-details">
+                                    <h3>Zoho Workplace (Collaboration & Office Suite)</h3>
+                                    <p>Zoho Workplace is a cloud-based suite for document creation, email, video conferencing, and team collaboration.</p>
+                                    
+                                    <div class="feature-list">
+                                        <h4>Key Features:</h4>
+                                        <ul>
+                                            <li>Zoho Mail – Secure business email.</li>
+                                            <li>Zoho Cliq – Team messaging and chat.</li>
+                                            <li>Zoho Meeting – Video conferencing and webinars.</li>
+                                            <li>Zoho Docs & Writer – Cloud document storage and editing.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="benefits">
+                                        <h4>How It Helps Businesses:</h4>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Enhances remote work collaboration.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Provides a cost-effective alternative to Microsoft 365 and Google Workspace.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Ensures security with encrypted cloud storage.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Marketing Tab -->
+                        <div class="tab-pane" id="marketing">
+                            <div class="feature-content">
+                                <div class="feature-image">
+                                    <!-- Replace with your actual image path -->
+                                    <img src="assets/images/marketing.png" alt="Zoho Marketing" class="img-fluid">
+                                </div>
+                                <div class="feature-details">
+                                    <h3>Zoho Marketing & Sales Tools</h3>
+                                    <p>Zoho provides powerful marketing automation tools to help businesses attract, engage, and convert customers.</p>
+                                    
+                                    <div class="feature-list">
+                                        <h4>Key Features:</h4>
+                                        <ul>
+                                            <li>Zoho Campaigns – Email marketing automation.</li>
+                                            <li>Zoho Social – Manage and schedule social media posts.</li>
+                                            <li>Zoho SalesIQ – Live chat and visitor tracking for websites.</li>
+                                            <li>Zoho Survey – Create and analyze customer surveys.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="benefits">
+                                        <h4>How It Helps Businesses:</h4>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Increases lead generation and conversions.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Automates repetitive marketing tasks.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Provides deep customer insights for personalized marketing.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Analytics Tab -->
+                        <div class="tab-pane" id="analytics">
+                            <div class="feature-content">
+                                <div class="feature-image">
+                                    <!-- Replace with your actual image path -->
+                                    <img src="assets/images/analytics.png" alt="Zoho Analytics" class="img-fluid">
+                                </div>
+                                <div class="feature-details">
+                                    <h3>Zoho Analytics (Business Intelligence & Reporting)</h3>
+                                    <p>Zoho Analytics is a powerful BI tool that allows businesses to analyze their data and make data-driven decisions.</p>
+                                    
+                                    <div class="feature-list">
+                                        <h4>Key Features:</h4>
+                                        <ul>
+                                            <li>Drag-and-drop report builder.</li>
+                                            <li>AI-driven data insights.</li>
+                                            <li>Integrations with third-party apps like Google Analytics, Shopify, and QuickBooks.</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="benefits">
+                                        <h4>How It Helps Businesses:</h4>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Provides real-time business intelligence.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Automates report generation and data analysis.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Helps businesses identify trends and optimize performance.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Zoho One Tab -->
+                        <div class="tab-pane" id="zoho-one">
+                            <div class="feature-content">
+                                <div class="feature-image">
+                                    <!-- Replace with your actual image path -->
+                                    <img src="assets/images/zoho one.png" alt="Zoho One" class="img-fluid">
+                                </div>
+                                <div class="feature-details">
+                                    <h3>Zoho One: The All-in-One Business Suite</h3>
+                                    <p>For businesses that need a complete, all-in-one solution, Zoho One offers over 45+ apps in a single subscription.</p>
+                                    
+                                    <div class="benefits">
+                                        <h4>Benefits of Zoho One:</h4>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>All business apps under one platform.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Seamless integration between apps.</p>
+                                        </div>
+                                        <div class="benefit-item">
+                                            <div class="benefit-icon green">
+                                                <i class="fas fa-check"></i>
+                                            </div>
+                                            <p>Cost-effective compared to buying individual tools.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Comparison Section -->
+        <section class="comparison" id="comparison">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon red">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h2>Why Businesses Choose Zoho Over Competitors</h2>
+                </div>
+                
+                <div class="comparison-table-wrapper">
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Feature</th>
+                                <th>Zoho</th>
+                                <th>Salesforce</th>
+                                <th>Microsoft 365</th>
+                                <th>Google Workspace</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Pricing</td>
+                                <td class="highlight">Affordable</td>
+                                <td>Expensive</td>
+                                <td>Mid-range</td>
+                                <td>Mid-range</td>
+                            </tr>
+                            <tr>
+                                <td>All-in-One Suite</td>
+                                <td class="highlight"><i class="fas fa-check-circle check-icon"></i> Yes</td>
+                                <td><i class="fas fa-times-circle x-icon"></i> No (Requires add-ons)</td>
+                                <td><i class="fas fa-times-circle x-icon"></i> No</td>
+                                <td><i class="fas fa-times-circle x-icon"></i> No</td>
+                            </tr>
+                            <tr>
+                                <td>Customization</td>
+                                <td class="highlight"><i class="fas fa-check-circle check-icon"></i> Highly Customizable</td>
+                                <td><i class="fas fa-check-circle check-icon"></i> Customizable</td>
+                                <td><i class="fas fa-times-circle x-icon"></i> Limited</td>
+                                <td><i class="fas fa-times-circle x-icon"></i> Limited</td>
+                            </tr>
+                            <tr>
+                                <td>AI-Powered Insights</td>
+                                <td class="highlight"><i class="fas fa-check-circle check-icon"></i> Yes (Zia AI)</td>
+                                <td><i class="fas fa-check-circle check-icon"></i> Yes</td>
+                                <td><i class="fas fa-times-circle x-icon"></i> No</td>
+                                <td><i class="fas fa-times-circle x-icon"></i> No</td>
+                            </tr>
+                            <tr>
+                                <td>Ease of Use</td>
+                                <td class="highlight"><i class="fas fa-check-circle check-icon"></i> User-Friendly</td>
+                                <td><i class="fas fa-times-circle x-icon"></i> Complex</td>
+                                <td><i class="fas fa-check-circle check-icon"></i> Easy</td>
+                                <td><i class="fas fa-check-circle check-icon"></i> Easy</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="comparison-notes">
+                    <p>Zoho stands out because it is:</p>
+                    <ul>
+                        <li>Cost-effective for small businesses and startups.</li>
+                        <li>Easy to use compared to Salesforce.</li>
+                        <li>Highly customizable with automation tools.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Who Should Use Section -->
+        <section class="who-should-use" id="who-should-use">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon yellow">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h2>Who Should Use Zoho?</h2>
+                </div>
+                
+                <div class="cards-container">
+                    <div class="user-card">
+                        <div class="user-icon blue">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Startups & Small Businesses</h3>
+                        <p>Cost-effective and scalable solutions that grow with your business.</p>
+                    </div>
+                    
+                    <div class="user-card">
+                        <div class="user-icon green">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Enterprises</h3>
+                        <p>Advanced automation and integration capabilities for complex operations.</p>
+                    </div>
+                    
+                    <div class="user-card">
+                        <div class="user-icon yellow">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Freelancers & Solopreneurs</h3>
+                        <p>Tools for invoicing, CRM, and marketing to manage your business efficiently.</p>
+                    </div>
+                    
+                    <div class="user-card">
+                        <div class="user-icon red">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h3>E-commerce & Retailers</h3>
+                        <p>Sales, accounting, and marketing automation to streamline retail operations.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Conclusion Section -->
+        <section class="conclusion" id="conclusion">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon green">
+                        <i class="fas fa-flag-checkered"></i>
+                    </div>
+                    <h2>Why Zoho is a Game-Changer</h2>
+                </div>
+                
+                <div class="conclusion-content">
+                    <div class="conclusion-points">
+                        <div class="conclusion-point">
+                            <div class="point-icon green">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <p>Affordable compared to competitors like Salesforce & Microsoft.</p>
+                        </div>
+                        <div class="conclusion-point">
+                            <div class="point-icon green">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <p>Offers 45+ apps to streamline business operations.</p>
+                        </div>
+                        <div class="conclusion-point">
+                            <div class="point-icon green">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <p>Provides AI-driven insights (Zia AI) to optimize decision-making.</p>
+                        </div>
+                        <div class="conclusion-point">
+                            <div class="point-icon green">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <p>Supports seamless integrations with third-party apps.</p>
+                        </div>
+                        <div class="conclusion-point">
+                            <div class="point-icon green">
+                                <i class="fas fa-check"></i>
+                            </div>
+                            <p>Trusted by 80+ million users worldwide.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="conclusion-cta">
+                        <p class="conclusion-tagline">Zoho is the ultimate solution for businesses looking to scale, automate, and optimize their workflows.</p>
+                        <a href="#contact" class="btn btn-primary">Contact Damigo Automation Today</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon blue">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h2>Ready to Get Started with Zoho?</h2>
+                    <p>Contact Damigo Automation, your certified Zoho dealer, for personalized consultation.</p>
+                </div>
+                
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                       </div>
+
+                       <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company" placeholder="Your Company">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" placeholder="Your Phone Number">
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="interest">I'm interested in:</label>
+                        <select id="interest" name="interest" required>
+                            <option value="" disabled selected>Select your interest</option>
+                            <option value="crm">Zoho CRM</option>
+                            <option value="finance">Zoho Finance</option>
+                            <option value="hr">Zoho HR Solutions</option>
+                            <option value="projects">Zoho Projects</option>
+                            <option value="workplace">Zoho Workplace</option>
+                            <option value="marketing">Zoho Marketing</option>
+                            <option value="analytics">Zoho Analytics</option>
+                            <option value="zoho-one">Zoho One (All-in-One)</option>
+                            <option value="not-sure">Not Sure / Need Consultation</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" name="message" placeholder="How can we help you?" rows="4"></textarea>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn btn-primary btn-block">Send Message</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/images/new logo.jpg" alt="Damigo Automation Ltd Logo">
+                </div>
+                
+                <div class="footer-columns">
+                    <div class="footer-column">
+                        <h3>Contact Us</h3>
+                        <ul class="footer-contact">
+                            <li>
+                                <span class="icon icon-location"></span>
+                                4th Floor Annex Corner, Westlands
+                            </li>
+                            <li>
+                                <span class="icon icon-phone"></span>
+                                <a href="tel:+254722325104">+254 722 325104</a>
+                            </li>
+                            <li>
+                                <span class="icon icon-email"></span>
+                                <a href="mailto:info@dmg.co.ke">info@dmg.co.ke</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="#about">About Us</a></li>
+                            <li><a href="#services">Services</a></li>
+                            <li><a href="#projects">Projects</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="footer-column">
+                        <h3>Follow Us</h3>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon icon-facebook" aria-label="Facebook"></a>
+                            <a href="#" class="social-icon icon-twitter" aria-label="Twitter"></a>
+                            <a href="#" class="social-icon icon-linkedin" aria-label="LinkedIn"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2025 Damigo Automation Ltd. All rights reserved.</p>
+                </div>
+                <div class="footer-links-bottom">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</main>
+<script src="script.js"></script>
+<script src="zohoscript.js"></script>
+</body>
+</html>

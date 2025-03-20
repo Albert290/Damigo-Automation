@@ -592,46 +592,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });   
 
-// Get modal elements
-const quoteModal = document.getElementById('quote-modal');
-const closeBtn = document.querySelector('.close-btn');
-
-// Get buttons that should open the modal
-const testimonialsBtn = document.getElementById('testimonials-btn');
-const contactBtn = document.getElementById('contact-btn');
-const openQuoteModalBtn = document.getElementById('open-quote-modal'); // "Get Started" button
-
-// Function to open modal
-function openModal(event) {
-    event.preventDefault(); // Prevent default action of <a> links
-    quoteModal.classList.add('show');
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    document.getElementById('step1').classList.add('active'); // Ensure first step is shown
-}
-
-// Attach event listeners to all buttons
-testimonialsBtn.addEventListener('click', openModal);
-contactBtn.addEventListener('click', openModal);
-openQuoteModalBtn.addEventListener('click', openModal); // "Get Started" button
-
-// Function to close modal
-function closeModal() {
-    quoteModal.classList.remove('show');
-    document.body.style.overflow = ''; // Restore scrolling
-
-    // Reset form after closing
-    setTimeout(() => {
-        document.querySelectorAll('.form-step').forEach(step => step.classList.remove('active'));
-        document.getElementById('step1').classList.add('active'); // Reset to step 1
-    }, 300);
-}
-
-// Close modal when clicking close button
-closeBtn.addEventListener('click', closeModal);
-
-// Close modal when clicking outside the content area
-quoteModal.addEventListener('click', function (e) {
-    if (e.target === quoteModal) {
-        closeModal();
-    }
+document.getElementById("services-link").addEventListener("click", function(event) {
+    event.preventDefault(); // Prevents clicking "Services" as a link
 });
