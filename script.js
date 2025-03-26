@@ -87,114 +87,60 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-
-    // Hero section animations and interactions
-    const heroSection = document.querySelector('.hero');
-    const heroImage = document.querySelector('.hero-image');
-    const featureItems = document.querySelectorAll('.feature-item');
-    
-    // Add animation delay to feature items
-    featureItems.forEach((item, index) => {
-        item.style.animationDelay = `${0.05 * (index + 1)}s`;
-        item.classList.add('fade-in');
-    });
-    
-    // Parallax effect for hero section
-    if (window.innerWidth > 768) {
-        window.addEventListener('scroll', function() {
-            const scrollPosition = window.pageYOffset;
-            
-            // Subtle parallax effect
-            if (heroImage) {
-                heroImage.style.transform = `translateY(${scrollPosition * 0.05}px)`;
-            }
-        });
-    }
-    
-    // Add hover animations for feature items
-    featureItems.forEach(item => {
-        item.addEventListener('mouseenter', function() {
-            this.classList.add('active');
-        });
-        
-        item.addEventListener('mouseleave', function() {
-            this.classList.remove('active');
-        });
-    });
-
-      // Check if AOS is loaded
-      if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 300,
-            easing: 'ease-in-out',
-            once: true
-        });
-    }
-
-    // Fallback animation for service cards if AOS isn't available
-    if (typeof AOS === 'undefined') {
-        const serviceCards = document.querySelectorAll('.service-card');
-        serviceCards.forEach((card, index) => {
-            setTimeout(() => {
-                card.style.opacity = '0';
-                card.style.animation = 'fadeInUp 0.8s forwards';
-                card.style.animationDelay = `${index * 0.05}s`;
-            }, 150);
-        });
-    }
-
-    // Optional: Add click handler for mobile devices
-    const infoIcons = document.querySelectorAll('.hover-icon');
-    infoIcons.forEach(icon => {
-        icon.addEventListener('click', function() {
-            // Get the parent service-info element
-            const serviceInfo = this.closest('.service-info');
-            
-            // Toggle an active class for mobile devices
-            serviceInfo.classList.toggle('active');
-            
-            // Close other open tooltips
-            document.querySelectorAll('.service-info.active').forEach(info => {
-                if (info !== serviceInfo) {
-                    info.classList.remove('active');
-                }
+ 
+        // Check if AOS is loaded
+        if (typeof AOS !== 'undefined') {
+            AOS.init({
+                duration: 300,
+                easing: 'ease-in-out',
+                once: true
             });
-        });
-    });
-
-    // Close tooltips when clicking outside
-    document.addEventListener('click', function(event) {
-        if (!event.target.closest('.service-info')) {
-            document.querySelectorAll('.service-info.active').forEach(info => {
-                info.classList.remove('active');
+        }
+    
+        // Fallback animation for service cards if AOS isn't available
+        if (typeof AOS === 'undefined') {
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.opacity = '0';
+                    card.style.animation = 'fadeInUp 0.8s forwards';
+                    card.style.animationDelay = `${index * 0.05}s`;
+                }, 150);
+            });
+        }
+    
+        // Touch device detection and support
+        const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    
+        if (isTouchDevice) {
+            document.body.classList.add('touch-device');
+    
+            const infoIcons = document.querySelectorAll('.hover-icon');
+            infoIcons.forEach(icon => {
+                icon.addEventListener('click', function(event) {
+                    event.stopPropagation();
+                    const serviceInfo = this.closest('.service-info');
+                    
+                    // Close other open tooltips
+                    document.querySelectorAll('.service-info.active').forEach(info => {
+                        if (info !== serviceInfo) {
+                            info.classList.remove('active');
+                        }
+                    });
+    
+                    // Toggle current tooltip
+                    serviceInfo.classList.toggle('active');
+                });
+            });
+    
+            // Close tooltips when clicking outside
+            document.addEventListener('click', function() {
+                document.querySelectorAll('.service-info.active').forEach(info => {
+                    info.classList.remove('active');
+                });
             });
         }
     });
-});
-
-// Add touch device detection and support
-window.addEventListener('load', function() {
-    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    
-    if (isTouchDevice) {
-        document.body.classList.add('touch-device');
-        
-        // Additional CSS for touch devices
-        const style = document.createElement('style');
-        style.textContent = `
-            .touch-device .service-details {
-                transition: none;
-            }
-            
-            .touch-device .service-info.active .service-details {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            }
-        `;
-        document.head.appendChild(style);
-    }
-});
 
 // Animation for the "How It Works" section
 document.addEventListener('DOMContentLoaded', function() {
@@ -594,4 +540,113 @@ document.addEventListener('DOMContentLoaded', function() {
 
 document.getElementById("services-link").addEventListener("click", function(event) {
     event.preventDefault(); // Prevents clicking "Services" as a link
+});
+
+//zoho
+document.addEventListener('DOMContentLoaded', () => {
+    const zohoFeatures = document.querySelectorAll('.zoho-feature');
+
+    zohoFeatures.forEach(feature => {
+        feature.addEventListener('mouseenter', () => {
+            feature.style.transform = 'scale(1.05)';
+            feature.style.transition = 'transform 0.3s ease';
+        });
+
+        feature.addEventListener('mouseleave', () => {
+            feature.style.transform = 'scale(1)';
+        });
+    });
+
+    // Optional: Add scroll animation
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    zohoFeatures.forEach(feature => {
+        observer.observe(feature);
+    });
+});
+// get started cta
+document.addEventListener('DOMContentLoaded', function() {
+    // Get references to the modal and buttons
+    const quoteModal = document.getElementById('quote-modal');
+    const ctaButtons = document.querySelectorAll('.btn-primary, #quote-btn');
+    const closeButtons = document.querySelectorAll('.close-btn, .close-modal-btn');
+
+    // Function to open the modal
+    function openModal() {
+        quoteModal.style.display = 'block';
+        // Reset form to first step
+        document.getElementById('step1').style.display = 'block';
+        document.getElementById('step2').style.display = 'none';
+        document.getElementById('step3').style.display = 'none';
+        document.getElementById('contact-step').style.display = 'none';
+        document.getElementById('success-step').style.display = 'none';
+    }
+
+    // Function to close the modal
+    function closeModal() {
+        quoteModal.style.display = 'none';
+    }
+
+    // Add click event to all CTA buttons to open modal
+    ctaButtons.forEach(button => {
+        button.addEventListener('click', openModal);
+    });
+
+    // Add click events to close buttons
+    closeButtons.forEach(button => {
+        button.addEventListener('click', closeModal);
+    });
+
+    // Close modal if clicked outside of modal content
+    window.addEventListener('click', function(event) {
+        if (event.target === quoteModal) {
+            closeModal();
+        }
+    });
+
+    // Navigation between form steps
+    const nextButtons = document.querySelectorAll('.next-btn');
+    const backButtons = document.querySelectorAll('.back-btn');
+
+    nextButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const currentStep = this.closest('.form-step');
+            const nextStepId = this.getAttribute('data-next');
+            const nextStep = document.getElementById(nextStepId);
+
+            currentStep.style.display = 'none';
+            nextStep.style.display = 'block';
+        });
+    });
+
+    backButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const currentStep = this.closest('.form-step');
+            const prevStepId = this.getAttribute('data-prev');
+            const prevStep = document.getElementById(prevStepId);
+
+            currentStep.style.display = 'none';
+            prevStep.style.display = 'block';
+        });
+    });
+
+    // Form submission handling
+    const submitRequirementsBtn = document.getElementById('submit-requirements');
+    const finalSubmitBtn = document.getElementById('final-submit');
+
+    submitRequirementsBtn.addEventListener('click', function() {
+        document.getElementById('step3').style.display = 'none';
+        document.getElementById('contact-step').style.display = 'block';
+    });
+
+    finalSubmitBtn.addEventListener('click', function() {
+        document.getElementById('contact-step').style.display = 'none';
+        document.getElementById('success-step').style.display = 'block';
+    });
 });

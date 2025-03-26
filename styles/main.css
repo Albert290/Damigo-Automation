@@ -523,18 +523,7 @@ nav {
     transform: translateY(-5px);
 }
 
-.accent-shape {
-    position: absolute;
-    width: 90%;
-    height: 90%;
-    background-color: var(--primary-yellow);
-    top: 30px;
-    right: -15px;
-    border-radius: 8px;
-    z-index: 1;
-    opacity: 0.8;
-    transition: transform 0.5s ease;
-}
+ 
 
 .hero-image:hover .accent-shape {
     transform: translate(5px, 5px);
@@ -700,16 +689,153 @@ nav {
     }
 }
 
-/* What We Offer Section Styles */
-.what-we-offer {
-    padding: 80px 0;
-    background-color: var(--light-gray);
-    position: relative;
-    overflow: hidden;
-    margin-top: 30px;
+/* Zoho Section Styles with Color Integration */
+:root {
+    --primary-green: #00A651;
+    --primary-yellow: #FFC107;
+    --primary-red: #DC3545;
+    --primary-black: #000000;
+    --light-gray: #f4f4f4;
+    --white: #ffffff;
+    --text-dark: #333333;
 }
 
-/* Add a subtle pattern background */
+.about-zoho { 
+    padding: 4rem 0;
+    color: var(--text-dark);
+}
+
+.about-zoho .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    margin-bottom: 1rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.section-header .subtitle {
+    font-size: 1.2rem;
+    color: var(--white);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;  
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.zoho-content {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+}
+
+.zoho-feature {
+    background-color: var(--white);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid transparent;
+}
+
+.zoho-feature:nth-child(1) {
+    border-top-color: var(--primary-green);
+}
+
+.zoho-feature:nth-child(2) {
+    border-top-color: var(--primary-yellow);
+}
+
+.zoho-feature:nth-child(3) {
+    border-top-color: var(--primary-red);
+}
+
+.zoho-feature:nth-child(4) {
+    border-top-color: var(--primary-black);
+}
+
+.zoho-feature:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+.zoho-feature i {
+    font-size: 3rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.zoho-feature:nth-child(1) i { color: var(--primary-green); }
+.zoho-feature:nth-child(2) i { color: var(--primary-yellow); }
+.zoho-feature:nth-child(3) i { color: var(--primary-red); }
+.zoho-feature:nth-child(4) i { color: var(--primary-black); }
+
+.zoho-feature h3 {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.zoho-feature p {
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 1024px) {
+    .zoho-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 768px) {
+     
+
+    .zoho-content {
+        grid-template-columns: 1fr;
+    }
+
+    .section-header h2 {
+        font-size: 2rem;
+    }
+
+    .section-header .subtitle {
+        font-size: 1rem;
+        padding: 0.75rem;
+    }
+}
+
+/* What We Offer Section Styles */
+:root {
+    --primary-green: #00a651;
+    --primary-yellow: #FFC107;
+    --primary-black: #333333;
+    --white: #FFFFFF;
+    --light-gray: #F5F5F5;
+    --text-dark: #444444;
+}
+
+.what-we-offer {
+    padding: 80px 0;
+    background-color: var(--white);
+    position: relative;
+    overflow: hidden;
+}
+
 .what-we-offer:before {
     content: '';
     position: absolute;
@@ -717,17 +843,21 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background-image: radial-gradient(var(--primary-green) 1px, transparent 1px), 
-                      radial-gradient(var(--primary-yellow) 1px, transparent 1px);
+    background-image: 
+        radial-gradient(var(--primary-green) 1px, transparent 1px), 
+        radial-gradient(var(--primary-yellow) 1px, transparent 1px);
     background-size: 50px 50px;
     background-position: 0 0, 25px 25px;
-    opacity: 0.05;
+    opacity: 0.03;
     z-index: 0;
 }
 
 .what-we-offer .container {
     position: relative;
     z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 .section-header {
@@ -756,30 +886,27 @@ nav {
 }
 
 .section-header .subtitle {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     color: var(--text-dark);
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
+    line-height: 1.6;
     opacity: 0.8;
 }
 
-/* Services Grid Layout */
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
     margin-bottom: 50px;
 }
 
-/* Service Card Styles */
 .service-card {
     background-color: var(--white);
     border-radius: 10px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    position: relative;
-    height: 100%;
     display: flex;
     flex-direction: column;
     border-bottom: 3px solid transparent;
@@ -787,38 +914,33 @@ nav {
 
 .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    border-bottom: 3px solid var(--primary-green);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    border-bottom-color: var(--primary-green);
 }
 
 .service-icon {
-    height: 100px; /* Reduced size */
-    width: 100px;
+    height: 90px;
+    width: 90px;
     background: var(--primary-green);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    margin: 10px auto 10px; /* Adjusted spacing */
-    box-shadow: 0 3px 10px rgba(0, 166, 81, 0.2); /* Softer shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 20px auto 15px;
+    box-shadow: 0 5px 15px rgba(0, 166, 81, 0.2);
+    transition: transform 0.3s ease;
 }
 
-/* Hover Effect for Modern Look */
 .service-icon:hover {
-    transform: scale(1.1); /* Subtle scaling */
-    box-shadow: 0 5px 15px rgba(0, 166, 81, 0.4); /* More depth on hover */
+    transform: scale(1.05);
 }
-
 
 .service-card:nth-child(odd) .service-icon {
     background: var(--primary-yellow);
-    box-shadow: 0 5px 15px rgba(255, 193, 7, 0.3);
 }
 
 .service-card:nth-child(3n) .service-icon {
-    background: #4682B4; /* Blue color for variation */
-    box-shadow: 0 5px 15px rgba(70, 130, 180, 0.3);
+    background: #4682B4;
 }
 
 .service-icon i {
@@ -831,24 +953,23 @@ nav {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    text-align: center;
 }
 
 .service-content h3 {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 15px;
-    text-align: center;
     color: var(--primary-black);
 }
 
 .service-content p {
     margin-bottom: 20px;
     color: var(--text-dark);
-    text-align: center;
     flex-grow: 1;
+    line-height: 1.6;
 }
 
-/* Interactive Info Icon */
 .service-info {
     position: relative;
     margin-top: auto;
@@ -933,13 +1054,27 @@ nav {
     color: var(--white);
 }
 
-/* CTA Button */
 .services-cta {
     text-align: center;
     margin-top: 30px;
 }
 
-/* Responsive Adjustments */
+.btn-primary {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: var(--primary-green);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-yellow);
+    color: var(--primary-black);
+}
+
 @media screen and (max-width: 992px) {
     .services-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -958,32 +1093,11 @@ nav {
     .section-header .subtitle {
         font-size: 1rem;
     }
-    
-    .service-content h3 {
-        font-size: 1.2rem;
-    }
 }
 
 @media screen and (max-width: 576px) {
     .services-grid {
         grid-template-columns: 1fr;
-    }
-    
-    .service-card {
-        max-width: 350px;
-        margin: 0 auto;
-    }
-}
-
-/* Animation Classes */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
     }
 }
 
@@ -1208,6 +1322,11 @@ nav {
     z-index: 1000;
     overflow: auto;
     transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
 }
 
 .modal.show {
