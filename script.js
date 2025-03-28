@@ -378,84 +378,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Testimonial Carousel functionality
-    const testimonials = document.querySelectorAll('.testimonial-item');
-    const dots = document.querySelectorAll('.dot');
-    const prevBtn = document.querySelector('.prev-btn');
-    const nextBtn = document.querySelector('.next-btn');
-    let currentIndex = 0;
-    
-    // Function to show a specific testimonial
-    function showTestimonial(index) {
-        // Hide all testimonials
-        testimonials.forEach(item => {
-            item.classList.remove('active');
-        });
-        
-        // Deactivate all dots
-        dots.forEach(dot => {
-            dot.classList.remove('active');
-        });
-        
-        // Show the selected testimonial and activate the corresponding dot
-        testimonials[index].classList.add('active');
-        dots[index].classList.add('active');
-        
-        // Update current index
-        currentIndex = index;
-    }
-    
-    // Event listeners for dots
-    dots.forEach(dot => {
-        dot.addEventListener('click', function() {
-            const index = parseInt(this.getAttribute('data-index'));
-            showTestimonial(index);
-        });
-    });
-    
-    // Event listener for previous button
-    prevBtn.addEventListener('click', function() {
-        let newIndex = currentIndex - 1;
-        if (newIndex < 0) {
-            newIndex = testimonials.length - 1;
-        }
-        showTestimonial(newIndex);
-    });
-    
-    // Event listener for next button
-    nextBtn.addEventListener('click', function() {
-        let newIndex = currentIndex + 1;
-        if (newIndex >= testimonials.length) {
-            newIndex = 0;
-        }
-        showTestimonial(newIndex);
-    });
-    
-    // Auto rotate testimonials every 5 seconds
-    let testimonialInterval = setInterval(function() {
-        let newIndex = currentIndex + 1;
-        if (newIndex >= testimonials.length) {
-            newIndex = 0;
-        }
-        showTestimonial(newIndex);
-    }, 5000);
-    
-    // Pause auto rotation when user interacts with carousel
-    const carouselControls = document.querySelector('.carousel-controls');
-    carouselControls.addEventListener('mouseover', function() {
-        clearInterval(testimonialInterval);
-    });
-    
-    // Resume auto rotation when user stops interacting
-    carouselControls.addEventListener('mouseleave', function() {
-        testimonialInterval = setInterval(function() {
-            let newIndex = currentIndex + 1;
-            if (newIndex >= testimonials.length) {
-                newIndex = 0;
-            }
-            showTestimonial(newIndex);
-        }, 5000);
-    });
     
     // Add animation to logos on page load
     const logoItems = document.querySelectorAll('.logo-item');
@@ -538,9 +460,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });   
 
-document.getElementById("services-link").addEventListener("click", function(event) {
-    event.preventDefault(); // Prevents clicking "Services" as a link
-});
+ 
 
 //zoho
 document.addEventListener('DOMContentLoaded', () => {
