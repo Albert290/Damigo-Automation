@@ -570,3 +570,68 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('success-step').style.display = 'block';
     });
 });
+
+// Simple JavaScript to enhance footer interaction
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Add subtle animation to the footer when it scrolls into view
+    const footer = document.querySelector('.site-footer');
+    const contactButtons = document.querySelectorAll('.contact-button');
+    const socialIcons = document.querySelectorAll('.social-icon');
+    
+    // Observer for when footer enters viewport
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Animate contact buttons with slight delay between each
+                contactButtons.forEach((button, index) => {
+                    setTimeout(() => {
+                        button.style.opacity = '1';
+                        button.style.transform = 'translateY(0)';
+                    }, 100 * index);
+                });
+                
+                // Animate social icons with slight delay between each
+                socialIcons.forEach((icon, index) => {
+                    setTimeout(() => {
+                        icon.style.opacity = '1';
+                        icon.style.transform = 'translateY(0)';
+                    }, 150 * index);
+                });
+                
+                // Stop observing once animations have played
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 }); // Trigger when 20% of the footer is visible
+    
+    // Start observing the footer
+    observer.observe(footer);
+    
+    // Initialize styles for animation
+    contactButtons.forEach(button => {
+        button.style.opacity = '0';
+        button.style.transform = 'translateY(20px)';
+        button.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
+    
+    socialIcons.forEach(icon => {
+        icon.style.opacity = '0';
+        icon.style.transform = 'translateY(20px)';
+        icon.style.transition = 'opacity 0.5s ease, transform 0.5s ease, background-color 0.3s ease';
+    });
+    
+    // Add hover effect for partner badges
+    const partnerBadges = document.querySelectorAll('.partner-badge');
+    partnerBadges.forEach(badge => {
+        badge.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px)';
+            this.style.filter = 'grayscale(0%) brightness(1.2)';
+        });
+        
+        badge.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0)';
+            this.style.filter = 'grayscale(20%) brightness(1.1)';
+        });
+    });
+});
