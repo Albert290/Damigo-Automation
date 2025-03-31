@@ -3,891 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | Damigo Automation Ltd</title>
-    <style>
-        :root {
-            --primary-blue: #002244;
-            --dark-blue: #001a33;
-            --accent-yellow: #FFD700;
-            --accent-red: #FF4444;
-            --accent-green: #4CAF50;
-            --text-light: #f8f9fa;
-            --text-dark: #333;
-            --white: #ffffff;
-            --blue-500: #3b82f6;
-            --blue-600: #2563eb;
-            --blue-100: #dbeafe;
-            --yellow-500: #eab308;
-            --yellow-600: #ca8a04;
-            --yellow-100: #fef9c3;
-            --red-500: #ef4444;
-            --red-600: #dc2626;
-            --red-100: #fee2e2;
-            --green-500: #22c55e;
-            --gray-500: #6b7280;
-            --gray-200: #e5e7eb;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--white);
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: var(--primary-blue);
-            color: var(--text-light);
-            padding: 1rem;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-weight: bold;
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .logo-highlight {
-            color: var(--accent-yellow);
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-        }
-
-        .nav-links li {
-            margin-left: 1.5rem;
-        }
-
-        .nav-links a {
-            color: var(--text-light);
-            text-decoration: none;
-            transition: color 0.3s;
-            padding: 0.5rem;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-yellow);
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: var(--text-light);
-            font-size: 1.5rem;
-            cursor: pointer;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-            color: var(--text-light);
-            padding: 5rem 2rem;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-        }
-
-        .hero-cta {
-            background-color: var(--accent-yellow);
-            color: var(--primary-blue);
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .hero-cta:hover {
-            background-color: var(--yellow-600);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .services-container {
-            max-width: 1200px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            width: 80px;
-            height: 4px;
-            background-color: var(--accent-yellow);
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s;
-            position: relative;
-            border: 1px solid var(--gray-200);
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
-        }
-
-        .card-header {
-            background-color: var(--primary-blue);
-            color: var(--text-light);
-            padding: 1.5rem 1.5rem 0.5rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .card-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.1);
-            transform: rotate(30deg);
-        }
-
-        .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent-yellow);
-        }
-
-        .card-body {
-            padding: 1.5rem;
-        }
-
-        .card-title {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: var(--primary-blue);
-        }
-
-        .feature-list {
-            list-style-type: none;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-list li {
-            margin-bottom: 0.75rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .feature-list li::before {
-            content: '✓';
-            color: var(--accent-green);
-            font-weight: bold;
-            margin-right: 0.5rem;
-        }
-
-        .card-footer {
-            padding: 1rem 1.5rem;
-            border-top: 1px solid var(--gray-200);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .learn-more {
-            color: var(--blue-600);
-            text-decoration: none;
-            font-weight: 500;
-            display: flex;
-            align-items: center;
-        }
-
-        .learn-more:hover {
-            text-decoration: underline;
-        }
-
-        .arrow-icon {
-            margin-left: 5px;
-            transition: transform 0.3s;
-        }
-
-        .learn-more:hover .arrow-icon {
-            transform: translateX(4px);
-        }
-
-        .highlight-tag {
-            background-color: var(--yellow-100);
-            color: var(--yellow-600);
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .step-card {
-            background-color: var(--white);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s;
-            position: relative;
-            border: 1px solid var(--gray-200);
-            padding: 1.5rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .step-number {
-            background-color: var(--primary-blue);
-            color: var(--white);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-weight: bold;
-            margin-right: 1rem;
-            flex-shrink: 0;
-        }
-
-        .workflow-section {
-            max-width: 800px;
-            margin: 4rem auto;
-            padding: 0 2rem;
-        }
-
-        .badges-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .badge {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1.5rem;
-            background-color: var(--white);
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            max-width: 150px;
-            transition: all 0.3s;
-        }
-
-        .badge:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
-        }
-
-        .badge-icon {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 1rem;
-        }
-
-        .badge-text {
-            text-align: center;
-            font-weight: 500;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-            color: var(--text-light);
-            padding: 4rem 2rem;
-            text-align: center;
-            margin-top: 4rem;
-        }
-
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 2rem auto 0;
-            background-color: var(--white);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--text-dark);
-            text-align: left;
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--gray-200);
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-
-        .form-control:focus {
-            outline: none;
-            border-color: var(--blue-500);
-            box-shadow: 0 0 0 3px var(--blue-100);
-        }
-
-        textarea.form-control {
-            min-height: 120px;
-            resize: vertical;
-        }
-
-        /* Brand/Logo Section */
-  .brand-wrapper {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    font-size: 1.25rem;
-    
-    background-color: var(--primary-blue);
-  }
-  
-  .logo {
-    height: 40px;
-    width: auto;
-    font-weight: 1500;
-    
-    background-color: var(--primary-blue);
-  }
-  
-  .company-name {
-    font-weight: 700;
-    font-size: 1.25rem;
-    color: var(--primary-blue);
-    
-    background-color: var(--primary-blue);
-  }
-
-        .submit-btn {
-            background-color: var(--accent-yellow);
-            color: var(--primary-blue);
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            font-weight: bold;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            width: 100%;
-        }
-
-        .submit-btn:hover {
-            background-color: var(--yellow-600);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        footer {
-            background-color: var(--dark-blue);
-            color: var(--text-light);
-            padding: 3rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-        }
-
-        .footer-column h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .footer-column h3::after {
-            content: '';
-            width: 30px;
-            height: 3px;
-            background-color: var(--accent-yellow);
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-        }
-
-        .footer-links {
-            list-style: none;
-        }
-
-        .footer-links li {
-            margin-bottom: 0.75rem;
-        }
-
-        .footer-links a {
-            color: var(--gray-200);
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent-yellow);
-        }
-
-        .contact-info {
-            list-style: none;
-        }
-
-        .contact-info li {
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .contact-icon {
-            margin-right: 0.75rem;
-            color: var(--accent-yellow);
-        }
-
-        .copyright {
-            margin-top: 3rem;
-            text-align: center;
-            color: var(--gray-500);
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .accordion {
-            margin-top: 3rem;
-        }
-
-        .accordion-item {
-            border: 1px solid var(--gray-200);
-            border-radius: 8px;
-            margin-bottom: 1rem;
-            overflow: hidden;
-        }
-
-        .accordion-header {
-            background-color: var(--white);
-            color: var(--primary-blue);
-            padding: 1rem 1.5rem;
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-
-        .accordion-header:hover {
-            background-color: var(--blue-100);
-        }
-
-        .accordion-content {
-            padding: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease, padding 0.3s ease;
-        }
-
-        .accordion-content.active {
-            padding: 1.5rem;
-            max-height: 300px;
-        }
-
-        /* Animations */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease forwards;
-        }
-
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-
-        /* Media Queries */
-        @media (max-width: 991px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 100%;
-                left: 0;
-                right: 0;
-                background-color: var(--primary-blue);
-                flex-direction: column;
-                align-items: center;
-                padding: 1rem 0;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .nav-links li {
-                margin: 0.5rem 0;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-        }
-
-        @media (max-width: 576px) {
-            .services-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .badges-container {
-                gap: 1rem;
-            }
-
-            .badge {
-                padding: 1rem;
-                max-width: 120px;
-            }
-
-            .contact-form {
-                padding: 1.5rem;
-            }
-        }
-    </style>
+    <title>Automation Company</title>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/services.css">
+    <!-- Font Awesome for hamburger menu icon -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section -->
     <header>
-        <nav class="navbar">
-            <img src="assets/images/logo removebg.png" alt="Damigo Logo" class="logo">
+        <div class="container">
+            <!-- Logo Section -->
             <div class="logo">
-                Damigo <span class="logo-highlight">Automation</span>
+                <!-- Replace with your actual logo image path -->
+                <a href="index.html"><img src="assets/images/new logo.jpg" alt="Company Logo"></a>
             </div>
-            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
-            <ul class="nav-links" id="navLinks">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="about.html">About</a></li> 
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <!-- Navigation Links -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="product.html">Products</a></li>
+                    <li><a href="testimonial.html">Testimonials</a></li>
+                    <li><a href="faq.html">Faq</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Call to Action Button -->
+            <div class="cta-button">
+                <a href="#ttt" class="btn btn-primary">Get a Quote</a>
+            </div>
+        </div>
     </header>
 
+
+    <!-- Hero Section -->
     <section class="hero">
-        <h1 class="fade-in">Transforming Businesses Through Automation</h1>
-        <p class="fade-in delay-1">Streamline your operations with our expert Sage and Zoho automation solutions. Save time, reduce costs, and boost productivity.</p>
-        <button class="hero-cta fade-in delay-2">Get Started</button>
-    </section>
-
-    <section class="services-container">
-        <h2 class="section-title">Our Automation Services</h2>
-        <div class="services-grid fade-in">
-            <div class="service-card">
-                <div class="card-header">
-                    <div class="card-icon">💼</div>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">Sage Automation</h3>
-                    <ul class="feature-list">
-                        <li>Custom workflow automation</li>
-                        <li>Invoice processing & reconciliation</li>
-                        <li>Automated financial reporting</li>
-                        <li>Payroll automation</li>
-                        <li>Integration with other systems</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <a href="contact.html#contact-form"  class="learn-more">Learn more <span class="arrow-icon">→</span></a>
-                    <span class="highlight-tag">Popular</span>
-                </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1><span> Damigo Automation LTD</span> Services</h1>
+                <p> We help businesses run smarter with Zoho. From seamless financial management to automated workflows, we ensure your operations are efficient, scalable, and stress-free — so you can focus on growth.</p>
             </div>
-
-            <div class="service-card">
-                <div class="card-header">
-                    <div class="card-icon">🔄</div>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">Zoho Automation</h3>
-                    <ul class="feature-list">
-                        <li>CRM workflow automation</li>
-                        <li>Sales pipeline optimization</li>
-                        <li>Marketing automation</li>
-                        <li>Customer support automation</li>
-                        <li>Custom Zoho application development</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <a href="contact.html#contact-form"  class="learn-more">Learn more <span class="arrow-icon">→</span></a>
-                    <span class="highlight-tag">Trending</span>
-                </div>
+            <div class="hero-image">
+                <img src="assets/images/Generated Image March 31, 2025 - 11_14AM.jpeg" alt="Business Automation" class="main-image">
             </div>
-
-            <div class="service-card">
-                <div class="card-header">
-                    <div class="card-icon">🔗</div>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">Systems Integration</h3>
-                    <ul class="feature-list">
-                        <li>Sage & Zoho cross-platform integration</li>
-                        <li>Third-party API connections</li>
-                        <li>Data synchronization</li>
-                        <li>Legacy system integration</li>
-                        <li>Custom connector development</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <a href="contact.html#contact-form"  class="learn-more">Learn more <span class="arrow-icon">→</span></a>
-                </div>
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary"><span>Get Started</span></a> 
             </div>
-
-            <div class="service-card">
-                <div class="card-header">
-                    <div class="card-icon">📊</div>
+        </div>
+        <div class="hero-features">
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <i class="fas fa-cogs feature-icon"></i>
+                    <h3>End-to-End Implementation</h3>
+                    <p>We don't just provide software; we ensure full deployment and support.</p>
                 </div>
-                <div class="card-body">
-                    <h3 class="card-title">Business Intelligence</h3>
-                    <ul class="feature-list">
-                        <li>Automated reporting dashboards</li>
-                        <li>Data visualization</li>
-                        <li>KPI tracking & alerts</li>
-                        <li>Custom business analytics</li>
-                        <li>Predictive analysis implementation</li>
-                    </ul>
+                <div class="feature-item">
+                    <i class="fas fa-industry feature-icon"></i>
+                    <h3>Industry Expertise</h3>
+                    <p>Tailored solutions for finance, manufacturing, retail, and service industries.</p>
                 </div>
-                <div class="card-footer">
-                    <a href="contact.html#contact-form"  class="learn-more">Learn more <span class="arrow-icon">→</span></a>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="card-header">
-                    <div class="card-icon">📱</div>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">Mobile Automation</h3>
-                    <ul class="feature-list">
-                        <li>Mobile app integrations</li>
-                        <li>Field service automation</li>
-                        <li>Mobile data capture solutions</li>
-                        <li>Remote access workflows</li>
-                        <li>Cross-device synchronization</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <a href="contact.html#contact-form"  class="learn-more">Learn more <span class="arrow-icon">→</span></a>
-                    <span class="highlight-tag">New</span>
-                </div>
-            </div>
-
-            <div class="service-card">
-                <div class="card-header">
-                    <div class="card-icon">🔒</div>
-                </div>
-                <div class="card-body">
-                    <h3 class="card-title">Training & Support</h3>
-                    <ul class="feature-list">
-                        <li>Personalized staff training</li>
-                        <li>Ongoing technical support</li>
-                        <li>System health monitoring</li>
-                        <li>Regular maintenance & updates</li>
-                        <li>Documentation & knowledge base</li>
-                    </ul>
-                </div>
-                <div class="card-footer">
-                    <a href="contact.html#contact-form"  class="learn-more">Learn more <span class="arrow-icon">→</span></a>
+                <div class="feature-item">
+                    <i class="fas fa-puzzle-piece feature-icon"></i>
+                    <h3>Customizable Solutions</h3>
+                    <p>Adaptable systems to match your unique business processes and objectives.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="workflow-section">
-        <h2 class="section-title">Our Approach</h2>
-        <div class="step-card fade-in">
-            <div class="step-number">1</div>
-            <div>
-                <h3>Discovery & Analysis</h3>
-                <p>We analyze your current processes, identify inefficiencies, and determine the best automation opportunities for your business.</p>
-            </div>
-        </div>
-        <div class="step-card fade-in delay-1">
-            <div class="step-number">2</div>
-            <div>
-                <h3>Solution Design</h3>
-                <p>Our experts design a custom automation solution tailored to your specific business needs using Sage and Zoho platforms.</p>
-            </div>
-        </div>
-        <div class="step-card fade-in delay-2">
-            <div class="step-number">3</div>
-            <div>
-                <h3>Implementation</h3>
-                <p>We implement the solution with minimal disruption to your operations, ensuring seamless integration with your existing systems.</p>
-            </div>
-        </div>
-        <div class="step-card fade-in delay-3">
-            <div class="step-number">4</div>
-            <div>
-                <h3>Training & Support</h3>
-                <p>We provide comprehensive training and ongoing support to ensure your team gets the most out of your new automation system.</p>
-            </div>
-        </div>
-    </section>
-
-    <section class="services-container">
-        <h2 class="section-title">Technologies We Work With</h2>
-        <div class="badges-container">
-            <div class="badge">
-                <img src="assets/images/50.png" alt="Sage 50" class="badge-icon">
-                <span class="badge-text">Sage 50</span>
-            </div>
-            <div class="badge">
-                <img src="assets/images/200.png" alt="Sage 200" class="badge-icon">
-                <span class="badge-text">Sage 200</span>
-            </div>
-            <div class="badge">
-                <img src="assets/images/crm.png" alt="Zoho CRM" class="badge-icon">
-                <span class="badge-text">Zoho CRM</span>
-            </div>
-            <div class="badge">
-                <img src="assets/images/books.png" alt="Zoho Books" class="badge-icon">
-                <span class="badge-text">Zoho Books</span>
-            </div>
-            <div class="badge">
-                <img src="assets/images/desk.png" alt="Zoho Desk" class="badge-icon">
-                <span class="badge-text">Zoho Desk</span>
-            </div>
-            <div class="badge">
-                <img src="assets/images/api.png" alt="API" class="badge-icon">
-                <span class="badge-text">API Integration</span>
-            </div>
-        </div>
-
-        <div class="accordion">
-            <div class="accordion-item">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    What kind of businesses can benefit from automation? <span>+</span>
-                </div>
-                <div class="accordion-content">
-                    <p>Businesses of all sizes and across industries can benefit from our automation solutions. Whether you're a small retail business, a growing manufacturing company, or a large professional services firm, automation can help streamline your operations, reduce costs, and improve efficiency.</p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    How long does implementation typically take? <span>+</span>
-                </div>
-                <div class="accordion-content">
-                    <p>Implementation timelines vary depending on the complexity of your needs and the scope of the project. Simple automations can be deployed in 2-4 weeks, while more complex, enterprise-wide solutions may take 2-3 months. During our initial consultation, we'll provide you with a detailed timeline specific to your project.</p>
-                </div>
-            </div>
-            <div class="accordion-item">
-                <div class="accordion-header" onclick="toggleAccordion(this)">
-                    Can you integrate with our existing systems? <span>+</span>
-                </div>
-                <div class="accordion-content">
-                    <p>Yes! One of our specialties is integrating with existing business systems. We have extensive experience connecting Sage and Zoho with a wide range of third-party applications, databases, and legacy systems. During our discovery phase, we'll evaluate your current tech stack and design integrations that ensure smooth data flow between all your business systems.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Ready to Transform Your Business?</h2>
-            <p>Get in touch with our automation experts today and discover how we can help streamline your operations.</p>
-            
-            <div class="contact-form">
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name" class="form-label">Full Name</label>
-                        <input type="text" id="name" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="company" class="form-label">Company Name</label>
-                        <input type="text" id="company" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea id="message" class="form-control" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Get Started</button>
-                </form>
-            </div>
-        </div>
-    </section>
-
+  
      <!-- How It Works Section -->
 <section id="how-it-works" class="process-section">
     <div class="container">
@@ -981,108 +180,351 @@
         </div>
     </div>
 </section>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-column">
-                <h3>Damigo Automation</h3>
-                <p>Transforming businesses through intelligent automation solutions using Sage and Zoho platforms.</p>
-            </div>
-            <div class="footer-column">
-                <h3>Services</h3>
-                <ul class="footer-links">
-                    <li><a href="#">Sage Automation</a></li>
-                    <li><a href="#">Zoho Automation</a></li>
-                    <li><a href="#">Systems Integration</a></li>
-                    <li><a href="#">Business Intelligence</a></li>
-                    <li><a href="#">Training & Support</a></li>
+    
+     <!-- Client Advisory Section - Add this before the CTA Section -->
+<section class="client-advisory">
+    <div class="container">
+        <div class="advisory-header">
+            <h2>Client Advisory</h2>
+            <p>We provide expert guidance to help you get the most out of your automation solutions.</p>
+        </div>
+        
+        <div class="advisory-grid">
+            <div class="advisory-card">
+                <div class="advisory-icon">
+                    <i class="fas fa-clipboard-check"></i>
+                </div>
+                <h3>Smart Implementation</h3>
+                <ul class="advisory-list">
+                    <li>We help set up your systems for smooth and efficient operations.</li>
+                    <li>Ensure your business follows the latest security and compliance rules.</li>
+                    <li>Plan for future growth so your systems don’t slow you down.</li>
+                    <li>Make transitions easy by guiding your team through changes.</li>
                 </ul>
             </div>
-            <div class="footer-column">
-                <h3>Company</h3>
+            
+            <div class="advisory-card">
+                <div class="advisory-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <h3>Boosting Performance</h3>
+                <ul class="advisory-list">
+                    <li>We regularly check your systems and give reports on how they’re doing.</li>
+                    <li>Help you track key business results to measure success.</li>
+                    <li>Improve workflows using real data and insights.</li>
+                    <li>Find ways to increase profits and reduce waste.</li>
+                </ul>
+            </div>
+            
+            <div class="advisory-card">
+                <div class="advisory-icon">
+                    <i class="fas fa-lightbulb"></i>
+                </div>
+                <h3>Innovation & Strategy</h3>
+                <ul class="advisory-list">
+                    <li>Guide you in using new and advanced technology.</li>
+                    <li>Help you stay ahead of competitors with smart strategies.</li>
+                    <li>Run workshops to help your team think outside the box.</li>
+                    <li>Design unique solutions for business challenges.</li>
+                </ul>
+            </div>
+            
+            <div class="advisory-card">
+                <div class="advisory-icon">
+                    <i class="fas fa-users-cog"></i>
+                </div>
+                <h3>Team Training & Support</h3>
+                <ul class="advisory-list">
+                    <li>Provide easy-to-follow training for different team members.</li>
+                    <li>Equip leaders with skills to drive digital growth.</li>
+                    <li>Identify and improve areas where your team needs more knowledge.</li>
+                    <li>Ensure your staff can confidently use new systems without outside help.</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="testimonial-link">
+            <p>Want to hear from our satisfied clients? <a href="testimonials.html" title="Read our client testimonials">Read their success stories here</a>.</p>
+        </div>
+        
+    </div>
+</section>
+
+
+
+   <!-- Quote Form Modal -->
+<div id="quote-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        
+        <!-- Step 1: Business Type -->
+        <div class="form-step" id="step1">
+            <h2>Get Your Quote</h2>
+            <p>Step 1 of 3</p>
+            <div class="progress-bar">
+                <div class="progress" style="width: 33%"></div>
+            </div>
+
+            <div class="step-indicator">
+    <div class="step-dot"></div>
+    <div class="step-dot"></div>
+    <div class="step-dot"></div>
+    <div class="step-dot"></div>
+   </div>
+            
+            <div class="form-group">
+                <label for="business-type">What does your business do?</label>
+                <textarea id="business-type" rows="4" placeholder="Describe your business activities and industry..."></textarea>
+            </div>
+            
+            <div class="form-nav">
+                <button class="next-btn" data-next="step2">Next</button>
+            </div>
+        </div>
+        
+        <!-- Step 2: Problem to Solve -->
+        <div class="form-step" id="step2">
+            <h2>Get Your Quote</h2>
+            <p>Step 2 of 3</p>
+            <div class="progress-bar">
+                <div class="progress" style="width: 66%"></div>
+            </div>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="problem">What problem would you like to solve?</label>
+                <textarea id="problem" rows="4" placeholder="Describe the challenges or inefficiencies you're facing..."></textarea>
+            </div>
+            
+            <div class="form-nav">
+                <button class="back-btn" data-prev="step1">Back</button>
+                <button class="next-btn" data-next="step3">Next</button>
+            </div>
+        </div>
+        
+        <!-- Step 3: Users Count -->
+        <div class="form-step" id="step3">
+            <h2>Get Your Quote</h2>
+            <p>Step 3 of 3</p>
+            <div class="progress-bar">
+                <div class="progress" style="width: 100%"></div>
+            </div>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="users">How many users would you like the system to handle?</label>
+                <select id="users">
+                    <option value="">Please select</option>
+                    <option value="1-5">1-5 users</option>
+                    <option value="6-10">6-10 users</option>
+                    <option value="11-25">11-25 users</option>
+                    <option value="26-50">26-50 users</option>
+                    <option value="51-100">51-100 users</option>
+                    <option value="100+">More than 100 users</option>
+                </select>
+            </div>
+            
+            <div class="form-nav">
+                <button class="back-btn" data-prev="step2">Back</button>
+                <button class="submit-btn" id="submit-requirements">Submit</button>
+            </div>
+        </div>
+        
+        <!-- Contact Information Step -->
+        <div class="form-step" id="contact-step">
+            <h2>Almost Done!</h2>
+            <p>Please provide your contact information</p>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="your@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Contact Number</label>
+                <input type="tel" id="phone" placeholder="Your phone number">
+            </div>
+            
+            <div class="form-nav">
+                <button class="back-btn" data-prev="step3">Back</button>
+                <button class="submit-btn" id="final-submit">Submit</button>
+            </div>
+        </div>
+        
+        <!-- Success Message -->
+        <div class="form-step" id="success-step">
+            <div class="success-message">
+                <div class="success-icon">✓</div>
+                <h2>Thank You!</h2>
+                <p>Your quote request has been submitted successfully. Damigo Automation Ltd will respond within 48 hours.</p>
+                <button class="close-modal-btn">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Benefits Section -->
+<section class="benefits-section">
+    <div class="container">
+        <h2 class="section-title">Benefits of Working with Damigo</h2>
+        <div class="section-title-underline"></div>
+        <p class="section-subtitle">Why our clients choose us for their automation needs</p>
+        
+        <div class="benefits-grid">
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <h3>Efficiency Gains</h3>
+                <p>Up to <span class="highlight">30% reduction</span> in manual data entry and process delays</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-coins"></i>
+                </div>
+                <h3>Cost Savings</h3>
+                <p>Reduce operational costs by <span class="highlight">15-40%</span> within the first year</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                <h3>Improved Decision-Making</h3>
+                <p>Real-time analytics for better business insights and strategic planning</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-expand-arrows-alt"></i>
+                </div>
+                <h3>Scalability</h3>
+                <p>Solutions that grow with your business needs and adapt to changing requirements</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <h3>Dedicated Support</h3>
+                <p>Comprehensive training and ongoing assistance for your team</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon">
+                    <i class="fas fa-plug"></i>
+                </div>
+                <h3>Integration Expertise</h3>
+                <p>Seamless connection between all your business tools and platforms</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+ 
+
+<!-- Call to Action Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to Automate Your Business?</h2>
+            <p>Book a Consultation today and get a <span class="highlight">free 30-minute automation strategy session!</span></p>
+            <div class="cta-buttons"> 
+                <a href="#contact" class="btn btn-primary"><span>Book a Consultation</span></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+   
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo-section">
+                
+                <h3 class="centered-title">Certifications</h3>
+                <!-- Logo removed as requested -->
+                <div class="certification-badges">
+                    <img src="assets/images/zoho.jpg" alt="Zoho Authorized Partner" class="partner-badgee">
+                    <img src="assets/images/SageAccounting_Adviser-Certification-Badge.png" alt="Sage Certified Adviser" class="partner-badge">
+                </div>
+            </div>
+            
+            <div class="footer-links-section">
+                <h3 class="centered-title">Quick Links</h3>
                 <ul class="footer-links">
-                    <li><a href="index.html">About Us</a></li> 
-                    <li><a href="zoho.html">Home</a></li>
-                    <li><a href="sage.html">Contact</a></li> 
-                    <li><a href="testimonial.html">Testimonials</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="zoho.html">Zoho</a></li>
+                    <li><a href="sage.html">Sage</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-            <div class="footer-column">
-                <h3>Contact Us</h3>
-                <ul class="contact-info">
-                    <li><span class="contact-icon">📱</span> ----------</li>
-                    <li><span class="contact-icon">✉️</span> info@dmg.com</li>
-                    <li><span class="contact-icon">📍</span> 44th Floor Delta Corner Annex, Westlandsi</li>
-                </ul>
+            
+            <div class="footer-contact-section">
+                <h3>Get In Touch</h3>
+                <div class="contact-buttons">
+                    <a href="tel:+254722325104" class="contact-button phone-button">
+                        <span class="button-icon icon-phone"></span>
+                        <span class="button-text">+254722325104</span>
+                    </a>
+                    <a href="mailto:info@dmg.co.ke" class="contact-button email-button">
+                        <span class="button-icon icon-email"></span>
+                        <span class="button-text">info@dmg.co.ke</span>
+                    </a>
+                </div>
             </div>
         </div>
-        <div class="copyright">
-            <p>&copy; 2025 Damigo Automation Ltd. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
-            document.getElementById('navLinks').classList.toggle('active');
-        });
-
-        // Accordion functionality
-        function toggleAccordion(element) {
-            const content = element.nextElementSibling;
-            const isActive = content.classList.contains('active');
-            
-            // Close all accordion items
-            document.querySelectorAll('.accordion-content').forEach(item => {
-                item.classList.remove('active');
-            });
-            
-            document.querySelectorAll('.accordion-header span').forEach(span => {
-                span.textContent = '+';
-            });
-            
-            // Open clicked item if it wasn't already open
-            if (!isActive) {
-                content.classList.add('active');
-                element.querySelector('span').textContent = '-';
-            }
-        }
-
-        // Form submission handling
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Get form values
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            const company = document.getElementById('company').value;
-            const message = document.getElementById('message').value;
-            
-            // Here you would typically send this data to a server
-            // For now, just show an alert
-            alert('Thank you for your message, ' + name + '! We will contact you shortly.');
-            
-            // Reset the form
-            this.reset();
-        });
         
-        // Add animation for elements when they come into view
-        document.addEventListener('DOMContentLoaded', function() {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('fade-in');
-                    }
-                });
-            }, {
-                threshold: 0.1
-            });
-            
-            document.querySelectorAll('.service-card, .step-card, .badge').forEach(element => {
-                observer.observe(element);
-            });
-        });
-    </script>
+        <!-- Social media section moved here, below the main sections -->
+        <div class="social-media-section">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#" class="social-icon icon-facebook" aria-label="Facebook"></a>
+                <a href="#" class="social-icon icon-twitter" aria-label="Twitter"></a>
+                <a href="#" class="social-icon icon-linkedin" aria-label="LinkedIn"></a>
+                <a href="#" class="social-icon icon-instagram" aria-label="Instagram"></a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="location">
+                <span class="icon icon-location"></span>
+                <span>4th Floor Delta Corner Annex, Westlands</span>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Damigo Automation Ltd. All rights reserved.</p>
+            </div>
+            <div class="footer-links-bottom">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+ 
+    <!-- Main Content would go here -->
+    <main>
+        <!-- Your main content here -->
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script src="services.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>
