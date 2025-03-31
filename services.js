@@ -1,113 +1,121 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // Tab functionality for partners section
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabPanes = document.querySelectorAll('.tab-pane');
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Remove active class from all buttons and panes
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabPanes.forEach(pane => pane.classList.remove('active'));
-            
-            // Add active class to current button
-            this.classList.add('active');
-            
-            // Show corresponding tab pane
-            const tabId = this.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
-        });
-    });
-    
-    // Animation for timeline items
-    const timelineItems = document.querySelectorAll('.timeline-item');
-    
-    // Function to check if element is in viewport
-    function isElementInViewport(el) {
-        const rect = el.getBoundingClientRect();
-        return (
-            rect.top >= 0 &&
-            rect.left >= 0 &&
-            rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-            rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-        );
+document.addEventListener("DOMContentLoaded", function() {
+    // Loader Animation
+    const loader = document.getElementById('loader-wrapper');
+    if (loader) {
+        setTimeout(function() {
+            loader.classList.add('loaded');
+            setTimeout(function() {
+                loader.remove();
+            }, 500);
+        }, 1500);
     }
-    
-    // Function to handle scroll animation
-    function handleScroll() {
-        timelineItems.forEach(item => {
-            if (isElementInViewport(item)) {
-                item.classList.add('show');
+
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    const header = document.querySelector('header');
+    if (menuToggle && header) {
+        menuToggle.addEventListener('click', function() {
+            header.classList.toggle('nav-open');
+        });
+    }
+
+    // Dropdown Menu Toggle for Mobile
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        const link = dropdown.querySelector('a');
+        if (link) {
+            link.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                    dropdowns.forEach(otherDropdown => {
+                        if (otherDropdown !== dropdown) {
+                            otherDropdown.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        }
+    });
+
+    // Highlight Active Navigation Link
+    const navLinks = document.querySelectorAll('.nav-links a');
+    if (navLinks.length > 0) {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            const linkPath = link.getAttribute('href');
+            if (window.location.pathname.endsWith(linkPath) || (window.location.pathname === '/' && linkPath === 'index.html')) {
+                link.classList.add('active');
             }
         });
     }
-    
-    // Initial check on page load
-    handleScroll();
-    
-    // Check on scroll
-    window.addEventListener('scroll', handleScroll);
-    
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            e.preventDefault();
-            
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop - 100,
-                    behavior: 'smooth'
+
+    // Initialize AOS (Animation on Scroll)
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 300,
+            easing: 'ease-in-out',
+            once: true
+        });
+    } else {
+        console.warn("AOS library not loaded.");
+    }
+
+    // Service Info Toggle on Touch Devices
+    const serviceIcons = document.querySelectorAll('.service-info .icon');
+    serviceIcons.forEach(icon => {
+        icon.addEventListener('click', function(event) {
+            event.stopPropagation();
+            const serviceInfo = this.closest('.service-info');
+            if (serviceInfo) {
+                document.querySelectorAll('.service-info.active').forEach(info => {
+                    if (info !== serviceInfo) {
+                        info.classList.remove('active');
+                    }
                 });
+                serviceInfo.classList.toggle('active');
             }
         });
     });
-    
-    // Hero image hover effect enhancement
-    const heroImage = document.querySelector('.hero-image');
-    if (heroImage) {
-        heroImage.addEventListener('mousemove', function(e) {
-            const xPos = (e.clientX / window.innerWidth) - 0.5;
-            const yPos = (e.clientY / window.innerHeight) - 0.5;
-            
-            const image = this.querySelector('.main-image');
-            image.style.transform = `translateY(-8px) rotateX(${yPos * 10}deg) rotateY(${xPos * -10}deg)`;
+
+    // Quote Modal Toggle
+    const quoteBtn = document.getElementById('quoteBtn');
+    const quoteModal = document.getElementById('quoteModal');
+    const closeBtn = document.querySelector('.close');
+    const closeModalBtn = document.getElementById('closeModal');
+
+    function closeModal() {
+        if (quoteModal) {
+            quoteModal.classList.remove('show');
+            document.body.style.overflow = '';
+        }
+    }
+
+    if (quoteBtn && quoteModal && closeBtn && closeModalBtn) {
+        quoteBtn.addEventListener('click', function() {
+            quoteModal.classList.add('show');
+            document.body.style.overflow = 'hidden';
+            document.getElementById('step1')?.classList.add('active');
         });
-        
-        heroImage.addEventListener('mouseleave', function() {
-            const image = this.querySelector('.main-image');
-            image.style.transform = '';
+
+        closeBtn.addEventListener('click', closeModal);
+        closeModalBtn.addEventListener('click', closeModal);
+    }
+
+    // Email Validation Function
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+
+    // Contact Form Submission (Example)
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(event) {
+            const emailInput = document.getElementById('email');
+            if (emailInput && !isValidEmail(emailInput.value)) {
+                event.preventDefault();
+                alert('Please enter a valid email address.');
+            }
         });
     }
-    
-    // Service cards hover effect enhancement
-    const serviceCards = document.querySelectorAll('.service-card');
-    serviceCards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            this.style.transform = 'translateY(-10px) scale(1.02)';
-        });
-        
-        card.addEventListener('mouseleave', function() {
-            this.style.transform = '';
-        });
-    });
-    
-    // Add floating effect to CTA buttons
-    function floatAnimation() {
-        const ctaButtons = document.querySelectorAll('.btn-primary, .cta-button');
-        ctaButtons.forEach(button => {
-            setTimeout(() => {
-                button.style.transform = 'translateY(-5px)';
-                setTimeout(() => {
-                    button.style.transform = 'translateY(0)';
-                }, 500);
-            }, Math.random() * 2000);
-        });
-    }
-    
-    // Start floating animation and repeat every 4 seconds
-    floatAnimation();
-    setInterval(floatAnimation, 4000);
 });

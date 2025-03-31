@@ -898,8 +898,7 @@ nav {
     font-weight: 600;
     transition: all 0.3s ease;
     box-shadow: 0 5px 15px rgba(0, 166, 81, 0.3);
-    text-decoration: none;
-    display: inline-block;
+    text-decoration: none; 
 }
 
 .cta-button:hover {
