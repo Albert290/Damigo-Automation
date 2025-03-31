@@ -1,791 +1,563 @@
- 
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - Damigo Automation</title>
-    <link rel="stylesheet" href="styles/main.css">
-    <style>
-        :root {
-            --primary-red: #e74c3c;
-            --primary-yellow: #f1c40f;
-            --primary-green: #2ecc71;
-            --primary-blue: #3498db;
-            --dark-blue: #2980b9;
-            --text-dark: #2c3e50;
-            --text-light: #ecf0f1;
-            --bg-light: #f9f9f9;
-            --bg-white: #ffffff;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --transition: all 0.3s ease;
-        }
+    <title>Automation Company</title>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css"> 
+    <!-- Font Awesome for hamburger menu icon -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+        <div class="loader"></div>
+    </div>
 
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <!-- Logo Section -->
+            <div class="logo">
+                <!-- Replace with your actual logo image path -->
+                <a href="index.html"><img src="assets/images/new logo.jpg" alt="Company Logo"></a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <!-- Navigation Links -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="testimonial.html">Portfolio</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="faq.html">Faq</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Call to Action Button -->
+            <div class="cta-button">
+                <a href="#ttt" class="btn btn-primary">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <style>
+        /* Global Styles */
+        :root {
+            --damigo-red: #e63946;
+            --damigo-yellow: #ffb703;
+            --damigo-green: #2a9d8f;
+            --damigo-blue: #457b9d;
+            --damigo-dark: #1d3557;
+            --damigo-light: #f1faee;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-
+        
         body {
-            color: var(--text-dark);
+            background-color: var(--damigo-light);
+            color: #333;
             line-height: 1.6;
-            background-color: var(--bg-light);
         }
-
-        .hero {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-            color: var(--text-light);
-            text-align: center;
-            padding: 80px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
+        
+        .container {
             width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            z-index: 0;
-        }
-
-        .hero h1, .hero p {
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .section-container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 60px 20px;
+            padding: 0 20px;
         }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 40px;
-            margin-bottom: 50px;
+        
+        /* Contact Section Styles */
+        .contact-section {
+            padding: 40px 0;
         }
-
-        .contact-info-card {
-            background: var(--bg-white);
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            padding: 30px;
-            height: 100%;
-        }
-
-        .contact-info-card h3 {
-            color: var(--primary-blue);
-            margin-bottom: 25px;
-            font-size: 1.5rem;
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--damigo-dark);
             position: relative;
         }
-
-        .contact-info-card h3::after {
+        
+        .section-title::after {
             content: '';
             position: absolute;
+            width: 80px;
+            height: 4px;
+            background: var(--damigo-red);
             bottom: -10px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-yellow);
+            left: 50%;
+            transform: translateX(-50%);
         }
-
-        .contact-method {
+        
+        /* Hero Map Section */
+        .hero-map {
+            width: 100%;
+            height: 400px;
+            margin-bottom: 60px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Contact Info Section */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .contact-info {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-info h3 {
+            color: var(--damigo-blue);
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+        
+        .info-item {
+            display: flex;
             margin-bottom: 20px;
         }
-
-        .contact-method h4 {
-            display: flex;
-            align-items: center;
-            margin-bottom: 8px;
-            color: var(--primary-green);
-        }
-
-        .contact-icon {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-
-        .contact-method p {
-            padding-left: 30px;
-        }
-
-        .contact-method a {
-            color: var(--text-dark);
-            text-decoration: none;
-            transition: var(--transition);
-        }
-
-        .contact-method a:hover {
-            color: var(--primary-red);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 15px;
-            margin-top: 25px;
-        }
-
-        .social-button {
+        
+        .info-item i {
+            width: 40px;
+            height: 40px;
+            background-color: var(--damigo-green);
+            color: white;
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--primary-blue);
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            transition: var(--transition);
+            margin-right: 15px;
         }
-
-        .social-button:nth-child(2) {
-            background: var(--primary-red);
+        
+        .info-item .content h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: var(--damigo-dark);
         }
-
-        .social-button:nth-child(3) {
-            background: var(--primary-yellow);
-            color: var(--text-dark);
+        
+        .info-item .content p {
+            color: #666;
         }
-
-        .social-button:nth-child(4) {
-            background: var(--primary-green);
-        }
-
-        .social-button:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow);
-        }
-
+        
+        /* Contact Form */
         .contact-form {
-            background: var(--bg-white);
-            border-radius: 10px;
-            box-shadow: var(--shadow);
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
             padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
-
+        
         .contact-form h3 {
-            color: var(--primary-blue);
-            margin-bottom: 25px;
-            font-size: 1.5rem;
-            position: relative;
+            color: var(--damigo-blue);
+            margin-bottom: 20px;
+            font-size: 24px;
         }
-
-        .contact-form h3::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: var(--primary-yellow);
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
+        
         .form-group {
             margin-bottom: 20px;
         }
-
+        
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            font-weight: 500;
+            font-weight: 600;
+            color: var(--damigo-dark);
         }
-
+        
         .form-control {
             width: 100%;
-            padding: 12px 15px;
+            padding: 12px;
             border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-            transition: var(--transition);
+            border-radius: 4px;
+            font-size: 16px;
+            transition: all 0.3s ease;
         }
-
+        
         .form-control:focus {
+            border-color: var(--damigo-blue);
             outline: none;
-            border-color: var(--primary-blue);
-            box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+            box-shadow: 0 0 0 2px rgba(69, 123, 157, 0.2);
         }
-
+        
         textarea.form-control {
             resize: vertical;
             min-height: 120px;
         }
-
+        
         .submit-btn {
-            background: var(--primary-green);
+            background-color: var(--damigo-red);
             color: white;
             border: none;
-            padding: 14px 25px;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-size: 16px;
             font-weight: 600;
-            transition: var(--transition);
+            cursor: pointer;
+            transition: all 0.3s ease;
             display: inline-block;
-            text-decoration: none;
         }
-
+        
         .submit-btn:hover {
-            background: #27ae60;
+            background-color: #c1272d;
             transform: translateY(-2px);
-            box-shadow: var(--shadow);
         }
-
-        .map-container {
-            width: 100%;
-            height: 400px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
+        
+        /* Social Media Icons */
+        .social-media {
+            margin-top: 30px;
         }
-
-        .map-container iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            font-size: 2rem;
-            color: var(--primary-blue);
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 3px;
-            background-color: var(--primary-yellow);
-        }
-
-        .faq-container {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .faq-item {
+        
+        .social-media h4 {
             margin-bottom: 15px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            background: var(--bg-white);
+            color: var(--damigo-dark);
         }
-
-        .faq-question {
+        
+        .social-icons {
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background: white;
-            cursor: pointer;
-            font-weight: 600;
-            transition: var(--transition);
+            gap: 15px;
         }
-
-        .faq-question:hover {
-            background: #f8f9fa;
-        }
-
-        .faq-toggle {
-            transition: var(--transition);
-            font-size: 0.8rem;
-        }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: var(--transition);
-        }
-
-        .faq-answer-content {
-            padding: 0 20px 20px 20px;
-            color: #666;
-        }
-
-        .faq-item.active .faq-toggle {
-            transform: rotate(180deg);
-        }
-
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-        }
-
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary-red) 0%, #d35400 100%);
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: var(--damigo-yellow);
             color: white;
-            text-align: center;
-            padding: 80px 20px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-            z-index: 0;
-        }
-
-        .cta-content {
-            position: relative;
-            z-index: 1;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-
-        .cta-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 15px;
-        }
-
-        .cta-content p {
-            margin-bottom: 30px;
-            font-size: 1.1rem;
-        }
-
-        .hero-cta {
-            display: inline-block;
-            background: var(--primary-yellow);
-            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-decoration: none;
-            padding: 14px 30px;
-            border-radius: 5px;
-            font-weight: 600;
-            transition: var(--transition);
+            transition: all 0.3s ease;
         }
-
-        .hero-cta:hover {
-            background: #f39c12;
+        
+        .social-icon:hover {
             transform: translateY(-3px);
-            box-shadow: var(--shadow);
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
         }
-
-        .fade-in {
-            animation: fadeIn 0.8s ease-in-out forwards;
-            opacity: 0;
+        
+        .social-icon.facebook {
+            background-color: var(--damigo-blue);
         }
-
-        .delay-1 {
-            animation-delay: 0.2s;
+        
+        .social-icon.twitter {
+            background-color: #1DA1F2;
         }
-
-        .delay-2 {
-            animation-delay: 0.4s;
+        
+        .social-icon.instagram {
+            background-color: var(--damigo-red);
         }
-
-        .delay-3 {
-            animation-delay: 0.6s;
+        
+        .social-icon.linkedin {
+            background-color: var(--damigo-blue);
         }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        
+        /* Success Message */
+        .success-message {
+            display: none;
+            background-color: var(--damigo-green);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 20px;
         }
-
-        /* Responsive Design */
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        .success-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+        
+        /* Responsive Styles */
         @media (max-width: 992px) {
-            .contact-grid {
-                grid-template-columns: 1fr;
+            .hero-map {
+                height: 350px;
             }
             
-            .hero h1 {
-                font-size: 3rem;
+            .contact-container {
+                flex-direction: column;
             }
         }
-
+        
         @media (max-width: 768px) {
-            .form-row {
-                grid-template-columns: 1fr;
-                gap: 0;
+            .hero-map {
+                height: 300px;
             }
             
-            .hero h1 {
-                font-size: 2.5rem;
+            .section-title {
+                font-size: 28px;
             }
             
-            .section-container {
-                padding: 40px 20px;
+            .info-item i {
+                width: 35px;
+                height: 35px;
             }
         }
-
+        
         @media (max-width: 576px) {
-            .hero h1 {
-                font-size: 2rem;
+            .hero-map {
+                height: 250px;
             }
             
-            .hero p {
-                font-size: 1rem;
+            .section-title {
+                font-size: 24px;
             }
             
-            .cta-content h2 {
-                font-size: 2rem;
+            .contact-info, .contact-form {
+                padding: 20px;
+            }
+            
+            .info-item {
+                flex-direction: column;
+            }
+            
+            .info-item i {
+                margin-bottom: 10px;
+                margin-right: 0;
             }
         }
     </style>
 </head>
 <body>
-<!-- Page Loader -->
-<div id="loader-wrapper">
-    <div class="loader"></div>
-</div>
-
-<!-- Header Section -->
-<header>
-    <div class="container">
-        <!-- Logo Section -->
-        <div class="logo">
-            <!-- Replace with your actual logo image path -->
-            <a href="index.html"><img src="assets/images/new logo.jpg" alt="Company Logo"></a>
-        </div>
-        
-        <!-- Mobile Menu Toggle -->
-        <div class="menu-toggle">
-            <i class="fas fa-bars"></i>
-        </div>
-        
-        <!-- Navigation Links -->
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li class="dropdown">
-                    <a href="#" id="services-link">Services <i class="fas fa-chevron-down"></i></a>
-                     <ul class="dropdown-content">
-                        
-                        <li><a href="zoho.html">Zoho</a></li>
-                        <li><a href="sage.html">Sage</a></li>
-                    </ul>
-                </li>
-                <li><a href="testimonial.html">Testimonials</a></li>
-                <li><a href="contact.html">Contact Us</a></li>
-            </ul>
-        </nav>
-        
-        <!-- Call to Action Button -->
-        <div class="cta-button">
-            <a href="" class="btn-quotee">Get a Quote</a>
-        </div>
-    </div>
-</header>
-
-    <section class="hero">
-        <h1 class="fade-in">Get in Touch</h1>
-        <p class="fade-in delay-1">Have questions or ready to start your automation journey? We're here to help!</p>
-    </section>
-
-    <section class="section-container">
-        <div class="contact-grid">
-            <div class="contact-info-card fade-in">
-                <h3>Contact Information</h3>
-                <div class="contact-method">
-                    <h4><span class="contact-icon">📱</span> Phone</h4>
-                    <p><a href="tel:+254722325104">+254 722 325104</a></p>
-                </div>
-                <div class="contact-method">
-                    <h4><span class="contact-icon">✉️</span> Email</h4>
-                    <p><a href="mailto:info@damigo.com">info@damigo.com</a></p>
-                </div>
-                <div class="contact-method">
-                    <h4><span class="contact-icon">📍</span> Address</h4>
-                    <p>4th floor Delta Corner<br>Westlands, Nairobi</p>
-                </div>
-                <div class="contact-method">
-                    <h4><span class="contact-icon">🕒</span> Business Hours</h4>
-                    <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-                    <p>Saturday: 9:00 AM - 1:00 PM</p>
-                    <p>Sunday: Closed</p>
-                </div>
-                <div class="social-links">
-                    <a href="#" class="social-button" aria-label="LinkedIn">in</a>
-                    <a href="#" class="social-button" aria-label="Facebook">f</a>
-                    <a href="#" class="social-button" aria-label="Twitter">🐦</a>
-                    <a href="#" class="social-button" aria-label="Instagram">ig</a>
-                </div>
-            </div>
-
-            <div class="contact-form fade-in delay-1">
-                <h3>Send Us a Message</h3>
-                <form id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">First Name*</label>
-                            <input type="text" id="firstName" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Last Name*</label>
-                            <input type="text" id="lastName" class="form-control" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email*</label>
-                        <input type="email" id="email" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="company">Company</label>
-                        <input type="text" id="company" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="subject">Subject*</label>
-                        <input type="text" id="subject" class="form-control" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message">Message*</label>
-                        <textarea id="message" class="form-control" required></textarea>
-                    </div>
-                    <button type="submit" class="submit-btn">Send Message</button>
-                </form>
-            </div>
-        </div>
-
-        <div class="map-container fade-in">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8176501594296!2d36.808398!3d-1.270447!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173c0a1d6b55%3A0xece02b88e32c2c56!2sDelta%20Corner%20Tower%2C%20Chiromo%20Ln%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1615482322079!5m2!1sen!2ske" allowfullscreen="" loading="lazy"></iframe>
-        </div>
-    </section>
-
+    <!-- Header would be here, already added with black background -->
     
-
-    <section class="cta-section">
-        <div class="cta-content">
-            <h2>Ready to Transform Your Business Operations?</h2>
-            <p>Schedule a free consultation with our automation experts to discover how we can help streamline your business processes.</p>
-            <a href="#contactForm" class="hero-cta fade-in">Schedule Consultation</a>
-        </div>
-    </section>
+    <main>
+        <section class="contact-section">
+            <div class="container">
+                <h2 class="section-title">Contact Us</h2>
+                
+                <!-- Hero Map Section -->
+                <div class="hero-map">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8176745010403!2d36.8088!3d-1.2686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173ff67f95fd%3A0xd1c7c573e24c8c29!2sWestlands%20Annex%20Plaza!5e0!3m2!1sen!2ske!4v1711912346321!5m2!1sen!2ske" 
+                        width="100%" 
+                        height="100%" 
+                        style="border:0;" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+                
+                <div class="contact-container">
+                    <!-- Contact Info -->
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="content">
+                                <h4>Location</h4>
+                                <p>4th floor Delta Corner Annex, Westlands/p>
+                                <p>Nairobi, Kenya</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-phone"></i>
+                            <div class="content">
+                                <h4>Call Us</h4>
+                                <p>+254 722 325 104</p>
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-envelope"></i>
+                            <div class="content">
+                                <h4>Email Us</h4>
+                                <p>info@dmg.com</p> 
+                            </div>
+                        </div>
+                        
+                        <div class="info-item">
+                            <i class="fas fa-clock"></i>
+                            <div class="content">
+                                <h4>Working Hours</h4>
+                                <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                                <p>Saturday: 9:00 AM - 1:00 PM</p>
+                            </div>
+                        </div>
+                        
+                        <div class="social-media">
+                            <h4>Connect With Us</h4>
+                            <div class="social-icons">
+                                <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div class="contact-form" id="contact-form">
+                        <h3>Send Message</h3>
+                        <form id="messageForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn">Send Message</button>
+                        </form>
+                        
+                        <div class="success-message" id="success-message">
+                            <div class="success-icon">✓</div>
+                            <h3>Thank You!</h3>
+                            <p>Your message has been sent successfully. We'll get back to you soon!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer would be here, already added with black background -->
+    
+   
 
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
-                <div class="footer-logo">
-                    <img src="assets/images/new logo.jpg" alt="Damigo Automation Ltd Logo">
+                <div class="footer-logo-section">
+                    
+                    <h3 class="centered-title">Certifications</h3>
+                    <!-- Logo removed as requested -->
+                    <div class="certification-badges">
+                        <img src="assets/images/zoho.jpg" alt="Zoho Authorized Partner" class="partner-badgee">
+                        <img src="assets/images/SageAccounting_Adviser-Certification-Badge.png" alt="Sage Certified Adviser" class="partner-badge">
+                    </div>
                 </div>
                 
-                <div class="footer-columns">
-                    <div class="footer-column">
-                        <h3>Contact Us</h3>
-                        <ul class="footer-contact">
-                            <li>
-                                <span class="icon icon-location"></span>
-                                4th Floor Delta Corner Annex, Westlands
-                            </li>
-                            <li>
-                                <span class="icon icon-phone"></span>
-                                <a href="tel:+254722325104">+254 722 325104</a>
-                            </li>
-                            <li>
-                                <span class="icon icon-email"></span>
-                                <a href="mailto:info@dmg.co.ke">info@dmg.co.ke</a>
-                            </li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>Quick Links</h3>
-                        <ul class="footer-links">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="zoho.html">Zoho</a></li>
-                            <li><a href="sage.html">Sage</a></li>
-                            <li><a href="testimonial.html">Testimonials</a></li>
-                        </ul>
-                    </div>
-                    
-                    <div class="footer-column">
-                        <h3>Follow Us</h3>
-                        <div class="social-icons">
-                            <a href="#" class="social-icon icon-facebook" aria-label="Facebook"></a>
-                            <a href="#" class="social-icon icon-twitter" aria-label="Twitter"></a>
-                            <a href="#" class="social-icon icon-linkedin" aria-label="LinkedIn"></a>
-                        </div>
+                <div class="footer-links-section">
+                    <h3 class="centered-title">Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li> 
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact-section">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-buttons">
+                        <a href="tel:+254722325104" class="contact-button phone-button">
+                            <span class="button-icon icon-phone"></span>
+                            <span class="button-text">+254722325104</span>
+                        </a>
+                        <a href="mailto:info@dmg.co.ke" class="contact-button email-button">
+                            <span class="button-icon icon-email"></span>
+                            <span class="button-text">info@dmg.co.ke</span>
+                        </a>
                     </div>
                 </div>
             </div>
             
+            <!-- Social media section moved here, below the main sections -->
+            <div class="social-media-section">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon icon-facebook" aria-label="Facebook"></a>
+                    <a href="#" class="social-icon icon-twitter" aria-label="Twitter"></a>
+                    <a href="#" class="social-icon icon-linkedin" aria-label="LinkedIn"></a>
+                    <a href="#" class="social-icon icon-instagram" aria-label="Instagram"></a>
+                </div>
+            </div>
+            
             <div class="footer-bottom">
+                <div class="location">
+                    <span class="icon icon-location"></span>
+                    <span>4th Floor Delta Corner Annex, Westlands</span>
+                </div>
                 <div class="copyright">
                     <p>&copy; 2025 Damigo Automation Ltd. All rights reserved.</p>
                 </div>
                 <div class="footer-links-bottom">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
                 </div>
             </div>
         </div>
     </footer>
      
-
-
     <script>
-        // Animation on scroll
         document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
+            const form = document.getElementById('messageForm');
+            const successMessage = document.getElementById('success-message');
+            const contactForm = document.getElementById('contact-form');
             
-            function checkFade() {
-                fadeElements.forEach(element => {
-                    const elementTop = element.getBoundingClientRect().top;
-                    const windowHeight = window.innerHeight;
-                    
-                    if (elementTop < windowHeight - 50) {
-                        element.style.animationPlayState = 'running';
-                    }
-                });
-            }
-            
-            // Initial check
-            checkFade();
-            
-            // Check on scroll
-            window.addEventListener('scroll', checkFade);
-            
-            // FAQ Accordion
-            const faqItems = document.querySelectorAll('.faq-item');
-            
-            faqItems.forEach(item => {
-                const question = item.querySelector('.faq-question');
-                
-                question.addEventListener('click', () => {
-                    const isActive = item.classList.contains('active');
-                    
-                    // Close all items
-                    faqItems.forEach(faq => {
-                        faq.classList.remove('active');
-                    });
-                    
-                    // Open clicked item if it wasn't active
-                    if (!isActive) {
-                        item.classList.add('active');
-                    }
-                });
-            });
-            
-            // Form validation and submission
-            const contactForm = document.getElementById('contactForm');
-            
-            contactForm.addEventListener('submit', function(e) {
+            form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Basic validation
-                const requiredFields = contactForm.querySelectorAll('[required]');
-                let isValid = true;
-                
-                requiredFields.forEach(field => {
-                    if (!field.value.trim()) {
-                        isValid = false;
-                        field.style.borderColor = 'var(--primary-red)';
-                    } else {
-                        field.style.borderColor = '';
-                    }
-                });
-                
-                if (isValid) {
-                    // Simulate form submission
-                    const submitBtn = contactForm.querySelector('.submit-btn');
-                    const originalText = submitBtn.textContent;
+                // Simulate form submission (would be replaced with actual AJAX in production)
+                setTimeout(function() {
+                    // Hide the form
+                    form.style.display = 'none';
                     
-                    submitBtn.textContent = 'Sending...';
-                    submitBtn.disabled = true;
+                    // Show success message
+                    successMessage.classList.add('show');
                     
-                    // Simulate API call
-                    setTimeout(() => {
-                        alert('Thank you for your message! We will get back to you soon.');
-                        contactForm.reset();
-                        submitBtn.textContent = originalText;
-                        submitBtn.disabled = false;
-                    }, 1500);
-                }
+                    // Reset form values
+                    form.reset();
+                    
+                    // After 5 seconds, hide success message and show form again
+                    setTimeout(function() {
+                        successMessage.classList.remove('show');
+                        form.style.display = 'block';
+                    }, 5000);
+                }, 1000);
             });
-            
-            // Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
-        
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 50,
-                behavior: 'smooth'
-            });
-        }
-    });
-});
-
-// Enhance form fields with focus effects
-const formFields = document.querySelectorAll('.form-control');
-
-formFields.forEach(field => {
-    field.addEventListener('focus', () => {
-        field.parentElement.classList.add('focused');
-    });
+        });
+    </script>
+        <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+        <script src="script.js"></script>
+        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     
-    field.addEventListener('blur', () => {
-        if (!field.value) {
-            field.parentElement.classList.remove('focused');
-        }
-    });
-});
-
-// Add hover effect for contact methods
-const contactMethods = document.querySelectorAll('.contact-method');
-
-contactMethods.forEach(method => {
-    method.addEventListener('mouseenter', () => {
-        method.style.transform = 'translateX(5px)';
-        method.style.transition = 'transform 0.3s ease';
-    });
     
-    method.addEventListener('mouseleave', () => {
-        method.style.transform = 'translateX(0)';
-    });
-});
-});
-</script>
-<script src="script.js"></script>
+ 
 </body>
 </html>

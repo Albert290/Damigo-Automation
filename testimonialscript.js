@@ -1,154 +1,221 @@
+// Testimonials Page JavaScript
+
+// Wait for the DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Mobile Navigation Toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('nav ul');
-    
-    if (hamburger) {
-        hamburger.addEventListener('click', function() {
-            navMenu.classList.toggle('show');
+    // Loader functionality
+    window.addEventListener('load', function() {
+        const loader = document.getElementById('loader-wrapper');
+        
+        // Add the 'loaded' class to fade out the loader
+        if (loader) {
+            setTimeout(function() {
+                loader.classList.add('loaded');
+            }, 500);
+
+            // Remove loader from DOM after animation completes
+            setTimeout(function() {
+                if (loader.parentNode) {
+                    loader.parentNode.removeChild(loader);
+                }
+            }, 1000);
+        }
+    });
+
+    // Mobile Menu Toggle
+    const menuToggle = document.querySelector('.menu-toggle');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function() {
+            document.body.classList.toggle('nav-open');
         });
     }
+
+    // Dropdown toggle for mobile
+    const dropdowns = document.querySelectorAll('.dropdown');
+    if (window.innerWidth <= 768) {
+        dropdowns.forEach(function(dropdown) {
+            const link = dropdown.querySelector('a');
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            });
+        });
+    }
+
+    // Logo Slider - Clone logos for infinite loop effect
+    setupLogoSlider();
     
-    // Testimonial Slider
-    const testimonialCards = document.querySelectorAll('.testimonial-card');
-    const dots = document.querySelectorAll('.dot');
-    const prevBtn = document.querySelector('.prev');
-    const nextBtn = document.querySelector('.next');
+    // Testimonials Slider
+    setupTestimonialsSlider();
+});
+
+// Function to set up the logo slider
+function setupLogoSlider() {
+    const logoSlider = document.querySelector('.logo-slider');
+    if (!logoSlider) return;
+    
+    // Clone the logo slides to create an infinite loop effect
+    const slides = logoSlider.querySelectorAll('.logo-slide');
+    
+    // Clone each slide and append to the slider
+    slides.forEach(function(slide) {
+        const clone = slide.cloneNode(true);
+        logoSlider.appendChild(clone);
+    });
+    
+    // Pause animation on hover
+    logoSlider.addEventListener('mouseenter', function() {
+        logoSlider.style.animationPlayState = 'paused';
+    });
+    
+    logoSlider.addEventListener('mouseleave', function() {
+        logoSlider.style.animationPlayState = 'running';
+    });
+}
+
+// Function to set up the testimonials slider
+function setupTestimonialsSlider() {
+    const slides = document.querySelectorAll('.testimonial-slide');
+    const prevBtn = document.querySelector('.testimonial-prev');
+    const nextBtn = document.querySelector('.testimonial-next');
+    
+    if (!slides.length || !prevBtn || !nextBtn) return;
     
     let currentSlide = 0;
     
-    // Hide all slides except the first one
-    function initSlider() {
-        testimonialCards.forEach((card, index) => {
-            if (index !== 0) {
-                card.style.display = 'none';
-            }
-        });
-    }
+    // Set first slide as active
+    slides[currentSlide].classList.add('active');
     
-    // Show the current slide
+    // Function to show a specific slide
     function showSlide(index) {
-        testimonialCards.forEach(card => {
-            card.style.display = 'none';
-        });
+        // Remove active class from all slides
+        slides.forEach(slide => slide.classList.remove('active'));
         
-        dots.forEach(dot => {
-            dot.classList.remove('active');
-        });
-        
-        testimonialCards[index].style.display = 'flex';
-        dots[index].classList.add('active');
+        // Add active class to current slide
+        slides[index].classList.add('active');
     }
     
-    // Previous slide
-    function prevSlide() {
-        currentSlide--;
-        if (currentSlide < 0) {
-            currentSlide = testimonialCards.length - 1;
-        }
+    // Previous button click handler
+    prevBtn.addEventListener('click', function() {
+        currentSlide = (currentSlide - 1 + slides.length) % slides.length;
         showSlide(currentSlide);
-    }
-    
-    // Next slide
-    function nextSlide() {
-        currentSlide++;
-        if (currentSlide >= testimonialCards.length) {
-            currentSlide = 0;
-        }
-        showSlide(currentSlide);
-    }
-    
-    // Auto slide
-    let slideInterval = setInterval(nextSlide, 5000);
-    
-    // Reset interval on manual navigation
-    function resetInterval() {
-        clearInterval(slideInterval);
-        slideInterval = setInterval(nextSlide, 5000);
-    }
-    
-    // Event listeners
-    if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-            prevSlide();
-            resetInterval();
-        });
-    }
-    
-    if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-            nextSlide();
-            resetInterval();
-        });
-    }
-    
-    // Add click events to dots
-    dots.forEach((dot, index) => {
-        dot.addEventListener('click', () => {
-            currentSlide = index;
-            showSlide(currentSlide);
-            resetInterval();
-        });
     });
     
-    // Initialize the slider
-    initSlider();
+    // Next button click handler
+    nextBtn.addEventListener('click', function() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    });
     
-    // Animate stats when in viewport
-    const statNumbers = document.querySelectorAll('.stat-card h3');
+    // Auto-advance slides every 5 seconds
+    let slideInterval = setInterval(function() {
+        currentSlide = (currentSlide + 1) % slides.length;
+        showSlide(currentSlide);
+    }, 5000);
     
-    // Animation function for counting up
-    function animateValue(element, start, end, duration) {
-        let startTimestamp = null;
-        const step = (timestamp) => {
-            if (!startTimestamp) startTimestamp = timestamp;
-            const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-            const value = Math.floor(progress * (end - start) + start);
-            
-            // Format the numbers appropriately
-            if (element.textContent.includes('%')) {
-                element.textContent = value + '%';
-            } else if (element.textContent.includes('+')) {
-                element.textContent = value + '+';
-            } else {
-                element.textContent = value;
-            }
-            
-            if (progress < 1) {
-                window.requestAnimationFrame(step);
-            }
-        };
-        window.requestAnimationFrame(step);
+    // Pause auto-advance on hover
+    const sliderContainer = document.querySelector('.testimonials-container');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', function() {
+            clearInterval(slideInterval);
+        });
+        
+        sliderContainer.addEventListener('mouseleave', function() {
+            slideInterval = setInterval(function() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }, 5000);
+        });
     }
     
-    // Intersection Observer for stats animation
+    // Handle touch events for mobile swipe
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    const slider = document.querySelector('.testimonials-slider');
+    if (slider) {
+        slider.addEventListener('touchstart', function(e) {
+            touchStartX = e.changedTouches[0].screenX;
+        }, false);
+        
+        slider.addEventListener('touchend', function(e) {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        }, false);
+    }
+    
+    function handleSwipe() {
+        if (touchEndX < touchStartX) {
+            // Swipe left, show next slide
+            currentSlide = (currentSlide + 1) % slides.length;
+            showSlide(currentSlide);
+        } else if (touchEndX > touchStartX) {
+            // Swipe right, show previous slide
+            currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+            showSlide(currentSlide);
+        }
+    }
+}
+
+// Add smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        const targetId = this.getAttribute('href');
+        if (targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            e.preventDefault();
+            window.scrollTo({
+                top: targetElement.offsetTop - 80, // Adjust for header height
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Animate elements when they come into view
+function animateOnScroll() {
+    const elements = document.querySelectorAll('.success-story, .certification-card');
+    
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                const element = entry.target;
-                const value = element.textContent;
-                let endValue;
-                
-                // Extract the numeric value
-                if (value.includes('+')) {
-                    endValue = parseInt(value);
-                } else if (value.includes('%')) {
-                    endValue = parseInt(value);
-                } else {
-                    endValue = parseInt(value);
-                }
-                
-                // Start the animation
-                animateValue(element, 0, endValue, 2000);
-                
-                // Unobserve after animation
-                observer.unobserve(element);
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.5 });
+    }, {
+        threshold: 0.1
+    });
     
-    // Observe all stat numbers
-    statNumbers.forEach(number => {
-        observer.observe(number);
+    elements.forEach(element => {
+        observer.observe(element);
+    });
+}
+
+// Call animation function after DOM is loaded
+if (window.IntersectionObserver) {
+    document.addEventListener('DOMContentLoaded', animateOnScroll);
+}
+
+// Add resize event listener to handle layout adjustments
+window.addEventListener('resize', function() {
+    // Re-initialize dropdown behavior on screen resize
+    const dropdowns = document.querySelectorAll('.dropdown');
+    
+    dropdowns.forEach(function(dropdown) {
+        const link = dropdown.querySelector('a');
+        
+        // Remove existing event listeners (simplified approach)
+        const newLink = link.cloneNode(true);
+        link.parentNode.replaceChild(newLink, link);
+        
+        // Add appropriate event listeners based on screen size
+        if (window.innerWidth <= 768) {
+            newLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                dropdown.classList.toggle('active');
+            });
+        }
     });
 });

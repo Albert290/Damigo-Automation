@@ -536,15 +536,12 @@ nav {
   
   .btn-primary {
     background-color: var(--primary-yellow);
-    color: var(--primary-black);
-    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    color: var(--primary-black); 
   }
   
   .btn-primary:hover {
     background-color: var(--primary-green);
-    color: var(--white);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 166, 81, 0.4);
+    color: var(--white); 
   }
   
   .btn-secondary {
@@ -555,9 +552,7 @@ nav {
   
   .btn-secondary:hover {
     background-color: var(--primary-yellow);
-    color: var(--primary-black);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3);
+    color: var(--primary-black); 
   }
   
   /* Hero Features Section */
