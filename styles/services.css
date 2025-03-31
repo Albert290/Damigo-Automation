@@ -885,24 +885,18 @@ nav {
     margin-top: 50px;
 }
 
-.cta-button {
-    background-color: var(--primary-green);
+.cta-button { 
     color: var(--white);
     border: none; 
     font-size: 1.1rem;
     border-radius: 5px;
     cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0, 166, 81, 0.3);
+    font-weight: 600; 
     text-decoration: none; 
 }
 
-.cta-button:hover {
-    background-color: var(--primary-yellow);
-    color: var(--primary-black);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+.cta-button:hover { 
+    color: var(--primary-black); 
 }
 
 /* ===== BENEFITS SECTION STYLES - ENHANCED ===== */
