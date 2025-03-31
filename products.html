@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Automation Company</title>
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/products.css">
+    <!-- Font Awesome for hamburger menu icon -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Page Loader -->
+    <div id="loader-wrapper">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <!-- Logo Section -->
+            <div class="logo">
+                <!-- Replace with your actual logo image path -->
+                <a href="index.html"><img src="assets/images/new logo.jpg" alt="Company Logo"></a>
+            </div>
+            
+            <!-- Mobile Menu Toggle -->
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <!-- Navigation Links -->
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="testimonial.html">Testimonials</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="faq.html">Faq</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Call to Action Button -->
+            <div class="cta-button">
+                <a href="#ttt" class="btn btn-primary">Get a Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Products Hero Section -->
+    <section class="products-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Zoho Products</h1>
+                <p>Streamline your business operations with powerful Zoho tools expertly implemented by Damigo Automation LTD.</p>
+                <div class="hero-cta">
+                    <a href="#zoho-products" class="btn-secondary">Explore Products</a>
+                 </div>
+            </div>
+            <div class="zoho-ecosystem">
+                <!-- Sales & Marketing -->
+                <div class="icon-bubble icon-crm" data-tooltip="Zoho CRM">
+                    <i class="fas fa-users"></i>
+                </div>
+                <div class="icon-bubble icon-campaigns" data-tooltip="Zoho Campaigns">
+                    <i class="fas fa-envelope-open-text"></i>
+                </div>
+                <div class="icon-bubble icon-social" data-tooltip="Zoho Social">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <div class="icon-bubble icon-salesiq" data-tooltip="Zoho SalesIQ">
+                    <i class="fas fa-comments"></i>
+                </div>
+
+                <!-- Finance -->
+                <div class="icon-bubble icon-books" data-tooltip="Zoho Books">
+                    <i class="fas fa-book"></i>
+                </div>
+                <div class="icon-bubble icon-invoice" data-tooltip="Zoho Invoice">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                </div>
+                <div class="icon-bubble icon-expense" data-tooltip="Zoho Expense">
+                    <i class="fas fa-receipt"></i>
+                </div>
+
+                <!-- Workplace -->
+                <div class="icon-bubble icon-mail" data-tooltip="Zoho Mail">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <div class="icon-bubble icon-writer" data-tooltip="Zoho Writer">
+                    <i class="fas fa-file-alt"></i>
+                </div>
+                <div class="icon-bubble icon-meeting" data-tooltip="Zoho Meeting">
+                    <i class="fas fa-video"></i>
+                </div>
+
+                <!-- HR -->
+                <div class="icon-bubble icon-people" data-tooltip="Zoho People">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <div class="icon-bubble icon-recruit" data-tooltip="Zoho Recruit">
+                    <i class="fas fa-user-plus"></i>
+                </div>
+
+                <!-- Analytics -->
+                <div class="icon-bubble icon-analytics" data-tooltip="Zoho Analytics">
+                    <i class="fas fa-chart-pie"></i>
+                </div>
+                
+                <!-- Central Zoho logo -->
+                <div class="zoho-central">
+                    <span>ZOHO</span>
+                </div>
+            </div>
+        </div> 
+    </section>
+
+
+    <!-- Products Section -->
+<section class="products-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Our Zoho <span>Products</span></h2>
+            <p>Comprehensive tools to power your business automation</p>
+        </div>
+
+        <!-- Category Navigation -->
+        <div class="category-tabs">
+            <button class="category-tab active" data-category="sales">Sales & Marketing</button>
+            <button class="category-tab" data-category="finance">Finance</button>
+            <button class="category-tab" data-category="workplace">Workplace & Email</button>
+            <button class="category-tab" data-category="hr">Human Resources</button>
+            <button class="category-tab" data-category="analytics">BI & Analytics</button>
+        </div>
+
+        <!-- Products Grid -->
+        <div id="zoho-products" class="products-container">
+            <!-- Sales & Marketing Products -->
+            <div class="products-grid active" id="sales-products">
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Zoho CRM</h3>
+                    <p>Customer relationship management solution for sales, marketing, and customer service.</p> 
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <h3>Zoho Campaigns</h3>
+                    <p>Email marketing automation tool for creating, sending, and tracking campaigns.</p> 
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-share-alt"></i>
+                    </div>
+                    <h3>Zoho Social</h3>
+                    <p>Platform to manage and analyze your brand's presence across social media channels.</p> 
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-poll"></i>
+                    </div>
+                    <h3>Zoho Survey</h3>
+                    <p>Tool for creating surveys to collect customer feedback and insights.</p> 
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-comment-dots"></i>
+                    </div>
+                    <h3>Zoho SalesIQ</h3>
+                    <p>Live chat and analytics platform to engage with website visitors.</p> 
+                </div>
+            </div>
+
+            <!-- Finance Products -->
+            <div class="products-grid" id="finance-products">
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Zoho Books</h3>
+                    <p>Online accounting software for managing finances, invoicing, and expense tracking.</p> 
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                    </div>
+                    <h3>Zoho Invoice</h3>
+                    <p>Tool for creating and sending professional invoices and tracking payments.</p> 
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-receipt"></i>
+                    </div>
+                    <h3>Zoho Expense</h3>
+                    <p>Expense reporting software to record and manage business expenses.</p> 
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                    <h3>Zoho Inventory</h3>
+                    <p>Inventory management software for tracking stock levels and orders.</p> 
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                    <h3>Zoho Subscriptions</h3>
+                    <p>Platform to manage recurring billing and subscriptions.</p> 
+                </div>
+            </div>
+
+            <!-- Workplace & Email Products -->
+            <div class="products-grid" id="workplace-products">
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-envelope-open-text"></i>
+                    </div>
+                    <h3>Zoho Mail</h3>
+                    <p>Secure and ad-free email hosting service for businesses.</p> 
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3>Zoho Writer</h3>
+                    <p>Online word processor for creating and editing documents collaboratively.</p> 
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <h3>Zoho Sheet</h3>
+                    <p>Spreadsheet application for data analysis and collaboration.</p> 
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-presentation"></i>
+                    </div>
+                    <h3>Zoho Show</h3>
+                    <p>Presentation tool for creating, editing, and sharing slideshows.</p>
+                    <a href="#" class="product-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Zoho Meeting</h3>
+                    <p>Web conferencing solution for hosting online meetings and webinars.</p> 
+                </div>
+            </div>
+
+            <!-- Human Resources Products -->
+            <div class="products-grid" id="hr-products">
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>Zoho People</h3>
+                    <p>Human resource management system for managing employee records, attendance, and performance.</p> 
+                </div>
+
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Zoho Recruit</h3>
+                    <p>Recruitment platform for tracking applicants and managing hiring processes.</p> 
+                </div>
+            </div>
+
+            <!-- BI & Analytics Products -->
+            <div class="products-grid" id="analytics-products">
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Zoho Analytics</h3>
+                    <p>Business intelligence and analytics platform for creating insightful dashboards and reports.</p> 
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Zoho One Section -->
+<section class="zoho-one-section">
+    <div class="container">
+        <div class="zoho-one-content">
+            <h2>Zoho One</h2>
+            <h3>The Complete Business Suite</h3>
+            <p>Zoho One is a subscription that gives you access to **all** Zoho applications in one package. Instead of paying for individual tools separately, you get everything your business needs under one plan.</p>
+            <ul class="zoho-one-features">
+                <li><i class="fas fa-check-circle"></i> Access to 45+ integrated applications</li>
+                <li><i class="fas fa-check-circle"></i> Unified admin console for all tools</li>
+                <li><i class="fas fa-check-circle"></i> AI-powered assistant across applications</li>
+                <li><i class="fas fa-check-circle"></i> Mobile apps for on-the-go access</li>
+            </ul>
+            <a href="#ttt" class="btn-primary">Get Zoho One</a>
+        </div>
+        <div class="zoho-one-image">
+            <div class="zoho-apps-grid">
+                <div class="zoho-app-icon" data-tooltip="Zoho CRM">CRM</div>
+                <div class="zoho-app-icon" data-tooltip="Zoho Books">BKS</div>
+                <div class="zoho-app-icon" data-tooltip="Zoho Mail">MAIL</div>
+                <div class="zoho-app-icon" data-tooltip="Zoho Analytics">ANTX</div>
+                <div class="zoho-app-icon" data-tooltip="Zoho People">PPL</div>
+                <div class="zoho-app-icon" data-tooltip="Zoho Social">SOC</div>
+                <div class="zoho-app-icon" data-tooltip="Zoho Meeting">MTG</div>
+                <div class="zoho-app-icon" data-tooltip="Zoho Invoice">INV</div>
+                <div class="zoho-app-icon plus-icon" data-tooltip="And many more">+</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Integration Section -->
+<section class="integration-section">
+    <div class="container">
+        <div class="section-header">
+            <h2>Seamless <span>Integration</span></h2>
+            <p>Zoho tools work together to streamline your business processes</p>
+        </div>
+        
+        <div class="integration-diagram">
+            <div class="integration-node central-node">
+                <div class="node-icon"><i class="fas fa-cogs"></i></div>
+                <div class="node-label">Zoho Integration</div>
+            </div>
+            
+            <div class="integration-path path-1"></div>
+            <div class="integration-node node-1">
+                <div class="node-icon"><i class="fas fa-users"></i></div>
+                <div class="node-label">Sales</div>
+            </div>
+            
+            <div class="integration-path path-2"></div>
+            <div class="integration-node node-2">
+                <div class="node-icon"><i class="fas fa-book"></i></div>
+                <div class="node-label">Finance</div>
+            </div>
+            
+            <div class="integration-path path-3"></div>
+            <div class="integration-node node-3">
+                <div class="node-icon"><i class="fas fa-envelope-open-text"></i></div>
+                <div class="node-label">Communication</div>
+            </div>
+            
+            <div class="integration-path path-4"></div>
+            <div class="integration-node node-4">
+                <div class="node-icon"><i class="fas fa-chart-bar"></i></div>
+                <div class="node-label">Analytics</div>
+            </div>
+        </div>
+        
+        <div class="integration-benefits">
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-puzzle-piece"></i></div>
+                <h3>Modular Design</h3>
+                <p>Use individual tools or the complete suite based on your needs</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-cloud"></i></div>
+                <h3>Cloud-Based</h3>
+                <p>Access your data from anywhere, anytime</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-robot"></i></div>
+                <h3>AI-Powered</h3>
+                <p>Leverage Zia AI for intelligent insights across applications</p>
+            </div>
+            
+            <div class="benefit-card">
+                <div class="benefit-icon"><i class="fas fa-mobile-alt"></i></div>
+                <h3>Mobile Apps</h3>
+                <p>Stay productive on the go with mobile access</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content">
+            <h2>Ready to automate your business?</h2>
+            <p>Let us help you implement the right Zoho tools for your needs</p>
+            <div class="cta-buttons">
+                <a href="#" class="btn-primary">Get Started</a>
+                <a href="mailto:info@dmg.co.ke" class="btn-secondary">Contact Us</a>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+     <!-- Quote Form Modal -->
+<div id="quote-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-btn">&times;</span>
+        
+        <!-- Step 1: Business Type -->
+        <div class="form-step" id="step1">
+            <h2>Get Your Quote</h2>
+            <p>Step 1 of 3</p>
+            <div class="progress-bar">
+                <div class="progress" style="width: 33%"></div>
+            </div>
+
+            <div class="step-indicator">
+    <div class="step-dot"></div>
+    <div class="step-dot"></div>
+    <div class="step-dot"></div>
+    <div class="step-dot"></div>
+   </div>
+            
+            <div class="form-group">
+                <label for="business-type">What does your business do?</label>
+                <textarea id="business-type" rows="4" placeholder="Describe your business activities and industry..."></textarea>
+            </div>
+            
+            <div class="form-nav">
+                <button class="next-btn" data-next="step2">Next</button>
+            </div>
+        </div>
+        
+        <!-- Step 2: Problem to Solve -->
+        <div class="form-step" id="step2">
+            <h2>Get Your Quote</h2>
+            <p>Step 2 of 3</p>
+            <div class="progress-bar">
+                <div class="progress" style="width: 66%"></div>
+            </div>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="problem">What problem would you like to solve?</label>
+                <textarea id="problem" rows="4" placeholder="Describe the challenges or inefficiencies you're facing..."></textarea>
+            </div>
+            
+            <div class="form-nav">
+                <button class="back-btn" data-prev="step1">Back</button>
+                <button class="next-btn" data-next="step3">Next</button>
+            </div>
+        </div>
+        
+        <!-- Step 3: Users Count -->
+        <div class="form-step" id="step3">
+            <h2>Get Your Quote</h2>
+            <p>Step 3 of 3</p>
+            <div class="progress-bar">
+                <div class="progress" style="width: 100%"></div>
+            </div>
+
+            <div class="step-indicator">
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+                <div class="step-dot"></div>
+            </div>
+            
+            <div class="form-group">
+                <label for="users">How many users would you like the system to handle?</label>
+                <select id="users">
+                    <option value="">Please select</option>
+                    <option value="1-5">1-5 users</option>
+                    <option value="6-10">6-10 users</option>
+                    <option value="11-25">11-25 users</option>
+                    <option value="26-50">26-50 users</option>
+                    <option value="51-100">51-100 users</option>
+                    <option value="100+">More than 100 users</option>
+                </select>
+            </div>
+            
+            <div class="form-nav">
+                <button class="back-btn" data-prev="step2">Back</button>
+                <button class="submit-btn" id="submit-requirements">Submit</button>
+            </div>
+        </div>
+        
+        <!-- Contact Information Step -->
+        <div class="form-step" id="contact-step">
+            <h2>Almost Done!</h2>
+            <p>Please provide your contact information</p>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="your@email.com">
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Contact Number</label>
+                <input type="tel" id="phone" placeholder="Your phone number">
+            </div>
+            
+            <div class="form-nav">
+                <button class="back-btn" data-prev="step3">Back</button>
+                <button class="submit-btn" id="final-submit">Submit</button>
+            </div>
+        </div>
+        
+        <!-- Success Message -->
+        <div class="form-step" id="success-step">
+            <div class="success-message">
+                <div class="success-icon">✓</div>
+                <h2>Thank You!</h2>
+                <p>Your quote request has been submitted successfully. Damigo Automation Ltd will respond within 48 hours.</p>
+                <button class="close-modal-btn">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+   
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+            <div class="footer-logo-section">
+                
+                <h3 class="centered-title">Certifications</h3>
+                <!-- Logo removed as requested -->
+                <div class="certification-badges">
+                    <img src="assets/images/zoho.jpg" alt="Zoho Authorized Partner" class="partner-badgee">
+                    <img src="assets/images/SageAccounting_Adviser-Certification-Badge.png" alt="Sage Certified Adviser" class="partner-badge">
+                </div>
+            </div>
+            
+            <div class="footer-links-section">
+                <h3 class="centered-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="zoho.html">Zoho</a></li>
+                    <li><a href="sage.html">Sage</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-contact-section">
+                <h3>Get In Touch</h3>
+                <div class="contact-buttons">
+                    <a href="tel:+254722325104" class="contact-button phone-button">
+                        <span class="button-icon icon-phone"></span>
+                        <span class="button-text">+254722325104</span>
+                    </a>
+                    <a href="mailto:info@dmg.co.ke" class="contact-button email-button">
+                        <span class="button-icon icon-email"></span>
+                        <span class="button-text">info@dmg.co.ke</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Social media section moved here, below the main sections -->
+        <div class="social-media-section">
+            <h4>Follow Us</h4>
+            <div class="social-icons">
+                <a href="#" class="social-icon icon-facebook" aria-label="Facebook"></a>
+                <a href="#" class="social-icon icon-twitter" aria-label="Twitter"></a>
+                <a href="#" class="social-icon icon-linkedin" aria-label="LinkedIn"></a>
+                <a href="#" class="social-icon icon-instagram" aria-label="Instagram"></a>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="location">
+                <span class="icon icon-location"></span>
+                <span>4th Floor Delta Corner Annex, Westlands</span>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Damigo Automation Ltd. All rights reserved.</p>
+            </div>
+            <div class="footer-links-bottom">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+ 
+    <!-- Main Content would go here -->
+    <main>
+        <!-- Your main content here -->
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Get all category tabs and product grids
+    const categoryTabs = document.querySelectorAll('.category-tab');
+    const productGrids = document.querySelectorAll('.products-grid');
+    
+    // Add click event to each category tab
+    categoryTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Get the category data attribute
+            const category = this.dataset.category;
+            
+            // Remove active class from all tabs and add to clicked tab
+            categoryTabs.forEach(t => t.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Hide all product grids
+            productGrids.forEach(grid => grid.classList.remove('active'));
+            
+            // Show the selected product grid
+            document.getElementById(`${category}-products`).classList.add('active');
+        });
+    });
+    
+    // Optional: Add hover effects to Zoho app icons for better interaction
+    const appIcons = document.querySelectorAll('.zoho-app-icon');
+    appIcons.forEach(icon => {
+        icon.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px) scale(1.05)';
+        });
+        
+        icon.addEventListener('mouseleave', function() {
+            this.style.transform = '';
+        });
+    });
+    
+    // Optional: Add smooth scroll for product section navigation
+    const learnMoreLinks = document.querySelectorAll('.product-link');
+    learnMoreLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Get the product name from the parent card
+            const productName = this.parentElement.querySelector('h3').textContent;
+            
+            // Display product details (this would be expanded in a real implementation)
+            console.log(`Showing details for ${productName}`);
+            
+            // You could open a modal or navigate to a product page here
+            alert(`You clicked on ${productName}. This would navigate to the product page.`);
+        });
+    });
+    
+    // Optional: Add animation to integration diagram nodes
+    const integrationNodes = document.querySelectorAll('.integration-node');
+    integrationNodes.forEach(node => {
+        node.addEventListener('click', function() {
+            // Add a pulse animation on click
+            this.classList.add('pulse');
+            
+            // Remove the class after animation completes
+            setTimeout(() => {
+                this.classList.remove('pulse');
+            }, 1000);
+        });
+    });
+    
+    // Add CSS for the pulse animation
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        .integration-node.pulse {
+            animation: pulse 1s ease;
+        }
+    `;
+    document.head.appendChild(style);
+});
+    </script>
+</body>
+</html>
