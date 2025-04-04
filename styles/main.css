@@ -400,322 +400,317 @@ nav {
     }
 }
 
-/* Hero Section Styles - Improved Version */
+/* Brand Colors */
 :root {
-    --primary-black: #121212;
-    --primary-green: #00a651;
-    --primary-yellow: #ffd700;
-    --white: #ffffff;
-    --transition-standard: all 0.3s ease;
-  }
-  
-  .hero {
-    position: relative;
+    --damigo-red: #e74c3c;
+    --damigo-yellow: #f1c40f;
+    --damigo-blue: #3498db;
+    --damigo-green: #2ecc71;
+}
+
+/* Import Google Fonts for better typography */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+}
+
+/* Hero Section Styling */
+.hero {
+    background: linear-gradient(135deg, var(--damigo-blue) 0%, var(--damigo-blue) 70%, var(--damigo-green) 170%);
+    padding: 5rem 0;
     overflow: hidden;
-    background-color: var(--primary-black);
-    color: var(--white);
-    width: 100%;
-  }
-  
-  .hero-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    min-height: 70vh;
-    padding:  20px 40px;
     position: relative;
-    z-index: 1;
+}
+
+/* Animated background elements */
+.hero::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: var(--damigo-red);
+    opacity: 0.1;
+    top: -50px;
+    left: 10%;
+    animation: float 15s infinite alternate ease-in-out;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: var(--damigo-yellow);
+    opacity: 0.1;
+    bottom: -30px;
+    right: 15%;
+    animation: float 12s infinite alternate-reverse ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+.hero-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     max-width: 1200px;
     margin: 0 auto;
-  }
-  
-  .hero-content {
-    width: 100%;
+    padding: 0 2rem;
+    position: relative;
+}
+
+.hero-content {
     max-width: 800px;
     text-align: center;
-    animation: fadeInUp 0.8s ease-out;
-    margin-bottom: 40px;
-  }
-  
-  .hero-content h1 {
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    line-height: 1.2;
-    margin-bottom: 20px;
-    color: var(--white);
-  }
-  
-  .hero-content h1 span {
-    color: var(--primary-green);
+    z-index: 2;
+    animation: fadeInUp 1s ease-out;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: var(--damigo-yellow);
+    line-height: 1.1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: -0.5px;
+}
+
+.hero-content h1 span {
+    display: block;
+    color: var(--damigo-green);
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+/* Zoho logo styling - ENLARGED */
+.zoho-logo {
+    height: 8.5rem; /* Increased from 2.5rem */
+    vertical-align: middle;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.15));
+    transition: transform 0.3s ease;
+}
+
+.zoho-logo:hover {
+    transform: scale(1.05);
+}
+
+.hero-content p {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-bottom: 2.5rem;
+    color: var(--damigo-yellow);
+    line-height: 1.7;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    max-width: 95%;
+}
+
+.hero-cta .btn {
     display: inline-block;
-  }
-  
-  .hero-content p {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    line-height: 1.6;
-    margin-bottom: 30px;
-    opacity: 0.9;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
-  .hero-image {
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary {
+    background-color: var(--damigo-red);
+    color: var(--damigo-yellow);
+    border: none;
+}
+
+.btn-primary::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
     width: 100%;
+    height: 0;
+    background-color: var(--damigo-green);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.btn-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    color: var(--damigo-yellow);
+}
+
+.btn-primary:hover::after {
+    height: 100%;
+}
+
+.btn-primary:active {
+    transform: translateY(-2px);
+}
+
+.hero-image {
+    position: relative;
+    margin: 2.5rem auto 3rem;
+    width: 100%;
+    max-width: 650px;
     display: flex;
     justify-content: center;
-    animation: fadeInUp 1s ease-out;
-    margin-bottom: 40px;
-  }
-  
-  .main-image {
+    align-items: center;
+    animation: fadeIn 1.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.main-image {
     max-width: 100%;
     height: auto;
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 2;
-    transition: transform 0.5s ease, box-shadow 0.5s ease;
-  }
-  
-  .hero-image:hover .main-image {
-    transform: translateY(-8px);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
-  }
-  
-  /* Hero CTA - Centered at bottom */
-  .hero-cta {
-    display: flex;
-    gap: clamp(10px, 2vw, 20px);
-    justify-content: center;
-    width: 100%;
-    margin-top: auto;
-    padding-top: 20px;
-    flex-wrap: wrap;
-  }
-  
-  .btn {
-    display: inline-block;
-    padding: clamp(10px, 2vw, 15px) clamp(20px, 4vw, 30px);
-    border-radius: 8px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: var(--transition-standard);
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    min-width: 160px;
-  }
-  
-  .btn:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.2);
-    transition: all 0.4s ease;
-    z-index: 0;
-  }
-  
-  .btn:hover:before {
-    left: 0;
-  }
-  
-  .btn:active {
-    transform: scale(0.98);
-  }
-  
-  .btn span {
-    position: relative;
     z-index: 1;
-  }
-  
-  .btn-primary {
-    background-color: var(--primary-yellow);
-    color: var(--primary-black); 
-  }
-  
-  .btn-primary:hover {
-    background-color: var(--primary-green);
-    color: var(--white); 
-  }
-  
-  .btn-secondary {
-    background-color: transparent;
-    color: var(--white);
-    border: 2px solid var(--primary-yellow);
-  }
-  
-  .btn-secondary:hover {
-    background-color: var(--primary-yellow);
-    color: var(--primary-black); 
-  }
-  
-  /* Hero Features Section */
-  .hero-features {
-    background-color: rgba(0, 0, 0, 0.8);
-    width: 100%;
-    padding: 40px 20px;
-    position: relative;
-    z-index: 2;
-    margin-top: 20px;
-  }
-  
-  .feature-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: clamp(15px, 3vw, 30px);
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  
-  .feature-item {
-    text-align: center;
-    padding: 25px 20px;
+    border: 4px solid var(--damigo-green);
     border-radius: 12px;
-    transition: var(--transition-standard);
-    background-color: rgba(255, 255, 255, 0.05);
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
-  .feature-item:hover {
-    transform: translateY(-5px);
-    background-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  }
-  
-  .feature-item:before {
-    content: '';
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease;
+}
+.main-image:hover {
+    transform: translateY(-10px);
+}
+
+.accent-shape {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 4px;
-    height: 0;
-    background-color: var(--primary-green);
-    transition: height 0.5s ease;
-  }
-  
-  .feature-item:hover:before {
-    height: 100%;
-  }
-  
-  .feature-icon {
-    font-size: clamp(2rem, 4vw, 2.5rem);
-    margin-bottom: 15px;
-    color: var(--primary-yellow);
-    transition: transform 0.3s ease;
-  }
-  
-  .feature-item:hover .feature-icon {
-    transform: scale(1.2);
-    color: var(--primary-green);
-  }
-  
-  .feature-item h3 {
-    font-size: clamp(1.1rem, 2vw, 1.3rem);
-    margin-bottom: 10px;
-    color: var(--white);
-  }
-  
-  .feature-item p {
-    font-size: clamp(0.9rem, 1.5vw, 1rem);
-    color: rgba(255, 255, 255, 0.8);
-    line-height: 1.6;
-  }
-  
-  /* Animations */
-  @keyframes fadeInUp {
-    from {
-      opacity: 0;
-      transform: translateY(40px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-  
-  .fade-in {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 0.6s ease-out forwards;
-  }
-  
-  .feature-item.active .feature-icon {
-    animation: pulse 1.5s infinite alternate;
-  }
-  
-  @keyframes pulse {
-    from { transform: scale(1); opacity: 0.8; }
-    to { transform: scale(1.2); opacity: 1; }
-  }
-  
-  /* Responsive layout adjustments */
-  @media screen and (min-width: 768px) {
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, var(--damigo-red) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0.2;
+    top: -80px;
+    right: -80px;
+    z-index: 0;
+    animation: pulse 6s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
     .hero-container {
-      flex-direction: row;
-      flex-wrap: wrap;
-      text-align: left;
-      justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        gap: 3rem;
     }
     
     .hero-content {
-      flex: 1;
-      min-width: 300px;
-      text-align: left;
-      margin-right: 5%;
+        margin-bottom: 1rem;
+        max-width: 90%;
     }
     
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+    
+    .hero-content h1 span {
+        justify-content: center;
+    }
+    
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .accent-shape {
+        right: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
     .hero-image {
-      flex: 1;
-      min-width: 300px;
-      margin-bottom: 40px;
+        max-width: 80%;
     }
-  
-    .hero-cta {
-      width: 100%;
-      justify-content: center;
-      margin-top: 20px;
-    }
-  }
-  
-  @media screen and (min-width: 1200px) {
-    .hero-container {
-      padding: 80px 40px 60px;
+
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 4rem 0;
     }
     
-    .hero-content {
-      margin-bottom: 0;
+    .hero-content h1 {
+        font-size: 2.5rem;
     }
     
-    .main-image {
-      max-width: 90%;
-    }
-  }
-  
-  @media screen and (max-width: 480px) {
-    .hero-container {
-      padding: 40px 16px 30px;
+    .zoho-logo {
+        height: 3rem; /* Still larger than original but adjusted for medium screens */
     }
     
-    .btn {
-      width: 100%;
-      margin-bottom: 10px;
+    .accent-shape {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        padding: 3rem 0;
     }
     
-    .hero-cta {
-      flex-direction: column;
-      gap: 15px;
+    .hero-content h1 {
+        font-size: 2.2rem;
     }
-  }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .zoho-logo {
+        height: 2.5rem; /* Still larger than original but adjusted for small screens */
+    }
+    
+    .btn-primary {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+    }
+
+    .hero-image {
+        margin: 2rem auto 2.5rem;
+    }
+
+    .accent-shape {
+        width: 250px;
+        height: 250px;
+        top: -40px;
+        right: -40px;
+    }
+}
 
 /* Zoho Section Styles with Color Integration */
 :root {
