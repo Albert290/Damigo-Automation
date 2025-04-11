@@ -480,7 +480,7 @@ nav {
 }
 
 .hero-content p {
-    font-size: 1.6rem;
+    font-size: 1.1rem;
     line-height: 1.6; 
     max-width: 600px;
     color: #333;
@@ -851,7 +851,7 @@ nav {
   }
   
   .what-we-offer .service-content p {
-    font-size: 1.3rem; /* Slightly smaller text */
+    font-size: 1.1rem; /* Slightly smaller text */
     line-height: 1.6;
     color: #666;
     flex-grow: 1; /* Helps if cards have uneven text height */
@@ -1144,7 +1144,261 @@ nav {
     --dmg-red: #e01e37;
     --dmg-green: #2d936c;
     --dmg-yellow: #ffb627;
-    --dmg-dark: #333333;
+    --dmg-dark: #333333; /* Changed from #1e1e1e for potentially better contrast */
+    --dmg-light: #f8f9fa;
+    --primary-black: #1e1e1e; /* Kept original black if needed elsewhere */
+    --transition-speed: 0.3s;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 1000;
+    overflow: auto;
+    transition: all 0.3s ease;
+}
+
+/* Ensure the modal is centered when displayed */
+#quote-modal {
+    display: none; /* Hidden by default */
+}
+
+#quote-modal.show, #quote-modal[style*="display: block"] {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+    animation: fadeIn 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.modal-content {
+    background-color: var(--dmg-light, #f8f9fa); /* Fallback */
+    width: 100%;
+    max-width: 550px;
+    border-radius: 16px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.4s;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Remove Colorful header pseudo-element if not needed */
+/* .form-step::before { ... } */
+
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    color: var(--dmg-dark, #333333);
+    cursor: pointer;
+    transition: all 0.3s ease; /* Combined transition */
+    z-index: 10;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0,0,0,0.1);
+    border-radius: 50%;
+}
+
+.close-btn:hover {
+    color: white;
+    background-color: var(--dmg-red);
+    transform: rotate(90deg);
+}
+
+.form-step {
+    padding: 35px;
+    display: none;
+    position: relative;
+    /* Default background if needed, overridden by specific steps */
+    background-color: white;
+}
+
+.form-step.active { /* Keep this to show the current step */
+    display: block;
+    animation: fadeIn 0.4s;
+}
+
+/* === STEP-SPECIFIC STYLES (MODIFIED) === */
+
+/* --- Step 1: On Your Marks --- */
+#step1 {
+    background-color: var(--dmg-red);
+    display: block; /* Show step 1 by default */
+}
+#step1 h2 {
+    /* --- REMINDER: Change text to "On Your Marks" in HTML --- */
+    color: var(--dmg-light); /* Light text on red */
+    background: none; /* Remove gradient effect */
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-weight: 700;
+}
+#step1 > p { /* Step counter text */
+    color: var(--dmg-blue); /* Light text */
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+#step1 .form-group label {
+    color: var(--dmg-blue); /* Light text */
+}
+#step1 .form-group label::before {
+    background-color: var(--dmg-light); /* Light accent */
+}
+#step1 .form-group input:focus,
+#step1 .form-group textarea:focus,
+#step1 .form-group select:focus {
+    border-color: var(--dmg-light); /* Light border on focus */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3); /* Light shadow */
+}
+
+/* --- Step 2: Get Set --- */
+#step2 {
+    background-color: var(--dmg-yellow);
+}
+#step2 h2 {
+     /* --- REMINDER: Change text to "Get Set" in HTML --- */
+    color: var(--primary-black); /* Dark text on yellow */
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-weight: 700;
+}
+#step2 > p {
+    color: var(--dmg-red); /* Dark text */
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+#step2 .form-group label {
+    color: var(--primary-black); /* Dark text */
+}
+#step2 .form-group label::before {
+    background-color: var(--primary-black); /* Dark accent */
+}
+#step2 .form-group input:focus,
+#step2 .form-group textarea:focus,
+#step2 .form-group select:focus {
+    border-color: var(--primary-black); /* Dark border on focus */
+    box-shadow: 0 0 0 3px rgba(30, 30, 30, 0.2); /* Dark shadow */
+}
+
+
+/* --- Step 3: Go! --- */
+#step3 {
+    background-color: var(--dmg-green);
+}
+#step3 h2 {
+    /* --- REMINDER: Change text to "Go!" in HTML --- */
+    color: var(--dmg-light); /* Light text on green */
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-weight: 700;
+}
+#step3 > p {
+    color: var(--dmg-green);
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+#step3 .form-group label {
+    color: var(--dmg-light); /* Light text */
+}
+#step3 .form-group label::before {
+    background-color: var(--dmg-light); /* Light accent */
+}
+#step3 .form-group input:focus,
+#step3 .form-group textarea:focus,
+#step3 .form-group select:focus {
+    border-color: var(--dmg-light); /* Light border on focus */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3); /* Light shadow */
+}
+
+/* --- Contact Step: We Are Done! --- */
+#contact-step {
+    background-color: var(--dmg-blue);
+}
+#contact-step h2 {
+    /* --- REMINDER: Change text to "We Are Done!" in HTML --- */
+    color: var(--dmg-light); /* Light text on blue */
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    display: inline-block;
+    font-weight: 700;
+}
+#contact-step > p {
+    color: var(--dmg-yellow);
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+}
+#contact-step .form-group label {
+    color: var(--dmg-light); /* Light text */
+}
+#contact-step .form-group label::before {
+    background-color: var(--dmg-light); /* Light accent */
+}
+#contact-step .form-group input:focus,
+#contact-step .form-group textarea:focus,
+#contact-step .form-group select:focus {
+    border-color: var(--dmg-light); /* Light border on focus */
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3); /* Light shadow */
+}
+
+/* General Heading Style (if needed, but overridden above) */
+/* .form-step h2 { ... } */
+
+/* General Paragraph Style (if needed, but overridden above) */
+/* .form-step > p { ... } */
+
+/* === END STEP-SPECIFIC MODIFICATIONS === */
+
+
+/* Quote Modal Styles */
+/* REMINDER: You need to change the H2 text content directly in your HTML file */
+/* e.g., In #step1, change <h2>Get Your Quote</h2> to <h2>On Your Marks</h2>, etc. */
+
+:root {
+    --dmg-blue: #1a5fb4;
+    --dmg-red: #e01e37;
+    --dmg-green: #2d936c;
+    --dmg-yellow: #ffb627;
+    --dmg-dark: #333333; /* Using slightly lighter dark for text */
     --dmg-light: #f8f9fa;
     --primary-black: #1e1e1e;
     --transition-speed: 0.3s;
@@ -1204,15 +1458,22 @@ nav {
     }
 }
 
-/* Colorful header for each step */
+/* Optional: Colorful header border for each step (if desired) */
+/*
 .form-step::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    height: 8px; 
+    height: 8px;
 }
+#step1::before { background: var(--dmg-blue); }
+#step2::before { background: var(--dmg-red); }
+#step3::before { background: var(--dmg-green); }
+#contact-step::before { background: var(--dmg-yellow); }
+*/
+
 
 .close-btn {
     position: absolute;
@@ -1221,7 +1482,7 @@ nav {
     font-size: 1.5rem;
     color: var(--dmg-dark, #333333);
     cursor: pointer;
-    transition: color 0.2s;
+    transition: all 0.3s ease; /* Combined transition */
     z-index: 10;
     width: 30px;
     height: 30px;
@@ -1236,22 +1497,27 @@ nav {
     color: white;
     background-color: var(--dmg-red);
     transform: rotate(90deg);
-    transition: all 0.3s ease;
 }
 
 .form-step {
     padding: 35px;
     display: none;
     position: relative;
-    background-color: white;
+    background-color: white; /* Default background */
 }
 
-.form-step.active, #step1, #success-step {
+/* Logic to show the active step. Step 1 is shown initially. */
+.form-step.active {
     display: block;
     animation: fadeIn 0.4s;
 }
+/* Ensure step 1 is visible initially if no JS adds .active immediately */
+#step1 {
+    display: block;
+}
 
-/* Step-specific backgrounds */
+
+/* === STEP-SPECIFIC BACKGROUNDS (Reverted to original gradients) === */
 #step1 {
     background: linear-gradient(135deg, white 0%, rgba(26, 95, 180, 0.05) 100%);
 }
@@ -1267,29 +1533,42 @@ nav {
 #contact-step {
     background: linear-gradient(135deg, white 0%, rgba(255, 182, 39, 0.05) 100%);
 }
+/* ==================================================================== */
 
+/* Heading Styles (Reverted to use text-clip) */
 .form-step h2 {
+    /* --- REMINDER: Change text content in HTML --- */
     font-size: 2rem;
     margin-bottom: 10px;
-    background: var(--dmg-red); 
+    /* Default gradient, step-specific overrides below */
+    background: linear-gradient(90deg, var(--dmg-blue), var(--dmg-red));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     display: inline-block;
     font-weight: 700;
 }
+#step1 h2 { background: linear-gradient(90deg, var(--dmg-blue), #3a7fd5); -webkit-background-clip: text; background-clip: text; color: transparent; }
+#step2 h2 { background: linear-gradient(90deg, var(--dmg-red), #f54e62); -webkit-background-clip: text; background-clip: text; color: transparent; }
+#step3 h2 { background: linear-gradient(90deg, var(--dmg-green), #41b48e); -webkit-background-clip: text; background-clip: text; color: transparent; }
+#contact-step h2 { background: linear-gradient(90deg, var(--dmg-yellow), #ffc957); -webkit-background-clip: text; background-clip: text; color: transparent; }
 
+
+/* Step counter text style (Reverted) */
 .form-step > p {
-    color: var(--dmg-green );
+    color: var(--dmg-dark); /* Default dark text */
     margin-bottom: 25px;
     opacity: 0.7;
     font-size: 1.1rem;
 }
+/* Adjust color if needed for specific backgrounds, e.g., slightly darker */
+/* #step2 > p { color: #555; } */
+
 
 /* Enhanced progress bar */
 .progress-bar {
     height: 8px;
-    background-color: #e0e0e0;
+    background-color: #e0e0e0; /* Reverted to light grey */
     border-radius: 4px;
     margin-bottom: 25px;
     overflow: hidden;
@@ -1298,10 +1577,11 @@ nav {
 
 .progress {
     height: 100%;
-    background: linear-gradient(90deg, 
-        var(--dmg-blue) 0%, 
-        var(--dmg-red) 33%, 
-        var(--dmg-green) 66%, 
+    /* Keep the gradient for the progress indicator itself */
+    background: linear-gradient(90deg,
+        var(--dmg-blue) 0%,
+        var(--dmg-red) 33%,
+        var(--dmg-green) 66%,
         var(--dmg-yellow) 100%);
     border-radius: 4px;
     transition: width 0.4s ease;
@@ -1315,7 +1595,7 @@ nav {
     100% {background-position: 0% 50%}
 }
 
-/* Stylish step indicators */
+/* Stylish step indicators (Reverted Colors) */
 .step-indicator {
     display: flex;
     justify-content: center;
@@ -1326,7 +1606,7 @@ nav {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #ddd;
+    background-color: #ddd; /* Reverted to default grey */
     margin: 0 8px;
     transition: all 0.3s ease;
     position: relative;
@@ -1340,7 +1620,7 @@ nav {
     transform: translateY(-50%);
     height: 2px;
     width: 16px;
-    background-color: #ddd;
+    background-color: #ddd; /* Reverted to default grey */
     margin-right: 4px;
 }
 
@@ -1348,43 +1628,68 @@ nav {
     display: none;
 }
 
-.step-dot.active {
+.step-dot.active { /* Keep active style */
     transform: scale(1.3);
     box-shadow: 0 0 0 3px rgba(255,255,255,0.5), 0 0 0 5px rgba(0,0,0,0.1);
+    /* Active dot color set by step below */
 }
 
+/* Step-specific indicator colors (Reverted) */
 #step1 .step-dot:nth-child(1) {
     background-color: var(--dmg-blue);
 }
+#step1 .step-dot:nth-child(1).active {
+    box-shadow: 0 0 0 3px rgba(26, 95, 180, 0.2), 0 0 0 5px rgba(26, 95, 180, 0.1);
+}
+
 
 #step2 .step-dot:nth-child(1),
-#step2 .step-dot:nth-child(2),
-#step2 .step-dot:nth-child(1)::before {
+#step2 .step-dot:nth-child(2) {
     background-color: var(--dmg-red);
 }
+#step2 .step-dot:nth-child(1)::before { /* Connector */
+     background-color: var(--dmg-red);
+}
+#step2 .step-dot:nth-child(2).active {
+    box-shadow: 0 0 0 3px rgba(224, 30, 55, 0.2), 0 0 0 5px rgba(224, 30, 55, 0.1);
+}
+
 
 #step3 .step-dot:nth-child(1),
 #step3 .step-dot:nth-child(2),
-#step3 .step-dot:nth-child(3),
-#step3 .step-dot:nth-child(1)::before,
-#step3 .step-dot:nth-child(2)::before {
+#step3 .step-dot:nth-child(3) {
     background-color: var(--dmg-green);
 }
+#step3 .step-dot:nth-child(1)::before,
+#step3 .step-dot:nth-child(2)::before { /* Connectors */
+     background-color: var(--dmg-green);
+}
+#step3 .step-dot:nth-child(3).active {
+     box-shadow: 0 0 0 3px rgba(45, 147, 108, 0.2), 0 0 0 5px rgba(45, 147, 108, 0.1);
+}
 
-#contact-step .step-dot,
-#contact-step .step-dot::before {
+#contact-step .step-dot {
     background-color: var(--dmg-yellow);
 }
+#contact-step .step-dot::before {
+     background-color: var(--dmg-yellow); /* Connector */
+}
+#contact-step .step-dot:nth-child(4).active { /* Assuming 4 dots, adjust if needed */
+     box-shadow: 0 0 0 3px rgba(255, 182, 39, 0.2), 0 0 0 5px rgba(255, 182, 39, 0.1);
+}
+
 
 .form-group {
     margin-bottom: 28px;
     position: relative;
 }
 
+/* Label styles (Reverted) */
 .form-group label {
     display: block;
     margin-bottom: 10px;
     font-weight: 600;
+    /* Default label color, overridden below */
     color: var(--dmg-blue);
     font-size: 1.05rem;
     position: relative;
@@ -1399,33 +1704,40 @@ nav {
     transform: translateY(-50%);
     width: 4px;
     height: 16px;
+    /* Default accent color, overridden below */
     background-color: var(--dmg-blue);
     border-radius: 2px;
 }
 
-#step2 .form-group label::before {
-    background-color: var(--dmg-red);
-}
+/* Step-specific label/accent colors (Reverted) */
+#step2 .form-group label { color: var(--dmg-red); }
+#step2 .form-group label::before { background-color: var(--dmg-red); }
 
-#step3 .form-group label::before {
-    background-color: var(--dmg-green);
-}
+#step3 .form-group label { color: var(--dmg-green); }
+#step3 .form-group label::before { background-color: var(--dmg-green); }
 
-#contact-step .form-group label::before {
-    background-color: var(--dmg-yellow);
-}
+#contact-step .form-group label { color: var(--dmg-yellow); }
+#contact-step .form-group label::before { background-color: var(--dmg-yellow); }
 
+
+/* Input styles (Reverted) */
 .form-group input,
 .form-group textarea,
 .form-group select {
     width: 100%;
     padding: 16px;
-    border: 2px solid #e0e0e0;
+    border: 2px solid #e0e0e0; /* Default border */
     border-radius: 12px;
     font-size: 1rem;
     transition: all 0.3s;
-    background-color: white;
+    background-color: white; /* White background */
+    color: var(--dmg-dark); /* Dark text inside */
     box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #888;
 }
 
 .form-group input:hover,
@@ -1434,10 +1746,12 @@ nav {
     border-color: #ccc;
 }
 
+/* Input focus styles (Reverted) */
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
+    /* Default focus style, overridden below */
     border-color: var(--dmg-blue);
     box-shadow: 0 0 0 3px rgba(26, 95, 180, 0.15);
 }
@@ -1463,6 +1777,7 @@ nav {
     box-shadow: 0 0 0 3px rgba(255, 182, 39, 0.15);
 }
 
+
 .form-nav {
     display: flex;
     justify-content: space-between;
@@ -1483,6 +1798,7 @@ nav {
     z-index: 1;
 }
 
+/* Button hover effect */
 .form-nav button::before {
     content: '';
     position: absolute;
@@ -1490,26 +1806,29 @@ nav {
     left: 0;
     width: 0;
     height: 100%;
-    background-color: rgba(255,255,255,0.2);
+    background-color: rgba(255,255,255,0.2); /* Default light overlay */
     transition: all 0.3s;
     z-index: -1;
+}
+#contact-step .submit-btn::before {
+    background-color: rgba(0,0,0,0.1); /* Dark overlay for yellow button */
 }
 
 .form-nav button:hover::before {
     width: 100%;
 }
 
+/* Back Button Style (Reverted) */
 .back-btn {
-    background-color: #eaeaea;
+    background-color: #eaeaea; /* Light grey */
     color: var(--dmg-dark);
 }
-
 .back-btn:hover {
     background-color: #d5d5d5;
     transform: translateX(-2px);
 }
 
-/* Stylish gradient buttons for each step */
+/* Next/Submit Buttons - Using original styles */
 .next-btn, .submit-btn {
     color: white;
     position: relative;
@@ -1521,7 +1840,6 @@ nav {
 #step1 .next-btn {
     background: linear-gradient(90deg, var(--dmg-blue), #3a7fd5);
 }
-
 #step1 .next-btn:hover {
     background: linear-gradient(90deg, #1857a4, var(--dmg-blue));
     transform: translateX(2px);
@@ -1531,17 +1849,16 @@ nav {
 #step2 .next-btn {
     background: linear-gradient(90deg, var(--dmg-red), #f54e62);
 }
-
 #step2 .next-btn:hover {
     background: linear-gradient(90deg, #c01830, var(--dmg-red));
     transform: translateX(2px);
     box-shadow: 0 6px 20px rgba(224, 30, 55, 0.3);
 }
 
+
 #step3 .submit-btn {
     background: linear-gradient(90deg, var(--dmg-green), #41b48e);
 }
-
 #step3 .submit-btn:hover {
     background: linear-gradient(90deg, #237758, var(--dmg-green));
     transform: translateX(2px);
@@ -1550,9 +1867,8 @@ nav {
 
 #contact-step .submit-btn {
     background: linear-gradient(90deg, var(--dmg-yellow), #ffc957);
-    color: var(--primary-black);
+    color: var(--primary-black); /* Dark text on yellow button */
 }
-
 #contact-step .submit-btn:hover {
     background: linear-gradient(90deg, #e0a020, var(--dmg-yellow));
     transform: translateX(2px);
@@ -1564,18 +1880,26 @@ nav {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-/* Enhanced success message */
+
+/* --- Success Message --- */
+/* Keep existing success step styles */
 #success-step {
-    background: linear-gradient(135deg, 
-        rgba(26, 95, 180, 0.05) 0%, 
+    background: linear-gradient(135deg,
+        rgba(26, 95, 180, 0.05) 0%,
         rgba(45, 147, 108, 0.08) 100%);
+    display: none; /* Initially hidden */
 }
+#success-step.active {
+     display: block;
+}
+
 
 .success-message {
     text-align: center;
     padding: 50px 30px;
     border-radius: 16px;
     position: relative;
+    color: var(--dmg-dark); /* Ensure text is readable */
 }
 
 .success-message::before {
@@ -1645,13 +1969,14 @@ nav {
 }
 
 .success-message h2 {
-    color: var(--dmg-blue);
+    /* Keep original gradient */
     margin-bottom: 15px;
     font-size: 2.2rem;
     background: linear-gradient(90deg, var(--dmg-blue), var(--dmg-green));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+    font-weight: 700;
 }
 
 .success-message p {
@@ -1662,8 +1987,7 @@ nav {
 }
 
 .close-modal-btn {
-    background: 
-        var(--dmg-yellow);
+    background: var(--dmg-red); /* Reverted to red (or choose preferred color) */
     color: white;
     border: none;
     padding: 14px 35px;
@@ -1678,6 +2002,7 @@ nav {
 }
 
 .close-modal-btn:hover {
+    background: #c01830; /* Darker red */
     transform: translateY(-3px);
     box-shadow: 0 12px 25px rgba(224, 30, 55, 0.35);
 }
@@ -1687,19 +2012,21 @@ nav {
     box-shadow: 0 5px 15px rgba(224, 30, 55, 0.2);
 }
 
-/* Improved form validation styles */
+
+/* --- Form validation styles (Reverted) --- */
 .error {
-    border-color: var(--dmg-red) !important;
+    border-color: var(--dmg-red) !important; /* Red border for error */
     animation: shake 0.5s;
 }
 
 .error-message {
-    color: var(--dmg-red);
+    color: var(--dmg-red); /* Red error message */
     font-size: 0.85rem;
     margin-top: 8px;
     display: none;
-    padding-left: 12px;
+    padding-left: 22px; /* More padding */
     position: relative;
+    font-weight: 500; /* Less bold maybe */
 }
 
 .error-message::before {
@@ -1709,14 +2036,15 @@ nav {
     justify-content: center;
     width: 16px;
     height: 16px;
-    background-color: var(--dmg-red);
-    color: white;
+    background-color: var(--dmg-red); /* Red background for icon */
+    color: white; /* White icon */
     border-radius: 50%;
     margin-right: 5px;
     font-size: 11px;
     font-weight: bold;
     position: absolute;
     left: 0;
+    top: 1px; /* Align better */
 }
 
 .error-message.show {
@@ -1730,33 +2058,533 @@ nav {
     20%, 40%, 60%, 80% { transform: translateX(5px); }
 }
 
-/* Responsive styles for the form */
+/* --- Responsive styles --- */
 @media (max-width: 600px) {
     .modal-content {
         width: 95%;
-        margin: 0;
+        margin: 10px 0;
         border-radius: 12px;
+        max-height: calc(100vh - 20px);
+        display: flex;
+        flex-direction: column;
     }
-    
+
     .form-step {
         padding: 25px 20px;
+        flex-grow: 1;
+        overflow-y: auto;
     }
-    
+
     .form-step h2 {
         font-size: 1.6rem;
     }
-    
+
     .form-nav button {
         padding: 12px 20px;
         font-size: 0.9rem;
     }
-    
+
+    .success-message {
+         padding: 30px 20px;
+    }
+
     .success-icon {
         width: 70px;
         height: 70px;
         font-size: 2.2rem;
     }
-    
+     .success-icon::after {
+        font-size: 2rem;
+     }
+
+    .success-message h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* Stylish step indicators */
+.step-indicator {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 25px 0;
+}
+
+.step-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.4); /* Default light dot */
+    margin: 0 8px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+#step2 .step-dot { /* Darker dot on yellow */
+     background-color: rgba(0,0,0,0.2);
+}
+
+
+.step-dot::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    transform: translateY(-50%);
+    height: 2px;
+    width: 16px;
+    background-color: inherit; /* Inherit dot color */
+    margin-right: 4px;
+    opacity: 0.6;
+}
+
+.step-dot:first-child::before {
+    display: none;
+}
+
+.step-dot.active { /* Keep active style */
+    transform: scale(1.3);
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.5), 0 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* Keep step-specific indicator colors */
+#step1 .step-dot:nth-child(1) {
+    background-color: var(--dmg-blue); /* Using blue for contrast on red */
+}
+
+#step2 .step-dot:nth-child(1),
+#step2 .step-dot:nth-child(2) {
+    background-color: var(--dmg-red); /* Red on yellow */
+}
+#step2 .step-dot:nth-child(1)::before { /* Connector */
+     background-color: var(--dmg-red);
+}
+
+
+#step3 .step-dot:nth-child(1),
+#step3 .step-dot:nth-child(2),
+#step3 .step-dot:nth-child(3) {
+    background-color: var(--dmg-yellow); /* Yellow on Green */
+}
+#step3 .step-dot:nth-child(1)::before,
+#step3 .step-dot:nth-child(2)::before { /* Connectors */
+     background-color: var(--dmg-yellow);
+}
+
+#contact-step .step-dot {
+    background-color: var(--dmg-green); /* Green on Blue */
+}
+#contact-step .step-dot::before {
+     background-color: var(--dmg-green); /* Connector */
+}
+
+
+.form-group {
+    margin-bottom: 28px;
+    position: relative;
+}
+
+/* General label style, overridden by step-specific rules */
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 1.05rem;
+    position: relative;
+    padding-left: 12px;
+}
+
+/* General label ::before, overridden by step-specific rules */
+.form-group label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 16px;
+    border-radius: 2px;
+}
+
+/* General input styles */
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 16px;
+    border: 2px solid rgba(0,0,0,0.15); /* Slightly visible border */
+    border-radius: 12px;
+    font-size: 1rem;
+    transition: all 0.3s;
+    background-color: white; /* White inputs for readability */
+    color: var(--primary-black); /* Ensure text inside is dark */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #888; /* Lighter placeholder text */
+}
+
+
+.form-group input:hover,
+.form-group textarea:hover,
+.form-group select:hover {
+    border-color: rgba(0,0,0,0.3);
+}
+
+/* General focus style (border overridden by step-specific) */
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+    outline: none;
+    /* Step-specific border-color and box-shadow applied above */
+}
+
+
+.form-nav {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+
+.form-nav button {
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.form-nav button::before { /* Hover effect */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgba(255,255,255,0.2); /* Light overlay on hover */
+    transition: all 0.3s;
+    z-index: -1;
+}
+#step2 .form-nav button::before, /* Dark overlay on yellow */
+#contact-step .form-nav button.submit-btn::before { /* Dark overlay on yellow btn */
+    background-color: rgba(0,0,0,0.1);
+}
+
+
+.form-nav button:hover::before {
+    width: 100%;
+}
+
+/* Back Button */
+.back-btn {
+    background-color: rgba(255,255,255,0.8); /* Semi-transparent white */
+    color: var(--dmg-dark);
+}
+#step2 .back-btn { /* Darker back btn on yellow */
+    background-color: rgba(0,0,0,0.1);
+    color: var(--primary-black);
+}
+.back-btn:hover {
+    background-color: white; /* Solid white on hover */
+    transform: translateX(-2px);
+}
+#step2 .back-btn:hover {
+    background-color: rgba(0,0,0,0.2);
+}
+
+
+/* Next/Submit Buttons - Keep existing gradient styles */
+.next-btn, .submit-btn {
+    color: white;
+    position: relative;
+    overflow: hidden;
+    margin-left: auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+#step1 .next-btn {
+    background: linear-gradient(90deg, var(--dmg-blue), #3a7fd5);
+}
+#step1 .next-btn:hover {
+    background: linear-gradient(90deg, #1857a4, var(--dmg-blue));
+    transform: translateX(2px);
+    box-shadow: 0 6px 20px rgba(26, 95, 180, 0.3);
+}
+
+#step2 .next-btn {
+    /* Using blue button on yellow bg for contrast */
+    background: linear-gradient(90deg, var(--dmg-blue), #3a7fd5);
+}
+#step2 .next-btn:hover {
+     background: linear-gradient(90deg, #1857a4, var(--dmg-blue));
+    transform: translateX(2px);
+    box-shadow: 0 6px 20px rgba(26, 95, 180, 0.3);
+}
+
+
+#step3 .submit-btn {
+    /* Keep original green */
+    background: linear-gradient(90deg, var(--dmg-green), #41b48e);
+}
+#step3 .submit-btn:hover {
+    background: linear-gradient(90deg, #237758, var(--dmg-green));
+    transform: translateX(2px);
+    box-shadow: 0 6px 20px rgba(45, 147, 108, 0.3);
+}
+
+#contact-step .submit-btn {
+    /* Keep original yellow button */
+    background: linear-gradient(90deg, var(--dmg-yellow), #ffc957);
+    color: var(--primary-black); /* Dark text on yellow button */
+}
+#contact-step .submit-btn:hover {
+    background: linear-gradient(90deg, #e0a020, var(--dmg-yellow));
+    transform: translateX(2px);
+    box-shadow: 0 6px 20px rgba(255, 182, 39, 0.3);
+}
+
+
+.next-btn:active, .submit-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+
+/* --- Success Message --- */
+/* Keep existing success step styles */
+#success-step {
+    background: linear-gradient(135deg,
+        rgba(26, 95, 180, 0.05) 0%,
+        rgba(45, 147, 108, 0.08) 100%);
+    display: none; /* Initially hidden */
+}
+#success-step.active {
+     display: block;
+}
+
+.success-message {
+    text-align: center;
+    padding: 50px 30px;
+    border-radius: 16px;
+    position: relative;
+    color: var(--dmg-dark); /* Ensure text is readable */
+}
+
+.success-message::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232d936c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    opacity: 0.8;
+    z-index: -1;
+}
+
+.success-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.8rem;
+    margin: 0 auto 25px;
+    position: relative;
+    animation: successPulse 2s infinite ease-in-out;
+    background: conic-gradient(
+        var(--dmg-blue),
+        var(--dmg-red),
+        var(--dmg-green),
+        var(--dmg-yellow),
+        var(--dmg-blue)
+    );
+    background-size: 200% 200%;
+    box-shadow: 0 15px 35px rgba(45, 147, 108, 0.25);
+}
+
+.success-icon::after {
+    content: "✓";
+    position: absolute;
+    color: white;
+    font-size: 2.5rem; /* Adjusted */
+    animation: scaleIn 0.5s;
+}
+
+@keyframes successPulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(45, 147, 108, 0.4);
+        transform: scale(1);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(45, 147, 108, 0);
+        transform: scale(1.05);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(45, 147, 108, 0);
+        transform: scale(1);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+.success-message h2 {
+    /* Keep original gradient */
+    margin-bottom: 15px;
+    font-size: 2.2rem;
+    background: linear-gradient(90deg, var(--dmg-blue), var(--dmg-green));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 700; /* Ensure it's bold */
+}
+
+.success-message p {
+    color: var(--dmg-dark);
+    margin-bottom: 30px;
+    line-height: 1.7;
+    font-size: 1.1rem;
+}
+
+.close-modal-btn {
+    background: var(--dmg-red); /* Changed to red for consistency? Or keep yellow? */
+    color: white;
+    border: none;
+    padding: 14px 35px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 1.05rem;
+    box-shadow: 0 8px 20px rgba(224, 30, 55, 0.25);
+    position: relative;
+    overflow: hidden;
+}
+
+.close-modal-btn:hover {
+    background: #c01830; /* Darker red */
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(224, 30, 55, 0.35);
+}
+
+.close-modal-btn:active {
+    transform: translateY(1px);
+    box-shadow: 0 5px 15px rgba(224, 30, 55, 0.2);
+}
+
+
+/* --- Form validation styles --- */
+.error {
+    border-color: var(--dmg-red) !important; /* Red border for error */
+    animation: shake 0.5s;
+}
+/* Adjust error border color based on background */
+#step1 .error { border-color: var(--dmg-yellow) !important; } /* Yellow error border on red */
+#step2 .error { border-color: var(--dmg-red) !important; } /* Red error border on yellow */
+#step3 .error { border-color: var(--dmg-yellow) !important; } /* Yellow error border on green */
+#contact-step .error { border-color: var(--dmg-yellow) !important; } /* Yellow error border on blue */
+
+
+.error-message {
+    color: var(--dmg-yellow); /* Default error message color */
+    font-size: 0.85rem;
+    margin-top: 8px;
+    display: none;
+    padding-left: 22px; /* Increased padding */
+    position: relative;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
+}
+/* Adjust error message color based on background */
+#step1 .error-message { color: var(--dmg-yellow); }
+#step2 .error-message { color: var(--dmg-red); }
+#step3 .error-message { color: var(--dmg-yellow); }
+#contact-step .error-message { color: var(--dmg-yellow); }
+
+
+.error-message::before {
+    content: "!";
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background-color: transparent; /* Use text color for icon */
+    color: inherit; /* Use text color for icon */
+    border: 2px solid currentcolor; /* Border matching text color */
+    border-radius: 50%;
+    margin-right: 5px;
+    font-size: 11px;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 1px; /* Align better */
+}
+
+.error-message.show {
+    display: block;
+    animation: fadeIn 0.4s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* --- Responsive styles --- */
+@media (max-width: 600px) {
+    .modal-content {
+        width: 95%;
+        margin: 10px 0; /* Add some margin top/bottom */
+        border-radius: 12px;
+        max-height: calc(100vh - 20px); /* Prevent overflow */
+        display: flex; /* Allow flex for content */
+        flex-direction: column; /* Stack content */
+    }
+
+    .form-step {
+        padding: 25px 20px;
+        flex-grow: 1; /* Allow step to take space */
+        overflow-y: auto; /* Allow scrolling within step if needed */
+    }
+
+    .form-step h2 {
+        font-size: 1.6rem;
+    }
+
+    .form-nav button {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+
+    .success-message {
+         padding: 30px 20px;
+    }
+
+    .success-icon {
+        width: 70px;
+        height: 70px;
+        font-size: 2.2rem; /* Adjusted */
+    }
+     .success-icon::after {
+        font-size: 2rem; /* Adjusted */
+     }
+
     .success-message h2 {
         font-size: 1.8rem;
     }
@@ -2480,67 +3308,49 @@ nav {
     }
 }
 
+/* == Base Variables == */
 :root {
-    --dmg-blue: #1a5fb4;     /* Primary (trust) */
-    --dmg-red: #e01e37;      /* Alert/CTA */
-    --dmg-green: #2d936c;    /* Success */
-    --dmg-yellow: #ffb627;   /* Highlight */
-    --dmg-dark: #1e1e1e;     /* Background */
-    --dmg-light: #f8f9fa;    /* Text/Light */
+    --dmg-blue: #1a5fb4;
+    --dmg-red: #e01e37;
+    --dmg-green: #2d936c;
+    --dmg-yellow: #ffb627;
+    --dmg-dark: #1e1e1e;
+    --dmg-light: #f8f9fa;
 }
 
-/* Main Footer */
+/* == Main Footer Styles == */
 .site-footer {
     background: var(--dmg-dark);
     color: var(--dmg-light);
     padding: 60px 0 20px;
     font-family: 'Inter', sans-serif;
-    border-top: 4px solid var(--dmg-blue); /* Brand-colored top border */
+    border-top: 4px solid var(--dmg-blue);
 }
 
-/* Footer Sections */
+.site-footer .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* == Footer Sections Layout == */
 .footer-content {
     display: flex;
     flex-wrap: wrap;
     gap: 40px;
     justify-content: space-between;
+    margin-bottom: 40px;
 }
 
-/* Logo/Certification Section */
-.footer-logo-section {
-    flex: 1;
-    min-width: 250px;
-}
-
-.certification-badges {
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-}
-
-.partner-badge {
-    max-height: 50px;
-    filter: grayscale(20%) brightness(1.1);
-    transition: transform 0.3s ease;
-}
-
-.partner-badge:hover {
-    transform: translateY(-5px);
-    filter: grayscale(0%) brightness(1.2);
-}
-
-/* Links Section */
-.footer-links-section {
-    flex: 1;
-    min-width: 200px;
-}
-
-.footer-links-section h3 {
+/* == Section Titles == */
+.footer-logo-section h3,
+.footer-links-section h3,
+.footer-contact-section h3,
+.social-media-section h4 {
     color: var(--dmg-light);
     font-size: 1.2rem;
     margin-bottom: 20px;
     position: relative;
-    text-align: left;
 }
 
 .footer-links-section h3::after {
@@ -2550,15 +3360,59 @@ nav {
     bottom: -10px;
     width: 40px;
     height: 3px;
-    background: var(--dmg-yellow); /* Yellow underline */
+    background: var(--dmg-yellow);
+}
+
+.centered-title {
+    text-align: left;
+}
+.centered-title::after {
+    /* left: 50%;
+    transform: translateX(-50%); */
+}
+
+/* == Logo/Certification Section == */
+.footer-logo-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.certification-badges {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.partner-badge {
+    max-height: 50px;
+    width: auto;
+    filter: grayscale(20%) brightness(1.1);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.partner-badge:hover {
+    transform: translateY(-5px);
+    filter: grayscale(0%) brightness(1.2);
+}
+
+/* == Links Section == */
+.footer-links-section {
+    flex: 1;
+    min-width: 180px;
 }
 
 .footer-links {
     list-style: none;
     padding: 0;
+    margin: 0;
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
     gap: 12px;
+}
+
+.footer-links li {
     text-align: left;
 }
 
@@ -2567,15 +3421,19 @@ nav {
     text-decoration: none;
     transition: all 0.3s ease;
     font-size: 0.95rem;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    display: inline-block;
+    position: relative;
+    padding-left: 15px;
 }
 
 .footer-links a::before {
     content: '•';
-    color: var(--dmg-red); /* Red bullet */
+    color: var(--dmg-red);
     font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 .footer-links a:hover {
@@ -2583,10 +3441,10 @@ nav {
     transform: translateX(5px);
 }
 
-/* Contact Section */
+/* == Contact Section == */
 .footer-contact-section {
     flex: 1;
-    min-width: 250px;
+    min-width: 280px;
 }
 
 .contact-buttons {
@@ -2598,92 +3456,139 @@ nav {
 .contact-button {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
     padding: 12px 20px;
     color: var(--dmg-light);
+    text-decoration: none;
     transition: all 0.3s ease;
 }
 
-.phone-button:hover {
-    background: var(--dmg-green); /* Green hover */
+.contact-button:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(46, 147, 108, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.phone-button:hover {
+    background: var(--dmg-green);
+    border-color: var(--dmg-green);
 }
 
 .email-button:hover {
-    background: var(--dmg-yellow); /* Yellow hover */
+    background: var(--dmg-yellow);
+    border-color: var(--dmg-yellow);
     color: var(--dmg-dark);
-    transform: translateY(-3px);
 }
 
-/* Social Media */
+.button-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+}
+
+.icon-phone::before {
+    font-family: 'Font Awesome 6 Free';
+    content: "\f095";
+    font-weight: 900;
+}
+
+.icon-email::before {
+    font-family: 'Font Awesome 6 Free';
+    content: "\f0e0";
+    font-weight: 900;
+}
+
+/* == Social Media Section == */
+.social-media-section {
+    text-align: center;
+    width: 100%;
+    margin-top: 30px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
 .social-icons {
+    margin-top: 15px;
     display: flex;
-    gap: 15px;
-    margin-top: 20px;
+    justify-content: center;
+    gap: 20px;
 }
 
 .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     background: rgba(255, 255, 255, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    color: var(--dmg-light);
+    font-size: 18px;
+    text-decoration: none;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .social-icon:hover {
-    transform: translateY(-3px);
-    background: var(--dmg-blue); /* Blue hover */
+    background: var(--dmg-blue);
+    transform: scale(1.1);
 }
 
-/* Footer Bottom */
+.icon-facebook::before {
+    font-family: 'Font Awesome 6 Brands';
+    content: "\f09a";
+}
+
+.icon-twitter::before {
+    font-family: 'Font Awesome 6 Brands';
+    content: "\f099";
+}
+
+.icon-linkedin::before {
+    font-family: 'Font Awesome 6 Brands';
+    content: "\f0e1";
+}
+
+.icon-instagram::before {
+    font-family: 'Font Awesome 6 Brands';
+    content: "\f16d";
+}
+
+/* == Footer Bottom Section == */
 .footer-bottom {
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    margin-top: 40px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-.copyright {
-    color: rgba(255, 255, 255, 0.6);
-    font-size: 0.9rem;
+.location {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.icon-location::before {
+    font-family: 'Font Awesome 6 Free';
+    content: "\f3c5";
+    font-weight: 900;
+}
+
+.footer-links-bottom {
+    display: flex;
+    gap: 15px;
 }
 
 .footer-links-bottom a {
     color: rgba(255, 255, 255, 0.6);
     text-decoration: none;
-    margin-left: 20px;
     transition: color 0.3s ease;
 }
 
 .footer-links-bottom a:hover {
-    color: var(--dmg-red); /* Red hover */
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-    }
-    .footer-links-section, 
-    .footer-contact-section {
-        text-align: center;
-    }
-    .footer-links-section h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    .footer-links {
-        grid-template-columns: 1fr;
-    }
+    color: var(--dmg-light);
 }

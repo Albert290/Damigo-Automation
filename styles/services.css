@@ -770,7 +770,49 @@ nav {
 
  
 
-/* Process Section */
+/* === Root Variables (Assuming these are defined globally) === */
+:root {
+    --dmg-blue: #1a5fb4;
+    --dmg-red: #e01e37;
+    --dmg-green: #2d936c;
+    --dmg-yellow: #ffb627;
+    --dmg-dark: #1e1e1e;
+    --dmg-light: #f8f9fa;
+    --primary-black: #1e1e1e;
+    --light-gray: #f1f3f5;
+    --white: #ffffff;
+    --text-dark: #343a40;
+    --dark-gray: #6c757d;
+    /* Define a blue-green or use existing if available */
+    --dmg-blue-green: #17a2b8; /* Example teal/blue-green */
+}
+
+/* === General Styles === */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px; /* Consistent padding */
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    margin-bottom: 50px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* === Process Section (#how-it-works - ROW LAYOUT) === */
 .process-section {
     background-color: var(--light-gray);
     padding: 80px 0;
@@ -778,30 +820,33 @@ nav {
     overflow: hidden;
 }
 
+/* This container now acts as the FLEX ROW - Using HTML Class */
 .timeline-container {
-    position: relative;
-    max-width: 1000px;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap */
+    gap: 30px; /* Spacing between items */
+    justify-content: center; /* Center items */
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-.timeline-container::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50px;
-    height: 100%;
-    width: 4px;
-    background: #ddd;
-    z-index: 0;
-}
+/* REMOVED: ::before pseudo-element for vertical line */
 
-.timeline-item {
+.timeline-item { /* Using HTML Class */
     position: relative;
-    margin-bottom: 50px;
-    padding-left: 100px;
+    flex: 1 1 300px; /* Grow, Shrink, Basis */
+    max-width: 350px; /* Optional max width */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 0; /* Remove old padding */
+
+    /* Animation (Requires JS to add 'show' class on scroll) */
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
 .timeline-item.show {
@@ -809,75 +854,339 @@ nav {
     transform: translateY(0);
 }
 
-.timeline-icon {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 50px;
-    height: 50px;
+.timeline-icon { /* Using HTML Class */
+    position: relative; /* No longer absolute */
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     z-index: 1;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 25px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Background colors applied via specific classes */
 }
+
+/* Specific Icon Background Colors from HTML */
+.timeline-icon.green-bg { background-color: var(--dmg-green); }
+.timeline-icon.red-bg { background-color: var(--dmg-red); }
+.timeline-icon.blue-green-bg { background-color: var(--dmg-blue-green); } /* Use defined variable */
+/* Add more classes here if needed (e.g., .blue-bg, .yellow-bg) */
+/* .timeline-icon.blue-bg { background-color: var(--dmg-blue); } */
+
 
 .timeline-icon span {
     color: var(--white);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
 }
 
-.timeline-content {
+.timeline-content { /* Using HTML Class */
     background: var(--white);
     padding: 25px 30px;
     border-radius: 10px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
     position: relative;
     z-index: 1;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%; /* Take full width of the item */
 }
 
-.timeline-content:hover {
-    transform: translateY(-5px);
+.timeline-item:hover .timeline-content {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
 }
 
 .timeline-item:hover .timeline-icon {
-    transform: scale(1.1);
+    transform: scale(1.15);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
 }
 
 .timeline-content h3 {
     margin-bottom: 10px;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--text-dark);
+    font-weight: 600; /* Slightly bolder heading */
 }
 
 .timeline-content h4 {
-    font-size: 1rem;
-    color: #777;
+    font-size: 0.95rem;
+    color: var(--dark-gray); /* Use dark-gray variable */
     margin-bottom: 15px;
     font-weight: 500;
+    text-transform: uppercase; /* Example style */
+    letter-spacing: 0.5px;
 }
 
 .timeline-content ul {
-    padding-left: 20px;
+    padding-left: 0; /* Remove padding */
+    text-align: left; /* Align list text left */
+    display: inline-block; /* Allows centering the block */
+    margin-top: 15px;
 }
 
 .timeline-content ul li {
-    margin-bottom: 8px;
+    margin-bottom: 10px; /* Increased spacing */
     position: relative;
     list-style-type: none;
-    padding-left: 15px;
+    padding-left: 20px; /* Space for bullet */
+    line-height: 1.5; /* Improved line height */
 }
 
 .timeline-content ul li::before {
-    content: "•";
-    color: var(--primary-green);
+    content: "✓"; /* Checkmark instead of bullet */
+    color: var(--dmg-green); /* Use a consistent color */
     font-weight: bold;
     position: absolute;
     left: 0;
+    top: 2px; /* Align checkmark */
+}
+
+/* === Client Advisory Section === */
+.client-advisory {
+    padding: 80px 0;
+    background-color: var(--white); /* Or a very light background like --dmg-light */
+}
+
+.advisory-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.advisory-header h2 {
+    font-size: 2.5rem;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.advisory-header p {
+    font-size: 1.1rem;
+    color: var(--dark-gray);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.advisory-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+    gap: 30px;
+}
+
+.advisory-card {
+    background-color: var(--white);
+    border: 1px solid #e9ecef; /* Light border */
+    border-radius: 10px;
+    padding: 30px 25px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Use flex for vertical alignment */
+    flex-direction: column;
+    height: 100%; /* Make cards in a row equal height */
+}
+
+.advisory-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.advisory-icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: rgba(26, 95, 180, 0.1); /* Light blue background */
+    color: var(--dmg-blue); /* Blue icon color */
+    display: inline-flex; /* Use inline-flex for centering */
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 25px; /* Center horizontally */
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.advisory-card:hover .advisory-icon {
+    background-color: var(--dmg-blue);
+    color: var(--white);
+}
+
+.advisory-icon i {
+    font-size: 1.8rem; /* Adjust icon size */
+}
+
+.advisory-card h3 {
+    font-size: 1.3rem;
+    color: var(--text-dark);
+    margin-bottom: 20px;
+    font-weight: 600;
+    flex-grow: 0; /* Prevent h3 from growing excessively */
+}
+
+.advisory-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    flex-grow: 1; /* Allow list to take remaining space */
+}
+
+.advisory-list li {
+    color: var(--dark-gray);
+    margin-bottom: 12px;
+    padding-left: 22px;
+    position: relative;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+.advisory-list li::before {
+    content: '›'; /* Arrow marker */
+    position: absolute;
+    left: 0;
+    top: 1px;
+    color: var(--dmg-blue); /* Match icon color */
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* === RESPONSIVE BREAKPOINTS === */
+
+/* Medium Devices (Tablets, smaller desktops) */
+@media (max-width: 992px) {
+    .section-title, .advisory-header h2 {
+        font-size: 2.2rem;
+    }
+    .section-subtitle, .advisory-header p {
+        font-size: 1rem;
+    }
+
+    /* Process Section */
+    .timeline-item {
+        flex-basis: calc(50% - 15px); /* 2 columns */
+        max-width: none;
+    }
+
+    /* Advisory Section */
+    .advisory-grid {
+        gap: 25px;
+    }
+    .advisory-card {
+        padding: 25px 20px;
+    }
+}
+
+/* Small Devices (Landscape Phones, small tablets) */
+@media (max-width: 768px) {
+     .container {
+        padding: 0 20px;
+    }
+    .section-title, .advisory-header h2 {
+        font-size: 2rem;
+    }
+    .section-subtitle, .advisory-header p {
+        margin-bottom: 40px;
+    }
+
+    /* Process Section */
+    .timeline-container {
+        gap: 25px;
+    }
+    .timeline-item {
+        flex-basis: calc(50% - 12.5px); /* Still try for 2 columns */
+    }
+    .timeline-icon {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 20px;
+    }
+    .timeline-icon span {
+        font-size: 1.6rem;
+    }
+    .timeline-content h3 {
+        font-size: 1.3rem;
+    }
+    .timeline-content {
+        padding: 20px 25px;
+    }
+    .timeline-content ul li {
+         font-size: 0.95rem;
+    }
+
+    /* Advisory Section */
+    .advisory-grid {
+       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); /* Allow slightly smaller cards */
+       gap: 20px;
+    }
+    .advisory-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 20px;
+    }
+    .advisory-icon i {
+        font-size: 1.7rem;
+    }
+    .advisory-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+    }
+    .advisory-list li {
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        padding-left: 20px;
+    }
+}
+
+/* Extra Small Devices (Portrait Phones) */
+@media (max-width: 576px) {
+    .process-section, .client-advisory {
+        padding: 60px 0;
+    }
+    .section-title, .advisory-header h2 {
+        font-size: 1.8rem;
+    }
+    .section-subtitle, .advisory-header p {
+        font-size: 0.95rem;
+        margin-bottom: 30px;
+    }
+
+    /* Process Section - Force 1 column */
+    .timeline-item {
+        flex-basis: 90%; /* Single column */
+        max-width: 350px; /* Limit width in single column */
+        margin-bottom: 25px;
+    }
+    .timeline-container {
+        gap: 25px; /* Vertical gap */
+    }
+
+    /* Advisory Section - Force 1 column */
+    .advisory-grid {
+       grid-template-columns: 1fr; /* Explicitly 1 column */
+       gap: 20px;
+    }
+    .advisory-card {
+        /* Disable hover transform on touch */
+        transform: none !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+     .advisory-card:hover {
+        transform: none !important;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05); /* Keep static shadow */
+    }
+    .advisory-icon {
+        width: 55px;
+        height: 55px;
+    }
+    .advisory-icon i {
+        font-size: 1.6rem;
+    }
+    .advisory-card h3 {
+        font-size: 1.15rem;
+    }
+    .advisory-list li {
+        font-size: 0.9rem;
+    }
 }
 
 .cta-container {
@@ -1431,24 +1740,7 @@ nav {
 @media (max-width: 768px) {
     .hero-container {
         padding: 40px 15px;
-    }
-    
-    .timeline-container::before {
-        left: 30px;
-    }
-    
-    .timeline-item {
-        padding-left: 70px;
-    }
-    
-    .timeline-icon {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .timeline-icon span {
-        font-size: 1.2rem;
-    }
+    } 
     
     .tabs-header {
         flex-direction: column;
@@ -1470,14 +1762,7 @@ nav {
     .btn {
         width: 100%;
     }
-    
-    .service-card {
-        padding: 20px;
-    }
-    
-    .timeline-content {
-        padding: 20px;
-    }
+     
     
     .section-title {
         font-size: 2rem;
