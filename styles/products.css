@@ -847,7 +847,141 @@ nav {
         opacity: 1;
     }
 }
-
+--zgh-primary-color: #010101;
+--zgh-highlight-color: #056cb8;
+--primary-color: #000;
+--secondary-color: #333;
+--product-icons-png: url(//www.zohowebstatic.com/sites/zweb/images/commonroot/product-icons.png);
+--product-icons: url(//www.zohowebstatic.com/sites/zweb/images/commonroot/product-icons.svg);
+--zp-i-w: 40px;
+--zp-i-h: 40px;
+--zp-i-bs: 800px auto;
+--uset-position: 2000px 2000px;
+--zp-mail-bp: -360px -40px;
+--zp-crm-bp: -320px 0;
+--zp-desk-bp: -680px 0;
+--zp-salesiq-bp: -360px 0;
+--zp-bigin-bp: -440px -80px;
+--zp-social-bp: -480px 0;
+--zp-campaigns-bp: -440px 0;
+--zp-forms-bp: -560px 0;
+--zp-sites-bp: -600px 0;
+--zp-pagesense-bp: -136px 0;
+--zp-backstage-bp: -520px 0;
+--zp-meeting-bp: -760px 0;
+--zp-assist-bp: -720px 0;
+--zp-books-bp: 0 -40px;
+--zp-invoice-bp: -120px -80px;
+--zp-expense-bp: -160px -40px;
+--zp-inventory-bp: -40px -40px;
+--zp-subscriptions-bp: -120px -40px;
+--zp-billing-bp: -120px -40px;
+--zp-checkout-bp: -200px -40px;
+--zp-payroll-bp: -240px -80px;
+--zp-motivator-bp: -400px 0;
+--zp-people-bp: -280px -40px;
+--zp-recruit-bp: -240px -40px;
+--zp-connect-bp: -62px 0;
+--zp-workerly-bp: -200px -80px;
+--zp-creator-bp: -720px -40px;
+--zp-flow-bp: -760px -40px;
+--zp-vault-bp: -680px -40px;
+--zp-bugtracker-bp: -600px -40px;
+--zp-analytics-bp: -160px -80px;
+--zp-writer-bp: -40px -80px;
+--zp-sheet-bp: -560px -80px;
+--zp-show-bp: -400px -40px;
+--zp-notebook-bp: -480px -40px;
+--zp-showtime-bp: -440px -40px;
+--zp-backtowork-bp: -680px -80px;
+--zp-shifts-bp: -80px -80px;
+--zp-projects-bp: -520px -40px;
+--zp-sprints-bp: -560px -40px;
+--zp-orchestly-bp: -80px -40px;
+--zp-cliq-bp: -640px -40px;
+--zp-sign-bp: -640px 0;
+--zp-officeintegrator-bp: -600px -120px;
+--zp-workdrive-bp: 0 -80px;
+--zp-commerce-bp: -280px -80px;
+--zp-landingpage-bp: -320px -120px;
+--zp-bookings-bp: -320px -80px;
+--zp-marketinghub-bp: -360px -80px;
+--zp-marketingautomation-bp: -360px -80px;
+--zp-catalyst-bp: -400px -80px;
+--zp-lens-bp: -480px -80px;
+--zp-endpointcentral-bp: -640px -120px;
+--zp-zeptomail-bp: -760px -80px;
+--zp-calendar-bp: -200px -120px;
+--zp-voice-bp: -280px -120px;
+--zp-embeddedbi-bp: -240px -120px;
+--zp-contracts-bp: -600px -80px;
+--zp-dataprep-bp: -120px -120px;
+--zp-learn-bp: 0 -120px;
+--zp-teaminbox-bp: -720px -80px;
+--zp-officesuite-bp: -320px -40px;
+--zp-zillum-bp: -40px -160px;
+--zp-tasks-bp: -80px -160px;
+--zp-one-bp: -160px 0;
+--zp-fplus-bp: -80px 0;
+--zp-pplus-bp: -280px 0;
+--zp-crmplus-bp: 0 auto;
+--zp-workplace-bp: -40px 0;
+--zp-mplus-bp: -240px 0;
+--zp-deluge-bp: -720px -120px;
+--zp-spark-bp: -760px -120px;
+--zp-ziasearch-bp: -680px -120px;
+--zp-toolkit-bp: -80px -120px;
+--zp-oneauth-bp: 0 -160px;
+--zp-qntrl-bp: -160px -120px;
+--zp-survey-bp: -160px -160px;
+--zp-connect-bp: -120px -160px;
+--zp-pagesense-bp: -240px -160px;
+--zp-remotely-bp: -520px -80px;
+--zp-zia-bp: -640px -80px;
+--zp-assist-bp: -720px 0;
+--zp-thrive-bp: -280px -160px;
+--zp-routeiq-bp: -320px -160px;
+--zp-directory-bp: -360px -160px;
+--zp-apptics-bp: -400px -160px;
+--zp-webinar-bp: -480px -160px;
+--zp-remoteaccessplus-bp: -520px -160px;
+--zp-qengine-bp: -560px -160px;
+--zp-sigma-bp: -600px -160px;
+--zp-tables-bp: -720px -160px;
+--zp-fsm-bp: 0 -200px;
+--zp-solo-bp: -80px -200px;
+--zp-publish-bp: -120px -200px;
+--zp-communityspaces-bp: -200px -200px;
+--zp-mail360-bp: -40px -120px;
+--zp-practice-bp: -240px -200px;
+--zp-identity360-bp: -280px -200px;
+--zp-docs-bp: -360px -120px;
+--zp-rpa-bp: -320px -200px;
+--zp-clouddns-bp: -360px -200px;
+--zp-eprotect-bp: -400px -200px;
+--zp-statusiq-bp: -760px -160px;
+--zp-researchstudio-bp: -440px -160px;
+--zp-todo-bp: -80px -160px;
+--zp-iot-bp: -440px -200px;
+--zp-trident-bp: -480px -200px;
+--zp-contacts-bp: -520px -200px;
+--zp-trainercentral-bp: -560px -200px;
+--zp-digitalriskanalyzer-bp: -600px -200px;
+--zp-vani-bp: -640px -200px;
+--zp-analyticsplus-bp: -720px -200px;
+--zp-cloudspend-bp: -760px -200px;
+--zp-saasmanagement-bp: -40px -240px;
+--zp-alarmsone-bp: -680px -200px;
+--zp-payments-bp: -80px -240px;
+--zp-zakya-bp: -120px -240px;
+--zp-pdfeditor-bp: -160px -240px;
+--zp-serviceplus-bp: -240px -240px;
+--zp-mobiledevicemanagerplus-bp: -200px -240px;
+--zp-leadchain-bp: -160px -200px;
+--zp-start-bp: -280px -240px;
+--zp-ulaa-bp: -320px -240px;
+--zp-retailiq-bp: -360px -240px;
+--zp-projectsplus-bp: -400px -240px;
 
 /* General Section Styling */
 .products-section {
@@ -860,7 +994,13 @@ nav {
     text-align: center;
     margin-bottom: 50px;
 }
-
+.product-svg-icon {
+    width: 48px; /* Define desired icon size */
+    height: 48px; /* Define desired icon size */
+    display: block; /* Ensure proper rendering */
+    /* Fill color is usually determined by the SVG itself, no need to set generally */
+    /* fill: currentColor; /* Uncomment ONLY if you need to override SVG colors */
+}
 .section-header h2 {
     font-size: 2.5rem;
     font-weight: 700;

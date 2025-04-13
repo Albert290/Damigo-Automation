@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Automation Company</title>
-    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
+    <title>Damigo Automation LTD - Services</title>
     <link rel="stylesheet" href="styles/services.css">
-    <!-- Font Awesome for hamburger menu icon -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Add Font Awesome CDN link here if not already included -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <!-- Consider adding a modern font from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Page Loader -->
@@ -51,163 +52,160 @@
     </header>
 
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="container hero-container">
             <div class="hero-content">
-                <h1><span> Damigo Automation LTD</span> Services</h1>
-                <p> We help businesses run smarter with Zoho. From seamless financial management to automated workflows, we ensure your operations are efficient, scalable, and stress-free — so you can focus on growth.</p>
+                <h1><span class="highlight-blue">Damigo Automation LTD</span> Services</h1>
+                <p>We help businesses run smarter with Zoho. From seamless financial management to automated workflows, we ensure your operations are efficient, scalable, and stress-free — so you can focus on growth.</p>
+                 <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary"><span>Let's Help You Get Started</span></a>
+                </div>
             </div>
             <div class="hero-image">
-                <img src="assets/images/Generated Image March 31, 2025 - 11_14AM.jpeg" alt="Business Automation" class="main-image">
-            </div>
-            <div class="hero-cta">
-                <a href="#contact" class="btn btn-primary"><span>Get Started</span></a> 
+                <img src="assets/images/Generated Image March 31, 2025 - 11_14AM.jpeg" alt="Business Automation Concepts" class="main-image">
             </div>
         </div>
-        <div class="hero-features">
-            <div class="feature-grid">
-                <div class="feature-item">
-                    <i class="fas fa-cogs feature-icon"></i>
-                    <h3>End-to-End Implementation</h3>
-                    <p>We don't just provide software; we ensure full deployment and support.</p>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="process-section section-padding">
+        <div class="container">
+            <h2 class="section-title">Our Automation Process</h2>
+            <p class="section-subtitle">Our proven 3-step process to transform your business</p>
+
+            <div class="timeline-container">
+                <!-- Step 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-icon bg-green">
+                        <span class="step-number">1</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Need Analysis For Automation</h3>
+                        <h4>What Happens?</h4>
+                        <ul>
+                            <li>Understanding client's business, processes, and challenges.</li>
+                            <li>Interacting with users of the current system to understand their needs and pain points.</li>
+                             <!-- Removed duplicate point -->
+                        </ul>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <i class="fas fa-industry feature-icon"></i>
-                    <h3>Industry Expertise</h3>
-                    <p>Tailored solutions for finance, manufacturing, retail, and service industries.</p>
+
+                <!-- Step 2 -->
+                <div class="timeline-item">
+                     <div class="timeline-icon bg-red">
+                        <span class="step-number">2</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Implementation, Data Migration & Customization</h3>
+                        <h4>What Happens?</h4>
+                        <ul>
+                            <li>Configuring the Zoho system precisely to user requirements.</li>
+                            <li>Executing careful and verified data migration from legacy systems.</li>
+                            <li>Rigorous testing and client consultation for necessary customizations.</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="feature-item">
-                    <i class="fas fa-puzzle-piece feature-icon"></i>
-                    <h3>Customizable Solutions</h3>
-                    <p>Adaptable systems to match your unique business processes and objectives.</p>
+
+                <!-- Step 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-icon bg-blue">
+                         <span class="step-number">3</span>
+                    </div>
+                    <div class="timeline-content">
+                        <h3>Go-Live and Training</h3>
+                        <h4>What Happens?</h4>
+                        <ul>
+                            <li>Utilizing current sample data to test the Go-Live phase and onboard users smoothly.</li>
+                            <li>Training users effectively with a mock test environment, adapting as needed.</li>
+                            <li>Monitoring the Go-Live phase closely, evaluating performance, and responding promptly to queries.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+     <!-- Client Advisory Section -->
+     <section class="client-advisory section-padding">
+        <div class="container">
+            <div class="advisory-header">
+                <h2 class="section-title">Why Partner with Damigo?</h2>
+                <p class="section-subtitle">Expert guidance to maximize your automation investment.</p>
+            </div>
+
+            <div class="advisory-content-wrapper"> <!-- Added wrapper for potential future layouts -->
+                <div class="advisory-card bg-blue-gradient">
+                    <div class="advisory-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <div class="advisory-text">
+                         <h3>Smart Implementation Meets Experience</h3>
+                        <p>At Damigo Automation, we combine over 20 years of professional accounting experience with deep expertise in Zoho financial suite implementations. Led by a seasoned accountant and business owner, we understand the real-world needs of modern businesses.</p>
+                        <ul class="advisory-list">
+                            <li><i class="fas fa-check-circle"></i> Expert Implementation of Zoho Books, Inventory, & more.</li>
+                            <li><i class="fas fa-check-circle"></i> Tailored Solutions fitting your unique workflows.</li>
+                            <li><i class="fas fa-check-circle"></i> End-to-End Support: Setup to go-live & beyond.</li>
+                            <li><i class="fas fa-check-circle"></i> Comprehensive Training empowering your team.</li>
+                            <li><i class="fas fa-check-circle"></i> Process-Driven, Results-Oriented Approach.</li>
+                        </ul>
+                        <p><strong>We’re not just automating—we’re optimizing your business for efficiency, accuracy, and sustainable growth.</strong></p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-  
-     <!-- How It Works Section -->
-<section id="how-it-works" class="process-section">
-    <div class="container">
-        <h2 class="section-title">Automation Process</h2>
-        <p class="section-subtitle">Our proven 5-step process to transform your business</p>
-        
-        <div class="timeline-container">
-            <!-- Step 1 -->
-            <div class="timeline-item" data-step="1">
-                <div class="timeline-icon green-bg">
-                    <span>1</span>
+    <!-- Testimonials Section -->
+    <section class="testimonials-section section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">See What Our Clients Say</h2>
+             <p class="section-subtitle">Real results from businesses like yours</p>
+            <div class="testimonials-grid">
+                <div class="testimonial-box">
+                    <p class="testimonial-text">“Invoicing used to be a hassle for our subscription business. With DMG and Zoho Books, we now send recurring invoices automatically—quarterly, semi-annually, or annually. It’s saved us time and improved our cash flow.”</p>
+                    <p class="testimonial-author">— James, CEO, Precision Tracking</p>
                 </div>
-                <div class="timeline-content">
-                    <h3>Need Analysis For Automation</h3>
-                    <h4>What Happens?</h4>
-                    <ul>
-                        <li>Understanding client's business, Processes and challenges.</li>
-                        <li>Interacting with users of the current system to understand their needs.</li>
-                        <li>Interacting with users of the current system to understand their needs.</strong>  
-                    </ul>
+                <div class="testimonial-box">
+                    <p class="testimonial-text">“DMG helped us go fully paperless with our church’s Purchase Requisition process. Ministries now submit requests and get approvals online. It's fast, transparent, and easy to track every expense.”</p>
+                    <p class="testimonial-author">— CPA Lilian Wairimu, Ridgeways Baptist Church</p>
                 </div>
-            </div> 
-
-            <!-- Step 3 -->
-            <div class="timeline-item" data-step="3">
-                <div class="timeline-icon red-bg">
-                    <span>3</span>
+                <div class="testimonial-box">
+                    <p class="testimonial-text">“Reconciling sales was a nightmare before. Now I track all transactions in real-time, even remotely from my phone. It’s made running the business so much smoother.”</p>
+                    <p class="testimonial-author">— Joe Gatonye, Director, Gaslean Ltd.</p>
                 </div>
-                <div class="timeline-content">
-                    <h3>Implementation, Data Migration and Customization</h3>
-                    <h4>What Happens?</h4>
-                    <ul>
-                        <li>Configuring the system to the user's needs.</li>
-                        <li>Careful migration of data from the previous system.</li>
-                        <li>Testing and consulting with the client on the required customization.</li>
-                    </ul>
+                <div class="testimonial-box">
+                    <p class="testimonial-text">“We used to lose track of credit sales and payments. With Zoho and DMG, everything’s automated—reminders, records, and reconciliations. Debt collection has never been easier.”</p>
+                    <p class="testimonial-author">— Peter, Director, Centre Point Hydraulic Enterprises</p>
+                </div>
+                <div class="testimonial-box">
+                    <p class="testimonial-text">“Zoho Books, set up by DMG, helped us streamline member subscriptions, track payments, and simplify audits. As a club treasurer, it’s made my work incredibly efficient.”</p>
+                    <p class="testimonial-author">— FCPA George Rutto, Rotary Club of Nairobi East</p>
+                </div>
+                <div class="testimonial-box">
+                    <p class="testimonial-text">“With over 200 members, we needed automation. DMG helped us schedule invoices, send statements, and automate payment reminders. Cash flow is stronger, and members are more engaged.”</p>
+                    <p class="testimonial-author">— Hon. Anthony Kiai, Chairman, Urban Swaras Running Club</p>
                 </div>
             </div>
-
-            <!-- Step 4 -->
-            <div class="timeline-item" data-step="4">
-                <div class="timeline-icon blue-green-bg">
-                    <span>4</span>
-                </div>
-                <div class="timeline-content">
-                    <h3>Go-Live and Training</h3>
-                    <h4>What Happens?</h4>
-                    <ul>
-                        <li>Use of current sample data to test the Go-Live phase and introduce users.</li>
-                        <li>Train users using a mock test company and make any necessary changes during the process</li>
-                        <li>Monitor and evaluate the Go-live phase while responding to queries.</li>
-                    </ul>
-                </div>
-            </div> 
-        </div> 
-</section>
-    
-     <!-- Client Advisory Section - Add this before the CTA Section -->
-<section class="client-advisory">
-    <div class="container">
-        <div class="advisory-header">
-            <h2>Client Advisory</h2>
-            <p>We provide expert guidance to help you get the most out of your automation solutions.</p>
+             <div class="testimonial-cta">
+                 <a href="testimonial.html" class="btn btn-secondary"><span>Read More Testimonials</span></a>
+             </div>
         </div>
-        
-        <div class="advisory-grid">
-            <div class="advisory-card">
-                <div class="advisory-icon">
-                    <i class="fas fa-clipboard-check"></i>
-                </div>
-                <h3>Smart Implementation</h3>
-                <ul class="advisory-list">
-                    <li>We help set up your systems for smooth and efficient operations.</li>
-                    <li>Ensure your business follows the latest security and compliance rules.</li>
-                    <li>Plan for future growth so your systems don’t slow you down.</li>
-                    <li>Make transitions easy by guiding your team through changes.</li>
-                </ul>
-            </div>
-            
-            <div class="advisory-card">
-                <div class="advisory-icon">
-                    <i class="fas fa-chart-line"></i>
-                </div>
-                <h3>Boosting Performance</h3>
-                <ul class="advisory-list">
-                    <li>We regularly check your systems and give reports on how they’re doing.</li>
-                    <li>Help you track key business results to measure success.</li>
-                    <li>Improve workflows using real data and insights.</li>
-                    <li>Find ways to increase profits and reduce waste.</li>
-                </ul>
-            </div>
-            
-            <div class="advisory-card">
-                <div class="advisory-icon">
-                    <i class="fas fa-lightbulb"></i>
-                </div>
-                <h3>Innovation & Strategy</h3>
-                <ul class="advisory-list">
-                    <li>Guide you in using new and advanced technology.</li>
-                    <li>Help you stay ahead of competitors with smart strategies.</li>
-                    <li>Run workshops to help your team think outside the box.</li>
-                    <li>Design unique solutions for business challenges.</li>
-                </ul>
-            </div>
-            
-            <div class="advisory-card">
-                <div class="advisory-icon">
-                    <i class="fas fa-users-cog"></i>
-                </div>
-                <h3>Team Training & Support</h3>
-                <ul class="advisory-list">
-                    <li>Provide easy-to-follow training for different team members.</li>
-                    <li>Equip leaders with skills to drive digital growth.</li>
-                    <li>Identify and improve areas where your team needs more knowledge.</li>
-                    <li>Ensure your staff can confidently use new systems without outside help.</li>
-                </ul>
-            </div>
-        </div> 
-    </div>
-</section>
+    </section>
 
+       <!-- Call to Action Section -->
+       <section class="cta-section section-padding">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Automate Your Business?</h2>
+                <p>Book a Consultation today and get a <span class="highlight-yellow">free 30-minute automation strategy session!</span></p>
+                <div class="cta-buttons">
+                    <!-- Optional: Added icon for style potential -->
+                    <a href="#contact" class="btn btn-primary btn-large"><span><i class="fas fa-calendar-check"></i> Book a Consultation</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
    <!-- Quote Form Modal -->
@@ -334,140 +332,56 @@
 </div>
 
 
-<!-- Benefits Section -->
-<section class="benefits-section">
-    <div class="container">
-        <h2 class="section-title">Benefits of Working with Damigo</h2>
-        <div class="section-title-underline"></div>
-        <p class="section-subtitle">Why our clients choose us for their automation needs</p>
-        
-        <div class="benefits-grid">
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-tachometer-alt"></i>
-                </div>
-                <h3>Efficiency Gains</h3>
-                <p>Up to <span class="highlight">30% reduction</span> in manual data entry and process delays</p>
-            </div>
-            
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-coins"></i>
-                </div>
-                <h3>Cost Savings</h3>
-                <p>Reduce operational costs by <span class="highlight">15-40%</span> within the first year</p>
-            </div>
-            
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-chart-pie"></i>
-                </div>
-                <h3>Improved Decision-Making</h3>
-                <p>Real-time analytics for better business insights and strategic planning</p>
-            </div>
-            
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-expand-arrows-alt"></i>
-                </div>
-                <h3>Scalability</h3>
-                <p>Solutions that grow with your business needs and adapt to changing requirements</p>
-            </div>
-            
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-headset"></i>
-                </div>
-                <h3>Dedicated Support</h3>
-                <p>Comprehensive training and ongoing assistance for your team</p>
-            </div>
-            
-            <div class="benefit-card">
-                <div class="benefit-icon">
-                    <i class="fas fa-plug"></i>
-                </div>
-                <h3>Integration Expertise</h3>
-                <p>Seamless connection between all your business tools and platforms</p>
-            </div>
-        </div>
-    </div>
-</section>
-
  
-
-<!-- Call to Action Section -->
-<section class="cta-section">
-    <div class="container">
-        <div class="cta-content">
-            <h2>Ready to Automate Your Business?</h2>
-            <p>Book a Consultation today and get a <span class="highlight">free 30-minute automation strategy session!</span></p>
-            <div class="cta-buttons"> 
-                <a href="#contact" class="btn btn-primary"><span>Book a Consultation</span></a>
-            </div>
-        </div>
-    </div>
-</section>
-
    
-<footer class="site-footer">
+  <!-- Footer -->
+  <footer class="site-footer">
     <div class="container">
         <div class="footer-content">
-            <div class="footer-logo-section">
-                
-                <h3 class="centered-title">Certifications</h3>
-                <!-- Logo removed as requested -->
+            <div class="footer-column footer-logo-section">
+                <h3 class="footer-title">Certifications</h3>
                 <div class="certification-badges">
-                    <img src="assets/images/zoho.jpg" alt="Zoho Authorized Partner" class="partner-badgee">
+                    <img src="assets/images/zoho.jpg" alt="Zoho Authorized Partner" class="partner-badge">
                     <img src="assets/images/SageAccounting_Adviser-Certification-Badge.png" alt="Sage Certified Adviser" class="partner-badge">
                 </div>
             </div>
-            
-            <div class="footer-links-section">
-                <h3 class="centered-title">Quick Links</h3>
+
+            <div class="footer-column footer-links-section">
+                <h3 class="footer-title">Quick Links</h3>
                 <ul class="footer-links">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="products.html">Products</a></li>
                     <li><a href="testimonial.html">Portfolio</a></li>
-                    <li><a href="contact.html">Contact</a></li> 
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
-            
-            <div class="footer-contact-section">
-                <h3>Get In Touch</h3>
-                <div class="contact-buttons">
-                    <a href="tel:+254722325104" class="contact-button phone-button">
-                        <span class="button-icon icon-phone"></span>
-                        <span class="button-text">+254722325104</span>
-                    </a>
-                    <a href="mailto:info@dmg.co.ke" class="contact-button email-button">
-                        <span class="button-icon icon-email"></span>
-                        <span class="button-text">info@dmg.co.ke</span>
-                    </a>
+
+            <div class="footer-column footer-contact-section">
+                <h3 class="footer-title">Get In Touch</h3>
+                 <address class="footer-address">
+                    <p><i class="fas fa-map-marker-alt"></i> 4th Floor Delta Corner Annex, Westlands</p>
+                    <p><i class="fas fa-phone"></i> <a href="tel:+254722325104">+254 722 325 104</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:info@dmg.co.ke">info@dmg.co.ke</a></p>
+                </address>
+            </div>
+
+             <div class="footer-column footer-social-section">
+                <h3 class="footer-title">Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
-        
-        <!-- Social media section moved here, below the main sections -->
-        <div class="social-media-section">
-            <h4>Follow Us</h4>
-            <div class="social-icons">
-                <a href="#" class="social-icon icon-facebook" aria-label="Facebook"></a>
-                <a href="#" class="social-icon icon-twitter" aria-label="Twitter"></a>
-                <a href="#" class="social-icon icon-linkedin" aria-label="LinkedIn"></a>
-                <a href="#" class="social-icon icon-instagram" aria-label="Instagram"></a>
-            </div>
-        </div>
-        
+
         <div class="footer-bottom">
-            <div class="location">
-                <span class="icon icon-location"></span>
-                <span>4th Floor Delta Corner Annex, Westlands</span>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2025 Damigo Automation Ltd. All rights reserved.</p>
+             <div class="copyright">
+                <p>© 2025 Damigo Automation Ltd. All rights reserved.</p>
             </div>
             <div class="footer-links-bottom">
-                <a href="privacy.html">Privacy Policy</a>
+                <a href="privacy.html">Privacy Policy</a> |
                 <a href="terms.html">Terms of Service</a>
             </div>
         </div>
