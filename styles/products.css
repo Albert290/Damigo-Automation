@@ -35,6 +35,100 @@
     --box-shadow-hover: 0 8px 25px rgba(0, 82, 204, 0.15); /* Example */
 }
 
+/* ========================================================================
+   WhatsApp Link
+   ======================================================================== */
+   .whatsapp-link.fixed {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366; /* Keep WhatsApp brand green */
+    color: white;
+    padding: 12px;
+    border-radius: 50px; /* Changed to pill shape to accommodate text */
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.25);
+    z-index: 1000;
+    transition: all var(--transition-speed);
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.whatsapp-link.fixed i {
+    font-size: 1.8rem;
+    margin-right: 8px;
+}
+
+.whatsapp-link.fixed p {
+    margin: 0;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding-right: 15px;
+    opacity: 1;
+    transition: opacity 0.3s ease;
+}
+
+.whatsapp-link.fixed:hover {
+    background-color: #128C7E; /* Darker WhatsApp green */
+    transform: scale(1.05);
+    box-shadow: 3px 3px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* Pulse animation */
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+    }
+    70% {
+        box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+    }
+}
+
+.whatsapp-link.fixed {
+    animation: pulse 2s infinite;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 576px) {
+    .whatsapp-link.fixed {
+        bottom: 20px;
+        right: 20px;
+        padding: 10px;
+    }
+    
+    .whatsapp-link.fixed i {
+        font-size: 1.5rem;
+        margin-right: 6px;
+    }
+    
+    .whatsapp-link.fixed p {
+        font-size: 0.8rem;
+        padding-right: 10px;
+    }
+}
+
+/* Optional: Collapsed state for smaller screens */
+@media screen and (max-width: 380px) {
+    .whatsapp-link.fixed {
+        border-radius: 50%;
+        padding: 12px;
+    }
+    
+    .whatsapp-link.fixed i {
+        margin-right: 0;
+    }
+    
+    .whatsapp-link.fixed p {
+        display: none;
+    }
+}
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -764,192 +858,424 @@ nav {
     }
 }  
 
-/* General Section Styling */
-.products-section { 
-    background-color: var(--white);
+/* Enhanced Products Section */
+.products-section {
+    padding: 80px 0;
+    background-color: var(--neutral-light);
     position: relative;
+}
+
+/* Add a subtle pattern overlay */
+.products-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(120deg, rgba(9, 116, 176, 0.05) 0%, rgba(33, 158, 74, 0.05) 100%);
+    z-index: 0;
+}
+
+.products-section .container {
+    position: relative;
+    z-index: 1;
 }
 
 .section-header {
     text-align: center;
     margin-bottom: 50px;
-}
-.product-svg-icon {
-    width: 48px; /* Define desired icon size */
-    height: 48px; /* Define desired icon size */
-    display: block; /* Ensure proper rendering */
-    /* Fill color is usually determined by the SVG itself, no need to set generally */
-    /* fill: currentColor; /* Uncomment ONLY if you need to override SVG colors */
-}
-.section-header h2 {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 15px;
     position: relative;
-    display: inline-block;
 }
 
-.section-header h2 span {
-    color: var(--primary-green);
-}
-
-.section-header h2::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
+.section-header::after {
+    content: "";
+    display: block;
     width: 80px;
     height: 4px;
-    background-color: var(--primary-yellow);
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-green));
+    margin: 15px auto 0;
+    border-radius: 2px;
+}
+
+.section-header h2 {
+    font-size: 2.8rem;
+    color: var(--neutral-dark);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 15px;
+}
+
+.highlight-blue {
+    color: var(--primary-blue);
+    position: relative;
+}
+
+.highlight-blue::after {
+    content: "";
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background-color: rgba(9, 116, 176, 0.1);
+    z-index: -1;
+    border-radius: 10px;
 }
 
 .section-header p {
     font-size: 1.2rem;
-    color: var(--text-gray);
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
+    color: var(--neutral-medium);
+    line-height: 1.7;
 }
 
-/* Category Navigation */
+/* Category Tabs */
 .category-tabs {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
     margin-bottom: 40px;
+    flex-wrap: wrap;
+    gap: 12px;
+    position: relative;
+}
+
+.category-tabs::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--neutral-border) 15%, 
+        var(--neutral-border) 85%, 
+        transparent 100%);
 }
 
 .category-tab {
-    background-color: transparent;
-    border: 2px solid var(--primary-green);
-    color: var(--primary-green);
-    padding: 10px 20px;
-    border-radius: 30px;
+    padding: 14px 24px;
+    background-color: var(--white);
+    border: none;
+    border-radius: var(--border-radius);
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed);
+    color: var(--neutral-medium);
+    margin: 0 5px 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+    font-size: 1rem;
+}
+
+/* Different color schemes for each tab */
+.category-tab[data-category="sales"] {
+    border-top: 3px solid var(--primary-blue);
+}
+
+.category-tab[data-category="finance"] {
+    border-top: 3px solid var(--accent-green);
+}
+
+.category-tab[data-category="workplace"] {
+    border-top: 3px solid var(--accent-red);
+}
+
+.category-tab[data-category="hr"] {
+    border-top: 3px solid var(--accent-yellow);
+}
+
+.category-tab[data-category="analytics"] {
+    border-top: 3px solid #9C27B0; /* Purple for analytics */
 }
 
 .category-tab:hover {
-    background-color: rgba(0, 166, 81, 0.1);
+    transform: translateY(-2px);
+    background-color: #f9f9f9;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.category-tab.active {
-    background-color: var(--primary-green);
+.category-tab::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: rgba(9, 116, 176, 0.05);
+    transition: height 0.3s ease;
+    z-index: -1;
+}
+
+.category-tab:hover::before {
+    height: 100%;
+}
+
+/* Active state for tabs with different colors */
+.category-tab.active[data-category="sales"] {
+    background-color: var(--primary-blue);
     color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(9, 116, 176, 0.25);
 }
 
+.category-tab.active[data-category="finance"] {
+    background-color: var(--accent-green);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(33, 158, 74, 0.25);
+}
 
+.category-tab.active[data-category="workplace"] {
+    background-color: var(--accent-red);
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(206, 34, 50, 0.25);
+}
 
-/* Products Grid */
-.products-container {
-    position: relative;
+.category-tab.active[data-category="hr"] {
+    background-color: #D4A200; /* Darker yellow for better contrast */
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 224, 4, 0.25);
+}
+
+.category-tab.active[data-category="analytics"] {
+    background-color: #9C27B0; /* Purple */
+    color: var(--white);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(156, 39, 176, 0.25);
+}
+
+/* Add icons to tabs */
+.category-tab[data-category="sales"]::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f0b1"; /* briefcase icon */
+    margin-left: 8px;
+    font-weight: 900;
+}
+
+.category-tab[data-category="finance"]::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f155"; /* dollar sign icon */
+    margin-left: 8px;
+    font-weight: 900;
+}
+
+.category-tab[data-category="workplace"]::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f0ac"; /* globe icon */
+    margin-left: 8px;
+    font-weight: 900;
+}
+
+.category-tab[data-category="hr"]::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f007"; /* user icon */
+    margin-left: 8px;
+    font-weight: 900;
+}
+
+.category-tab[data-category="analytics"]::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f080"; /* chart icon */
+    margin-left: 8px;
+    font-weight: 900;
+}
+
+/* Responsive Adjustments */
+@media screen and (max-width: 768px) {
+    .section-header h2 {
+        font-size: 2.2rem;
+    }
+    
+    .category-tab {
+        padding: 12px 18px;
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .section-header p {
+        font-size: 1rem;
+    }
+    
+    .category-tabs {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .category-tab {
+        width: 100%;
+        max-width: 280px;
+        text-align: center;
+        padding: 14px 10px;
+        margin: 0;
+    }
 }
 
 .products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    display: none;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 30px;
-    opacity: 0;
-    visibility: hidden;
-    height: 0;
-    overflow: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s ease;
-    position: absolute;
-    width: 100%;
+    margin-top: 30px;
 }
 
 .products-grid.active {
-    opacity: 1;
-    visibility: visible;
-    height: auto;
-    position: relative;
-    overflow: visible;
+    display: grid;
 }
 
-/* Product Cards */
 .product-card {
     background-color: var(--white);
-    border-radius: 8px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border-radius: var(--border-radius);
     padding: 30px;
-    transition: all 0.3s ease;
+    box-shadow: var(--box-shadow);
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    position: relative;
-    border-top: 4px solid var(--primary-green);
+    align-items: center;
+    text-align: center;
 }
 
 .product-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow-hover);
 }
 
 .product-icon {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
-    background-color: rgba(0, 166, 81, 0.1);
+    background-color: var(--neutral-light);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 20px;
+    transition: all var(--transition-speed);
+}
+
+.product-card:hover .product-icon {
+    background-color: var(--primary-blue);
 }
 
 .product-icon i {
-    font-size: 24px;
-    color: var(--primary-green);
+    font-size: 2rem;
+    color: var(--primary-blue);
+    transition: all var(--transition-speed);
+}
+
+.product-card:hover .product-icon i {
+    color: var(--white);
 }
 
 .product-card h3 {
-    font-size: 1.4rem;
-    font-weight: 700;
+    font-size: 1.3rem;
     margin-bottom: 15px;
-    color: var(--text-dark);
+    color: var(--neutral-dark);
 }
 
 .product-card p {
-    font-size: 1rem;
-    color: var(--text-gray);
-    margin-bottom: 20px;
-    flex-grow: 1;
+    font-size: 0.95rem;
+    color: var(--neutral-medium);
+    margin-bottom: 0;
 }
 
-.badge {
-    display: inline-block;
-    background-color: rgba(255, 193, 7, 0.2);
-    color: var(--primary-yellow);
-    font-size: 0.8rem;
-    padding: 4px 10px;
-    border-radius: 20px;
-    margin-right: 5px;
-    margin-bottom: 15px;
-    font-weight: 600;
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+    
+    .zoho-ecosystem {
+        height: 350px;
+    }
+    
+    .icon-bubble {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .zoho-central {
+        width: 80px;
+        height: 80px;
+    }
 }
 
-.product-link {
-    display: inline-flex;
-    align-items: center;
-    color: var(--primary-green);
-    font-weight: 600;
-    transition: all 0.3s ease;
-    margin-top: auto;
+@media screen and (max-width: 768px) {
+    .products-hero {
+        padding: 60px 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+    }
+    
+    .zoho-ecosystem {
+        height: 300px;
+    }
+    
+    .category-tab {
+        padding: 10px 16px;
+        font-size: 0.9rem;
+    }
+    
+    .products-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+    }
 }
 
-.product-link i {
-    margin-left: 5px;
-    transition: transform 0.3s ease;
-}
-
-.product-link:hover {
-    color: var(--primary-yellow);
-}
-
-.product-link:hover i {
-    transform: translateX(5px);
+@media screen and (max-width: 576px) {
+    .products-hero {
+        padding: 40px 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .zoho-ecosystem {
+        height: 250px;
+        display: none; /* Hide on very small screens */
+    }
+    
+    .category-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .category-tab {
+        width: 100%;
+        max-width: 280px;
+        margin: 5px 0;
+    }
+    
+    .products-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .product-card {
+        padding: 20px;
+    }
 }
 
 /* Zoho One Section */

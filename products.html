@@ -44,10 +44,7 @@
             
             
         </div>
-    </header>
-    <a href="https://wa.me/254722325104" class="whatsapp-link fixed" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-    </a>
+    </header> 
     <!-- Products Hero Section -->
     <section class="products-hero">
         <div class="container">
@@ -116,8 +113,12 @@
         </div> 
     </section>
 
+    <a href="https://wa.me/254722325104" class="whatsapp-link fixed" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp" data-tooltip="Chat with us on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <p>Message Us</p>
+    </a>
 <!-- Products Section -->
-<section class="products-section ">
+<section class="products-section" id="zoho-products">
     <div class="container">
         <div class="section-header">
             <h2>Our Zoho <span class="highlight-blue">Products</span></h2>
@@ -128,21 +129,18 @@
         <div class="category-tabs">
             <button class="category-tab active" data-category="sales">Sales & Marketing</button>
             <button class="category-tab" data-category="finance">Finance</button> 
-           <!--
-<button class="category-tab" data-category="workplace">Workplace & Email</button>
-<button class="category-tab" data-category="hr">Human Resources</button>
-<button class="category-tab" data-category="analytics">BI & Analytics</button>
--->
-
+            <button class="category-tab" data-category="workplace">Workplace & Email</button>
+            <button class="category-tab" data-category="hr">Human Resources</button>
+            <button class="category-tab" data-category="analytics">BI & Analytics</button>
         </div>
 
         <!-- Products Grid -->
-        <div id="zoho-products" class="products-container">
+        <div class="products-container">
             <!-- Sales & Marketing Products -->
-            <div class="products-grid active" id="sales-products">
+            <div class="products-grid active" id="sales">
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/crm.png" alt="Zoho CRM">
+                        <i class="fas fa-users"></i>
                     </div>
                     <h3>Zoho CRM</h3>
                     <p>Customer relationship management solution for sales, marketing, and customer service.</p>
@@ -150,15 +148,15 @@
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/begin.png" alt="Zoho Campaigns">
+                        <i class="fas fa-rocket"></i>
                     </div>
-                    <h3>Zoho  Bigin</h3>
-                    <p>Simple CRM for small businesses movig from spreadsheets.</p>
+                    <h3>Zoho Bigin</h3>
+                    <p>Simple CRM for small businesses moving from spreadsheets.</p>
                 </div>
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/form.png" alt="Zoho Social">
+                        <i class="fas fa-clipboard-list"></i>
                     </div>
                     <h3>Zoho Forms</h3>
                     <p>Build online forms for every business need.</p>
@@ -166,7 +164,7 @@
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/booking.png" alt="Zoho Survey">
+                        <i class="fas fa-calendar-check"></i>
                     </div>
                     <h3>Zoho Bookings</h3>
                     <p>Appointment scheduling app for consultations with customers.</p>
@@ -174,7 +172,7 @@
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/sign.png" alt="Zoho SalesIQ">
+                        <i class="fas fa-signature"></i>
                     </div>
                     <h3>Zoho Sign</h3>
                     <p>Digital signature app for businesses.</p>
@@ -182,10 +180,10 @@
             </div>
             
             <!-- Finance & Accounting Products -->
-            <div class="products-grid" id="finance-products">
+            <div class="products-grid" id="finance">
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/invoice.png" alt="Zoho Invoice">
+                        <i class="fas fa-file-invoice-dollar"></i>
                     </div>
                     <h3>Zoho Invoice</h3>
                     <p>Invoice creation and expense tracking tool for small businesses.</p>
@@ -193,7 +191,7 @@
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/book.png" alt="Zoho Books">
+                        <i class="fas fa-book"></i>
                     </div>
                     <h3>Zoho Books</h3>
                     <p>Cloud-based accounting software to manage finances and taxes.</p>
@@ -201,7 +199,7 @@
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/expense.png" alt="Zoho Expense">
+                        <i class="fas fa-receipt"></i>
                     </div>
                     <h3>Zoho Expense</h3>
                     <p>Expense reporting and management tool for teams and businesses.</p>
@@ -209,17 +207,18 @@
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/billing.png" alt="Zoho Payroll">
+                        <i class="fas fa-money-bill-wave"></i>
                     </div>
                     <h3>Zoho Billing</h3>
                     <p>End-to-end billing solution for your business.</p>
-                </div> 
+                </div>
+            </div>
             
-            <!-- Project Management Products -->
-            <div class="products-grid" id="workplace-products">
+            <!-- Workplace & Email Products -->
+            <div class="products-grid" id="workplace">
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/png/zohoprojects.png" alt="Zoho Projects">
+                        <i class="fas fa-tasks"></i>
                     </div>
                     <h3>Zoho Projects</h3>
                     <p>Project management and collaboration tool for teams.</p>
@@ -227,7 +226,7 @@
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/png/zohosprints.png" alt="Zoho Sprints">
+                        <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Zoho Sprints</h3>
                     <p>Agile project management tool for software teams to plan and track progress.</p>
@@ -235,7 +234,7 @@
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/png/zohoorchard.png" alt="Zoho Orchard">
+                        <i class="fas fa-tree"></i>
                     </div>
                     <h3>Zoho Orchard</h3>
                     <p>Tool for managing and automating projects within teams.</p>
@@ -243,7 +242,7 @@
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/png/zohoplanner.png" alt="Zoho Planner">
+                        <i class="fas fa-calendar-alt"></i>
                     </div>
                     <h3>Zoho Planner</h3>
                     <p>Team scheduling and task management software.</p>
@@ -251,7 +250,7 @@
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/png/zohoworkdrive.png" alt="Zoho WorkDrive">
+                        <i class="fas fa-cloud"></i>
                     </div>
                     <h3>Zoho WorkDrive</h3>
                     <p>Cloud storage solution for teams to collaborate on files and documents.</p>
@@ -259,10 +258,10 @@
             </div>
             
             <!-- HR & Employee Management Products -->
-            <div class="products-grid" id="hr-products">
+            <div class="products-grid" id="hr">
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/png/zohopeople.png" alt="Zoho People">
+                        <i class="fas fa-user-tie"></i>
                     </div>
                     <h3>Zoho People</h3>
                     <p>HR management software to manage employee data and performance.</p>
@@ -270,7 +269,7 @@
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/png/zohoapplicanttracking.png" alt="Zoho Applicant Tracking">
+                        <i class="fas fa-user-plus"></i>
                     </div>
                     <h3>Zoho Applicant Tracking</h3>
                     <p>Recruitment software to track and manage job applicants.</p>
@@ -278,7 +277,7 @@
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/png/zohohranalytics.png" alt="Zoho HR Analytics">
+                        <i class="fas fa-chart-bar"></i>
                     </div>
                     <h3>Zoho HR Analytics</h3>
                     <p>Analyze HR metrics to make data-driven decisions and improve employee engagement.</p>
@@ -286,7 +285,7 @@
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/png/zohopeopleanalytics.png" alt="Zoho People Analytics">
+                        <i class="fas fa-users-cog"></i>
                     </div>
                     <h3>Zoho People Analytics</h3>
                     <p>Data insights for improving employee performance and engagement.</p>
@@ -294,14 +293,49 @@
             
                 <div class="product-card">
                     <div class="product-icon">
-                        <img class="product-img-icon" src="assets/icons/png/zohoattendance.png" alt="Zoho Attendance">
+                        <i class="fas fa-clock"></i>
                     </div>
                     <h3>Zoho Attendance</h3>
                     <p>Employee attendance management tool for tracking working hours and leaves.</p>
                 </div>
             </div>
             
-</div>
+            <!-- Analytics Products -->
+            <div class="products-grid" id="analytics">
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h3>Zoho Analytics</h3>
+                    <p>Business intelligence and analytics platform for data-driven insights.</p>
+                </div>
+            
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>Zoho DataPrep</h3>
+                    <p>Self-service data preparation and management tool.</p>
+                </div>
+            
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Zoho Lens</h3>
+                    <p>Analytics plugin for visualizing and exploring data.</p>
+                </div>
+            
+                <div class="product-card">
+                    <div class="product-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Zoho AI Insights</h3>
+                    <p>AI-powered analytics to discover insights from business data.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <section class="zoho-one-section unified-platform-section" style="background-color: #FAF7F0; padding: 60px 0; margin: 40px 0; color: #333; font-family: sans-serif;">
@@ -667,6 +701,64 @@
         }
     `;
     document.head.appendChild(style);
+    
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Tab functionality
+    const tabs = document.querySelectorAll('.category-tab');
+    const productGrids = document.querySelectorAll('.products-grid');
+    
+    tabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            // Remove active class from all tabs
+            tabs.forEach(t => t.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            this.classList.add('active');
+            
+            // Hide all product grids
+            productGrids.forEach(grid => grid.classList.remove('active'));
+            
+            // Show the corresponding product grid
+            const categoryId = this.getAttribute('data-category');
+            document.getElementById(categoryId).classList.add('active');
+        });
+    });
+    
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                window.scrollTo({
+                    top: targetElement.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+    
+    // Tooltip functionality for mobile (touch devices)
+    const iconBubbles = document.querySelectorAll('.icon-bubble');
+    
+    iconBubbles.forEach(bubble => {
+        bubble.addEventListener('touchstart', function() {
+            // Reset all other bubbles
+            iconBubbles.forEach(b => {
+                if (b !== this) {
+                    b.classList.remove('tooltip-active');
+                }
+            });
+            
+            // Toggle tooltip on the current bubble
+            this.classList.toggle('tooltip-active');
+        });
+    });
 });
     </script>
 </body>
