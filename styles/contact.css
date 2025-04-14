@@ -957,6 +957,31 @@ body {
     display: block; /* Ensuring visibility */
 }
 
+/* ========================================================================
+   WhatsApp Link
+   ======================================================================== */
+   .whatsapp-link.fixed {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366; /* Keep WhatsApp brand green */
+    color: white;
+    padding: 12px 15px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all var(--transition-speed);
+}
+
+.whatsapp-link.fixed i {
+    font-size: 2rem;
+    vertical-align: middle; /* Better alignment */
+}
+
+.whatsapp-link.fixed:hover {
+    background-color: #128C7E; /* Darker WhatsApp green */
+    transform: scale(1.1);
+}
 .partner-badge:hover {
     transform: translateY(-3px);
     filter: grayscale(0%) brightness(1.2);
