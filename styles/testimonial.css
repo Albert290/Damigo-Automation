@@ -1430,6 +1430,133 @@ section:nth-of-type(even)::before {
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='%23ffffff' viewBox='0 0 24 24'%3E%3Cpath d='M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z'/%3E%3C/svg%3E");
 }
 
+/* Stats Section Styling */
+.stats-section-yellow-split {
+    background-color: #FFDA63; /* Yellow background for the whole section */
+    padding: 80px 0;        /* Vertical padding */
+    overflow: hidden;       /* Prevent unexpected overflow */
+}
+
+.stats-container-split {
+    max-width: 1140px;       /* Max width of content area */
+    margin: 0 auto;          /* Center the container */
+    padding: 0 25px;         /* Padding on smaller screens */
+    display: flex;           /* Enable Flexbox */
+    align-items: center;     /* Vertically align content and image */
+    justify-content: space-between; /* Push items apart */
+    gap: 40px;               /* Space between left content and right image */
+    flex-wrap: wrap;         /* Allow items to stack on smaller screens */
+}
+
+/* === Left Content Area === */
+.stats-content-left {
+    flex: 1 1 55%; /* Allow grow/shrink, basis ~55% width */
+    min-width: 300px; /* Minimum width before wrapping */
+    color: #0D6ABF;   /* <<<<<< Blue text color for this area >>>>>> */
+}
+
+.stats-headline-blue {
+    font-size: clamp(2.2em, 5vw, 3.5em); /* Responsive font size */
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 40px;
+    /* Color is inherited from .stats-content-left */
+}
+
+.stats-grid-blue {
+    display: grid;
+    /* Adjust columns for desired layout */
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 35px 25px; /* Row and column gap */
+    max-width: 600px; /* Optional: Limit width of grid */
+}
+
+.stat-item-blue {
+    text-align: left;
+}
+
+.stat-number-blue {
+    font-size: clamp(2em, 5vw, 3.2em); /* Responsive number size */
+    font-weight: 700;
+    line-height: 1.1;
+    display: block;
+    margin-bottom: 8px;
+     /* Color is inherited */
+}
+
+.stat-label-blue {
+    font-size: clamp(0.9em, 2vw, 1em); /* Responsive label size */
+    color: #4a7aa4; /* Slightly lighter/desaturated blue for labels */
+    line-height: 1.4;
+}
+
+/* === Right Image Area === */
+.stats-image-right {
+    flex: 1 1 40%; /* Allow grow/shrink, basis ~40% width */
+    min-width: 280px; /* Minimum width before wrapping */
+    text-align: right; /* Align image towards the right edge */
+}
+
+.stats-image-right img {
+    max-width: 100%; /* Make image responsive within its container */
+    height: auto;    /* Maintain aspect ratio */
+    display: block;  /* Remove extra bottom space */
+    margin-left: auto; /* Ensure it pushes right if text-align isn't enough */
+    max-height: 450px; /* Optional: prevent image from getting too tall */
+}
+
+
+/* === Responsiveness === */
+@media (max-width: 768px) {
+    .stats-container-split {
+        flex-direction: column; /* Stack items vertically */
+        text-align: center;     /* Center-align text content */
+        gap: 50px;             /* Increase gap when stacked */
+    }
+
+    .stats-content-left {
+        flex-basis: auto; /* Reset flex-basis */
+        text-align: center; /* Ensure text is centered */
+        max-width: 500px; /* Prevent text block from becoming too wide */
+        margin: 0 auto; /* Center the content block itself */
+    }
+     .stats-grid-blue {
+         max-width: 100%; /* Allow grid to use available width */
+         justify-items: center; /* Center grid items */
+         grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+         gap: 30px 20px;
+     }
+     .stat-item-blue {
+         text-align: center; /* Center text within each stat item */
+     }
+
+    .stats-image-right {
+        flex-basis: auto; /* Reset flex-basis */
+        text-align: center; /* Center the image */
+        margin-top: 20px; /* Add space above image when stacked */
+        width: 100%;      /* Allow container to take full width */
+        max-width: 400px; /* Limit max width of image container */
+        margin-left: auto;
+        margin-right: auto; /* Center the image container */
+    }
+     .stats-image-right img {
+         margin: 0 auto; /* Center image within its container */
+     }
+}
+
+@media (max-width: 480px) {
+     .stats-grid-blue {
+        grid-template-columns: 1fr 1fr; /* Force 2 columns on very small screens */
+         gap: 25px 15px;
+    }
+     .stats-headline-blue {
+         font-size: clamp(1.8em, 7vw, 2.5em); /* Adjust headline size */
+     }
+     .stat-number-blue {
+         font-size: clamp(1.8em, 6vw, 2.8em); /* Adjust number size */
+     }
+}
+
 /* Footer Bottom */
 .footer-bottom {
     display: flex;

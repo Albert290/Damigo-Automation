@@ -1,12 +1,41 @@
-/* Variables for consistent color usage */
+/* ========================================================================
+   Variables and Base Styles
+   ======================================================================== */
+
+/* UPDATED: Zoho-inspired color palette */
 :root {
-    --primary-green: #00A651; /* Adjust to match your specific green */
-    --primary-yellow: #FFC107;
-    --primary-red: #DC3545;
-    --primary-black: #000000;
-    --light-gray: #f4f4f4;
+    /* Primary & Accents */
+    --primary-blue: #0974B0; /* Honolulu Blue (Zoho Primary) */
+    --accent-red: #CE2232;   /* Amaranth Red (Zoho Accent) */
+    --accent-green: #219E4A; /* Sea Green (Zoho Accent) */
+    --accent-yellow: #FFE004;/* Vivid Yellow (Zoho Accent) */
+
+    /* Neutrals */
+    --neutral-light: #F5F5F5; /* Light Gray (Zoho Background) */
+    --neutral-dark: #333333;  /* Dark Gray (Zoho Text) */
+    --neutral-medium: #5e6c84; /* Medium Gray for borders/secondary text */
+    --neutral-border: #dfe1e6; /* Lighter border color */
     --white: #ffffff;
-    --text-dark: #333333;
+    --black: #000000; /* Keeping black if needed */
+
+    /* Component Specific (Examples) */
+    --header-bg: var(--primary-blue);
+    --header-text: var(--white);
+    --footer-bg: var(--primary-blue);
+    --footer-text: var(--white);
+    --link-color: var(--primary-blue);
+    --link-hover-color: var(--accent-red);
+    --button-primary-bg: var(--accent-green);
+    --button-primary-text: var(--white);
+    --button-secondary-bg: var(--accent-red); /* Example for other buttons */
+    --button-secondary-text: var(--white);
+
+    /* Other Variables */
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Keep existing font */
+    --transition-speed: 0.3s ease;
+    --border-radius: 8px; /* Example */
+    --box-shadow: 0 4px 15px rgba(0, 82, 204, 0.1); /* Example */
+    --box-shadow-hover: 0 8px 25px rgba(0, 82, 204, 0.15); /* Example */
 }
 
 /* Reset and base styles */
@@ -17,15 +46,21 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-primary);
     line-height: 1.6;
-    color: var(--text-dark);
+    color: var(--neutral-dark); /* UPDATED: Default text color */
+    background-color: var(--white); /* UPDATED: Default background */
     overflow-x: hidden;
 }
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: var(--link-color); /* UPDATED: Default link color */
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--link-hover-color); /* UPDATED: Default link hover */
 }
 
 ul {
@@ -39,7 +74,9 @@ ul {
     padding: 0 20px;
 }
 
-/* Loader Styles */
+/* ========================================================================
+   Loader Styles
+   ======================================================================== */
 #loader-wrapper {
     position: fixed;
     top: 0;
@@ -47,62 +84,60 @@ ul {
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background-color: var(--primary-black);
+    background-color: var(--primary-blue); /* UPDATED: Use primary blue for loader bg */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Custom loader styles as provided */
-.loader { 
-    width: 40px; 
-    height: 30px; 
-    --c: no-repeat linear-gradient(var(--primary-green) 0 0); 
-    background: 
-        var(--c) 0    100%/8px 30px, 
-        var(--c) 50%  100%/8px 20px, 
-        var(--c) 100% 100%/8px 10px; 
-    position: relative; 
-    clip-path: inset(-100% 0); 
-    transform: scale(2); /* Make the loader bigger */
+.loader {
+    width: 40px;
+    height: 30px;
+    --c: no-repeat linear-gradient(var(--accent-green) 0 0); /* UPDATED: Use accent green */
+    background:
+        var(--c) 0    100%/8px 30px,
+        var(--c) 50%  100%/8px 20px,
+        var(--c) 100% 100%/8px 10px;
+    position: relative;
+    clip-path: inset(-100% 0);
+    transform: scale(2);
 }
 
-.loader:before{ 
-    content: ""; 
-    position: absolute; 
-    width: 8px; 
-    height: 8px; 
-    border-radius: 50%; 
-    background: var(--primary-yellow); 
-    left: -16px; 
-    top: 0; 
-    animation:  
-        l5-1 2s linear infinite, 
-        l5-2 0.5s cubic-bezier(0,200,.8,200) infinite; 
+.loader:before{
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-yellow); /* UPDATED: Use accent yellow */
+    left: -16px;
+    top: 0;
+    animation:
+        l5-1 2s linear infinite,
+        l5-2 0.5s cubic-bezier(0,200,.8,200) infinite;
 }
 
-@keyframes l5-1 { 
-    0%   {left:-16px;transform:translateY(-8px)} 
-    100% {left:calc(100% + 8px);transform:translateY(22px)} 
+@keyframes l5-1 {
+    0%   {left:-16px;transform:translateY(-8px)}
+    100% {left:calc(100% + 8px);transform:translateY(22px)}
 }
 
-@keyframes l5-2 { 
-    100% {top:-0.1px} 
+@keyframes l5-2 {
+    100% {top:-0.1px}
 }
 
-.loaded {
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s ease-out;
-}
+/* NOTE: Removed .loaded class, assume JS handles hiding */
+/* FIXED: Removed .loaded class, assume JS adds display:none or removes element */
 
-/* Header Styles */
+/* ========================================================================
+   Header Styles
+   ======================================================================== */
 header {
-    background-color: var(--primary-black);
+    background-color: var(--header-bg); /* UPDATED: Use variable */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 100;  
+    z-index: 100;
     padding: 15px 0;
 }
 
@@ -117,9 +152,9 @@ header .container {
 }
 
 .logo img {
-    height: 90px; /* Increased logo size */
+    height: 60px; /* NOTE: Reduced size slightly from 90px for typical header */
     display: block;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); /* Add subtle glow to make logo more visible */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); /* Adjusted glow */
 }
 
 /* Navigation Styles */
@@ -140,16 +175,16 @@ nav {
 }
 
 .nav-links a {
-    color: var(--white);
+    color: var(--header-text); /* UPDATED: Use variable */
     font-weight: 500;
     padding: 10px 0;
     position: relative;
-    transition: color 0.3s;
+    transition: color var(--transition-speed);
 }
 
-.nav-links a:hover, 
+.nav-links a:hover,
 .nav-links a.active {
-    color: var(--primary-yellow);
+    color: var(--accent-yellow); /* UPDATED: Highlight color */
 }
 
 .nav-links a.active::after,
@@ -160,7 +195,7 @@ nav {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--primary-yellow);
+    background-color: var(--accent-yellow); /* UPDATED: Highlight color */
     transform: scaleX(1);
     transition: transform 0.3s;
 }
@@ -175,7 +210,7 @@ nav {
     top: 100%;
     left: 0;
     min-width: 180px;
-    background-color: var(--primary-black);
+    background-color: var(--header-bg); /* UPDATED: Use header bg */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     visibility: hidden;
     opacity: 0;
@@ -184,7 +219,7 @@ nav {
     z-index: 1;
     border-radius: 4px;
     overflow: hidden;
-    border-left: 3px solid var(--primary-green); /* Add a border to indicate it's part of services */
+    border-left: 3px solid var(--accent-green); /* UPDATED: Use accent green */
 }
 
 .dropdown-content li {
@@ -194,7 +229,7 @@ nav {
 .dropdown-content a {
     padding: 12px 20px;
     display: block;
-    color: var(--white);
+    color: var(--header-text); /* UPDATED: Use header text */
     transition: background 0.3s, color 0.3s;
     position: relative;
     padding-left: 30px; /* Add space for the indicator */
@@ -203,13 +238,13 @@ nav {
 .dropdown-content a:before {
     content: '→';
     position: absolute;
-    left: 5px;
-    color: var(--primary-green);
+    left: 10px; /* Adjusted position */
+    color: var(--accent-green); /* UPDATED: Use accent green */
     transition: color 0.3s;
 }
 
 .dropdown-content a:hover {
-    background-color: var(--primary-green);
+    background-color: var(--accent-green); /* UPDATED: Use accent green */
     color: var(--white);
 }
 
@@ -217,7 +252,7 @@ nav {
     color: var(--white);
 }
 
-.dropdown-content a:hover::after {
+.dropdown-content a:hover::after { /* Prevent nav underline from showing */
     display: none;
 }
 
@@ -232,56 +267,26 @@ nav {
     margin-left: 5px;
 }
 
-/* CTA Button Styles */
-.cta-buttonnn {
-    background-color: var(--primary-yellow); /* Yellow background */
-    color: var(--text-dark); /* Dark text for contrast */
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 50px; /* Round borders */
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    position: relative;
-    display: block; /* Makes it easier to center */
-    margin: 20px auto; /* Centers horizontally */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    text-align: center;
+/* CTA Button in Header */
+.cta-button {
+    flex: 1; /* Allow space */
+    text-align: right; /* Align button to the right */
 }
-
-.cta-buttonnn:hover {
-    box-shadow: 0 0 15px var(--primary-green); /* Green glow effect on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-}
- 
-
-.btn-quotee {
-    background-color: var(--primary-green);
-    color: var(--white);
-    padding: 10px 24px;
-    border-radius: 4px;
-    font-weight: 600;
-    transition: background-color 0.3s, transform 0.2s;
-    display: inline-block;
-    text-align: center;
-}
- 
+/* NOTE: General button styles applied below via .btn.btn-primary */
 
 /* Mobile Menu Toggle */
 .menu-toggle {
     display: none;
-    color: var(--white);
+    color: var(--header-text); /* UPDATED: Use variable */
     font-size: 1.5rem;
     cursor: pointer;
 }
 
-/* Responsive Styles */
+/* Header Responsive Styles */
 @media screen and (max-width: 992px) {
     header .container {
         flex-wrap: wrap;
     }
-    
     .nav-links {
         gap: 20px;
     }
@@ -290,98 +295,101 @@ nav {
 @media screen and (max-width: 768px) {
     header .container {
         justify-content: space-between;
+        position: relative; /* Needed for absolute positioning of nav */
+        padding-top: 10px; /* Space for logo/buttons */
+        padding-bottom: 10px;
     }
-    
     .logo {
         flex: 0 0 auto;
         order: 2;
         position: absolute;
         left: 50%;
-        transform: translateX(-50%);
+        top: 50%; /* Center vertically */
+        transform: translate(-50%, -50%);
         z-index: 1;
     }
-    
     .logo img {
-        height: 50px;
+        height: 45px; /* Smaller logo on mobile */
     }
-    
     .menu-toggle {
         display: block;
         order: 1;
         position: relative;
         z-index: 2;
+        padding: 10px; /* Easier to tap */
     }
-    
     nav {
         flex: 0 0 100%;
         order: 4;
-        display: none;
+        display: none; /* Hidden by default */
+        width: 100%;
+        position: absolute;
+        top: 100%; /* Position below the header */
+        left: 0;
+        background-color: var(--header-bg); /* Use header bg */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-    
     .cta-button {
         flex: 0 0 auto;
         order: 3;
         position: relative;
         z-index: 2;
     }
-    
-    .nav-open nav {
+    .nav-open nav { /* Show nav when body has .nav-open */
         display: block;
-        background-color: var(--primary-black);
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 80%;
-        max-width: 300px;
-        height: auto;
-        max-height: 80vh;
-        overflow-y: auto;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-        border-radius: 0 0 4px 0;
     }
-    
     .nav-links {
         flex-direction: column;
         gap: 0;
         padding: 10px 0;
+        align-items: center; /* Center links */
     }
-    
     .nav-links li {
         width: 100%;
+        text-align: center;
     }
-    
     .nav-links a {
         padding: 15px 20px;
         display: block;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
     }
-    
+     .nav-links li:last-child a {
+        border-bottom: none;
+    }
+    .nav-links a::after { /* Remove underline on mobile */
+        display: none;
+    }
+
+    /* Mobile Dropdown */
     .dropdown-content {
         position: static;
         box-shadow: none;
         visibility: visible;
         opacity: 1;
         transform: none;
-        max-height: 0;
+        max-height: 0; /* Collapse by default */
         overflow: hidden;
         transition: max-height 0.3s ease;
+        background-color: rgba(0, 0, 0, 0.2); /* Darker background for nested items */
+        border-left: none; /* Remove side border */
+        margin: 0;
+        border-radius: 0;
+    }
+    .dropdown.active .dropdown-content { /* Expand when parent has .active (JS controlled) */
+        max-height: 500px; /* Allow space for items */
+    }
+    .dropdown-content a {
+        padding-left: 40px; /* Indent */
+        color: var(--accent-yellow); /* Make sub-items stand out */
+        font-size: 0.9em;
+    }
+    .dropdown-content a:before {
+       display: none; /* Remove arrow */
+    }
+     .dropdown-content a:hover {
         background-color: rgba(0, 0, 0, 0.3);
-        border-left: none;
-        border-left: 3px solid var(--primary-green);
-        margin-left: 20px;
-    }
-    
-    .dropdown.active .dropdown-content {
-        max-height: 200px;
-    }
-    
-    .nav-links a::after {
-        display: none;
-    }
-    
-    .btn-quote {
-        padding: 8px 16px;
-        font-size: 0.9rem;
+        color: var(--white);
     }
 }
 
@@ -389,49 +397,84 @@ nav {
     .logo img {
         height: 40px;
     }
-    
-    .cta-button {
-        display: none;
-    }
-    
-    .nav-open nav {
-        width: 85%;
-        max-width: 280px;
+    .cta-button .btn { /* Smaller button on small screens */
+        padding: 8px 16px;
+        font-size: 0.9rem;
     }
 }
 
-/* Hero Section General */
+
+/* ========================================================================
+   General Button Styles
+   ======================================================================== */
+.btn {
+    display: inline-block;
+    padding: 12px 30px; /* Base padding */
+    font-size: 1rem; /* Base font size */
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px; /* Pill shape */
+    transition: all var(--transition-speed);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: var(--button-primary-bg); /* UPDATED: Green */
+    color: var(--button-primary-text); /* UPDATED: White */
+}
+
+.btn-primary:hover {
+    background-color: var(--button-secondary-bg); /* UPDATED: Red on hover */
+    color: var(--button-secondary-text); /* UPDATED: White */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Example for secondary button if needed */
+.btn-secondary {
+    background-color: var(--button-secondary-bg); /* UPDATED: Red */
+    color: var(--button-secondary-text); /* UPDATED: White */
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-yellow); /* UPDATED: Yellow on hover */
+    color: var(--neutral-dark); /* UPDATED: Dark text for contrast */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+
+/* ========================================================================
+   Hero Section Styles
+   ======================================================================== */
 .hero {
-    /* Light Blue background */
-    background-color: #E6F0FF;
+    background-color: var(--neutral-light); /* UPDATED: Light Gray background */
     padding: 60px 0;
-    color: #333; /* Default text color */
-    min-height: 80vh; /* Ensure it takes up significant viewport height */
+    color: var(--neutral-dark);
+    min-height: 80vh;
     display: flex;
-    align-items: center; /* Vertically center content */
-    overflow: hidden; /* Prevent accent shape overflow issues */
+    align-items: center;
+    overflow: hidden;
 }
 
 .hero-container {
     display: flex;
-    flex-wrap: wrap; /* Allow items to wrap */
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
     gap: 30px;
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-    position: relative; /* For CTA positioning */
+    position: relative;
     min-height: calc(80vh - 120px); /* Match hero min-height minus padding */
 }
 
-/* Content and Image side by side with equal width/height */
-.hero-content, 
+.hero-content,
 .hero-image {
-    flex: 1 1 45%; /* Equal flexible basis */
-    min-width: 300px; /* Minimum width before wrapping */
-    height: 100%; /* Take full height of container */
+    flex: 1 1 45%;
+    min-width: 300px;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -439,128 +482,98 @@ nav {
 
 .hero-content {
     text-align: left;
+    order: 1; /* Content first on large screens */
 }
 
 .hero-image {
     position: relative;
     align-items: center;
+    order: 2; /* Image second */
 }
 
-/* CTA positioned at bottom center of section */
 .hero-cta {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: auto;
+    flex-basis: 100%; /* Take full width */
     text-align: center;
-    margin-top: 30px;
+    margin-top: 30px; /* Space above button */
+    order: 3; /* Button last */
 }
 
-/* Rest of your existing styles remain exactly the same */
 .hero-content h1 {
     font-size: 2.8rem;
     font-weight: 700;
-    line-height: 1.3; 
-    color: #0000FF;
+    line-height: 1.3;
+    color: var(--primary-blue); /* UPDATED: Use primary blue */
+    margin-bottom: 20px; /* Added spacing */
 }
 
 .hero-content h1 span {
-    color: #008000;
-    display: inline-block;
+    color: var(--accent-green); /* UPDATED: Use accent green */
+    display: inline-block; /* Keep on same line if possible */
     white-space: nowrap;
 }
 
 .zoho-logo {
-    height: 150px;
-    width: 150px;
-    max-width: 150px;
+    height: 40px; /* NOTE: Adjusted size for inline text */
+    width: auto;
     vertical-align: middle;
-    margin-left: 10px; 
+    margin-left: 10px;
+    margin-bottom: 5px; /* Adjust alignment */
 }
 
 .hero-content p {
     font-size: 1.1rem;
-    line-height: 1.6; 
+    line-height: 1.6;
     max-width: 600px;
-    color: #333;
+    color: var(--neutral-dark); /* UPDATED: Consistent text color */
+    margin-bottom: 30px; /* Added spacing */
 }
 
 .main-image {
     max-width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed);
     z-index: 1;
     display: block;
 }
 
 .main-image:hover {
     transform: scale(1.05);
+    box-shadow: var(--box-shadow-hover);
 }
 
- 
-
-.btn.btn-primary {
-    display: inline-block;
-    padding: 15px 35px;
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #FFFFFF;
-    background-color: #008000;
-    border: none;
-    border-radius: 50px;
-    text-decoration: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.btn.btn-primary:hover {
-    background-color: #FF0000;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Responsiveness - Modified for proper stacking */
+/* Hero Responsive */
 @media (max-width: 991.98px) {
     .hero-container {
         flex-direction: column;
         min-height: auto;
-        padding-bottom: 80px; /* Space for CTA */
+        padding-bottom: 30px; /* Space for button */
     }
-    
-    .hero-content, 
+    .hero-content,
     .hero-image {
         flex: 1 1 auto;
         min-width: 100%;
         width: 100%;
     }
-    
     .hero-content {
-        order: 1;
-        text-align: center; 
+        order: 1; /* Content first */
+        text-align: center;
+        margin-bottom: 40px; /* Space between content and image */
     }
-    
     .hero-image {
-        order: 2;
-        margin-bottom: 40px;
+        order: 2; /* Image second */
     }
-    
     .hero-cta {
+        order: 3; /* Button last */
         position: static;
-        order: 3;
         transform: none;
-        left: auto;
         width: 100%;
         margin-top: 0;
     }
-    
     .hero-content h1 {
         font-size: 2.5rem;
     }
-    
     .hero-content p {
         margin-left: auto;
         margin-right: auto;
@@ -569,15 +582,11 @@ nav {
 
 @media (max-width: 767.98px) {
     .hero {
-        padding: 40px 0 60px; /* Added bottom padding for CTA */
+        padding: 40px 0 60px;
+        min-height: auto; /* Adjust height */
     }
-    
     .hero-content h1 {
         font-size: 2.2rem;
-    }
-    
-    .hero-image {
-        margin-bottom: 30px;
     }
 }
 
@@ -585,107 +594,128 @@ nav {
     .hero-content h1 {
         font-size: 1.9rem;
     }
-    
     .hero-cta .btn-primary {
         width: 100%;
         max-width: 280px;
     }
 }
 
-/*--------------------------------------------------------------
-# What is Zoho Section - Centered & Clean Layout
---------------------------------------------------------------*/
+/* ========================================================================
+   WhatsApp Link
+   ======================================================================== */
+.whatsapp-link.fixed {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25D366; /* Keep WhatsApp brand green */
+    color: white;
+    padding: 12px 15px;
+    border-radius: 50%;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    transition: all var(--transition-speed);
+}
+
+.whatsapp-link.fixed i {
+    font-size: 2rem;
+    vertical-align: middle; /* Better alignment */
+}
+
+.whatsapp-link.fixed:hover {
+    background-color: #128C7E; /* Darker WhatsApp green */
+    transform: scale(1.1);
+}
+
+/* ========================================================================
+   About Zoho Section
+   ======================================================================== */
 .about-zoho {
     padding: 80px 0;
-    background-color: #F8FAFF;
-    text-align: center; /* Center align all content */
-  }
-  
-  /* Container for centering */
-  .about-zoho .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  /* Centered Section Header */
-  .about-zoho .section-header {
+    background-color: var(--white); /* UPDATED: White background */
+    text-align: center;
+}
+
+.about-zoho .section-header {
     margin-bottom: 50px;
-  }
-  
-  .about-zoho .section-header h2 {
+}
+
+.about-zoho .section-header h2 {
     font-size: 2.5rem;
-    color: #0000FF;
-    margin-bottom: 15px;
+    color: var(--primary-blue); /* UPDATED: Use primary blue */
+    margin-bottom: 25px; /* Space for underline */
     position: relative;
-    display: inline-block;
-  }
-  
-  .about-zoho .section-header h2::after {
+    display: inline-block; /* Contain underline */
+    padding-bottom: 10px;
+}
+
+.about-zoho .section-header h2::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: 0;
     left: 50%;
     transform: translateX(-50%);
     width: 80px;
     height: 4px;
-    background: #FFC107;
-  }
-  
-  .about-zoho .section-header .subtitle {
+    background: var(--accent-yellow); /* UPDATED: Use accent yellow */
+}
+
+.about-zoho .section-header .subtitle {
     font-size: 1.1rem;
-    color: #555;
+    color: var(--neutral-dark); /* UPDATED: Use dark text */
     max-width: 700px;
     margin: 0 auto;
     line-height: 1.6;
-  }
-  
-  /* Grid Layout */
-  .zoho-content {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 30px;
-    text-align: left; /* Left align grid content */
-  }
-  
-  /* Feature Items */
-  .zoho-feature {
-    display: flex;
-    gap: 20px;
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    transition: all 0.3s ease;
-    border-left: 4px solid transparent;
-  }
-  
-  /* Color Coding */
-  .zoho-feature:nth-child(1) { border-left-color: #0000FF; }
-  .zoho-feature:nth-child(2) { border-left-color: #00A651; }
-  .zoho-feature:nth-child(3) { border-left-color: #FFC107; }
-  .zoho-feature:nth-child(4) { border-left-color: #DC3545; }
-  
-  /* Icon Styling */
-  .zoho-feature i {
-    font-size: 2.2rem;
-    min-width: 50px;
-    padding-top: 5px;
-  }
-  
-  .zoho-feature:nth-child(1) i { color: #0000FF; }
-  .zoho-feature:nth-child(2) i { color: #00A651; }
-  .zoho-feature:nth-child(3) i { color: #FFC107; }
-  .zoho-feature:nth-child(4) i { color: #DC3545; }
-  
-  /* Content Styling - Heading above paragraph */
-  .zoho-feature {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-  }
+}
 
-  .zoho-feature h3::after {
+.zoho-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 30px;
+    text-align: left;
+}
+
+.zoho-feature {
+    display: flex;
+    flex-direction: column; /* Stack icon, title, text */
+    gap: 15px; /* Space between elements */
+    background: var(--white);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: var(--box-shadow);
+    transition: all var(--transition-speed);
+    border-left: 4px solid transparent; /* Keep border placeholder */
+}
+
+/* Assign border colors */
+.zoho-feature:nth-child(1) { border-left-color: var(--primary-blue); }
+.zoho-feature:nth-child(2) { border-left-color: var(--accent-green); }
+.zoho-feature:nth-child(3) { border-left-color: var(--accent-yellow); }
+.zoho-feature:nth-child(4) { border-left-color: var(--accent-red); }
+
+.zoho-feature i {
+    font-size: 2.2rem;
+    width: 50px; /* Give icon fixed width */
+    line-height: 1; /* Prevent extra space */
+}
+
+/* Assign icon colors */
+.zoho-feature:nth-child(1) i { color: var(--primary-blue); }
+.zoho-feature:nth-child(2) i { color: var(--accent-green); }
+.zoho-feature:nth-child(3) i { color: var(--accent-yellow); }
+.zoho-feature:nth-child(4) i { color: var(--accent-red); }
+
+
+.zoho-feature h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--neutral-dark); /* UPDATED: Use dark text */
+    margin-bottom: 5px; /* Reduced margin */
+    position: relative;
+    padding-bottom: 8px;
+}
+
+/* Optional: Underline for H3 */
+.zoho-feature h3::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -693,915 +723,298 @@ nav {
     width: 40px;
     height: 2px;
     background: currentColor; /* Matches text color */
-  }
-  
-  .zoho-feature h3 {
-    font-size: 1.4rem;
-  font-weight: 700;
-  color: #222;
-  margin-bottom: 12px;
-  text-align: left;
-  position: relative;
-  padding-bottom: 8px;
-  width: 100%;
-  }
-  
-  .zoho-feature p {
-    color: #555;
+}
+
+.zoho-feature p {
+    color: var(--neutral-dark); /* UPDATED: Use dark text */
     line-height: 1.6;
     font-size: 0.95rem;
-    text-align: left;
-  margin-top: 0;
-  width: 100%;
-  }
-  
-  /* Hover Effects */
-  .zoho-feature:hover {
+}
+
+.zoho-feature:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Responsive Adjustments */
-  @media (max-width: 768px) {
+    box-shadow: var(--box-shadow-hover);
+}
+
+/* About Zoho Responsive */
+@media (max-width: 768px) {
     .zoho-content {
-      grid-template-columns: 1fr;
+      grid-template-columns: 1fr; /* Stack on smaller screens */
     }
-    
     .about-zoho .section-header h2 {
       font-size: 2rem;
     }
-  }
-  
-  @media (max-width: 480px) {
-    .zoho-feature {
-      flex-direction: column;
-      gap: 15px;
-    }
-    
-    .zoho-feature i {
-      align-self: flex-start;
-    }
-  }
+}
 
-/*--------------------------------------------------------------
-# What We Offer Section - Enhanced Layout
---------------------------------------------------------------*/
+/* ========================================================================
+   What We Offer Section
+   ======================================================================== */
 .what-we-offer {
     padding: 80px 0;
-    background-color: #E6F0FF; /* White background for contrast */
-  }
-  
-  .what-we-offer .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  /* Section Header */
-  .what-we-offer .section-header {
+    background-color: var(--neutral-light); /* UPDATED: Light gray background */
+}
+
+.what-we-offer .section-header {
     text-align: center;
     margin-bottom: 50px;
-  }
-  
-  .what-we-offer .section-header h2 {
+}
+
+.what-we-offer .section-header h2 {
     font-size: 2.5rem;
     font-weight: 700;
-    color: #008000; /* Green Title */
-    margin-bottom: 15px;
+    color: var(--accent-green); /* UPDATED: Use accent green */
+    margin-bottom: 25px; /* Space for underline */
     position: relative;
     display: inline-block;
     padding-bottom: 10px;
-  }
-  
-  .what-we-offer .section-header h2::after {
+}
+
+.what-we-offer .section-header h2::after {
     content: '';
     position: absolute;
     display: block;
     width: 80px;
     height: 4px;
-    background: #008000; /* Green underline matching title */
+    background: var(--accent-green); /* UPDATED: Use accent green */
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-  }
-  
-  .what-we-offer .section-header p {
-    font-size: 1.rem;
-    color: #555;
+}
+
+.what-we-offer .section-header p {
+    font-size: 1.1rem; /* Increased size */
+    color: var(--neutral-dark); /* UPDATED: Use dark text */
     line-height: 1.6;
     max-width: 700px;
-    margin: 15px auto 0 auto; /* Space below title */
-  }
-  
-  /* Services Grid Layout - Single Row on Desktop */
-  .what-we-offer .services-grid {
+    margin: 0 auto; /* Center */
+}
+
+.what-we-offer .services-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns in one row */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
     gap: 30px;
-  }
-  
-  /* Service Card Styling (Icon Above Text, Centered) */
-  .what-we-offer .service-card {
-    background-color: #FFFFFF;
+}
+
+.what-we-offer .service-card {
+    background-color: var(--white);
     padding: 35px 25px;
     text-align: center;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.07); /* Slightly different shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* Use flex for alignment */
-    flex-direction: column; /* Stack icon and content */
-    align-items: center; /* Center items horizontally */
-  }
-  
-  .what-we-offer .service-card:hover {
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.what-we-offer .service-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Service Icon Container Styling */
-  .what-we-offer .service-icon {
+    box-shadow: var(--box-shadow-hover);
+}
+
+.what-we-offer .service-icon {
     width: 70px;
     height: 70px;
-    border-radius: 50%; /* Circular background */
+    border-radius: 50%;
     margin-bottom: 25px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.3s ease;
-  }
-  
-  /* Icon Font Styling */
-  .what-we-offer .service-icon i {
+    transition: background-color var(--transition-speed);
+}
+
+.what-we-offer .service-icon i {
     font-size: 30px;
-    color: #FFFFFF; /* White icon color */
-  }
-  
-  /* Assigning Brand Colors to Icon Backgrounds */
-  .what-we-offer .service-card:nth-child(1) .service-icon  { background-color: #0000FF; } /* Blue */
-  .what-we-offer .service-card:nth-child(2) .service-icon { background-color: #008000; } /* Green */
-  .what-we-offer .service-card:nth-child(3) .service-icon { background-color: #FFC107; } /* Yellow (adjusted) */
-  .what-we-offer .service-card:nth-child(4) .service-icon { background-color: #FF0000; } /* Red */
-  
-  /* Service Content Styling */
-  .what-we-offer .service-content h3 {
-    font-size: 1.6rem;
+    color: var(--white); /* White icon */
+}
+
+/* Assign Icon Background Colors */
+.what-we-offer .service-card:nth-child(1) .service-icon { background-color: var(--primary-blue); }
+.what-we-offer .service-card:nth-child(2) .service-icon { background-color: var(--accent-green); }
+.what-we-offer .service-card:nth-child(3) .service-icon { background-color: var(--accent-yellow); }
+.what-we-offer .service-card:nth-child(4) .service-icon { background-color: var(--accent-red); }
+
+.what-we-offer .service-content h3 {
+    font-size: 1.3rem; /* Adjusted size */
     font-weight: bold;
-    color: #333;
+    color: var(--neutral-dark); /* UPDATED: Use dark text */
     margin-bottom: 15px;
-  }
-  
-  .what-we-offer .service-content p {
-    font-size: 1.1rem; /* Slightly smaller text */
+}
+
+.what-we-offer .service-content p {
+    font-size: 1rem; /* Adjusted size */
     line-height: 1.6;
-    color: #666;
-    flex-grow: 1; /* Helps if cards have uneven text height */
-  }
-  
-  /* CTA Button - Use Consistent Style */
-  .what-we-offer .services-cta {
+    color: var(--neutral-dark); /* UPDATED: Use dark text */
+    flex-grow: 1; /* Helps alignment if text lengths vary */
+}
+
+.what-we-offer .services-cta {
     text-align: center;
     margin-top: 50px;
-  }
-  
-  /* --- Ensure this .btn-primary style is defined globally or reuse the one from the Hero section --- */
-  /* Example using the Hero section's button style for consistency: */
-  .what-we-offer .btn.btn-primary {
-      display: inline-block;
-      padding: 15px 35px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: #FFFFFF; /* White text */
-      background-color: #008000; /* Green background */
-      border: none;
-      border-radius: 50px; /* Pill shape */
-      text-decoration: none;
-      cursor: pointer;
-      transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .what-we-offer .btn.btn-primary:hover {
-      background-color: #FF0000; /* Red background on hover */
-      transform: translateY(-2px); /* Slight lift */
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-  }
-  /* --- End of Button Style --- */
-  
-  
-  /* Responsive Adjustments for Offer Section */
-  @media (max-width: 991.98px) {
-    .what-we-offer .services-grid {
-      grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    }
-  }
-  
-  @media (max-width: 767.98px) {
-      .what-we-offer {
-          padding: 60px 0;
-      }
-      .what-we-offer .section-header h2 {
-          font-size: 2.2rem;
-      }
-      .what-we-offer .section-header p {
-          font-size: 1rem;
-      }
-  }
-  
-  @media (max-width: 575.98px) {
-    .what-we-offer .services-grid {
-      grid-template-columns: 1fr; /* 1 column */
-      gap: 25px;
-    }
-     .what-we-offer .section-header h2 {
-        font-size: 2rem;
-    }
-     .what-we-offer .section-header p {
-        font-size: 0.95rem;
-      }
-     .what-we-offer .service-icon {
-        width: 60px;
-        height: 60px;
-     }
-     .what-we-offer .service-icon i {
-         font-size: 26px;
-     }
-     .what-we-offer .service-content h3 {
-         font-size: 1.2rem;
-     }
-  }
-/* How It Works Section Styles */
-.process-section {
-    background-color: var(--light-gray);
-    padding: 80px 0;
-    position: relative;
-    overflow: hidden;
+}
+/* Uses standard .btn-primary styling */
+
+
+
+
+/* ========================================================================
+   Quote Modal Styles
+   ======================================================================== */
+
+/* NOTE: Replaced --dmg-* variables with Zoho-inspired palette */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75); /* Dark overlay */
+    z-index: 1000;
+    overflow-y: auto; /* Allow scrolling if content overflows */
+    transition: opacity 0.3s ease;
+    opacity: 0; /* Start hidden */
+    align-items: center; /* Vertically center */
+    justify-content: center; /* Horizontally center */
+    padding: 20px; /* Padding for smaller screens */
 }
 
-.section-title {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 10px;
-    color: var(--primary-green);
-    position: relative;
-}
-
-.section-title::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 3px;
-    background-color: var(--primary-green);
-}
-
-.section-subtitle {
-    text-align: center;
-    font-size: 1.1rem;
-    margin-bottom: 50px;
-    color: var(--text-dark);
-}
-
-.timeline-container {
-    position: relative;
-    max-width: 1000px;
-    margin: 0 auto;
-}
- 
-
-.timeline-item {
-    position: relative;
-    margin-bottom: 50px;
-    padding-left: 100px;
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease, transform 0.5s ease;
-}
-
-.timeline-item.show {
+.modal.show { /* Class added by JS to show modal */
+    display: flex; /* Use flex for centering */
     opacity: 1;
-    transform: translateY(0);
-}
-
-.timeline-icon {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 1;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16);
-    transition: transform 0.3s ease;
-}
-
-.timeline-icon span {
-    color: var(--white);
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.timeline-content {
-    background: var(--white);
-    padding: 25px 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-    position: relative;
-    z-index: 1;
-    transition: transform 0.3s ease;
-}
-
-.timeline-content:hover {
-    transform: translateY(-5px);
-}
-
-.timeline-item:hover .timeline-icon {
-    transform: scale(1.1);
-}
-
-.timeline-content h3 {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-    color: var(--text-dark);
-}
-
-.timeline-content h4 {
-    font-size: 1rem;
-    color: #777;
-    margin-bottom: 15px;
-    font-weight: 500;
-}
-
-.timeline-content ul {
-    padding-left: 20px;
-}
-
-.timeline-content ul li {
-    margin-bottom: 8px;
-    position: relative;
-    list-style-type: none;
-    padding-left: 15px;
-}
-
-.timeline-content ul li::before {
-    content: "•";
-    color: var(--primary-green);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-}
-
-/* Color styles for the steps */
-.green-bg {
-    background-color: var(--primary-green);
-}
-
-.yellow-bg {
-    background-color: var(--primary-yellow);
-}
-
-.red-bg {
-    background-color: var(--primary-red);
-}
-
-.blue-green-bg {
-    background: linear-gradient(135deg, #3498db, var(--primary-green));
-}
-
-.blue-bg {
-    background-color: #3498db;
-}
-
-.cta-container {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.cta-buttonn {
-    background-color: var(--primary-green);
-    color: var(--white);
-    border: none;
-    padding: 15px 32px;
-    font-size: 1.1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 8px rgba(0, 166, 81, 0.3);
-}
-
-.cta-button:hover {
-    background-color: #008c44;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 166, 81, 0.35);
-}
-
-.cta-button:active {
-    transform: translateY(0);
-}
-
-/* Responsive styles */
-@media (max-width: 768px) {
-    .timeline-container::before {
-        left: 30px;
-    }
-    
-    .timeline-item {
-        padding-left: 70px;
-    }
-    
-    .timeline-icon {
-        width: 40px;
-        height: 40px;
-    }
-    
-    .timeline-icon span {
-        font-size: 1.2rem;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-}
-
-/* Quote Modal Styles */
-:root {
-    --dmg-blue: #1a5fb4;
-    --dmg-red: #e01e37;
-    --dmg-green: #2d936c;
-    --dmg-yellow: #ffb627;
-    --dmg-dark: #333333; /* Changed from #1e1e1e for potentially better contrast */
-    --dmg-light: #f8f9fa;
-    --primary-black: #1e1e1e; /* Kept original black if needed elsewhere */
-    --transition-speed: 0.3s;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    z-index: 1000;
-    overflow: auto;
-    transition: all 0.3s ease;
-}
-
-/* Ensure the modal is centered when displayed */
-#quote-modal {
-    display: none; /* Hidden by default */
-}
-
-#quote-modal.show, #quote-modal[style*="display: block"] {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    box-sizing: border-box;
-    animation: fadeIn 0.3s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
 }
 
 .modal-content {
-    background-color: var(--dmg-light, #f8f9fa); /* Fallback */
+    background-color: var(--white); /* UPDATED: White background */
     width: 100%;
     max-width: 550px;
-    border-radius: 16px;
+    border-radius: 16px; /* More rounded */
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     position: relative;
     overflow: hidden;
-    animation: slideUp 0.4s;
+    animation: slideUp 0.4s ease-out;
+    max-height: calc(100vh - 40px); /* Limit height */
+    display: flex; /* Use flex */
+    flex-direction: column; /* Stack content vertically */
 }
 
 @keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
-
-/* Remove Colorful header pseudo-element if not needed */
-/* .form-step::before { ... } */
+@keyframes fadeIn { /* For steps */
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
 
 .close-btn {
     position: absolute;
     top: 15px;
     right: 20px;
     font-size: 1.5rem;
-    color: var(--dmg-dark, #333333);
+    color: var(--neutral-dark); /* UPDATED: Dark color */
     cursor: pointer;
-    transition: all 0.3s ease; /* Combined transition */
+    transition: all var(--transition-speed);
     z-index: 10;
     width: 30px;
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(0,0,0,0.1);
+    background-color: rgba(0,0,0,0.05); /* Subtle background */
     border-radius: 50%;
 }
 
 .close-btn:hover {
-    color: white;
-    background-color: var(--dmg-red);
+    color: var(--white);
+    background-color: var(--accent-red); /* UPDATED: Red on hover */
     transform: rotate(90deg);
 }
 
 .form-step {
     padding: 35px;
-    display: none;
-    position: relative;
-    /* Default background if needed, overridden by specific steps */
-    background-color: white;
-}
-
-.form-step.active { /* Keep this to show the current step */
-    display: block;
-    animation: fadeIn 0.4s;
-}
-
-/* === STEP-SPECIFIC STYLES (MODIFIED) === */
-
-/* --- Step 1: On Your Marks --- */
-#step1 {
-    background-color: var(--dmg-red);
-    display: block; /* Show step 1 by default */
-}
-#step1 h2 {
-    /* --- REMINDER: Change text to "On Your Marks" in HTML --- */
-    color: var(--dmg-light); /* Light text on red */
-    background: none; /* Remove gradient effect */
-    -webkit-background-clip: initial;
-    background-clip: initial;
-    font-size: 2rem;
-    margin-bottom: 10px;
-    display: inline-block;
-    font-weight: 700;
-}
-#step1 > p { /* Step counter text */
-    color: var(--dmg-blue); /* Light text */
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-}
-#step1 .form-group label {
-    color: var(--dmg-blue); /* Light text */
-}
-#step1 .form-group label::before {
-    background-color: var(--dmg-light); /* Light accent */
-}
-#step1 .form-group input:focus,
-#step1 .form-group textarea:focus,
-#step1 .form-group select:focus {
-    border-color: var(--dmg-light); /* Light border on focus */
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3); /* Light shadow */
-}
-
-/* --- Step 2: Get Set --- */
-#step2 {
-    background-color: var(--dmg-yellow);
-}
-#step2 h2 {
-     /* --- REMINDER: Change text to "Get Set" in HTML --- */
-    color: var(--primary-black); /* Dark text on yellow */
-    background: none;
-    -webkit-background-clip: initial;
-    background-clip: initial;
-    font-size: 2rem;
-    margin-bottom: 10px;
-    display: inline-block;
-    font-weight: 700;
-}
-#step2 > p {
-    color: var(--dmg-red); /* Dark text */
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-}
-#step2 .form-group label {
-    color: var(--primary-black); /* Dark text */
-}
-#step2 .form-group label::before {
-    background-color: var(--primary-black); /* Dark accent */
-}
-#step2 .form-group input:focus,
-#step2 .form-group textarea:focus,
-#step2 .form-group select:focus {
-    border-color: var(--primary-black); /* Dark border on focus */
-    box-shadow: 0 0 0 3px rgba(30, 30, 30, 0.2); /* Dark shadow */
-}
-
-
-/* --- Step 3: Go! --- */
-#step3 {
-    background-color: var(--dmg-green);
-}
-#step3 h2 {
-    /* --- REMINDER: Change text to "Go!" in HTML --- */
-    color: var(--dmg-light); /* Light text on green */
-    background: none;
-    -webkit-background-clip: initial;
-    background-clip: initial;
-    font-size: 2rem;
-    margin-bottom: 10px;
-    display: inline-block;
-    font-weight: 700;
-}
-#step3 > p {
-    color: var(--dmg-green);
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-}
-#step3 .form-group label {
-    color: var(--dmg-light); /* Light text */
-}
-#step3 .form-group label::before {
-    background-color: var(--dmg-light); /* Light accent */
-}
-#step3 .form-group input:focus,
-#step3 .form-group textarea:focus,
-#step3 .form-group select:focus {
-    border-color: var(--dmg-light); /* Light border on focus */
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3); /* Light shadow */
-}
-
-/* --- Contact Step: We Are Done! --- */
-#contact-step {
-    background-color: var(--dmg-blue);
-}
-#contact-step h2 {
-    /* --- REMINDER: Change text to "We Are Done!" in HTML --- */
-    color: var(--dmg-light); /* Light text on blue */
-    background: none;
-    -webkit-background-clip: initial;
-    background-clip: initial;
-    font-size: 2rem;
-    margin-bottom: 10px;
-    display: inline-block;
-    font-weight: 700;
-}
-#contact-step > p {
-    color: var(--dmg-yellow);
-    margin-bottom: 25px;
-    font-size: 1.1rem;
-}
-#contact-step .form-group label {
-    color: var(--dmg-light); /* Light text */
-}
-#contact-step .form-group label::before {
-    background-color: var(--dmg-light); /* Light accent */
-}
-#contact-step .form-group input:focus,
-#contact-step .form-group textarea:focus,
-#contact-step .form-group select:focus {
-    border-color: var(--dmg-light); /* Light border on focus */
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3); /* Light shadow */
-}
-
-/* General Heading Style (if needed, but overridden above) */
-/* .form-step h2 { ... } */
-
-/* General Paragraph Style (if needed, but overridden above) */
-/* .form-step > p { ... } */
-
-/* === END STEP-SPECIFIC MODIFICATIONS === */
-
-
-/* Quote Modal Styles */
-/* REMINDER: You need to change the H2 text content directly in your HTML file */
-/* e.g., In #step1, change <h2>Get Your Quote</h2> to <h2>On Your Marks</h2>, etc. */
-
-:root {
-    --dmg-blue: #1a5fb4;
-    --dmg-red: #e01e37;
-    --dmg-green: #2d936c;
-    --dmg-yellow: #ffb627;
-    --dmg-dark: #333333; /* Using slightly lighter dark for text */
-    --dmg-light: #f8f9fa;
-    --primary-black: #1e1e1e;
-    --transition-speed: 0.3s;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.75);
-    z-index: 1000;
-    overflow: auto;
-    transition: all 0.3s ease;
-}
-
-/* Ensure the modal is centered when displayed */
-#quote-modal {
     display: none; /* Hidden by default */
-}
-
-#quote-modal.show, #quote-modal[style*="display: block"] {
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    box-sizing: border-box;
-    animation: fadeIn 0.3s;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.modal-content {
-    background-color: var(--dmg-light, #f8f9fa);
-    width: 100%;
-    max-width: 550px;
-    border-radius: 16px;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
     position: relative;
-    overflow: hidden;
-    animation: slideUp 0.4s;
+    flex-grow: 1; /* Allow step to fill space */
+    overflow-y: auto; /* Scroll within step if needed */
+    animation: fadeIn 0.4s; /* Fade in animation */
 }
 
-@keyframes slideUp {
-    from {
-        transform: translateY(50px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
-/* Optional: Colorful header border for each step (if desired) */
-/*
-.form-step::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 8px;
-}
-#step1::before { background: var(--dmg-blue); }
-#step2::before { background: var(--dmg-red); }
-#step3::before { background: var(--dmg-green); }
-#contact-step::before { background: var(--dmg-yellow); }
-*/
-
-
-.close-btn {
-    position: absolute;
-    top: 15px;
-    right: 20px;
-    font-size: 1.5rem;
-    color: var(--dmg-dark, #333333);
-    cursor: pointer;
-    transition: all 0.3s ease; /* Combined transition */
-    z-index: 10;
-    width: 30px;
-    height: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(0,0,0,0.1);
-    border-radius: 50%;
-}
-
-.close-btn:hover {
-    color: white;
-    background-color: var(--dmg-red);
-    transform: rotate(90deg);
-}
-
-.form-step {
-    padding: 35px;
-    display: none;
-    position: relative;
-    background-color: white; /* Default background */
-}
-
-/* Logic to show the active step. Step 1 is shown initially. */
-.form-step.active {
-    display: block;
-    animation: fadeIn 0.4s;
-}
-/* Ensure step 1 is visible initially if no JS adds .active immediately */
-#step1 {
+.form-step.active { /* Show active step */
     display: block;
 }
 
+/* Step Backgrounds (Subtle Gradients) */
+#step1 { background: linear-gradient(135deg, var(--white) 0%, rgba(9, 116, 176, 0.05) 100%); } /* Blue tint */
+#step2 { background: linear-gradient(135deg, var(--white) 0%, rgba(206, 34, 50, 0.05) 100%); } /* Red tint */
+#step3 { background: linear-gradient(135deg, var(--white) 0%, rgba(33, 158, 74, 0.05) 100%); } /* Green tint */
+#contact-step { background: linear-gradient(135deg, var(--white) 0%, rgba(255, 224, 4, 0.05) 100%); } /* Yellow tint */
 
-/* === STEP-SPECIFIC BACKGROUNDS (Reverted to original gradients) === */
-#step1 {
-    background: linear-gradient(135deg, white 0%, rgba(26, 95, 180, 0.05) 100%);
-}
-
-#step2 {
-    background: linear-gradient(135deg, white 0%, rgba(224, 30, 55, 0.05) 100%);
-}
-
-#step3 {
-    background: linear-gradient(135deg, white 0%, rgba(45, 147, 108, 0.05) 100%);
-}
-
-#contact-step {
-    background: linear-gradient(135deg, white 0%, rgba(255, 182, 39, 0.05) 100%);
-}
-/* ==================================================================== */
-
-/* Heading Styles (Reverted to use text-clip) */
+/* Step Headings (Text Clip Gradients) - Use HTML for text content */
 .form-step h2 {
-    /* --- REMINDER: Change text content in HTML --- */
     font-size: 2rem;
     margin-bottom: 10px;
-    /* Default gradient, step-specific overrides below */
-    background: linear-gradient(90deg, var(--dmg-blue), var(--dmg-red));
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-green)); /* Default gradient */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
     display: inline-block;
     font-weight: 700;
 }
-#step1 h2 { background: linear-gradient(90deg, var(--dmg-blue), #3a7fd5); -webkit-background-clip: text; background-clip: text; color: transparent; }
-#step2 h2 { background: linear-gradient(90deg, var(--dmg-red), #f54e62); -webkit-background-clip: text; background-clip: text; color: transparent; }
-#step3 h2 { background: linear-gradient(90deg, var(--dmg-green), #41b48e); -webkit-background-clip: text; background-clip: text; color: transparent; }
-#contact-step h2 { background: linear-gradient(90deg, var(--dmg-yellow), #ffc957); -webkit-background-clip: text; background-clip: text; color: transparent; }
+#step1 h2 { background-image: linear-gradient(90deg, var(--primary-blue), #3a7fd5); }
+#step2 h2 { background-image: linear-gradient(90deg, var(--accent-red), #f54e62); }
+#step3 h2 { background-image: linear-gradient(90deg, var(--accent-green), #41b48e); }
+#contact-step h2 { background-image: linear-gradient(90deg, var(--accent-yellow), #ffc957); }
 
-
-/* Step counter text style (Reverted) */
-.form-step > p {
-    color: var(--dmg-dark); /* Default dark text */
+/* Step Counter Text */
+.form-step > p:first-of-type { /* Target the "Step X of Y" text */
+    color: var(--neutral-medium); /* UPDATED: Medium gray */
     margin-bottom: 25px;
-    opacity: 0.7;
     font-size: 1.1rem;
 }
-/* Adjust color if needed for specific backgrounds, e.g., slightly darker */
-/* #step2 > p { color: #555; } */
 
-
-/* Enhanced progress bar */
+/* Progress Bar */
 .progress-bar {
     height: 8px;
-    background-color: #e0e0e0; /* Reverted to light grey */
+    background-color: var(--neutral-border); /* UPDATED: Lighter grey */
     border-radius: 4px;
     margin-bottom: 25px;
     overflow: hidden;
-    position: relative;
 }
 
 .progress {
     height: 100%;
-    /* Keep the gradient for the progress indicator itself */
-    background: linear-gradient(90deg,
-        var(--dmg-blue) 0%,
-        var(--dmg-red) 33%,
-        var(--dmg-green) 66%,
-        var(--dmg-yellow) 100%);
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-red), var(--accent-green), var(--accent-yellow)); /* UPDATED: Use new colors */
     border-radius: 4px;
     transition: width 0.4s ease;
-    background-size: 300% 100%;
-    animation: gradientShift 3s ease infinite;
+    background-size: 400% 100%; /* Needs 4 colors now */
+    animation: gradientShift 4s ease infinite; /* Adjust timing */
 }
 
 @keyframes gradientShift {
-    0% {background-position: 0% 50%}
-    50% {background-position: 100% 50%}
-    100% {background-position: 0% 50%}
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-/* Stylish step indicators (Reverted Colors) */
+/* Step Indicators */
 .step-indicator {
     display: flex;
     justify-content: center;
-    margin: 0 0 25px 0;
+    margin-bottom: 25px;
 }
 
 .step-dot {
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    background-color: #ddd; /* Reverted to default grey */
+    background-color: var(--neutral-border); /* UPDATED: Default grey */
     margin: 0 8px;
     transition: all 0.3s ease;
     position: relative;
 }
 
+/* Connector lines */
 .step-dot::before {
     content: '';
     position: absolute;
@@ -1609,84 +1022,58 @@ nav {
     right: 100%;
     transform: translateY(-50%);
     height: 2px;
-    width: 16px;
-    background-color: #ddd; /* Reverted to default grey */
+    width: 16px; /* Distance between dots */
+    background-color: var(--neutral-border); /* Default grey */
     margin-right: 4px;
+    transition: background-color 0.3s ease;
 }
+.step-dot:first-child::before { display: none; } /* No line before first dot */
 
-.step-dot:first-child::before {
-    display: none;
-}
-
-.step-dot.active { /* Keep active style */
+/* Active Dot Styling */
+.step-dot.active {
     transform: scale(1.3);
-    box-shadow: 0 0 0 3px rgba(255,255,255,0.5), 0 0 0 5px rgba(0,0,0,0.1);
-    /* Active dot color set by step below */
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.5), 0 0 0 5px rgba(0,0,0,0.1); /* White/dark halo */
+    /* Background color set by step below */
 }
 
-/* Step-specific indicator colors (Reverted) */
-#step1 .step-dot:nth-child(1) {
-    background-color: var(--dmg-blue);
-}
-#step1 .step-dot:nth-child(1).active {
-    box-shadow: 0 0 0 3px rgba(26, 95, 180, 0.2), 0 0 0 5px rgba(26, 95, 180, 0.1);
-}
-
+/* Step-specific dot/line colors */
+#step1 .step-dot:nth-child(1) { background-color: var(--primary-blue); }
+#step1 .step-dot.active:nth-child(1) { box-shadow: 0 0 0 3px rgba(9, 116, 176, 0.2), 0 0 0 5px rgba(9, 116, 176, 0.1); }
 
 #step2 .step-dot:nth-child(1),
-#step2 .step-dot:nth-child(2) {
-    background-color: var(--dmg-red);
-}
-#step2 .step-dot:nth-child(1)::before { /* Connector */
-     background-color: var(--dmg-red);
-}
-#step2 .step-dot:nth-child(2).active {
-    box-shadow: 0 0 0 3px rgba(224, 30, 55, 0.2), 0 0 0 5px rgba(224, 30, 55, 0.1);
-}
-
+#step2 .step-dot:nth-child(2) { background-color: var(--accent-red); }
+#step2 .step-dot:nth-child(2)::before { background-color: var(--accent-red); } /* Connector */
+#step2 .step-dot.active:nth-child(2) { box-shadow: 0 0 0 3px rgba(206, 34, 50, 0.2), 0 0 0 5px rgba(206, 34, 50, 0.1); }
 
 #step3 .step-dot:nth-child(1),
 #step3 .step-dot:nth-child(2),
-#step3 .step-dot:nth-child(3) {
-    background-color: var(--dmg-green);
-}
-#step3 .step-dot:nth-child(1)::before,
-#step3 .step-dot:nth-child(2)::before { /* Connectors */
-     background-color: var(--dmg-green);
-}
-#step3 .step-dot:nth-child(3).active {
-     box-shadow: 0 0 0 3px rgba(45, 147, 108, 0.2), 0 0 0 5px rgba(45, 147, 108, 0.1);
-}
+#step3 .step-dot:nth-child(3) { background-color: var(--accent-green); }
+#step3 .step-dot:nth-child(2)::before,
+#step3 .step-dot:nth-child(3)::before { background-color: var(--accent-green); } /* Connectors */
+#step3 .step-dot.active:nth-child(3) { box-shadow: 0 0 0 3px rgba(33, 158, 74, 0.2), 0 0 0 5px rgba(33, 158, 74, 0.1); }
 
-#contact-step .step-dot {
-    background-color: var(--dmg-yellow);
-}
-#contact-step .step-dot::before {
-     background-color: var(--dmg-yellow); /* Connector */
-}
-#contact-step .step-dot:nth-child(4).active { /* Assuming 4 dots, adjust if needed */
-     box-shadow: 0 0 0 3px rgba(255, 182, 39, 0.2), 0 0 0 5px rgba(255, 182, 39, 0.1);
-}
+#contact-step .step-dot { background-color: var(--accent-yellow); }
+#contact-step .step-dot::before { background-color: var(--accent-yellow); } /* All connectors */
+#contact-step .step-dot.active:nth-child(4) { box-shadow: 0 0 0 3px rgba(255, 224, 4, 0.2), 0 0 0 5px rgba(255, 224, 4, 0.1); }
 
 
+/* Form Group & Labels */
 .form-group {
     margin-bottom: 28px;
     position: relative;
 }
 
-/* Label styles (Reverted) */
 .form-group label {
     display: block;
     margin-bottom: 10px;
     font-weight: 600;
-    /* Default label color, overridden below */
-    color: var(--dmg-blue);
+    color: var(--primary-blue); /* Default label color */
     font-size: 1.05rem;
     position: relative;
-    padding-left: 12px;
+    padding-left: 12px; /* Space for accent */
 }
 
-.form-group label::before {
+.form-group label::before { /* Accent line */
     content: "";
     position: absolute;
     left: 0;
@@ -1694,80 +1081,74 @@ nav {
     transform: translateY(-50%);
     width: 4px;
     height: 16px;
-    /* Default accent color, overridden below */
-    background-color: var(--dmg-blue);
+    background-color: var(--primary-blue); /* Default accent */
     border-radius: 2px;
 }
 
-/* Step-specific label/accent colors (Reverted) */
-#step2 .form-group label { color: var(--dmg-red); }
-#step2 .form-group label::before { background-color: var(--dmg-red); }
+/* Step-specific label/accent colors */
+#step2 .form-group label { color: var(--accent-red); }
+#step2 .form-group label::before { background-color: var(--accent-red); }
+#step3 .form-group label { color: var(--accent-green); }
+#step3 .form-group label::before { background-color: var(--accent-green); }
+#contact-step .form-group label { color: var(--accent-yellow); }
+#contact-step .form-group label::before { background-color: var(--accent-yellow); }
 
-#step3 .form-group label { color: var(--dmg-green); }
-#step3 .form-group label::before { background-color: var(--dmg-green); }
-
-#contact-step .form-group label { color: var(--dmg-yellow); }
-#contact-step .form-group label::before { background-color: var(--dmg-yellow); }
-
-
-/* Input styles (Reverted) */
+/* Inputs, Textarea, Select */
 .form-group input,
 .form-group textarea,
 .form-group select {
     width: 100%;
-    padding: 16px;
-    border: 2px solid #e0e0e0; /* Default border */
-    border-radius: 12px;
+    padding: 14px 16px; /* Adjusted padding */
+    border: 2px solid var(--neutral-border); /* UPDATED: Default border */
+    border-radius: 10px; /* Slightly less rounded */
     font-size: 1rem;
     transition: all 0.3s;
-    background-color: white; /* White background */
-    color: var(--dmg-dark); /* Dark text inside */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    background-color: var(--white);
+    color: var(--neutral-dark); /* UPDATED: Dark text */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03); /* Softer shadow */
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: #888;
+    color: #aaa; /* Lighter placeholder */
 }
 
 .form-group input:hover,
 .form-group textarea:hover,
 .form-group select:hover {
-    border-color: #ccc;
+    border-color: var(--neutral-medium); /* Darker border on hover */
 }
 
-/* Input focus styles (Reverted) */
+/* Input Focus Styles */
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
     outline: none;
-    /* Default focus style, overridden below */
-    border-color: var(--dmg-blue);
-    box-shadow: 0 0 0 3px rgba(26, 95, 180, 0.15);
+    border-color: var(--primary-blue); /* Default focus */
+    box-shadow: 0 0 0 3px rgba(9, 116, 176, 0.15);
 }
 
+/* Step-specific focus */
 #step2 .form-group input:focus,
 #step2 .form-group textarea:focus,
 #step2 .form-group select:focus {
-    border-color: var(--dmg-red);
-    box-shadow: 0 0 0 3px rgba(224, 30, 55, 0.15);
+    border-color: var(--accent-red);
+    box-shadow: 0 0 0 3px rgba(206, 34, 50, 0.15);
 }
-
 #step3 .form-group input:focus,
 #step3 .form-group textarea:focus,
 #step3 .form-group select:focus {
-    border-color: var(--dmg-green);
-    box-shadow: 0 0 0 3px rgba(45, 147, 108, 0.15);
+    border-color: var(--accent-green);
+    box-shadow: 0 0 0 3px rgba(33, 158, 74, 0.15);
 }
-
 #contact-step .form-group input:focus,
 #contact-step .form-group textarea:focus,
 #contact-step .form-group select:focus {
-    border-color: var(--dmg-yellow);
-    box-shadow: 0 0 0 3px rgba(255, 182, 39, 0.15);
+    border-color: var(--accent-yellow);
+    box-shadow: 0 0 0 3px rgba(255, 224, 4, 0.15);
 }
 
-
+/* Form Navigation Buttons */
 .form-nav {
     display: flex;
     justify-content: space-between;
@@ -1776,7 +1157,7 @@ nav {
 
 .form-nav button {
     padding: 14px 28px;
-    border-radius: 50px;
+    border-radius: 50px; /* Pill shape */
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s;
@@ -1784,85 +1165,65 @@ nav {
     font-size: 1rem;
     letter-spacing: 0.5px;
     position: relative;
-    overflow: hidden;
+    overflow: hidden; /* For hover effect */
     z-index: 1;
 }
 
-/* Button hover effect */
+/* Button Hover Effect Overlay */
 .form-nav button::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 0;
+    width: 0; /* Hidden */
     height: 100%;
-    background-color: rgba(255,255,255,0.2); /* Default light overlay */
-    transition: all 0.3s;
+    background-color: rgba(255,255,255,0.2); /* Light overlay */
+    transition: width 0.3s;
     z-index: -1;
 }
+/* Dark overlay for Yellow button */
 #contact-step .submit-btn::before {
-    background-color: rgba(0,0,0,0.1); /* Dark overlay for yellow button */
+    background-color: rgba(0,0,0,0.1);
 }
 
 .form-nav button:hover::before {
-    width: 100%;
+    width: 100%; /* Show overlay on hover */
 }
 
-/* Back Button Style (Reverted) */
+/* Back Button Style */
 .back-btn {
-    background-color: #eaeaea; /* Light grey */
-    color: var(--dmg-dark);
+    background-color: var(--neutral-light); /* UPDATED: Light gray */
+    color: var(--neutral-dark); /* Dark text */
 }
 .back-btn:hover {
-    background-color: #d5d5d5;
+    background-color: #e0e0e0; /* Darker gray */
     transform: translateX(-2px);
 }
 
-/* Next/Submit Buttons - Using original styles */
+/* Next/Submit Buttons - Step Specific */
 .next-btn, .submit-btn {
     color: white;
-    position: relative;
-    overflow: hidden;
-    margin-left: auto;
+    margin-left: auto; /* Push to right if no back button */
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 
-#step1 .next-btn {
-    background: linear-gradient(90deg, var(--dmg-blue), #3a7fd5);
-}
-#step1 .next-btn:hover {
-    background: linear-gradient(90deg, #1857a4, var(--dmg-blue));
-    transform: translateX(2px);
-    box-shadow: 0 6px 20px rgba(26, 95, 180, 0.3);
-}
+#step1 .next-btn { background: linear-gradient(90deg, var(--primary-blue), #3a7fd5); }
+#step1 .next-btn:hover { background: linear-gradient(90deg, #075a8f, var(--primary-blue)); transform: translateX(2px); box-shadow: 0 6px 20px rgba(9, 116, 176, 0.3); }
 
-#step2 .next-btn {
-    background: linear-gradient(90deg, var(--dmg-red), #f54e62);
-}
-#step2 .next-btn:hover {
-    background: linear-gradient(90deg, #c01830, var(--dmg-red));
-    transform: translateX(2px);
-    box-shadow: 0 6px 20px rgba(224, 30, 55, 0.3);
-}
+#step2 .next-btn { background: linear-gradient(90deg, var(--accent-red), #f54e62); }
+#step2 .next-btn:hover { background: linear-gradient(90deg, #a71b27, var(--accent-red)); transform: translateX(2px); box-shadow: 0 6px 20px rgba(206, 34, 50, 0.3); }
 
-
-#step3 .submit-btn {
-    background: linear-gradient(90deg, var(--dmg-green), #41b48e);
-}
-#step3 .submit-btn:hover {
-    background: linear-gradient(90deg, #237758, var(--dmg-green));
-    transform: translateX(2px);
-    box-shadow: 0 6px 20px rgba(45, 147, 108, 0.3);
-}
+#step3 .submit-btn { background: linear-gradient(90deg, var(--accent-green), #41b48e); }
+#step3 .submit-btn:hover { background: linear-gradient(90deg, #1a7d3a, var(--accent-green)); transform: translateX(2px); box-shadow: 0 6px 20px rgba(33, 158, 74, 0.3); }
 
 #contact-step .submit-btn {
-    background: linear-gradient(90deg, var(--dmg-yellow), #ffc957);
-    color: var(--primary-black); /* Dark text on yellow button */
+    background: linear-gradient(90deg, var(--accent-yellow), #ffc957);
+    color: var(--neutral-dark); /* UPDATED: Dark text on yellow */
 }
 #contact-step .submit-btn:hover {
-    background: linear-gradient(90deg, #e0a020, var(--dmg-yellow));
+    background: linear-gradient(90deg, #e0a020, var(--accent-yellow));
     transform: translateX(2px);
-    box-shadow: 0 6px 20px rgba(255, 182, 39, 0.3);
+    box-shadow: 0 6px 20px rgba(255, 224, 4, 0.3);
 }
 
 .next-btn:active, .submit-btn:active {
@@ -1870,38 +1231,30 @@ nav {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-
-/* --- Success Message --- */
-/* Keep existing success step styles */
+/* Success Message Step */
 #success-step {
-    background: linear-gradient(135deg,
-        rgba(26, 95, 180, 0.05) 0%,
-        rgba(45, 147, 108, 0.08) 100%);
-    display: none; /* Initially hidden */
+    background: linear-gradient(135deg, rgba(33, 158, 74, 0.05) 0%, rgba(9, 116, 176, 0.08) 100%); /* Green/Blue tint */
+    display: none; /* Hidden by default */
 }
-#success-step.active {
-     display: block;
-}
-
+#success-step.active { display: block; } /* Show when active */
 
 .success-message {
     text-align: center;
     padding: 50px 30px;
-    border-radius: 16px;
+    border-radius: 16px; /* Match modal content */
     position: relative;
-    color: var(--dmg-dark); /* Ensure text is readable */
+    color: var(--neutral-dark);
 }
 
+/* Optional: Background pattern */
 .success-message::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232d936c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
+    inset: 0; /* Cover area */
+    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%230974B0' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
     opacity: 0.8;
     z-index: -1;
+    border-radius: 16px;
 }
 
 .success-icon {
@@ -1911,58 +1264,35 @@ nav {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 2.8rem;
     margin: 0 auto 25px;
     position: relative;
     animation: successPulse 2s infinite ease-in-out;
-    background: conic-gradient(
-        var(--dmg-blue),
-        var(--dmg-red),
-        var(--dmg-green),
-        var(--dmg-yellow),
-        var(--dmg-blue)
-    );
-    background-size: 200% 200%;
-    box-shadow: 0 15px 35px rgba(45, 147, 108, 0.25);
+    background: conic-gradient(var(--primary-blue), var(--accent-red), var(--accent-green), var(--accent-yellow), var(--primary-blue)); /* UPDATED: New colors */
+    box-shadow: 0 15px 35px rgba(33, 158, 74, 0.25); /* Green shadow */
 }
 
 .success-icon::after {
     content: "✓";
     position: absolute;
-    color: white;
+    color: var(--white);
     font-size: 2.5rem;
-    animation: scaleIn 0.5s;
+    animation: scaleIn 0.5s ease-out;
 }
 
 @keyframes successPulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(45, 147, 108, 0.4);
-        transform: scale(1);
-    }
-    70% {
-        box-shadow: 0 0 0 15px rgba(45, 147, 108, 0);
-        transform: scale(1.05);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(45, 147, 108, 0);
-        transform: scale(1);
-    }
+    0% { box-shadow: 0 0 0 0 rgba(33, 158, 74, 0.4); transform: scale(1); }
+    70% { box-shadow: 0 0 0 15px rgba(33, 158, 74, 0); transform: scale(1.05); }
+    100% { box-shadow: 0 0 0 0 rgba(33, 158, 74, 0); transform: scale(1); }
 }
-
 @keyframes scaleIn {
-    from {
-        transform: scale(0);
-    }
-    to {
-        transform: scale(1);
-    }
+    from { transform: scale(0); }
+    to { transform: scale(1); }
 }
 
 .success-message h2 {
-    /* Keep original gradient */
     margin-bottom: 15px;
     font-size: 2.2rem;
-    background: linear-gradient(90deg, var(--dmg-blue), var(--dmg-green));
+    background: linear-gradient(90deg, var(--primary-blue), var(--accent-green)); /* Blue/Green gradient */
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -1970,14 +1300,14 @@ nav {
 }
 
 .success-message p {
-    color: var(--dmg-dark);
+    color: var(--neutral-dark);
     margin-bottom: 30px;
     line-height: 1.7;
     font-size: 1.1rem;
 }
 
-.close-modal-btn {
-    background: var(--dmg-red); /* Reverted to red (or choose preferred color) */
+.close-modal-btn { /* Final close button */
+    background: var(--accent-green); /* UPDATED: Green for success */
     color: white;
     border: none;
     padding: 14px 35px;
@@ -1986,58 +1316,50 @@ nav {
     cursor: pointer;
     transition: all 0.3s;
     font-size: 1.05rem;
-    box-shadow: 0 8px 20px rgba(224, 30, 55, 0.25);
-    position: relative;
-    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(33, 158, 74, 0.25);
 }
 
 .close-modal-btn:hover {
-    background: #c01830; /* Darker red */
+    background: #1a7d3a; /* Darker green */
     transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(224, 30, 55, 0.35);
+    box-shadow: 0 12px 25px rgba(33, 158, 74, 0.35);
 }
 
-.close-modal-btn:active {
-    transform: translateY(1px);
-    box-shadow: 0 5px 15px rgba(224, 30, 55, 0.2);
-}
-
-
-/* --- Form validation styles (Reverted) --- */
-.error {
-    border-color: var(--dmg-red) !important; /* Red border for error */
+/* Form Validation Styles */
+.error { /* Applied to input/select/textarea with error */
+    border-color: var(--accent-red) !important; /* UPDATED: Red border */
     animation: shake 0.5s;
 }
 
-.error-message {
-    color: var(--dmg-red); /* Red error message */
+.error-message { /* Text displayed below field */
+    color: var(--accent-red); /* UPDATED: Red text */
     font-size: 0.85rem;
     margin-top: 8px;
-    display: none;
-    padding-left: 22px; /* More padding */
+    display: none; /* Hidden by default */
+    padding-left: 22px;
     position: relative;
-    font-weight: 500; /* Less bold maybe */
+    font-weight: 500;
 }
 
-.error-message::before {
+.error-message::before { /* Error icon */
     content: "!";
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 16px;
     height: 16px;
-    background-color: var(--dmg-red); /* Red background for icon */
-    color: white; /* White icon */
+    background-color: var(--accent-red); /* Red background */
+    color: white;
     border-radius: 50%;
     margin-right: 5px;
     font-size: 11px;
     font-weight: bold;
     position: absolute;
     left: 0;
-    top: 1px; /* Align better */
+    top: 1px;
 }
 
-.error-message.show {
+.error-message.show { /* Class added by JS */
     display: block;
     animation: fadeIn 0.4s;
 }
@@ -2048,746 +1370,67 @@ nav {
     20%, 40%, 60%, 80% { transform: translateX(5px); }
 }
 
-/* --- Responsive styles --- */
+/* Modal Responsive */
 @media (max-width: 600px) {
     .modal-content {
         width: 95%;
         margin: 10px 0;
         border-radius: 12px;
-        max-height: calc(100vh - 20px);
-        display: flex;
-        flex-direction: column;
     }
-
     .form-step {
         padding: 25px 20px;
-        flex-grow: 1;
-        overflow-y: auto;
     }
-
-    .form-step h2 {
-        font-size: 1.6rem;
-    }
-
-    .form-nav button {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-
-    .success-message {
-         padding: 30px 20px;
-    }
-
-    .success-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 2.2rem;
-    }
-     .success-icon::after {
-        font-size: 2rem;
-     }
-
-    .success-message h2 {
-        font-size: 1.8rem;
-    }
-}
-
-/* Stylish step indicators */
-.step-indicator {
-    display: flex;
-    justify-content: center;
-    margin: 0 0 25px 0;
-}
-
-.step-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background-color: rgba(255,255,255,0.4); /* Default light dot */
-    margin: 0 8px;
-    transition: all 0.3s ease;
-    position: relative;
-}
-#step2 .step-dot { /* Darker dot on yellow */
-     background-color: rgba(0,0,0,0.2);
-}
-
-
-.step-dot::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 100%;
-    transform: translateY(-50%);
-    height: 2px;
-    width: 16px;
-    background-color: inherit; /* Inherit dot color */
-    margin-right: 4px;
-    opacity: 0.6;
-}
-
-.step-dot:first-child::before {
-    display: none;
-}
-
-.step-dot.active { /* Keep active style */
-    transform: scale(1.3);
-    box-shadow: 0 0 0 3px rgba(255,255,255,0.5), 0 0 0 5px rgba(0,0,0,0.1);
-}
-
-/* Keep step-specific indicator colors */
-#step1 .step-dot:nth-child(1) {
-    background-color: var(--dmg-blue); /* Using blue for contrast on red */
-}
-
-#step2 .step-dot:nth-child(1),
-#step2 .step-dot:nth-child(2) {
-    background-color: var(--dmg-red); /* Red on yellow */
-}
-#step2 .step-dot:nth-child(1)::before { /* Connector */
-     background-color: var(--dmg-red);
-}
-
-
-#step3 .step-dot:nth-child(1),
-#step3 .step-dot:nth-child(2),
-#step3 .step-dot:nth-child(3) {
-    background-color: var(--dmg-yellow); /* Yellow on Green */
-}
-#step3 .step-dot:nth-child(1)::before,
-#step3 .step-dot:nth-child(2)::before { /* Connectors */
-     background-color: var(--dmg-yellow);
-}
-
-#contact-step .step-dot {
-    background-color: var(--dmg-green); /* Green on Blue */
-}
-#contact-step .step-dot::before {
-     background-color: var(--dmg-green); /* Connector */
-}
-
-
-.form-group {
-    margin-bottom: 28px;
-    position: relative;
-}
-
-/* General label style, overridden by step-specific rules */
-.form-group label {
-    display: block;
-    margin-bottom: 10px;
-    font-weight: 600;
-    font-size: 1.05rem;
-    position: relative;
-    padding-left: 12px;
-}
-
-/* General label ::before, overridden by step-specific rules */
-.form-group label::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 4px;
-    height: 16px;
-    border-radius: 2px;
-}
-
-/* General input styles */
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    padding: 16px;
-    border: 2px solid rgba(0,0,0,0.15); /* Slightly visible border */
-    border-radius: 12px;
-    font-size: 1rem;
-    transition: all 0.3s;
-    background-color: white; /* White inputs for readability */
-    color: var(--primary-black); /* Ensure text inside is dark */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-}
-
-.form-group input::placeholder,
-.form-group textarea::placeholder {
-    color: #888; /* Lighter placeholder text */
-}
-
-
-.form-group input:hover,
-.form-group textarea:hover,
-.form-group select:hover {
-    border-color: rgba(0,0,0,0.3);
-}
-
-/* General focus style (border overridden by step-specific) */
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    outline: none;
-    /* Step-specific border-color and box-shadow applied above */
-}
-
-
-.form-nav {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 35px;
-}
-
-.form-nav button {
-    padding: 14px 28px;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    border: none;
-    font-size: 1rem;
-    letter-spacing: 0.5px;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-}
-
-.form-nav button::before { /* Hover effect */
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background-color: rgba(255,255,255,0.2); /* Light overlay on hover */
-    transition: all 0.3s;
-    z-index: -1;
-}
-#step2 .form-nav button::before, /* Dark overlay on yellow */
-#contact-step .form-nav button.submit-btn::before { /* Dark overlay on yellow btn */
-    background-color: rgba(0,0,0,0.1);
-}
-
-
-.form-nav button:hover::before {
-    width: 100%;
-}
-
-/* Back Button */
-.back-btn {
-    background-color: rgba(255,255,255,0.8); /* Semi-transparent white */
-    color: var(--dmg-dark);
-}
-#step2 .back-btn { /* Darker back btn on yellow */
-    background-color: rgba(0,0,0,0.1);
-    color: var(--primary-black);
-}
-.back-btn:hover {
-    background-color: white; /* Solid white on hover */
-    transform: translateX(-2px);
-}
-#step2 .back-btn:hover {
-    background-color: rgba(0,0,0,0.2);
-}
-
-
-/* Next/Submit Buttons - Keep existing gradient styles */
-.next-btn, .submit-btn {
-    color: white;
-    position: relative;
-    overflow: hidden;
-    margin-left: auto;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-#step1 .next-btn {
-    background: linear-gradient(90deg, var(--dmg-blue), #3a7fd5);
-}
-#step1 .next-btn:hover {
-    background: linear-gradient(90deg, #1857a4, var(--dmg-blue));
-    transform: translateX(2px);
-    box-shadow: 0 6px 20px rgba(26, 95, 180, 0.3);
-}
-
-#step2 .next-btn {
-    /* Using blue button on yellow bg for contrast */
-    background: linear-gradient(90deg, var(--dmg-blue), #3a7fd5);
-}
-#step2 .next-btn:hover {
-     background: linear-gradient(90deg, #1857a4, var(--dmg-blue));
-    transform: translateX(2px);
-    box-shadow: 0 6px 20px rgba(26, 95, 180, 0.3);
-}
-
-
-#step3 .submit-btn {
-    /* Keep original green */
-    background: linear-gradient(90deg, var(--dmg-green), #41b48e);
-}
-#step3 .submit-btn:hover {
-    background: linear-gradient(90deg, #237758, var(--dmg-green));
-    transform: translateX(2px);
-    box-shadow: 0 6px 20px rgba(45, 147, 108, 0.3);
-}
-
-#contact-step .submit-btn {
-    /* Keep original yellow button */
-    background: linear-gradient(90deg, var(--dmg-yellow), #ffc957);
-    color: var(--primary-black); /* Dark text on yellow button */
-}
-#contact-step .submit-btn:hover {
-    background: linear-gradient(90deg, #e0a020, var(--dmg-yellow));
-    transform: translateX(2px);
-    box-shadow: 0 6px 20px rgba(255, 182, 39, 0.3);
-}
-
-
-.next-btn:active, .submit-btn:active {
-    transform: translateY(1px);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-}
-
-
-/* --- Success Message --- */
-/* Keep existing success step styles */
-#success-step {
-    background: linear-gradient(135deg,
-        rgba(26, 95, 180, 0.05) 0%,
-        rgba(45, 147, 108, 0.08) 100%);
-    display: none; /* Initially hidden */
-}
-#success-step.active {
-     display: block;
-}
-
-.success-message {
-    text-align: center;
-    padding: 50px 30px;
-    border-radius: 16px;
-    position: relative;
-    color: var(--dmg-dark); /* Ensure text is readable */
-}
-
-.success-message::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%232d936c' fill-opacity='0.05' fill-rule='evenodd'/%3E%3C/svg%3E");
-    opacity: 0.8;
-    z-index: -1;
-}
-
-.success-icon {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2.8rem;
-    margin: 0 auto 25px;
-    position: relative;
-    animation: successPulse 2s infinite ease-in-out;
-    background: conic-gradient(
-        var(--dmg-blue),
-        var(--dmg-red),
-        var(--dmg-green),
-        var(--dmg-yellow),
-        var(--dmg-blue)
-    );
-    background-size: 200% 200%;
-    box-shadow: 0 15px 35px rgba(45, 147, 108, 0.25);
-}
-
-.success-icon::after {
-    content: "✓";
-    position: absolute;
-    color: white;
-    font-size: 2.5rem; /* Adjusted */
-    animation: scaleIn 0.5s;
-}
-
-@keyframes successPulse {
-    0% {
-        box-shadow: 0 0 0 0 rgba(45, 147, 108, 0.4);
-        transform: scale(1);
-    }
-    70% {
-        box-shadow: 0 0 0 15px rgba(45, 147, 108, 0);
-        transform: scale(1.05);
-    }
-    100% {
-        box-shadow: 0 0 0 0 rgba(45, 147, 108, 0);
-        transform: scale(1);
-    }
-}
-
-@keyframes scaleIn {
-    from {
-        transform: scale(0);
-    }
-    to {
-        transform: scale(1);
-    }
-}
-
-.success-message h2 {
-    /* Keep original gradient */
-    margin-bottom: 15px;
-    font-size: 2.2rem;
-    background: linear-gradient(90deg, var(--dmg-blue), var(--dmg-green));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    font-weight: 700; /* Ensure it's bold */
-}
-
-.success-message p {
-    color: var(--dmg-dark);
-    margin-bottom: 30px;
-    line-height: 1.7;
-    font-size: 1.1rem;
-}
-
-.close-modal-btn {
-    background: var(--dmg-red); /* Changed to red for consistency? Or keep yellow? */
-    color: white;
-    border: none;
-    padding: 14px 35px;
-    border-radius: 50px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s;
-    font-size: 1.05rem;
-    box-shadow: 0 8px 20px rgba(224, 30, 55, 0.25);
-    position: relative;
-    overflow: hidden;
-}
-
-.close-modal-btn:hover {
-    background: #c01830; /* Darker red */
-    transform: translateY(-3px);
-    box-shadow: 0 12px 25px rgba(224, 30, 55, 0.35);
-}
-
-.close-modal-btn:active {
-    transform: translateY(1px);
-    box-shadow: 0 5px 15px rgba(224, 30, 55, 0.2);
-}
-
-
-/* --- Form validation styles --- */
-.error {
-    border-color: var(--dmg-red) !important; /* Red border for error */
-    animation: shake 0.5s;
-}
-/* Adjust error border color based on background */
-#step1 .error { border-color: var(--dmg-yellow) !important; } /* Yellow error border on red */
-#step2 .error { border-color: var(--dmg-red) !important; } /* Red error border on yellow */
-#step3 .error { border-color: var(--dmg-yellow) !important; } /* Yellow error border on green */
-#contact-step .error { border-color: var(--dmg-yellow) !important; } /* Yellow error border on blue */
-
-
-.error-message {
-    color: var(--dmg-yellow); /* Default error message color */
-    font-size: 0.85rem;
-    margin-top: 8px;
-    display: none;
-    padding-left: 22px; /* Increased padding */
-    position: relative;
-    font-weight: bold;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.2);
-}
-/* Adjust error message color based on background */
-#step1 .error-message { color: var(--dmg-yellow); }
-#step2 .error-message { color: var(--dmg-red); }
-#step3 .error-message { color: var(--dmg-yellow); }
-#contact-step .error-message { color: var(--dmg-yellow); }
-
-
-.error-message::before {
-    content: "!";
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 16px;
-    height: 16px;
-    background-color: transparent; /* Use text color for icon */
-    color: inherit; /* Use text color for icon */
-    border: 2px solid currentcolor; /* Border matching text color */
-    border-radius: 50%;
-    margin-right: 5px;
-    font-size: 11px;
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    top: 1px; /* Align better */
-}
-
-.error-message.show {
-    display: block;
-    animation: fadeIn 0.4s;
+    .form-step h2 { font-size: 1.6rem; }
+    .form-nav button { padding: 12px 20px; font-size: 0.9rem; }
+    .success-message { padding: 30px 20px; }
+    .success-icon { width: 70px; height: 70px; font-size: 2.2rem; }
+    .success-icon::after { font-size: 2rem; }
+    .success-message h2 { font-size: 1.8rem; }
 }
 
-@keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
-    20%, 40%, 60%, 80% { transform: translateX(5px); }
-}
-
-/* --- Responsive styles --- */
-@media (max-width: 600px) {
-    .modal-content {
-        width: 95%;
-        margin: 10px 0; /* Add some margin top/bottom */
-        border-radius: 12px;
-        max-height: calc(100vh - 20px); /* Prevent overflow */
-        display: flex; /* Allow flex for content */
-        flex-direction: column; /* Stack content */
-    }
-
-    .form-step {
-        padding: 25px 20px;
-        flex-grow: 1; /* Allow step to take space */
-        overflow-y: auto; /* Allow scrolling within step if needed */
-    }
-
-    .form-step h2 {
-        font-size: 1.6rem;
-    }
-
-    .form-nav button {
-        padding: 12px 20px;
-        font-size: 0.9rem;
-    }
-
-    .success-message {
-         padding: 30px 20px;
-    }
-
-    .success-icon {
-        width: 70px;
-        height: 70px;
-        font-size: 2.2rem; /* Adjusted */
-    }
-     .success-icon::after {
-        font-size: 2rem; /* Adjusted */
-     }
-
-    .success-message h2 {
-        font-size: 1.8rem;
-    }
-}
-
- /* CTA Section Styles */
-.cta-section {
-    background-color: var(--primary-green);
-    padding: 80px 0;
-    color: var(--white);
-    position: relative;
-    overflow: hidden;
-}
-
-/* Add a subtle pattern overlay to create depth */
-.cta-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.1;
-}
-
-.cta-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
-}
-
-.cta-content {
-    flex: 1;
-    max-width: 600px;
-}
-
-.cta-image {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.cta-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 15px;
-}
-
-.cta-section h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 80px;
-    height: 3px;
-    background-color: var(--primary-yellow);
-}
-
-.cta-section p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    margin-bottom: 35px;
-    opacity: 0.9;
-}
-
-.cta-image img {
-    max-width: 100%;
-    height: auto;
-    filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.2));
-    transition: transform 0.5s ease;
-    animation: float 6s ease-in-out infinite;
-    border-radius: 10px;
-}
-
-@keyframes float {
-    0% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-15px);
-    }
-    100% {
-        transform: translateY(0px);
-    }
-}
-
- 
-
-.cta-button:hover {
-    background-color: #FFD700;
-    transform: translateY(-2px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-}
-
-.cta-button:active {
-    transform: translateY(0);
-}
-
-/* Large screens (desktops) */
-@media (max-width: 1200px) {
-    .cta-section h2 {
-        font-size: 2.2rem;
-    }
-    
-    .cta-section p {
-        font-size: 1rem;
-    }
-}
-
-/* Medium screens (tablets) */
-@media (max-width: 768px) {
-    .cta-wrapper {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .cta-content {
-        max-width: 100%;
-    }
-    
-    .cta-section h2::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .cta-image {
-        order: -1;
-        margin-bottom: 30px;
-    }
-    
-    .cta-image img {
-        max-width: 80%;
-    }
-    
-    .cta-section h2 {
-        font-size: 2rem;
-    }
-}
-
-/* Small screens (mobile phones) */
-@media (max-width: 480px) {
-    .cta-section {
-        padding: 60px 0;
-    }
-    
-    .cta-section h2 {
-        font-size: 1.8rem;
-    }
-    
-    .cta-section p {
-        font-size: 0.95rem;
-        margin-bottom: 25px;
-    }
-    
-    .cta-button {
-        padding: 12px 28px;
-        font-size: 1rem;
-        width: 100%;
-        max-width: 250px;
-    }
-    
-    .cta-image img {
-        max-width: 90%;
-    }
-}
- 
-/* Testimonials Section */
+/* ========================================================================
+   Testimonials Section
+   ======================================================================== */
 .testimonials-section {
-    background-color: var(--white);
+    background-color: var(--white); /* UPDATED: White background */
     padding: 80px 0;
 }
 
-.section-title {
+/* Use generic titles/subtitles if applicable */
+.testimonials-section .section-title {
     text-align: center;
     font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: var(--primary-black); /* Changed to black */
+    margin-bottom: 10px;
+    color: var(--neutral-dark); /* UPDATED: Dark title */
+}
+.testimonials-section .section-subtitle {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--neutral-medium); /* UPDATED: Medium gray */
+    margin-bottom: 50px;
 }
 
-.clients-heading {
+/* Specific headings within Testimonials */
+.clients-heading, .certifications-heading {
     text-align: center;
     font-size: 1.8rem;
     margin-bottom: 30px;
-    color: var(--primary-yellow); /* Changed to yellow */
+    font-weight: 600;
 }
+.clients-heading { color: var(--accent-yellow); } /* UPDATED */
+.certifications-heading { color: var(--accent-red); } /* UPDATED */
 
-.certifications-heading {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-    color: var(--primary-red); /* Changed to red */
-}
-
-/* Keep the highlight class for other elements */
+/* Highlight class */
 .highlight {
-    color: var(--primary-green);
+    color: var(--accent-green); /* UPDATED */
     font-weight: 700;
 }
 
 .subsection {
     margin-bottom: 60px;
 }
-
-.subsection h3 {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 30px;
-    color: var(--text-dark);
-}
+/* Use specific heading styles above instead of h3 */
 
 /* Logos Container */
 .logos-container {
@@ -2802,24 +1445,32 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100px;
-    width: 180px;
+    height: 80px; /* Adjusted size */
+    width: 160px; /* Adjusted size */
     padding: 15px;
     background-color: var(--white);
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    border-radius: var(--border-radius);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05); /* Softer shadow */
+    border: 1px solid var(--neutral-border); /* Subtle border */
+    transition: all var(--transition-speed);
 }
 
 .logo-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 20px rgba(0, 166, 81, 0.2);
+    transform: translateY(-5px); /* Reduced hover effect */
+    box-shadow: 0 10px 15px rgba(0, 82, 204, 0.08); /* Blueish shadow */
 }
 
 .logo-item img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
+    filter: grayscale(100%); /* Grayscale by default */
+    opacity: 0.7;
+    transition: all var(--transition-speed);
+}
+.logo-item:hover img {
+    filter: grayscale(0%); /* Color on hover */
+    opacity: 1;
 }
 
 /* Certifications Container */
@@ -2838,55 +1489,63 @@ nav {
     width: 100%;
     max-width: 500px;
     padding: 20px;
-    background-color: var(--light-gray);
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
+    background-color: var(--neutral-light); /* UPDATED: Light gray */
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: all var(--transition-speed);
 }
 
 .certification-item:hover {
-    box-shadow: 0 10px 20px rgba(0, 166, 81, 0.15);
+    box-shadow: var(--box-shadow-hover);
     transform: scale(1.02);
 }
 
 .certification-item img {
-    max-width: 120px;
-    max-height: 60px;
+    max-width: 100px; /* Adjusted size */
+    max-height: 50px; /* Adjusted size */
     object-fit: contain;
+    flex-shrink: 0; /* Prevent image shrinking */
 }
 
 .certification-info h4 {
-    color: var(--primary-green);
+    color: var(--accent-green); /* UPDATED */
     margin-bottom: 8px;
     font-size: 1.2rem;
+}
+.certification-info p { /* Add styling for description if present */
+    font-size: 0.9rem;
+    color: var(--neutral-dark);
+    line-height: 1.5;
 }
 
 /* Testimonial Carousel */
 .testimonial-carousel {
     position: relative;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 40px auto 0 auto; /* Added top margin */
     overflow: hidden;
-    min-height: 250px;
+    min-height: 250px; /* Ensure space */
+    padding: 0 40px; /* Space for controls */
 }
 
 .testimonial-item {
-    position: absolute;
+    position: absolute; /* Changed for simple fade */
     top: 0;
     left: 0;
     width: 100%;
     opacity: 0;
-    transform: translateX(50px);
-    transition: all 0.5s ease;
+    transition: opacity 0.5s ease;
     padding: 30px;
-    background-color: var(--white);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    background-color: var(--neutral-light); /* UPDATED: Light gray bg */
+    border-radius: var(--border-radius);
+    box-shadow: inset 0 0 15px rgba(0,0,0,0.05); /* Inner shadow */
+    visibility: hidden; /* Hide non-active */
 }
 
 .testimonial-item.active {
     opacity: 1;
-    transform: translateX(0);
+    position: relative; /* Take up space when active */
+    visibility: visible;
 }
 
 .testimonial-content {
@@ -2894,12 +1553,29 @@ nav {
     line-height: 1.8;
     font-style: italic;
     margin-bottom: 20px;
+    color: var(--neutral-dark); /* UPDATED */
+    position: relative;
+    padding-left: 30px; /* Space for quote mark */
 }
+
+.testimonial-content::before { /* Quotation mark */
+    content: '“';
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 3rem;
+    color: var(--accent-green); /* UPDATED */
+    opacity: 0.5;
+    line-height: 1;
+}
+
 
 .testimonial-author {
     display: flex;
     align-items: center;
     gap: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--neutral-border); /* Separator */
 }
 
 .testimonial-author img {
@@ -2907,17 +1583,19 @@ nav {
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
-    border: 3px solid var(--primary-green);
+    border: 3px solid var(--accent-green); /* UPDATED */
 }
 
 .testimonial-author h4 {
     font-size: 1.1rem;
-    margin-bottom: 5px;
+    margin-bottom: 3px; /* Reduced margin */
+    color: var(--neutral-dark);
 }
 
 .testimonial-author p {
-    color: var(--primary-green);
+    color: var(--accent-green); /* UPDATED */
     font-size: 0.9rem;
+    font-weight: 500;
 }
 
 /* Carousel Controls */
@@ -2925,12 +1603,12 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 20px;
+    gap: 15px; /* Reduced gap */
     margin-top: 30px;
 }
 
-.prev-btn, .next-btn {
-    background-color: var(--primary-green);
+.carousel-controls button { /* Style both prev/next */
+    background-color: var(--accent-green); /* UPDATED */
     color: var(--white);
     border: none;
     width: 40px;
@@ -2941,11 +1619,14 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed);
+    box-shadow: var(--box-shadow);
 }
 
-.prev-btn:hover, .next-btn:hover {
-    background-color: var(--primary-yellow);
+.carousel-controls button:hover {
+    background-color: var(--accent-yellow); /* UPDATED */
+    color: var(--neutral-dark);
+    box-shadow: var(--box-shadow-hover);
 }
 
 .carousel-dots {
@@ -2954,260 +1635,255 @@ nav {
 }
 
 .dot {
-    width: 12px;
-    height: 12px;
+    width: 10px; /* Smaller dots */
+    height: 10px;
     border-radius: 50%;
-    background-color: var(--light-gray);
+    background-color: var(--neutral-border); /* UPDATED */
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all var(--transition-speed);
 }
 
 .dot.active {
-    background-color: var(--primary-green);
+    background-color: var(--accent-green); /* UPDATED */
     transform: scale(1.2);
 }
 
-/* Responsive Design */
+/* Testimonials Responsive */
 @media (max-width: 768px) {
-    .logos-container {
-        gap: 20px;
-    }
-    
-    .logo-item {
-        width: 150px;
-        height: 80px;
-    }
-    
-    .certification-item {
-        flex-direction: column;
-        text-align: center;
-    }
-    
-    .certification-item img {
-        margin-bottom: 15px;
-    }
-    
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .subsection h3 {
-        font-size: 1.5rem;
-    }
+    .logos-container { gap: 20px; }
+    .logo-item { width: 120px; height: 70px; }
+    .certification-item { flex-direction: column; text-align: center; }
+    .certification-item img { margin-bottom: 15px; }
+    .testimonials-section .section-title { font-size: 2rem; }
+    .testimonial-carousel { padding: 0; } /* Remove side padding */
+}
+@media (max-width: 480px) {
+    .logo-item { width: 100px; height: 60px; }
+    .testimonials-section .section-title { font-size: 1.8rem; }
+    .testimonial-content { font-size: 1rem; }
+    .testimonial-author img { width: 50px; height: 50px; }
 }
 
-@media (max-width: 480px) {
-    .logo-item {
-        width: 120px;
-        height: 70px;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-    }
-    
-    .testimonial-content {
-        font-size: 1rem;
-    }
-} 
-
-/* FAQ Section Styles */
+/* ========================================================================
+   FAQ Section
+   ======================================================================== */
 .faq-section {
-    background: linear-gradient(to bottom, #ffffff, #f4f4f4);
-    padding: 60px 20px;
+    background: var(--neutral-light); /* UPDATED: Light Gray */
+    padding: 80px 0; /* Increased padding */
     text-align: center;
 }
 
-
-.section-title {
-    font-size: 2.2rem;
+.faq-section .section-title {
+    font-size: 2.5rem;
     font-weight: bold;
-    color: #007BFF; /* Blue */
-    margin-bottom: 10px;
+    color: var(--primary-blue); /* UPDATED: Blue title */
+    margin-bottom: 15px;
 }
 
-.section-subtitle {
-    font-size: 1.2rem;
-    color: #555;
-    margin-bottom: 40px;
+.faq-section .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--neutral-dark); /* UPDATED */
+    margin-bottom: 50px; /* Increased spacing */
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .faq-container {
     max-width: 800px;
     margin: auto;
+    text-align: left; /* Align items left */
 }
 
 .faq-item {
-    background: #ffffff;
-    border-left: 5px solid #28A745; /* Green */
-    border-radius: 10px;
+    background: var(--white);
+    border-left: 5px solid var(--accent-green); /* UPDATED: Green */
+    border-radius: var(--border-radius);
     margin-bottom: 15px;
-    padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--box-shadow);
+    transition: all var(--transition-speed);
+    overflow: hidden; /* Contain answer */
 }
 
- 
+.faq-item:hover {
+    box-shadow: var(--box-shadow-hover);
+}
+
 .faq-question {
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: #333;
+    padding: 20px 25px; /* Increased padding */
 }
-
- 
 
 .faq-question h3 {
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* Slightly smaller */
     font-weight: 600;
-    color: var(--text-dark);
+    color: var(--neutral-dark); /* UPDATED */
+    flex-grow: 1; /* Allow text to take space */
+    padding-right: 15px; /* Space before icon */
 }
 
 .toggle-icon {
-    font-size: 1.5rem;
-    color: #FFC107; /* Yellow */
+    font-size: 1.2rem; /* Adjusted size */
+    color: var(--accent-yellow); /* UPDATED: Yellow */
     transition: transform 0.3s ease;
+    flex-shrink: 0; /* Prevent icon shrinking */
 }
 
 .faq-answer {
-    display: none;
-    margin-top: 10px;
-    font-size: 1rem;
-    color: #555;
-    text-align: left;
-}
-
-.faq-item:hover {
-    transform: translateY(-3px);
-    transition: 0.3s;
-}
-
-/* Expand Answer */
-.faq-item.active .faq-answer {
-    display: block;
+    /* display: none; */ /* Use max-height for transition */
+    max-height: 0; /* Collapsed */
+    overflow: hidden;
+    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+    padding: 0 25px; /* Horizontal padding only when collapsed */
 }
 
 .faq-answer p {
     margin: 0;
-    padding: 20px 0;
-    color: var(--text-dark);
+    padding: 20px 0; /* Vertical padding for content */
+    color: var(--neutral-dark); /* UPDATED */
     line-height: 1.6;
+    font-size: 1rem;
+    border-top: 1px solid var(--neutral-border); /* Separator */
 }
 
-.faq-item.active .faq-question {
-    border-left-color: var(--primary-yellow);
+/* Active state (when item is open) */
+.faq-item.active {
+    border-left-color: var(--accent-yellow); /* UPDATED: Yellow border */
 }
 
 .faq-item.active .toggle-icon {
-    transform: rotate(45deg);
-    color: var(--primary-yellow);
+    transform: rotate(135deg); /* Rotate '+' to 'x' */
+    color: var(--accent-red); /* UPDATED: Red icon when open */
 }
 
 .faq-item.active .faq-answer {
-    max-height: 500px;
+    max-height: 500px; /* Allow space for answer */
+    padding: 0 25px 20px 25px; /* Add bottom padding when open */
 }
 
-/* CTA Section Styles */
-.cta-section {
+/* FAQ Responsive */
+@media (max-width: 768px) {
+    .faq-section .section-title { font-size: 2rem; }
+    .faq-question h3 { font-size: 1rem; }
+}
+
+/* ========================================================================
+   CTA Section (Bottom/Blue Background with Form)
+   ======================================================================== */
+/* NOTE: Styles adjusted for a Blue background CTA */
+.cta-section-form { /* Give this section a unique class if needed */
     padding: 80px 0;
-    background-color: var(--primary-green);
+    background-color: var(--primary-blue); /* UPDATED: Blue background */
     position: relative;
     overflow: hidden;
+    color: var(--white); /* Default text white */
 }
 
-.cta-section::before {
+/* Decorative shapes */
+.cta-section-form::before {
     content: '';
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -100px;
+    right: -100px;
     width: 300px;
     height: 300px;
-    background-color: rgba(255, 255, 255, 0.1);
+    background-color: rgba(255, 255, 255, 0.07); /* White transparent circle */
     border-radius: 50%;
-    transform: translate(150px, -150px);
+    z-index: 0;
 }
-
-.cta-section::after {
+.cta-section-form::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 200px;
-    height: 200px;
-    background-color: rgba(255, 255, 255, 0.1);
+    bottom: -150px;
+    left: -50px;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(255, 255, 255, 0.05);
     border-radius: 50%;
-    transform: translate(-100px, 100px);
+    z-index: 0;
 }
 
-.cta-section .container {
+.cta-section-form .container {
     display: flex;
-    align-items: center;
+    align-items: center; /* Vertically align items */
     justify-content: space-between;
+    gap: 50px; /* Space between content and form */
     position: relative;
-    z-index: 1;
+    z-index: 1; /* Content above shapes */
 }
 
-.cta-content {
-    flex: 1;
-    padding-right: 50px;
+.cta-section-form .cta-content { /* Left side text content */
+    flex: 1 1 55%; /* Take slightly more space */
 }
 
-.cta-content h2 {
+.cta-section-form .cta-content h2 {
     color: var(--white);
     font-size: 2.5rem;
     margin-bottom: 20px;
+    line-height: 1.3;
 }
 
-.cta-content p {
+.cta-section-form .cta-content p {
     color: var(--white);
-    font-size: 1.2rem;
+    font-size: 1.1rem; /* Adjusted size */
     margin-bottom: 30px;
     opacity: 0.9;
+    line-height: 1.7;
 }
 
-.cta-buttons {
+.cta-buttons { /* Container for buttons if needed */
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
 }
 
- 
-
-.cta-button.primary {
-    background-color: var(--primary-yellow);
-    color: var(--primary-black);
-}
-
-.cta-button.primary:hover {
-    background-color: var(--white);
-    transform: translateY(-3px);
+/* Styling buttons within this section */
+.cta-section-form .cta-button {
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all var(--transition-speed);
+    font-size: 1rem;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.cta-button.secondary {
+.cta-section-form .cta-button.primary {
+    background-color: var(--accent-yellow); /* UPDATED: Yellow */
+    color: var(--neutral-dark); /* UPDATED: Dark text */
+}
+.cta-section-form .cta-button.primary:hover {
+    background-color: var(--white);
+    color: var(--primary-blue); /* Blue text on white */
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.cta-section-form .cta-button.secondary {
     background-color: transparent;
     color: var(--white);
     border: 2px solid var(--white);
 }
-
-.cta-button.secondary:hover {
+.cta-section-form .cta-button.secondary:hover {
     background-color: var(--white);
-    color: var(--primary-green);
+    color: var(--primary-blue); /* Blue text on white */
     transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.cta-form {
-    flex: 1;
+
+.cta-form { /* Right side form */
+    flex: 1 1 40%; /* Take slightly less space */
     max-width: 450px;
     background-color: var(--white);
-    padding: 30px;
-    border-radius: 8px;
+    padding: 35px; /* Increased padding */
+    border-radius: var(--border-radius);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease;
+    color: var(--neutral-dark); /* Reset text color for form */
 }
 
 .cta-form:hover {
@@ -3216,37 +1892,39 @@ nav {
 }
 
 .cta-form h3 {
-    color: var(--primary-green);
+    color: var(--accent-green); /* UPDATED: Green title */
     text-align: center;
     margin-bottom: 25px;
     font-size: 1.5rem;
 }
 
-.form-group {
-    margin-bottom: 15px;
+/* Reuse form group styles from Modal if applicable, or define here */
+.cta-form .form-group {
+    margin-bottom: 20px; /* Spacing */
 }
 
-.form-group input,
-.form-group select {
+.cta-form .form-group input,
+.cta-form .form-group select {
     width: 100%;
     padding: 12px 15px;
-    border: 1px solid #ddd;
+    border: 1px solid var(--neutral-border); /* UPDATED: Use border variable */
     border-radius: 5px;
     font-size: 1rem;
     transition: all 0.3s ease;
+    color: var(--neutral-dark);
 }
 
-.form-group input:focus,
-.form-group select:focus {
-    border-color: var(--primary-green);
+.cta-form .form-group input:focus,
+.cta-form .form-group select:focus {
+    border-color: var(--accent-green); /* UPDATED: Green focus */
     outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 166, 81, 0.1);
+    box-shadow: 0 0 0 3px rgba(33, 158, 74, 0.1); /* Green glow */
 }
 
-.submit-button {
+.cta-form .submit-button { /* Form submit button */
     width: 100%;
     padding: 12px;
-    background-color: var(--primary-green);
+    background-color: var(--accent-green); /* UPDATED: Green */
     color: var(--white);
     border: none;
     border-radius: 5px;
@@ -3257,328 +1935,167 @@ nav {
     margin-top: 10px;
 }
 
-.submit-button:hover {
-    background-color: var(--primary-yellow);
-    color: var(--primary-black);
+.cta-form .submit-button:hover {
+    background-color: var(--accent-yellow); /* UPDATED: Yellow hover */
+    color: var(--neutral-dark); /* Dark text */
     transform: translateY(-2px);
 }
 
-/* Responsive Styles */
+/* CTA Form Section Responsive */
 @media (max-width: 992px) {
-    .cta-section .container {
+    .cta-section-form .container {
         flex-direction: column;
+        gap: 40px;
     }
-    
-    .cta-content {
-        padding-right: 0;
+    .cta-section-form .cta-content {
         text-align: center;
-        margin-bottom: 40px;
+        flex-basis: auto; /* Reset basis */
     }
-    
     .cta-buttons {
         justify-content: center;
     }
-    
     .cta-form {
-        max-width: 100%;
+        max-width: 550px; /* Allow form to be wider */
+        flex-basis: auto;
     }
 }
-
 @media (max-width: 768px) {
-    .section-title {
-        font-size: 2rem;
-    }
-    
-    .cta-content h2 {
-        font-size: 2rem;
-    }
-    
-    .faq-question h3 {
-        font-size: 1rem;
-    }
+    .cta-section-form .cta-content h2 { font-size: 2rem; }
 }
 
-/* == Base Variables == */
-:root {
-    --dmg-blue: #1a5fb4;
-    --dmg-red: #e01e37;
-    --dmg-green: #2d936c;
-    --dmg-yellow: #ffb627;
-    --dmg-dark: #1e1e1e;
-    --dmg-light: #f8f9fa;
-}
 
-/* == Main Footer Styles == */
+/* ========================================================================
+   Footer Styles
+   ======================================================================== */
 .site-footer {
-    background: var(--dmg-dark);
-    color: var(--dmg-light);
-    padding: 60px 0 20px;
-    font-family: 'Inter', sans-serif;
-    border-top: 4px solid var(--dmg-blue);
+    background-color: var(--footer-bg); /* UPDATED: Blue */
+    color: var(--footer-text); /* UPDATED: White */
+    padding: 50px 0 25px 0; /* Adjusted padding */
+    font-size: 0.9rem;
+    border-top: 4px solid var(--accent-yellow); /* UPDATED: Yellow top border */
 }
 
-.site-footer .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-/* == Footer Sections Layout == */
 .footer-content {
     display: flex;
     flex-wrap: wrap;
-    gap: 40px;
     justify-content: space-between;
+    gap: 40px; /* Increased gap */
     margin-bottom: 40px;
 }
 
-/* == Section Titles == */
-.footer-logo-section h3,
-.footer-links-section h3,
-.footer-contact-section h3,
-.social-media-section h4 {
-    color: var(--dmg-light);
-    font-size: 1.2rem;
-    margin-bottom: 20px;
-    position: relative;
+.footer-column {
+    flex: 1 1 220px; /* Slightly wider base */
+    min-width: 200px;
 }
 
-.footer-links-section h3::after {
+.footer-title {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: var(--accent-yellow); /* UPDATED: Yellow title for contrast */
+    position: relative;
+    padding-bottom: 10px; /* Space for underline */
+}
+/* Underline for footer titles */
+.footer-title::after {
     content: '';
     position: absolute;
+    bottom: 0;
     left: 0;
-    bottom: -10px;
     width: 40px;
-    height: 3px;
-    background: var(--dmg-yellow);
+    height: 2px;
+    background-color: var(--accent-yellow);
 }
 
-.centered-title {
-    text-align: left;
-}
-.centered-title::after {
-    /* left: 50%;
-    transform: translateX(-50%); */
-}
 
-/* == Logo/Certification Section == */
-.footer-logo-section {
-    flex: 1;
-    min-width: 250px;
-}
-
-.certification-badges {
-    display: flex;
-    gap: 25px;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-top: 15px;
-}
-
-.partner-badge {
-    max-height: 50px;
-    width: auto;
-    filter: grayscale(20%) brightness(1.1);
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.partner-badge:hover {
-    transform: translateY(-5px);
-    filter: grayscale(0%) brightness(1.2);
-}
-
-/* == Links Section == */
-.footer-links-section {
-    flex: 1;
-    min-width: 180px;
-}
-
-.footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 12px;
-}
-
-.footer-links li {
-    text-align: left;
-}
-
-.footer-links a {
-    color: rgba(255, 255, 255, 0.8);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    font-size: 0.95rem;
-    display: inline-block;
-    position: relative;
-    padding-left: 15px;
-}
-
-.footer-links a::before {
-    content: '•';
-    color: var(--dmg-red);
-    font-weight: bold;
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-}
-
-.footer-links a:hover {
-    color: var(--dmg-light);
-    transform: translateX(5px);
-}
-
-/* == Contact Section == */
-.footer-contact-section {
-    flex: 1;
-    min-width: 280px;
-}
-
-.contact-buttons {
+/* Footer Certifications */
+.footer-logo-section .certification-badges {
     display: flex;
     flex-direction: column;
+    align-items: flex-start;
     gap: 15px;
 }
 
-.contact-button {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    padding: 12px 20px;
-    color: var(--dmg-light);
-    text-decoration: none;
-    transition: all 0.3s ease;
+.partner-badge {
+    max-height: 45px; /* Adjusted size */
+    width: auto;
+    max-width: 150px;
+    background-color: var(--white); /* White background for visibility */
+    padding: 8px; /* Padding around badge */
+    border-radius: 4px;
+    display: block;
 }
 
-.contact-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+/* Footer Links */
+.footer-links li { margin-bottom: 12px; }
+.footer-links a {
+    color: var(--footer-text);
+    transition: color var(--transition-speed);
+    display: inline-block; /* Allows transform */
+}
+.footer-links a:hover {
+    color: var(--accent-yellow);
+    transform: translateX(3px); /* Slight shift on hover */
 }
 
-.phone-button:hover {
-    background: var(--dmg-green);
-    border-color: var(--dmg-green);
-}
-
-.email-button:hover {
-    background: var(--dmg-yellow);
-    border-color: var(--dmg-yellow);
-    color: var(--dmg-dark);
-}
-
-.button-icon {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-}
-
-.icon-phone::before {
-    font-family: 'Font Awesome 6 Free';
-    content: "\f095";
-    font-weight: 900;
-}
-
-.icon-email::before {
-    font-family: 'Font Awesome 6 Free';
-    content: "\f0e0";
-    font-weight: 900;
-}
-
-/* == Social Media Section == */
-.social-media-section {
-    text-align: center;
-    width: 100%;
-    margin-top: 30px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.social-icons {
-    margin-top: 15px;
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-}
-
-.social-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.1);
-    color: var(--dmg-light);
-    font-size: 18px;
-    text-decoration: none;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-.social-icon:hover {
-    background: var(--dmg-blue);
-    transform: scale(1.1);
-}
-
-.icon-facebook::before {
-    font-family: 'Font Awesome 6 Brands';
-    content: "\f09a";
-}
-
-.icon-twitter::before {
-    font-family: 'Font Awesome 6 Brands';
-    content: "\f099";
-}
-
-.icon-linkedin::before {
-    font-family: 'Font Awesome 6 Brands';
-    content: "\f0e1";
-}
-
-.icon-instagram::before {
-    font-family: 'Font Awesome 6 Brands';
-    content: "\f16d";
-}
-
-/* == Footer Bottom Section == */
-.footer-bottom {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 40px;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.7);
-}
-
-.location {
+/* Footer Contact Info */
+.footer-contact-section address { font-style: normal; }
+.footer-contact-section p {
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 10px;
 }
-
-.icon-location::before {
-    font-family: 'Font Awesome 6 Free';
-    content: "\f3c5";
-    font-weight: 900;
+.footer-contact-section a { color: var(--footer-text); }
+.footer-contact-section a:hover { color: var(--accent-yellow); }
+.footer-contact-section i {
+    color: var(--accent-yellow); /* Yellow icon */
+    width: 18px; /* Fixed width for alignment */
+    text-align: center;
+    font-size: 1.1em; /* Slightly larger icon */
 }
 
-.footer-links-bottom {
+/* Footer Social Icons */
+.footer-social-section .social-icons { display: flex; gap: 15px; }
+.social-icon {
+    color: var(--footer-text);
+    font-size: 1.4rem; /* Larger icons */
+    transition: color var(--transition-speed), transform var(--transition-speed);
+    display: inline-block;
+}
+.social-icon:hover {
+    color: var(--accent-yellow);
+    transform: translateY(-3px) scale(1.1); /* Lift and scale effect */
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15); /* UPDATED: Lighter border */
+    padding-top: 25px;
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 15px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7); /* UPDATED: Lighter text */
 }
 
+.copyright p { margin: 0; }
 .footer-links-bottom a {
-    color: rgba(255, 255, 255, 0.6);
-    text-decoration: none;
-    transition: color 0.3s ease;
+    color: rgba(255, 255, 255, 0.7); /* UPDATED: Lighter links */
+    margin: 0 8px;
+    transition: color var(--transition-speed);
 }
+.footer-links-bottom a:hover { color: var(--accent-yellow); }
 
-.footer-links-bottom a:hover {
-    color: var(--dmg-light);
+/* Footer Responsive */
+@media (max-width: 768px) {
+    .footer-content {
+        gap: 30px;
+    }
+    .footer-bottom {
+        flex-direction: column;
+        text-align: center;
+    }
 }
