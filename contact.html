@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Automation Company</title>
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css"> 
+    <link rel="stylesheet" href="styles/contact.css"> 
     <!-- Font Awesome for hamburger menu icon -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -22,7 +22,7 @@
             <!-- Logo Section -->
             <div class="logo">
                 <!-- Replace with your actual logo image path -->
-                <a href="index.html"><img src="assets/images/new logo.jpg" alt="Company Logo"></a>
+                <a href="index.html"><img src="assets/images/loader-removebg-preview.png" alt="Company Logo"></a>
             </div>
             
             <!-- Mobile Menu Toggle -->
@@ -33,12 +33,12 @@
             <!-- Navigation Links -->
             <nav>
                 <ul class="nav-links">
-                    <li><a href="index.html">Index</a></li>
+                    <li><a href="index.html">Home</a></li>
                     <li><a href="services.html">Services</a></li>
                     <li><a href="products.html">Products</a></li>
                     <li><a href="testimonial.html">Portfolio</a></li>
                     <li><a href="contact.html" class="active">Contact</a></li>
-                    <li><a href="faq.html">Faq</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
                 </ul>
             </nav>
             
@@ -48,304 +48,7 @@
             </div>
         </div>
     </header>
-
-    <style>
-        /* Global Styles */
-        :root {
-            --damigo-red: #e63946;
-            --damigo-yellow: #ffb703;
-            --damigo-green: #2a9d8f;
-            --damigo-blue: #457b9d;
-            --damigo-dark: #1d3557;
-            --damigo-light: #f1faee;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background-color: var(--damigo-light);
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Contact Section Styles */
-        .contact-section {
-            padding: 40px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 40px;
-            color: var(--damigo-dark);
-            position: relative;
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: var(--damigo-red);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        /* Hero Map Section */
-        .hero-map {
-            width: 100%;
-            height: 400px;
-            margin-bottom: 60px;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        /* Contact Info Section */
-        .contact-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-bottom: 60px;
-        }
-        
-        .contact-info {
-            flex: 1;
-            min-width: 300px;
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .contact-info h3 {
-            color: var(--damigo-blue);
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-        
-        .info-item {
-            display: flex;
-            margin-bottom: 20px;
-        }
-        
-        .info-item i {
-            width: 40px;
-            height: 40px;
-            background-color: var(--damigo-green);
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-        }
-        
-        .info-item .content h4 {
-            font-size: 18px;
-            margin-bottom: 5px;
-            color: var(--damigo-dark);
-        }
-        
-        .info-item .content p {
-            color: #666;
-        }
-        
-        /* Contact Form */
-        .contact-form {
-            flex: 1;
-            min-width: 300px;
-            background-color: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .contact-form h3 {
-            color: var(--damigo-blue);
-            margin-bottom: 20px;
-            font-size: 24px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: var(--damigo-dark);
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 16px;
-            transition: all 0.3s ease;
-        }
-        
-        .form-control:focus {
-            border-color: var(--damigo-blue);
-            outline: none;
-            box-shadow: 0 0 0 2px rgba(69, 123, 157, 0.2);
-        }
-        
-        textarea.form-control {
-            resize: vertical;
-            min-height: 120px;
-        }
-        
-        .submit-btn {
-            background-color: var(--damigo-red);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 4px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .submit-btn:hover {
-            background-color: #c1272d;
-            transform: translateY(-2px);
-        }
-        
-        /* Social Media Icons */
-        .social-media {
-            margin-top: 30px;
-        }
-        
-        .social-media h4 {
-            margin-bottom: 15px;
-            color: var(--damigo-dark);
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background-color: var(--damigo-yellow);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
-        }
-        
-        .social-icon.facebook {
-            background-color: var(--damigo-blue);
-        }
-        
-        .social-icon.twitter {
-            background-color: #1DA1F2;
-        }
-        
-        .social-icon.instagram {
-            background-color: var(--damigo-red);
-        }
-        
-        .social-icon.linkedin {
-            background-color: var(--damigo-blue);
-        }
-        
-        /* Success Message */
-        .success-message {
-            display: none;
-            background-color: var(--damigo-green);
-            color: white;
-            padding: 20px;
-            border-radius: 8px;
-            text-align: center;
-            margin-top: 20px;
-        }
-        
-        .success-message.show {
-            display: block;
-        }
-        
-        .success-icon {
-            font-size: 50px;
-            margin-bottom: 10px;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .hero-map {
-                height: 350px;
-            }
-            
-            .contact-container {
-                flex-direction: column;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .hero-map {
-                height: 300px;
-            }
-            
-            .section-title {
-                font-size: 28px;
-            }
-            
-            .info-item i {
-                width: 35px;
-                height: 35px;
-            }
-        }
-        
-        @media (max-width: 576px) {
-            .hero-map {
-                height: 250px;
-            }
-            
-            .section-title {
-                font-size: 24px;
-            }
-            
-            .contact-info, .contact-form {
-                padding: 20px;
-            }
-            
-            .info-item {
-                flex-direction: column;
-            }
-            
-            .info-item i {
-                margin-bottom: 10px;
-                margin-right: 0;
-            }
-        }
-    </style>
+ 
 </head>
 <body>
     <!-- Header would be here, already added with black background -->
@@ -355,107 +58,115 @@
             <div class="container">
                 <h2 class="section-title">Contact Us</h2>
                 
-                <!-- Hero Map Section -->
-                <div class="hero-map">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8176745010403!2d36.8088!3d-1.2686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173ff67f95fd%3A0xd1c7c573e24c8c29!2sWestlands%20Annex%20Plaza!5e0!3m2!1sen!2ske!4v1711912346321!5m2!1sen!2ske" 
-                        width="100%" 
-                        height="100%" 
-                        style="border:0;" 
-                        allowfullscreen="" 
-                        loading="lazy" 
-                        referrerpolicy="no-referrer-when-downgrade">
-                    </iframe>
-                </div>
-                
-                <div class="contact-container">
-                    <!-- Contact Info -->
-                    <div class="contact-info">
-                        <h3>Get in Touch</h3>
-                        
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div class="content">
-                                <h4>Location</h4>
-                                <p>4th floor Delta Corner Annex, Westlands/p>
-                                <p>Nairobi, Kenya</p>
-                            </div>
-                        </div>
-                        
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <div class="content">
-                                <h4>Call Us</h4>
-                                <p>+254 722 325 104</p>
-                            </div>
-                        </div>
-                        
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <div class="content">
-                                <h4>Email Us</h4>
-                                <p>info@dmg.com</p> 
-                            </div>
-                        </div>
-                        
-                        <div class="info-item">
-                            <i class="fas fa-clock"></i>
-                            <div class="content">
-                                <h4>Working Hours</h4>
-                                <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
-                                <p>Saturday: 9:00 AM - 1:00 PM</p>
-                            </div>
-                        </div>
-                        
-                        <div class="social-media">
-                            <h4>Connect With Us</h4>
-                            <div class="social-icons">
-                                <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
-                                <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
-                            </div>
+                <!-- Contact Details Row: Map and Info side by side -->
+                <div class="contact-details-row">
+                    <!-- Map Section -->
+                    <div class="contact-map-wrapper">
+                        <div class="hero-map">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.8176745010403!2d36.8088!3d-1.2686!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f173ff67f95fd%3A0xd1c7c573e24c8c29!2sWestlands%20Annex%20Plaza!5e0!3m2!1sen!2ske!4v1711912346321!5m2!1sen!2ske" 
+                                width="100%" 
+                                height="100%" 
+                                style="border:0;" 
+                                allowfullscreen="" 
+                                loading="lazy" 
+                                referrerpolicy="no-referrer-when-downgrade">
+                            </iframe>
                         </div>
                     </div>
                     
-                    <!-- Contact Form -->
-                    <div class="contact-form" id="contact-form">
-                        <h3>Send Message</h3>
-                        <form id="messageForm">
-                            <div class="form-group">
-                                <label for="name">Full Name</label>
-                                <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                    <!-- Contact Info Section -->
+                    <div class="contact-info-wrapper">
+                        <div class="contact-info">
+                            <h3>Get in Touch</h3>
+                            
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div class="content">
+                                    <h4>Location</h4>
+                                    <p>4th floor Delta Corner Annex, Westlands</p>
+                                    <p>Nairobi, Kenya</p>
+                                </div>
                             </div>
                             
-                            <div class="form-group">
-                                <label for="email">Email Address</label>
-                                <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                            <div class="info-item">
+                                <i class="fas fa-phone"></i>
+                                <div class="content">
+                                    <h4>Call Us</h4>
+                                    <p>+254 722 325 104</p>
+                                </div>
                             </div>
                             
-                            <div class="form-group">
-                                <label for="subject">Subject</label>
-                                <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+                            <div class="info-item">
+                                <i class="fas fa-envelope"></i>
+                                <div class="content">
+                                    <h4>Email Us</h4>
+                                    <p>info@dmg.com</p> 
+                                </div>
                             </div>
                             
-                            <div class="form-group">
-                                <label for="message">Message</label>
-                                <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <div class="content">
+                                    <h4>Working Hours</h4>
+                                    <p>Monday - Friday: 8:00 AM - 5:00 PM</p>
+                                    <p>Saturday: 9:00 AM - 1:00 PM</p>
+                                </div>
                             </div>
                             
-                            <button type="submit" class="submit-btn">Send Message</button>
-                        </form>
-                        
-                        <div class="success-message" id="success-message">
-                            <div class="success-icon">✓</div>
-                            <h3>Thank You!</h3>
-                            <p>Your message has been sent successfully. We'll get back to you soon!</p>
+                            <div class="social-media">
+                                <h4>Connect With Us</h4>
+                                <div class="social-icons">
+                                    <a href="#" class="social-icon facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" class="social-icon twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" class="social-icon instagram"><i class="fab fa-instagram"></i></a>
+                                    <a href="#" class="social-icon linkedin"><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-    </main>
-    
+
+        <!-- Contact Form Section - Full Width Below -->
+        <section class="contact-form-section">
+            <div class="container">
+                <div class="contact-form">
+                    <h3>Send Message</h3>
+                    <form id="messageForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your Email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Subject" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                    
+                    <div class="success-message" id="success-message">
+                        <div class="success-icon">✓</div>
+                        <h3>Thank You!</h3>
+                        <p>Your message has been sent successfully. We'll get back to you soon!</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>    
     <!-- Footer would be here, already added with black background -->
     
    

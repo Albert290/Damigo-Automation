@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Automation Company</title>
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/faq.css">
     <!-- Font Awesome for hamburger menu icon -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -22,7 +22,7 @@
             <!-- Logo Section -->
             <div class="logo">
                 <!-- Replace with your actual logo image path -->
-                <a href="index.html"><img src="assets/images/new logo.jpg" alt="Company Logo"></a>
+                <a href="index.html"><img src="assets/images/loader-removebg-preview.png" alt="Company Logo"></a>
             </div>
             
             <!-- Mobile Menu Toggle -->
@@ -50,64 +50,164 @@
     </header>
 
 
-<section class="faq-section">
-    <div class="container">
-        <h2 class="section-title">Frequently Asked Questions</h2>
-        <p class="section-subtitle">Get answers to common queries about our automation solutions</p>
-
-        <div class="faq-container">
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>What services do you offer?</h3>
-                    <span class="toggle-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>We provide business automation solutions, including CRM and ERP integration, accounting automation, and workflow optimization. Our expertise in Sage and Zoho ensures seamless implementation for businesses seeking efficiency.</p>
-                </div>
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <p class="section-subtitle">Get answers to common queries about our automation solutions</p>
+            
+            <div class="faq-categories">
+                
+                <button class="category-btn active" data-category="getting-started">Getting Started</button>
+                <button class="category-btn" data-category="services">Our Services</button>
+                <button class="category-btn" data-category="benefits">Benefits</button>
+                <button class="category-btn" data-category="training">Training</button>
+                <button class="category-btn" data-category="industries">Industries</button>
+                <button class="category-btn" data-category="support">Support</button>
             </div>
 
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>How can automation benefit my business?</h3>
-                    <span class="toggle-icon">+</span>
+            <!-- Getting Started Category -->
+            <div class="faq-category" id="getting-started">
+                <h2 class="category-title">🚀 Getting Started</h2>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>How do I get started with DMG Business Automation?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Simply reach out through our Contact page or book a free consultation. We'll schedule a discovery call to understand your needs, and from there, propose the best automation solution for your business.</p>
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    <p>Automation reduces errors, saves time, and enhances decision-making by providing real-time insights. Whether it's managing invoices, tracking inventory, or automating reports, our solutions streamline operations for improved productivity.</p>
-                </div>
-            </div>
-
-            <div class="faq-item"   id="formm">
-                <div class="faq-question">
-                    <h3>Do you offer training?</h3>
-                    <span class="toggle-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>Yes! We provide hands-on training for your team to effectively use Sage and Zoho tools. Our goal is to ensure smooth adoption, helping your business fully leverage automation capabilities.</p>
-                </div>
-            </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>What industries do you serve?</h3>
-                    <span class="toggle-icon">+</span>
-                </div>
-                <div class="faq-answer">
-                    <p>We serve various industries, including finance, healthcare, retail, and manufacturing. Our solutions are customized to meet the unique needs of each sector, ensuring optimal results.</p>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>What is the first step once I decide to work with you?</h3>
+                        <span class="toggle-icon">+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Once you decide to proceed, we begin with a process review and needs analysis to map out your current workflows and define automation goals. This leads into system setup, customization, and training.</p>
+                    </div>
                 </div>
             </div>
-
-            <div class="faq-item">
-                <div class="faq-question">
-                    <h3>What support do you offer?</h3>
-                    <span class="toggle-icon">+</span>
+    
+            <div class="faq-container">
+                <!-- Services Category -->
+                <div class="faq-category active" id="services">
+                    <h2 class="category-title">🏢 Our Services</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What services do you offer?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We provide business automation solutions, including CRM and ERP integration, accounting automation, and workflow optimization. Our expertise in Sage and Zoho ensures seamless implementation for businesses seeking efficiency.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How much do your services cost?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our pricing depends on the scope of automation required. We offer customized solutions based on your business needs and provide transparent pricing during our consultation process.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="faq-answer">
-                    <p>Our support includes system monitoring, troubleshooting, updates, and improvements. We ensure your automation solutions remain efficient and up-to-date, providing ongoing assistance whenever needed.</p>
+    
+                <!-- Benefits Category -->
+                <div class="faq-category" id="benefits">
+                    <h2 class="category-title">💼 Benefits</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How can automation benefit my business?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Automation reduces errors, saves time, and enhances decision-making by providing real-time insights. Whether it's managing invoices, tracking inventory, or automating reports, our solutions streamline operations for improved productivity.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How quickly will I see results from automation?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Most clients notice immediate efficiency improvements after implementation. Time savings are often visible within the first month, while more comprehensive benefits like improved decision-making become apparent over 3-6 months.</p>
+                        </div>
+                    </div>
                 </div>
+    
+                <!-- Training Category -->
+                <div class="faq-category" id="training">
+                    <h2 class="category-title">🎓 Training</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you offer training?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes! We provide hands-on training for your team to effectively use Sage and Zoho tools. Our goal is to ensure smooth adoption, helping your business fully leverage automation capabilities.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How long does the training process take?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our standard training typically involves 3-5 sessions of 2 hours each, spread over a couple of weeks. However, we customize the training schedule based on your team's size, existing knowledge, and the complexity of the implemented systems.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Industries Category -->
+                <div class="faq-category" id="industries">
+                    <h2 class="category-title">🏭 Industries</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What industries do you serve?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We serve various industries, including finance, healthcare, retail, and manufacturing. Our solutions are customized to meet the unique needs of each sector, ensuring optimal results.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you have experience with my specific industry?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We have experience across multiple industries and approach each new industry with thorough research and analysis. Our automation principles work across sectors, and we adapt our solutions to your specific industry requirements.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Support Category -->
+                <div class="faq-category" id="support">
+                    <h2 class="category-title">🛠️ Support</h2>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What support do you offer?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our support includes system monitoring, troubleshooting, updates, and improvements. We ensure your automation solutions remain efficient and up-to-date, providing ongoing assistance whenever needed.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Do you offer post-implementation support?</h3>
+                            <span class="toggle-icon">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Yes, we offer comprehensive support packages after implementation. Our standard support includes regular check-ins, system maintenance, and priority assistance for any issues that arise. We also provide advanced support options for more complex requirements.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                
             </div>
         </div>
-    </div>
-</section>
+    </section>
 <footer class="site-footer">
     <div class="container">
         <div class="footer-content">
@@ -177,6 +277,69 @@
     <main>
         <!-- Your main content here -->
     </main>
+    <script>
+       document.addEventListener('DOMContentLoaded', function() {
+    // Toggle FAQ items
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    
+    faqQuestions.forEach(question => {
+        question.addEventListener('click', function() {
+            // Get the parent faq-item
+            const faqItem = this.parentElement;
+            
+            // Toggle active class on the faq-item
+            faqItem.classList.toggle('active');
+            
+            // Find the answer element
+            const answer = this.nextElementSibling;
+            
+            // Toggle the max-height of the answer
+            if (faqItem.classList.contains('active')) {
+                answer.style.maxHeight = answer.scrollHeight + 40 + "px"; // Add padding
+            } else {
+                answer.style.maxHeight = 0;
+            }
+        });
+    });
+    
+    // Handle category switching
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const categories = document.querySelectorAll('.faq-category');
+    
+    categoryButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            // Get the selected category
+            const category = this.getAttribute('data-category');
+            
+            // Remove active class from all buttons
+            categoryButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            // Add active class to clicked button
+            this.classList.add('active');
+            
+            // Hide all categories
+            categories.forEach(cat => {
+                cat.classList.remove('active');
+            });
+            
+            // Show the selected category
+            document.getElementById(category).classList.add('active');
+            
+            // Reset all FAQs in all categories
+            const allFaqItems = document.querySelectorAll('.faq-item');
+            allFaqItems.forEach(faq => {
+                faq.classList.remove('active');
+                const answer = faq.querySelector('.faq-answer');
+                if (answer) {
+                    answer.style.maxHeight = 0;
+                }
+            });
+        });
+    });
+});
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>

@@ -1,14 +1,38 @@
- /* Variables for consistent color usage */
-:root {
-    --primary-green: #00A651; /* Adjust to match your specific green */
-    --primary-yellow: #FFC107;
-    --primary-red: #DC3545;
-    --primary-black: #000000;
-    --light-gray: #f4f4f4;
-    --white: #ffffff;
-    --text-dark: #333333;
-}
 
+:root {
+    /* Primary & Accents */
+    --primary-blue: #0974B0; /* Honolulu Blue (Zoho Primary) */
+    --accent-red: #CE2232;   /* Amaranth Red (Zoho Accent) */
+    --accent-green: #219E4A; /* Sea Green (Zoho Accent) */
+    --accent-yellow: #FFE004;/* Vivid Yellow (Zoho Accent) */
+
+    /* Neutrals */
+    --neutral-light: #F5F5F5; /* Light Gray (Zoho Background) */
+    --neutral-dark: #333333;  /* Dark Gray (Zoho Text) */
+    --neutral-medium: #5e6c84; /* Medium Gray for borders/secondary text */
+    --neutral-border: #dfe1e6; /* Lighter border color */
+    --white: #ffffff;
+    --black: #000000; /* Keeping black if needed */
+
+    /* Component Specific (Examples) */
+    --header-bg: var(--primary-blue);
+    --header-text: var(--white);
+    --footer-bg: var(--primary-blue);
+    --footer-text: var(--white);
+    --link-color: var(--primary-blue);
+    --link-hover-color: var(--accent-red);
+    --button-primary-bg: var(--accent-green);
+    --button-primary-text: var(--white);
+    --button-secondary-bg: var(--accent-red); /* Example for other buttons */
+    --button-secondary-text: var(--white);
+
+    /* Other Variables */
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Keep existing font */
+    --transition-speed: 0.3s ease;
+    --border-radius: 8px; /* Example */
+    --box-shadow: 0 4px 15px rgba(0, 82, 204, 0.1); /* Example */
+    --box-shadow-hover: 0 8px 25px rgba(0, 82, 204, 0.15); /* Example */
+}
 /* Reset and base styles */
 * {
     margin: 0;
@@ -17,15 +41,21 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-primary);
     line-height: 1.6;
-    color: var(--text-dark);
+    color: var(--neutral-dark); /* UPDATED: Default text color */
+    background-color: var(--white); /* UPDATED: Default background */
     overflow-x: hidden;
 }
 
 a {
     text-decoration: none;
-    color: inherit;
+    color: var(--link-color); /* UPDATED: Default link color */
+    transition: color var(--transition-speed);
+}
+
+a:hover {
+    color: var(--link-hover-color); /* UPDATED: Default link hover */
 }
 
 ul {
@@ -39,7 +69,9 @@ ul {
     padding: 0 20px;
 }
 
-/* Loader Styles */
+/* ========================================================================
+   Loader Styles
+   ======================================================================== */
 #loader-wrapper {
     position: fixed;
     top: 0;
@@ -47,62 +79,60 @@ ul {
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background-color: var(--primary-black);
+    background-color: var(--primary-blue); /* UPDATED: Use primary blue for loader bg */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Custom loader styles as provided */
-.loader { 
-    width: 40px; 
-    height: 30px; 
-    --c: no-repeat linear-gradient(var(--primary-green) 0 0); 
-    background: 
-        var(--c) 0    100%/8px 30px, 
-        var(--c) 50%  100%/8px 20px, 
-        var(--c) 100% 100%/8px 10px; 
-    position: relative; 
-    clip-path: inset(-100% 0); 
-    transform: scale(2); /* Make the loader bigger */
+.loader {
+    width: 40px;
+    height: 30px;
+    --c: no-repeat linear-gradient(var(--accent-green) 0 0); /* UPDATED: Use accent green */
+    background:
+        var(--c) 0    100%/8px 30px,
+        var(--c) 50%  100%/8px 20px,
+        var(--c) 100% 100%/8px 10px;
+    position: relative;
+    clip-path: inset(-100% 0);
+    transform: scale(2);
 }
 
-.loader:before{ 
-    content: ""; 
-    position: absolute; 
-    width: 8px; 
-    height: 8px; 
-    border-radius: 50%; 
-    background: var(--primary-yellow); 
-    left: -16px; 
-    top: 0; 
-    animation:  
-        l5-1 2s linear infinite, 
-        l5-2 0.5s cubic-bezier(0,200,.8,200) infinite; 
+.loader:before{
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent-yellow); /* UPDATED: Use accent yellow */
+    left: -16px;
+    top: 0;
+    animation:
+        l5-1 2s linear infinite,
+        l5-2 0.5s cubic-bezier(0,200,.8,200) infinite;
 }
 
-@keyframes l5-1 { 
-    0%   {left:-16px;transform:translateY(-8px)} 
-    100% {left:calc(100% + 8px);transform:translateY(22px)} 
+@keyframes l5-1 {
+    0%   {left:-16px;transform:translateY(-8px)}
+    100% {left:calc(100% + 8px);transform:translateY(22px)}
 }
 
-@keyframes l5-2 { 
-    100% {top:-0.1px} 
+@keyframes l5-2 {
+    100% {top:-0.1px}
 }
 
-.loaded {
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.5s ease-out;
-}
+/* NOTE: Removed .loaded class, assume JS handles hiding */
+/* FIXED: Removed .loaded class, assume JS adds display:none or removes element */
 
-/* Header Styles */
+/* ========================================================================
+   Header Styles
+   ======================================================================== */
 header {
-    background-color: var(--primary-black);
+    background-color: var(--header-bg); /* UPDATED: Use variable */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 100;  
+    z-index: 100;
     padding: 15px 0;
 }
 
@@ -117,9 +147,9 @@ header .container {
 }
 
 .logo img {
-    height: 90px; /* Increased logo size */
+    height: 60px; /* NOTE: Reduced size slightly from 90px for typical header */
     display: block;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5)); /* Add subtle glow to make logo more visible */
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); /* Adjusted glow */
 }
 
 /* Navigation Styles */
@@ -140,16 +170,16 @@ nav {
 }
 
 .nav-links a {
-    color: var(--white);
+    color: var(--header-text); /* UPDATED: Use variable */
     font-weight: 500;
     padding: 10px 0;
     position: relative;
-    transition: color 0.3s;
+    transition: color var(--transition-speed);
 }
 
-.nav-links a:hover, 
+.nav-links a:hover,
 .nav-links a.active {
-    color: var(--primary-yellow);
+    color: var(--accent-yellow); /* UPDATED: Highlight color */
 }
 
 .nav-links a.active::after,
@@ -160,7 +190,7 @@ nav {
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--primary-yellow);
+    background-color: var(--accent-yellow); /* UPDATED: Highlight color */
     transform: scaleX(1);
     transition: transform 0.3s;
 }
@@ -175,7 +205,7 @@ nav {
     top: 100%;
     left: 0;
     min-width: 180px;
-    background-color: var(--primary-black);
+    background-color: var(--header-bg); /* UPDATED: Use header bg */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     visibility: hidden;
     opacity: 0;
@@ -184,7 +214,7 @@ nav {
     z-index: 1;
     border-radius: 4px;
     overflow: hidden;
-    border-left: 3px solid var(--primary-green); /* Add a border to indicate it's part of services */
+    border-left: 3px solid var(--accent-green); /* UPDATED: Use accent green */
 }
 
 .dropdown-content li {
@@ -194,7 +224,7 @@ nav {
 .dropdown-content a {
     padding: 12px 20px;
     display: block;
-    color: var(--white);
+    color: var(--header-text); /* UPDATED: Use header text */
     transition: background 0.3s, color 0.3s;
     position: relative;
     padding-left: 30px; /* Add space for the indicator */
@@ -203,13 +233,13 @@ nav {
 .dropdown-content a:before {
     content: '→';
     position: absolute;
-    left: 5px;
-    color: var(--primary-green);
+    left: 10px; /* Adjusted position */
+    color: var(--accent-green); /* UPDATED: Use accent green */
     transition: color 0.3s;
 }
 
 .dropdown-content a:hover {
-    background-color: var(--primary-green);
+    background-color: var(--accent-green); /* UPDATED: Use accent green */
     color: var(--white);
 }
 
@@ -217,7 +247,7 @@ nav {
     color: var(--white);
 }
 
-.dropdown-content a:hover::after {
+.dropdown-content a:hover::after { /* Prevent nav underline from showing */
     display: none;
 }
 
@@ -232,71 +262,26 @@ nav {
     margin-left: 5px;
 }
 
-/* CTA Button Styles */
-.cta-buttonnn {
-    background-color: var(--primary-yellow); /* Yellow background */
-    color: var(--text-dark); /* Dark text for contrast */
-    border: none;
-    padding: 12px 24px;
-    font-size: 16px;
-    font-weight: bold;
-    border-radius: 50px; /* Round borders */
-    cursor: pointer;
-    transition: all 0.3s ease-in-out;
-    position: relative;
-    display: block; /* Makes it easier to center */
-    margin: 20px auto; /* Centers horizontally */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
-    text-align: center;
+/* CTA Button in Header */
+.cta-button {
+    flex: 1; /* Allow space */
+    text-align: right; /* Align button to the right */
 }
-
-.cta-buttonnn:hover {
-    box-shadow: 0 0 15px var(--primary-green); /* Green glow effect on hover */
-    transform: translateY(-2px); /* Slight lift effect */
-}
- 
-.btn-primary {
-    background-color: var(--primary-green);
-    color: var(--white);
-    padding: 12px 28px;
-    border-radius: 4px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    display: inline-block;
-}
-
-.btn-primary:hover {
-    background-color: #008c44; /* Slightly darker green */
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0, 166, 81, 0.3);
-}
-
-.btn-quotee {
-    background-color: var(--primary-green);
-    color: var(--white);
-    padding: 10px 24px;
-    border-radius: 4px;
-    font-weight: 600;
-    transition: background-color 0.3s, transform 0.2s;
-    display: inline-block;
-    text-align: center;
-}
- 
+/* NOTE: General button styles applied below via .btn.btn-primary */
 
 /* Mobile Menu Toggle */
 .menu-toggle {
     display: none;
-    color: var(--white);
+    color: var(--header-text); /* UPDATED: Use variable */
     font-size: 1.5rem;
     cursor: pointer;
 }
 
-/* Responsive Styles */
+/* Header Responsive Styles */
 @media screen and (max-width: 992px) {
     header .container {
         flex-wrap: wrap;
     }
-    
     .nav-links {
         gap: 20px;
     }
@@ -305,98 +290,101 @@ nav {
 @media screen and (max-width: 768px) {
     header .container {
         justify-content: space-between;
+        position: relative; /* Needed for absolute positioning of nav */
+        padding-top: 10px; /* Space for logo/buttons */
+        padding-bottom: 10px;
     }
-    
     .logo {
         flex: 0 0 auto;
         order: 2;
         position: absolute;
         left: 50%;
-        transform: translateX(-50%);
+        top: 50%; /* Center vertically */
+        transform: translate(-50%, -50%);
         z-index: 1;
     }
-    
     .logo img {
-        height: 50px;
+        height: 45px; /* Smaller logo on mobile */
     }
-    
     .menu-toggle {
         display: block;
         order: 1;
         position: relative;
         z-index: 2;
+        padding: 10px; /* Easier to tap */
     }
-    
     nav {
         flex: 0 0 100%;
         order: 4;
-        display: none;
+        display: none; /* Hidden by default */
+        width: 100%;
+        position: absolute;
+        top: 100%; /* Position below the header */
+        left: 0;
+        background-color: var(--header-bg); /* Use header bg */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
-    
     .cta-button {
         flex: 0 0 auto;
         order: 3;
         position: relative;
         z-index: 2;
     }
-    
-    .nav-open nav {
+    .nav-open nav { /* Show nav when body has .nav-open */
         display: block;
-        background-color: var(--primary-black);
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 80%;
-        max-width: 300px;
-        height: auto;
-        max-height: 80vh;
-        overflow-y: auto;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-        border-radius: 0 0 4px 0;
     }
-    
     .nav-links {
         flex-direction: column;
         gap: 0;
         padding: 10px 0;
+        align-items: center; /* Center links */
     }
-    
     .nav-links li {
         width: 100%;
+        text-align: center;
     }
-    
     .nav-links a {
         padding: 15px 20px;
         display: block;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
     }
-    
+     .nav-links li:last-child a {
+        border-bottom: none;
+    }
+    .nav-links a::after { /* Remove underline on mobile */
+        display: none;
+    }
+
+    /* Mobile Dropdown */
     .dropdown-content {
         position: static;
         box-shadow: none;
         visibility: visible;
         opacity: 1;
         transform: none;
-        max-height: 0;
+        max-height: 0; /* Collapse by default */
         overflow: hidden;
         transition: max-height 0.3s ease;
+        background-color: rgba(0, 0, 0, 0.2); /* Darker background for nested items */
+        border-left: none; /* Remove side border */
+        margin: 0;
+        border-radius: 0;
+    }
+    .dropdown.active .dropdown-content { /* Expand when parent has .active (JS controlled) */
+        max-height: 500px; /* Allow space for items */
+    }
+    .dropdown-content a {
+        padding-left: 40px; /* Indent */
+        color: var(--accent-yellow); /* Make sub-items stand out */
+        font-size: 0.9em;
+    }
+    .dropdown-content a:before {
+       display: none; /* Remove arrow */
+    }
+     .dropdown-content a:hover {
         background-color: rgba(0, 0, 0, 0.3);
-        border-left: none;
-        border-left: 3px solid var(--primary-green);
-        margin-left: 20px;
-    }
-    
-    .dropdown.active .dropdown-content {
-        max-height: 200px;
-    }
-    
-    .nav-links a::after {
-        display: none;
-    }
-    
-    .btn-quote {
-        padding: 8px 16px;
-        font-size: 0.9rem;
+        color: var(--white);
     }
 }
 
@@ -404,15 +392,53 @@ nav {
     .logo img {
         height: 40px;
     }
-    
-    .cta-button {
-        display: none;
+    .cta-button .btn { /* Smaller button on small screens */
+        padding: 8px 16px;
+        font-size: 0.9rem;
     }
-    
-    .nav-open nav {
-        width: 85%;
-        max-width: 280px;
-    }
+}
+
+
+/* ========================================================================
+   General Button Styles
+   ======================================================================== */
+.btn {
+    display: inline-block;
+    padding: 12px 30px; /* Base padding */
+    font-size: 1rem; /* Base font size */
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px; /* Pill shape */
+    transition: all var(--transition-speed);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: var(--button-primary-bg); /* UPDATED: Green */
+    color: var(--button-primary-text); /* UPDATED: White */
+}
+
+.btn-primary:hover {
+    background-color: var(--button-secondary-bg); /* UPDATED: Red on hover */
+    color: var(--button-secondary-text); /* UPDATED: White */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Example for secondary button if needed */
+.btn-secondary {
+    background-color: var(--button-secondary-bg); /* UPDATED: Red */
+    color: var(--button-secondary-text); /* UPDATED: White */
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-yellow); /* UPDATED: Yellow on hover */
+    color: var(--neutral-dark); /* UPDATED: Dark text for contrast */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -1557,233 +1583,138 @@ section:nth-of-type(even)::before {
      }
 }
 
-/* Footer Bottom */
-.footer-bottom {
+/* ========================================================================
+   Footer Styles
+   ======================================================================== */
+   .site-footer {
+    background-color: var(--footer-bg); /* UPDATED: Blue */
+    color: var(--footer-text); /* UPDATED: White */
+    padding: 50px 0 25px 0; /* Adjusted padding */
+    font-size: 0.9rem;
+    border-top: 4px solid var(--accent-yellow); /* UPDATED: Yellow top border */
+}
+
+.footer-content {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    align-items: center;
-    padding-top: 25px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 40px; /* Increased gap */
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    flex: 1 1 220px; /* Slightly wider base */
+    min-width: 200px;
+}
+
+.footer-title {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: var(--accent-yellow); /* UPDATED: Yellow title for contrast */
+    position: relative;
+    padding-bottom: 10px; /* Space for underline */
+}
+/* Underline for footer titles */
+.footer-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--accent-yellow);
+}
+
+
+/* Footer Certifications */
+.footer-logo-section .certification-badges {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     gap: 15px;
 }
 
-.location {
+.partner-badge {
+    max-height: 45px; /* Adjusted size */
+    width: auto;
+    max-width: 150px;
+    background-color: var(--white); /* White background for visibility */
+    padding: 8px; /* Padding around badge */
+    border-radius: 4px;
+    display: block;
+}
+
+/* Footer Links */
+.footer-links li { margin-bottom: 12px; }
+.footer-links a {
+    color: var(--footer-text);
+    transition: color var(--transition-speed);
+    display: inline-block; /* Allows transform */
+}
+.footer-links a:hover {
+    color: var(--accent-yellow);
+    transform: translateX(3px); /* Slight shift on hover */
+}
+
+/* Footer Contact Info */
+.footer-contact-section address { font-style: normal; }
+.footer-contact-section p {
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
     gap: 10px;
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
+}
+.footer-contact-section a { color: var(--footer-text); }
+.footer-contact-section a:hover { color: var(--accent-yellow); }
+.footer-contact-section i {
+    color: var(--accent-yellow); /* Yellow icon */
+    width: 18px; /* Fixed width for alignment */
+    text-align: center;
+    font-size: 1.1em; /* Slightly larger icon */
 }
 
-.location .icon {
+/* Footer Social Icons */
+.footer-social-section .social-icons { display: flex; gap: 15px; }
+.social-icon {
+    color: var(--footer-text);
+    font-size: 1.4rem; /* Larger icons */
+    transition: color var(--transition-speed), transform var(--transition-speed);
     display: inline-block;
-    width: 18px;
-    height: 18px;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: contain;
+}
+.social-icon:hover {
+    color: var(--accent-yellow);
+    transform: translateY(-3px) scale(1.1); /* Lift and scale effect */
 }
 
-.copyright {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 14px;
-}
-
-.footer-links-bottom {
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.15); /* UPDATED: Lighter border */
+    padding-top: 25px;
     display: flex;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7); /* UPDATED: Lighter text */
 }
 
+.copyright p { margin: 0; }
 .footer-links-bottom a {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: none;
-    font-size: 14px;
+    color: rgba(255, 255, 255, 0.7); /* UPDATED: Lighter links */
+    margin: 0 8px;
     transition: color var(--transition-speed);
 }
+.footer-links-bottom a:hover { color: var(--accent-yellow); }
 
-.footer-links-bottom a:hover {
-    color: var(--dmg-blue);
-}
-
-/* Enhanced Responsive Adjustments */
-@media (max-width: 1200px) {
-    .footer-contact-section h3,
-    .contact-buttons {
-        margin-right: 100px; /* Reduce right margin on medium screens */
-    }
-}
-
-@media (max-width: 991px) {
-    .footer-content {
-        gap: 40px;
-    }
-    
-    .footer-logo-section, 
-    .footer-links-section, 
-    .footer-contact-section {
-        flex: 0 0 100%;
-    }
-    
-    .footer-logo-section {
-        display: flex;
-        flex-direction: row;
-        justify-content: center; /* Center on tablets */
-        align-items: center;
-        flex-wrap: wrap;
-        gap: 20px;
-    }
-    
-    .certification-badges {
-        justify-content: center; /* Center badges on tablets */
-        margin-top: 30px;
-    }
-    
-    .footer-contact-section {
-        align-items: center; /* Center on tablets */
-    }
-    
-    .footer-contact-section h3,
-    .contact-buttons {
-        margin-right: 0; /* Remove margins on tablets */
-        text-align: center;
-    }
-    
-    .contact-buttons {
-        width: 80%; /* Wider buttons on tablets */
-        max-width: 300px;
-    }
-}
-
+/* Footer Responsive */
 @media (max-width: 768px) {
-    .site-footer {
-        padding: 40px 0 20px;
+    .footer-content {
+        gap: 30px;
     }
-    
-    .footer-logo-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .certification-badges {
-        margin: 20px auto;
-        justify-content: center;
-        gap: 30px; /* Reduce gap on mobile */
-    }
-    
-    .footer-links-section h3,
-    .footer-contact-section h3,
-    .social-media-section h4 {
-        text-align: center;
-    }
-    
-    .footer-links-section h3::after,
-    .footer-contact-section h3::after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-    
-    .footer-links {
-        text-align: center;
-        max-width: 100%; /* Full width on mobile */
-    }
-    
-    .footer-links li {
-        text-align: center; /* Center list items on mobile */
-    }
-    
-    .contact-buttons {
-        align-items: center;
-        width: 90%; /* Almost full width on mobile */
-        max-width: 280px;
-    }
-    
-    .social-icons {
-        justify-content: center;
-    }
-    
     .footer-bottom {
         flex-direction: column;
         text-align: center;
-    }
-    
-    .location {
-        justify-content: center;
-    }
-    
-    .footer-links-bottom {
-        justify-content: center;
-        margin-top: 10px;
-        flex-wrap: wrap; /* Allow wrapping on small screens */
-    }
-}
-
-@media (max-width: 480px) {
-    .footer-links {
-        grid-template-columns: 1fr; /* Single column on small mobile */
-    }
-    
-    .certification-badges {
-        gap: 20px; /* Further reduce gap on small mobile */
-        flex-direction: column; /* Stack badges on very small screens */
-        align-items: center;
-    }
-    
-    .partner-badge {
-        max-width: 180px; /* Slightly smaller on mobile */
-    }
-    .partner-badgee {
-        max-width: 2300px; /* Slightly smaller on mobile */
-    }
-    
-    .contact-button {
-        width: 100%;
-        justify-content: center;
-        padding: 10px 15px; /* Slightly smaller padding */
-    }
-    
-    .social-icons {
-        gap: 10px; /* Closer social icons on mobile */
-    }
-    
-    .footer-links-bottom {
-        gap: 15px; /* Closer links on mobile */
-    }
-    
-    .copyright {
-        font-size: 12px; /* Smaller copyright text */
-    }
-}
-
-/* Extra small devices */
-@media (max-width: 360px) {
-    .site-footer {
-        padding: 30px 0 15px;
-    }
-    
-    .footer-content {
-        gap: 25px;
-    }
-    
-    .partner-badge {
-        max-width: 150px; /* Even smaller on tiny screens */
-    }
-    .partner-badgee {
-        max-width: 190px; /* Even smaller on tiny screens */
-    } 
-    
-    .footer-links a,
-    .button-text {
-        font-size: 14px; /* Smaller text on tiny screens */
-    }
-    
-    .social-icon {
-        width: 35px;
-        height: 35px;
-    }
-    
-    .footer-links-bottom a {
-        font-size: 12px;
     }
 }

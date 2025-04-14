@@ -41,10 +41,7 @@
                 </ul>
             </nav>
             
-            <!-- Call to Action Button -->
-            <div class="cta-button">
-                <a href="#contact" class="btn btn-primary">Get a Quote</a>
-            </div>
+             <
         </div>
     </header>
 
@@ -158,7 +155,7 @@
         </div>
 
         <div class="services-cta">
-            <a href="#contact" class="btn btn-primary">Get started </a>
+            <a href="services.html" class="btn btn-primary">View our Products </a>
         </div>
     </div>
 </section>
@@ -296,7 +293,7 @@
             <div class="footer-column footer-logo-section">
                 <h3 class="footer-title">Certifications</h3>
                 <div class="certification-badges">
-                    <img src="assets/images/zoho.jpg" alt="Zoho Authorized Partner" class="partner-badge">
+                    <img src="assets/images/zoho.jpg" alt="Zoho Authorized Partner" class="partner-badgee">
                     <img src="assets/images/SageAccounting_Adviser-Certification-Badge.png" alt="Sage Certified Adviser" class="partner-badge">
                 </div>
             </div>
@@ -349,5 +346,104 @@
     </main>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script> 
+    <script>
+        // Wait for the DOM to be fully loaded
+document.addEventListener('DOMContentLoaded', function() {
+    // Get references to the button and modal
+    const heroCtaButton = document.querySelector('.hero-cta .btn-primary');
+    const modal = document.querySelector('.modal');
+    const closeBtn = document.querySelector('.close-btn');
+    const closeModalBtn = document.querySelector('.close-modal-btn');
+    
+    // Function to open the modal
+    function openModal() {
+        // First display the modal with display:flex
+        modal.style.display = 'flex';
+        
+        // Force browser reflow to enable the transition
+        void modal.offsetWidth;
+        
+        // Then add the show class which sets opacity to 1
+        modal.classList.add('show');
+        
+        // Reset to first step if needed
+        resetToFirstStep();
+        
+        // Prevent page scrolling while modal is open
+        document.body.style.overflow = 'hidden';
+    }
+    
+    // Function to close the modal
+    function closeModal() {
+        // Remove the show class first (starts the opacity transition)
+        modal.classList.remove('show');
+        
+        // After transition completes, set display to none
+        setTimeout(() => {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }, 300); // Match transition time to your CSS
+    }
+    
+    // Reset form to first step
+    function resetToFirstStep() {
+        // Hide all steps
+        const steps = document.querySelectorAll('.form-step');
+        steps.forEach(step => {
+            step.classList.remove('active');
+        });
+        
+        // Show first step
+        const firstStep = document.getElementById('step1');
+        if (firstStep) {
+            firstStep.classList.add('active');
+        }
+        
+        // Reset progress bar if exists
+        const progressBar = document.querySelector('.progress');
+        if (progressBar) {
+            progressBar.style.width = '25%'; // Set to first step width
+        }
+        
+        // Reset active dots if they exist
+        const dots = document.querySelectorAll('.step-dot');
+        if (dots.length > 0) {
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[0].classList.add('active');
+        }
+    }
+    
+    // Add click event listener to hero CTA button
+    if (heroCtaButton) {
+        heroCtaButton.addEventListener('click', function(e) {
+            e.preventDefault(); // Prevent default anchor behavior
+            openModal();
+        });
+    }
+    
+    // Add click event listeners to close buttons
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closeModal);
+    }
+    
+    if (closeModalBtn) {
+        closeModalBtn.addEventListener('click', closeModal);
+    }
+    
+    // Close modal when clicking outside modal content
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeModal();
+        }
+    });
+    
+    // Close modal on escape key
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            closeModal();
+        }
+    });
+});
+    </script>
 </body>
 </html>
