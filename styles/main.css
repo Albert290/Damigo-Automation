@@ -498,12 +498,35 @@ nav {
     order: 3; /* Button last */
 }
 
+.hero-content h1 .automate,
+.hero-content h1 .analyze,
+.hero-content h1 .accelerate {
+    font-weight: 800; /* Make the text slightly bolder */
+    text-shadow: 0px 0px 1px rgba(0,0,0,0.1); /* Add subtle text shadow for better legibility */
+    padding: 0 3px; /* Add a bit of padding around each word */
+}
+
+/* Keep the red the same */
+.hero-content h1 .automate {
+    color: var(--accent-red);
+}
+
+/* Use a darker yellow or gold color for better visibility */
+.hero-content h1 .analyze {
+    color: #E6B800; /* Darker gold/yellow that's more visible on light backgrounds */
+}
+
+/* Keep the green the same */
+.hero-content h1 .accelerate {
+    color: var(--accent-green);
+}
+
 .hero-content h1 {
     font-size: 2.8rem;
     font-weight: 700;
     line-height: 1.3;
-    color: var(--primary-blue); /* UPDATED: Use primary blue */
-    margin-bottom: 20px; /* Added spacing */
+    margin-bottom: 20px;
+    color: var(--primary-blue); /* Default color for h1 */
 }
 
 .hero-content h1 span {
@@ -511,19 +534,26 @@ nav {
     display: inline-block; /* Keep on same line if possible */
     white-space: nowrap;
 }
-
+ 
 .zoho-logo {
-    height: 110px; /* NOTE: Adjusted size for inline text */
+    height: 100px; /* Adjusted size for inline text in paragraph */
     width: auto;
-    vertical-align: middle; 
+    vertical-align: middle;
+    margin: 0 2px;
+}
+
+.zoho-span {
+    display: inline-flex;
+    align-items: center;
+    vertical-align: middle;
 }
 
 .hero-content p {
     font-size: 1.1rem;
     line-height: 1.6;
     max-width: 600px;
-    color: var(--neutral-dark); /* UPDATED: Consistent text color */
-    margin-bottom: 30px; /* Added spacing */
+    color: var(--neutral-dark);
+    margin-bottom: 30px;
 }
 
 .main-image {

@@ -53,7 +53,7 @@
             
             <div class="faq-categories">
                 
-                <button class="category-btn active" data-category="getting-started">Getting Started</button>
+                <button class="category-btn" data-category="getting-started">Getting Started</button>
                 <button class="category-btn" data-category="services">Our Services</button>
                 <button class="category-btn" data-category="benefits">Benefits</button>
                 <button class="category-btn" data-category="training">Training</button>
@@ -163,7 +163,7 @@
                             <span class="toggle-icon">+</span>
                         </div>
                         <div class="faq-answer">
-                            <p>We serve various industries, including finance, healthcare, retail, and manufacturing. Our solutions are customized to meet the unique needs of each sector, ensuring optimal results.</p>
+                            <p>We serve various industries, including finance, healthcare, retail, and NGOs. Our solutions are customized to meet the unique needs of each sector, ensuring optimal results.</p>
                         </div>
                     </div>
                     <div class="faq-item">
@@ -230,9 +230,9 @@
             <div class="footer-contact-section">
                 <h3>Get In Touch</h3>
                 <div class="contact-buttons">
-                    <a href="tel:+254722325104" class="contact-button phone-button">
+                    <a href="tel:+25473321151" class="contact-button phone-button">
                         <span class="button-icon icon-phone"></span>
-                        <span class="button-text">+254722325104</span>
+                        <span class="button-text">+25473321151</span>
                     </a>
                     <a href="mailto:info@dmg.co.ke" class="contact-button email-button">
                         <span class="button-icon icon-email"></span>
@@ -275,30 +275,21 @@
     </main>
     <script>
        document.addEventListener('DOMContentLoaded', function() {
-    // Toggle FAQ items
-    const faqQuestions = document.querySelectorAll('.faq-question');
+    // Set all FAQ answers to be open by default
+    const faqItems = document.querySelectorAll('.faq-item');
     
-    faqQuestions.forEach(question => {
-        question.addEventListener('click', function() {
-            // Get the parent faq-item
-            const faqItem = this.parentElement;
-            
-            // Toggle active class on the faq-item
-            faqItem.classList.toggle('active');
-            
-            // Find the answer element
-            const answer = this.nextElementSibling;
-            
-            // Toggle the max-height of the answer
-            if (faqItem.classList.contains('active')) {
-                answer.style.maxHeight = answer.scrollHeight + 40 + "px"; // Add padding
-            } else {
-                answer.style.maxHeight = 0;
-            }
-        });
+    faqItems.forEach(item => {
+        // Add active class to all items
+        item.classList.add('active');
+        
+        // Set max-height for all answers
+        const answer = item.querySelector('.faq-answer');
+        if (answer) {
+            answer.style.maxHeight = answer.scrollHeight + 40 + "px"; // Add padding
+        }
     });
     
-    // Handle category switching
+    // Handle category switching only - keep everything else the same
     const categoryButtons = document.querySelectorAll('.category-btn');
     const categories = document.querySelectorAll('.faq-category');
     
@@ -323,13 +314,13 @@
             // Show the selected category
             document.getElementById(category).classList.add('active');
             
-            // Reset all FAQs in all categories
-            const allFaqItems = document.querySelectorAll('.faq-item');
-            allFaqItems.forEach(faq => {
-                faq.classList.remove('active');
+            // Make sure all FAQ items in the active category are open
+            const visibleFaqItems = document.getElementById(category).querySelectorAll('.faq-item');
+            visibleFaqItems.forEach(faq => {
+                faq.classList.add('active');
                 const answer = faq.querySelector('.faq-answer');
                 if (answer) {
-                    answer.style.maxHeight = 0;
+                    answer.style.maxHeight = answer.scrollHeight + 40 + "px";
                 }
             });
         });

@@ -1009,127 +1009,287 @@ Hero Section Styles
 
 
 /* ========================================================================
-   Testimonials Section
+   Testimonials Section - Enhanced Styling
    ======================================================================== */
+
    .testimonials-section {
-    background-color: var(--neutral-light); /* Light gray background */
-    /* padding: 80px 0; Inherited from section defaults */
+    background: linear-gradient(135deg, var(--neutral-light) 0%, var(--white) 100%);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
 }
 
 .testimonials-section .section-title {
-    color: var(--primary-blue); /* Blue title */
+    color: var(--primary-blue);
+    font-weight: 700;
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+    position: relative;
+    text-align: center;
+    padding-bottom: 18px;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
 }
+
 .testimonials-section .section-title::after {
-    background: var(--accent-yellow); /* Yellow underline */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-blue), var(--accent-yellow));
+    border-radius: 2px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.testimonials-section .section-title::before {
+    content: '"';
+    font-family: Georgia, serif;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3.5rem;
+    color: var(--accent-yellow);
+    opacity: 0.3;
+    line-height: 1;
+}
+ 
+
 .testimonials-section .section-subtitle {
     color: var(--neutral-medium);
-    margin-bottom: 50px; /* Space before grid */
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 1.1rem;
 }
 
 .testimonials-grid {
     display: grid;
-    /* Create 3 equal columns */
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px; /* Gap between boxes */
-    margin-bottom: 40px; /* Space before the CTA button */
+    gap: 30px;
+    margin-bottom: 50px;
 }
 
 .testimonial-box {
-    background-color: var(--white); /* White background for boxes */
-    padding: 30px; /* Padding inside the box */
+    background-color: var(--white);
+    padding: 30px;
     border-radius: var(--border-radius);
-    border: 1px solid var(--neutral-border); /* Subtle border */
+    border-left: 4px solid var(--primary-blue);
     box-shadow: var(--box-shadow);
-    display: flex; /* Use flexbox for content alignment */
-    flex-direction: column; /* Stack text and author vertically */
-    justify-content: space-between; /* Push author to bottom */
-    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Add colored accent to each box, cycling through colors */
+.testimonial-box:nth-child(3n+1) {
+    border-left-color: var(--primary-blue);
+}
+
+.testimonial-box:nth-child(3n+2) {
+    border-left-color: var(--accent-green);
+}
+
+.testimonial-box:nth-child(3n+3) {
+    border-left-color: var(--accent-red);
+}
+
+.testimonial-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        var(--primary-blue) 0%, 
+        var(--accent-green) 50%, 
+        var(--accent-yellow) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-speed);
 }
 
 .testimonial-box:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
     box-shadow: var(--box-shadow-hover);
+}
+
+.testimonial-box:hover::before {
+    opacity: 1;
 }
 
 .testimonial-text {
     font-style: italic;
-    color: var(--neutral-dark); /* Dark text for the quote */
-    margin-bottom: 20px; /* Space between quote and author */
-    flex-grow: 1; /* Allow text to take available space */
+    color: var(--neutral-dark);
+    margin-bottom: 20px;
+    flex-grow: 1;
     position: relative;
-    padding-left: 40px; /* Space for the quote mark */
-    line-height: 1.7; /* Improve readability */
-    font-size: 0.95rem; /* Slightly smaller quote text */
+    padding-left: 40px;
+    line-height: 1.7;
+    font-size: 0.95rem;
 }
 
 .testimonial-text::before {
-    content: '\201C'; /* Left double quotation mark */
+    content: '\201C';
     position: absolute;
     left: 0;
-    top: -5px; /* Adjust vertical position */
-    font-size: 3rem; /* Size of the quote mark */
-    color: var(--primary-blue); /* Blue quote mark */
-    opacity: 0.3; /* Make it less obtrusive */
+    top: -10px;
+    font-size: 3.5rem;
+    color: var(--primary-blue);
+    opacity: 0.2;
     line-height: 1;
+    font-family: Georgia, serif;
+}
+
+.testimonial-box:nth-child(3n+1) .testimonial-text::before {
+    color: var(--primary-blue);
+}
+
+.testimonial-box:nth-child(3n+2) .testimonial-text::before {
+    color: var(--accent-green);
+}
+
+.testimonial-box:nth-child(3n+3) .testimonial-text::before {
+    color: var(--accent-red);
 }
 
 .testimonial-author {
     font-weight: 600;
-    color: var(--primary-blue); /* Blue author text */
-    text-align: right; /* Align author to the right */
-    margin-top: auto; /* Ensure it's at the bottom */
-    padding-top: 15px; /* Space above author */
-    border-top: 1px solid var(--neutral-border); /* Separator line */
+    color: var(--primary-blue);
+    text-align: right;
+    margin-top: auto;
+    padding-top: 15px;
+    border-top: 1px solid rgba(0, 0, 0, 0.08);
     font-size: 0.9rem;
+    position: relative;
+    transition: color var(--transition-speed);
 }
-/* Optional: Add em dash before author
-.testimonial-author::before {
-    content: "— ";
-} */
+
+.testimonial-box:hover .testimonial-author {
+    color: var(--accent-green);
+}
 
 .testimonial-cta {
-    text-align: center; /* Center the button below the grid */
-}
-.testimonial-cta .btn {
-    /* Uses .btn and .btn-secondary styles from base */
+    text-align: center;
+    margin-top: 20px;
 }
 
-/* Testimonials Responsive */
+.testimonial-cta .btn-secondary {
+    background-color: var(--primary-blue);
+    color: var(--white);
+    padding: 12px 28px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all var(--transition-speed);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    box-shadow: 0 4px 15px rgba(34, 113, 177, 0.2);
+}
+
+.testimonial-cta .btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: all 0.6s;
+    z-index: -1;
+}
+
+.testimonial-cta .btn-secondary:hover {
+    background-color: var(--accent-green);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.3);
+}
+
+.testimonial-cta .btn-secondary:hover::before {
+    left: 100%;
+}
+
+/* Enhanced Responsive Design */
+@media (max-width: 1200px) {
+    .testimonials-grid {
+        gap: 25px;
+    }
+}
+
 @media (max-width: 992px) {
     .testimonials-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+        grid-template-columns: repeat(2, 1fr);
         gap: 25px;
+    }
+    
+    .testimonials-section {
+        padding: 70px 0;
     }
 }
 
 @media (max-width: 767px) {
     .testimonials-section {
-        padding: 60px 0; /* Adjust padding */
-    }
-    .testimonials-grid {
-        grid-template-columns: 1fr; /* 1 column on mobile */
-        gap: 20px;
-    }
-    .testimonial-text {
-        font-size: 0.9rem;
-        padding-left: 30px;
-    }
-     .testimonial-text::before {
-        font-size: 2.5rem;
-     }
-}
-
-
- 
-/* CTA Responsive */
-@media (max-width: 768px) {
-    .cta-section {
         padding: 60px 0;
     }
-    .cta-content h2 { font-size: 2rem; }
-    .cta-content p { font-size: 1.05rem; }
-    .cta-buttons .btn { width: 90%; max-width: 320px; padding: 14px 25px; }
+    
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+    
+    .testimonial-box {
+        padding: 25px;
+    }
+    
+    .testimonial-text {
+        font-size: 0.9rem;
+        padding-left: 35px;
+    }
+    
+    .testimonial-text::before {
+        font-size: 2.8rem;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonials-section {
+        padding: 50px 0;
+    }
+    
+    .testimonial-box {
+        padding: 20px;
+    }
+    
+    .testimonial-text {
+        padding-left: 30px;
+    }
+    
+    .testimonial-text::before {
+        font-size: 2.5rem;
+    }
+    
+    .testimonial-cta .btn-secondary {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
 }
 
  

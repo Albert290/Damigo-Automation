@@ -564,18 +564,18 @@ nav {
     padding-right: 15px; /* Space before icon */
 }
 
+/* You might want to hide the toggle icons entirely since they won't be used */
 .toggle-icon {
-    font-size: 1.2rem; /* Adjusted size */
-    color: var(--accent-yellow); /* Yellow */
-    transition: transform 0.3s ease;
-    flex-shrink: 0; /* Prevent icon shrinking */
+    display: none; /* Remove this line if you want to keep the icons visible */
 }
 
 .faq-answer {
-    max-height: 0; /* Collapsed */
-    overflow: hidden;
-    transition: max-height 0.4s ease-out, padding 0.4s ease-out;
-    padding: 0 25px; /* Horizontal padding only when collapsed */
+    max-height: none !important; /* Override any inline height settings */
+    overflow: visible;
+    opacity: 1;
+    visibility: visible;
+    transition: max-height 0.3s ease;
+    padding: 15px 0;
 }
 
 .faq-answer p {
@@ -592,9 +592,9 @@ nav {
     border-left-color: var(--accent-yellow); /* Yellow border */
 }
 
+/* Adjust the toggle icon to show minus instead of plus since answers are open */
 .faq-item.active .toggle-icon {
-    transform: rotate(135deg); /* Rotate '+' to 'x' */
-    color: var(--accent-red); /* Red icon when open */
+    transform: rotate(45deg);
 }
 
 .faq-item.active .faq-answer {

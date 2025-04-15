@@ -858,6 +858,227 @@ nav {
     }
 }  
 
+/* Product Card Styles */
+.product-card {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    border-top: 4px solid transparent;
+}
+
+/* Hover effect */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Custom top border colors for each category */
+#sales .product-card {
+    border-top-color: var(--primary-blue);
+}
+
+#finance .product-card {
+    border-top-color: var(--accent-green);
+}
+
+#workplace .product-card {
+    border-top-color: var(--accent-red);
+}
+
+#hr .product-card {
+    border-top-color: var(--accent-yellow);
+}
+
+#analytics .product-card {
+    border-top-color: #9C27B0; /* Purple for analytics */
+}
+
+/* Product Icon Styling */
+.product-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    transition: all var(--transition-speed);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Category-specific icon background colors */
+#sales .product-icon {
+    background-color: rgba(9, 116, 176, 0.1); /* Light blue background */
+}
+
+#finance .product-icon {
+    background-color: rgba(33, 158, 74, 0.1); /* Light green background */
+}
+
+#workplace .product-icon {
+    background-color: rgba(206, 34, 50, 0.1); /* Light red background */
+}
+
+#hr .product-icon {
+    background-color: rgba(255, 224, 4, 0.1); /* Light yellow background */
+}
+
+#analytics .product-icon {
+    background-color: rgba(156, 39, 176, 0.1); /* Light purple background */
+}
+
+/* Icon image styling */
+.product-icon img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+    transition: all var(--transition-speed);
+}
+
+/* Hover effects for icons */
+.product-card:hover .product-icon {
+    transform: scale(1.05);
+}
+
+#sales .product-card:hover .product-icon {
+    background-color: rgba(9, 116, 176, 0.2);
+}
+
+#finance .product-card:hover .product-icon {
+    background-color: rgba(33, 158, 74, 0.2);
+}
+
+#workplace .product-card:hover .product-icon {
+    background-color: rgba(206, 34, 50, 0.2);
+}
+
+#hr .product-card:hover .product-icon {
+    background-color: rgba(255, 224, 4, 0.2);
+}
+
+#analytics .product-card:hover .product-icon {
+    background-color: rgba(156, 39, 176, 0.2);
+}
+
+/* Product Card Text Styling */
+.product-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--neutral-dark);
+    font-weight: 600;
+    transition: all var(--transition-speed);
+}
+
+.product-card p {
+    font-size: 0.95rem;
+    color: var(--neutral-medium);
+    line-height: 1.5;
+    margin-bottom: 0;
+    flex-grow: 1;
+}
+
+/* Category-specific title colors on hover */
+#sales .product-card:hover h3 {
+    color: var(--primary-blue);
+}
+
+#finance .product-card:hover h3 {
+    color: var(--accent-green);
+}
+
+#workplace .product-card:hover h3 {
+    color: var(--accent-red);
+}
+
+#hr .product-card:hover h3 {
+    color: #D4A200; /* Darker yellow for better contrast */
+}
+
+#analytics .product-card:hover h3 {
+    color: #9C27B0; /* Purple */
+}
+
+/* Add subtle pattern to cards */
+.product-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(135deg, transparent 0%, rgba(0, 0, 0, 0.02) 100%);
+    z-index: 0;
+}
+
+/* Ensure content stays above the pattern */
+.product-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    .product-card {
+        padding: 25px 20px;
+    }
+    
+    .product-icon {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .product-icon img {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .product-card h3 {
+        font-size: 1.2rem;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .product-card {
+        padding: 20px 15px;
+    }
+    
+    .product-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 15px;
+    }
+    
+    .product-icon img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .product-card h3 {
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+    }
+    
+    .product-card p {
+        font-size: 0.9rem;
+    }
+}
+
+/* Fix for Products Container */
+.products-container {
+    position: relative;
+    margin-top: 40px;
+}
+
 /* Enhanced Products Section */
 .products-section {
     padding: 80px 0;
