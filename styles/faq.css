@@ -917,13 +917,13 @@ nav {
     font-weight: 500;
 }
 
-.social-icons {
+.social-iconns {
     display: flex;
     gap: 15px;
     justify-content: center;
 }
 
-.social-icon {
+.social-iconn {
     display: block;
     width: 40px;
     height: 40px;
@@ -1122,6 +1122,7 @@ nav {
      }
 }
 
+ 
 /* ========================================================================
    Footer Styles
    ======================================================================== */
@@ -1131,6 +1132,13 @@ nav {
     padding: 50px 0 25px 0; /* Adjusted padding */
     font-size: 0.9rem;
     border-top: 4px solid var(--accent-yellow); /* UPDATED: Yellow top border */
+}
+
+.footer-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .footer-content {
@@ -1256,4 +1264,23 @@ nav {
         flex-direction: column;
         text-align: center;
     }
+}
+
+.multi-contact {
+    display: flex;
+    align-items: flex-start;
+}
+
+.multi-contact i {
+    margin-top: 3px; /* Adjust as needed to align icon with first line */
+    margin-right: 8px; /* Space between icon and text */
+}
+
+.contact-group {
+    display: inline-block;
+}
+
+.contact-group a {
+    display: inline-block;
+    margin-bottom: 2px; /* Space between the contact items */
 }

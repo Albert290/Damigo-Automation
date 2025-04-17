@@ -1292,6 +1292,174 @@ Hero Section Styles
     }
 }
 
+:root {
+    /* Primary & Accents */
+    --primary-blue: #0974B0;
+    --accent-red: #CE2232;
+    --accent-green: #219E4A;
+    --accent-yellow: #FFE004;
+    /* Neutrals */
+    --neutral-light: #F5F5F5;
+    --neutral-dark: #333333;
+    --neutral-medium: #5e6c84;
+    --neutral-border: #dfe1e6;
+    --white: #ffffff;
+    /* Other Styling Variables */
+    --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --transition-speed: 0.3s ease;
+    --border-radius: 6px;
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    --box-shadow-hover: 0 6px 15px rgba(0, 0, 0, 0.12);
+    --section-padding-vertical: 80px;
+    --link-color: var(--primary-blue); /* For potential links */
+    --link-hover-color: var(--accent-red);
+}
+
+/* --- Section Container --- */
+.integration-logos-section {
+    background-color: var(--neutral-light); /* Light gray background */
+    padding: var(--section-padding-vertical) 0;
+}
+
+/* --- Section Header (Optional) --- */
+.integration-logos-section .section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+.integration-logos-section .section-header h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    color: var(--primary-blue); /* Blue Title */
+}
+.integration-logos-section .section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: var(--accent-yellow); /* Yellow Underline */
+    border-radius: 1.5px;
+}
+.integration-logos-section .section-header p.section-subtitle { /* Specific selector */
+    font-size: 1.1rem;
+    color: var(--neutral-medium);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* --- Logos Container --- */
+.integration-logos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center logos horizontally */
+    align-items: stretch; /* Make items in a row equal height */
+    gap: 25px; /* Gap between logo items */
+}
+
+/* --- Individual Logo Item --- */
+.integration-logo-item {
+    background-color: var(--white); /* White background */
+    border-radius: var(--border-radius);
+    padding: 20px 15px;
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition-speed);
+    border: 1px solid var(--neutral-border);
+    flex: 0 1 140px; /* flex-grow, flex-shrink, flex-basis */
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 130px; /* Consistent minimum height */
+    border-top: 3px solid transparent; /* Hover border placeholder */
+}
+
+/* --- Logo Image --- */
+.integration-logo-item img {
+    max-height: 50px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px auto;
+    object-fit: contain; /* Prevent distortion */
+    filter: none; /* Ensure logo colors are visible */
+    opacity: 0.85;
+    transition: var(--transition-speed);
+}
+
+/* --- Logo Text --- */
+.integration-logo-item p {
+    font-size: 0.85rem;
+    color: var(--neutral-medium);
+    margin-top: 8px;
+    margin-bottom: 0;
+    font-weight: 500;
+    line-height: 1.3;
+    transition: var(--transition-speed);
+}
+
+/* --- Hover Effects --- */
+.integration-logo-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-hover);
+    border-color: var(--neutral-border); /* Keep base border */
+    border-top-color: var(--primary-blue); /* Blue top border highlight */
+}
+
+.integration-logo-item:hover img {
+    opacity: 1; /* Full visibility on hover */
+}
+
+.integration-logo-item:hover p {
+    color: var(--primary-blue); /* Blue text on hover */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .integration-logos-container {
+        gap: 20px;
+    }
+    .integration-logo-item {
+        flex-basis: 120px;
+        min-width: 100px;
+        padding: 15px 10px;
+        min-height: 120px;
+    }
+    .integration-logo-item img {
+        max-height: 40px;
+    }
+    .integration-logo-item p {
+        font-size: 0.8rem;
+    }
+    .integration-logos-section .section-header h2 {
+        font-size: 2.2rem;
+    }
+     .integration-logos-section .section-header p.section-subtitle {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .integration-logos-section {
+        padding: 60px 0;
+    }
+     .integration-logos-container {
+        gap: 15px;
+    }
+     .integration-logo-item {
+        flex-basis: calc(50% - 10px); /* Roughly 2 columns */
+        min-width: 0; /* Allow smaller items */
+    }
+}
+
  
 /* ========================================================================
    Quote Modal Styles
@@ -1968,4 +2136,23 @@ Hero Section Styles
         flex-direction: column;
         text-align: center;
     }
+}
+
+.multi-contact {
+    display: flex;
+    align-items: flex-start;
+}
+
+.multi-contact i {
+    margin-top: 3px; /* Adjust as needed to align icon with first line */
+    margin-right: 8px; /* Space between icon and text */
+}
+
+.contact-group {
+    display: inline-block;
+}
+
+.contact-group a {
+    display: inline-block;
+    margin-bottom: 2px; /* Space between the contact items */
 }

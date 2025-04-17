@@ -2098,3 +2098,22 @@ nav {
         text-align: center;
     }
 }
+
+.multi-contact {
+    display: flex;
+    align-items: flex-start;
+}
+
+.multi-contact i {
+    margin-top: 3px; /* Adjust as needed to align icon with first line */
+    margin-right: 8px; /* Space between icon and text */
+}
+
+.contact-group {
+    display: inline-block;
+}
+
+.contact-group a {
+    display: inline-block;
+    margin-bottom: 2px; /* Space between the contact items */
+}
