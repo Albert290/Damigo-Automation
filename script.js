@@ -13,43 +13,53 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1500); // Increased time to show the loader animation
     });
 
-    // Mobile Menu Toggle
     const menuToggle = document.querySelector('.menu-toggle');
-    const header = document.querySelector('header');
-    
-    menuToggle.addEventListener('click', function() {
-        header.classList.toggle('nav-open');
-    });
+const nav = document.querySelector('header nav'); // Target the nav element
 
-    // Close mobile menu when clicking outside
-    document.addEventListener('click', function(e) {
-        if (!header.contains(e.target) && header.classList.contains('nav-open')) {
-            header.classList.remove('nav-open');
+if (menuToggle && nav) {
+    menuToggle.addEventListener('click', () => {
+        nav.classList.toggle('nav-open');
+        const isExpanded = nav.classList.contains('nav-open');
+        menuToggle.setAttribute('aria-expanded', isExpanded);
+        // Optional: Change icon
+        const icon = menuToggle.querySelector('i');
+        if (icon) {
+            icon.className = isExpanded ? 'fas fa-times' : 'fas fa-bars';
         }
+        // Optional: Prevent body scroll when menu is open
+        // document.body.style.overflow = isExpanded ? 'hidden' : '';
     });
+}
 
-    // Mobile Dropdown Toggle
-    const dropdowns = document.querySelectorAll('.dropdown');
-    
-    dropdowns.forEach(dropdown => {
-        const link = dropdown.querySelector('a');
-        
-        link.addEventListener('click', function(e) {
-            // Prevent navigation on mobile when clicking the Services link
-            if (window.innerWidth <= 768) {
-                e.preventDefault();
-                dropdown.classList.toggle('active');
-                
-                // Close other dropdowns
-                dropdowns.forEach(otherDropdown => {
-                    if (otherDropdown !== dropdown) {
-                        otherDropdown.classList.remove('active');
-                    }
-                });
-            }
-        });
-    });
+    // Add this inside the check for max-width: 768px if needed
+document.querySelectorAll('header nav .dropdown > a').forEach(anchor => {
+    // Check if it has a dropdown sibling
+    const dropdownContent = anchor.nextElementSibling;
+    if (dropdownContent && dropdownContent.classList.contains('dropdown-content')) {
+         // Prevent default link behavior only if it's just for toggling
+         // anchor.addEventListener('click', (e) => {
+         //     if (window.innerWidth <= 768) { // Or your mobile breakpoint
+         //         e.preventDefault();
+         //         anchor.parentElement.classList.toggle('active');
+         //     }
+         // });
 
+        // Better: Add a separate toggle icon/button within the <li> for mobile
+    }
+});
+
+const yearSpan = document.getElementById('current-year');
+if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+}
+
+AOS.init({
+    duration: 800, // values from 0 to 3000, with step 50ms
+    once: true, // whether animation should happen only once - while scrolling down
+});
+
+// Note: The current CSS uses parent hover for desktop and JS toggle (.active class) for mobile.
+// Ensure your JS adds/removes the 'active' class to the '.dropdown' li on mobile click.
     // Update active state based on current page
     function setActiveNavLink() {
         const currentPath = window.location.pathname;

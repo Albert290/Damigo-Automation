@@ -1,3 +1,8 @@
+/* ========================================================================
+   Variables and Base Styles
+   ======================================================================== */
+
+/* UPDATED: Zoho-inspired color palette */
 :root {
     /* Primary & Accents */
     --primary-blue: #0974B0; /* Honolulu Blue (Zoho Primary) */
@@ -25,12 +30,20 @@
     --button-secondary-bg: var(--accent-red); /* Example for other buttons */
     --button-secondary-text: var(--white);
 
-    /* Other Variables */
+    /* Typography & Spacing */
     --font-primary: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Keep existing font */
+    --base-font-size: 16px; /* Base for rem calculation */
+    --line-height-base: 1.6;
+    --line-height-heading: 1.3;
+    --spacing-unit: 8px; /* Base spacing unit */
+    --section-padding-y: calc(var(--spacing-unit) * 10); /* 80px */
+    --container-max-width: 1200px;
+
+    /* Other Variables */
     --transition-speed: 0.3s ease;
     --border-radius: 8px; /* Example */
-    --box-shadow: 0 4px 15px rgba(0, 82, 204, 0.1); /* Example */
-    --box-shadow-hover: 0 8px 25px rgba(0, 82, 204, 0.15); /* Example */
+    --box-shadow: 0 4px 15px rgba(0, 82, 204, 0.08); /* Slightly softer shadow */
+    --box-shadow-hover: 0 8px 25px rgba(0, 82, 204, 0.12); /* Slightly softer hover shadow */
 }
 
 /* Reset and base styles */
@@ -40,37 +53,81 @@
     box-sizing: border-box;
 }
 
+html {
+    font-size: var(--base-font-size); /* Set base font size */
+    scroll-behavior: smooth; /* Optional: Smooth scrolling */
+}
+
 body {
     font-family: var(--font-primary);
-    line-height: 1.6;
-    color: var(--neutral-dark); /* UPDATED: Default text color */
-    background-color: var(--white); /* UPDATED: Default background */
-    overflow-x: hidden;
+    line-height: var(--line-height-base);
+    color: var(--neutral-dark);
+    background-color: var(--white);
+    overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
 a {
     text-decoration: none;
-    color: var(--link-color); /* UPDATED: Default link color */
+    color: var(--link-color);
     transition: color var(--transition-speed);
 }
 
 a:hover {
-    color: var(--link-hover-color); /* UPDATED: Default link hover */
+    color: var(--link-hover-color);
 }
 
 ul {
     list-style: none;
 }
 
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Prevent bottom space */
 }
 
+h1, h2, h3, h4, h5, h6 {
+    line-height: var(--line-height-heading);
+    margin-bottom: calc(var(--spacing-unit) * 2); /* Spacing: Consistent bottom margin */
+    font-weight: 700; /* Hierarchy: Ensure headings are bold */
+}
+
+/* Hierarchy: Define heading sizes using rem for scalability */
+h1 { font-size: 2.8rem; }
+h2 { font-size: 2.2rem; } /* Slightly smaller than H1 */
+h3 { font-size: 1.5rem; } /* Clearly smaller than H2 */
+h4 { font-size: 1.2rem; }
+
+p {
+    margin-bottom: calc(var(--spacing-unit) * 2); /* Spacing: Consistent paragraph bottom margin */
+}
+p:last-child {
+    margin-bottom: 0; /* Avoid double margin */
+}
+
+.container {
+    width: 100%;
+    max-width: var(--container-max-width);
+    margin: 0 auto;
+    padding: 0 calc(var(--spacing-unit) * 2.5); /* 20px padding */
+}
+
+/* Spacing: Utility class for standard section padding */
+.section-padding {
+    padding-top: var(--section-padding-y);
+    padding-bottom: var(--section-padding-y);
+}
+
+/* SEO/Highlighting: Simple class for brand names */
+.brand-highlight {
+    font-weight: 600;
+    vertical-align: baseline;
+    color: var(--primary-blue); /* Or choose another distinct color */
+}
+
+
 /* ========================================================================
-   Loader Styles
+   Loader Styles (Keep as is)
    ======================================================================== */
 #loader-wrapper {
     position: fixed;
@@ -79,16 +136,25 @@ ul {
     width: 100%;
     height: 100%;
     z-index: 9999;
-    background-color: var(--primary-blue); /* UPDATED: Use primary blue for loader bg */
+    background-color: var(--primary-blue);
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: opacity 0.5s ease; /* Add transition for hiding */
 }
+
+/* Add this class via JS when content is loaded */
+#loader-wrapper.hidden {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
 
 .loader {
     width: 40px;
     height: 30px;
-    --c: no-repeat linear-gradient(var(--accent-green) 0 0); /* UPDATED: Use accent green */
+    --c: no-repeat linear-gradient(var(--accent-green) 0 0);
     background:
         var(--c) 0    100%/8px 30px,
         var(--c) 50%  100%/8px 20px,
@@ -97,71 +163,58 @@ ul {
     clip-path: inset(-100% 0);
     transform: scale(2);
 }
-
 .loader:before{
     content: "";
     position: absolute;
     width: 8px;
     height: 8px;
     border-radius: 50%;
-    background: var(--accent-yellow); /* UPDATED: Use accent yellow */
+    background: var(--accent-yellow);
     left: -16px;
     top: 0;
     animation:
         l5-1 2s linear infinite,
         l5-2 0.5s cubic-bezier(0,200,.8,200) infinite;
 }
+@keyframes l5-1 { 0% {left:-16px;transform:translateY(-8px)} 100% {left:calc(100% + 8px);transform:translateY(22px)} }
+@keyframes l5-2 { 100% {top:-0.1px} }
 
-@keyframes l5-1 {
-    0%   {left:-16px;transform:translateY(-8px)}
-    100% {left:calc(100% + 8px);transform:translateY(22px)}
-}
-
-@keyframes l5-2 {
-    100% {top:-0.1px}
-}
-
-/* NOTE: Removed .loaded class, assume JS handles hiding */
-/* FIXED: Removed .loaded class, assume JS adds display:none or removes element */
 
 /* ========================================================================
    Header Styles
    ======================================================================== */
 header {
-    background-color: var(--header-bg); /* UPDATED: Use variable */
+    background-color: var(--header-bg);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
-    z-index: 100; 
+    z-index: 100;
+    padding: calc(var(--spacing-unit) * 0.5) 0; /* Spacing: Reduced padding slightly */
 }
 
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.logo {
-    flex: 1;
+    min-height: 60px; /* Ensure minimum height */
 }
 
 .logo img {
-    height: 60px; /* NOTE: Reduced size slightly from 90px for typical header */
+    height: 55px; /* Typography: Slightly smaller logo */
     display: block;
-    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); /* Adjusted glow */
+    /* filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); */ /* Removed filter */
 }
 
-/* Navigation Styles */
 nav {
-    flex: 2;
+    /* flex: 2; */ /* Removed flex for better centering control if needed */
     display: flex;
-    justify-content: center;
+    justify-content: flex-end; /* Align nav to the right */
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
-    justify-content: center;
+    gap: calc(var(--spacing-unit) * 3.5); /* Spacing: 28px gap */
+    align-items: center; /* Vertically align items */
 }
 
 .nav-links li {
@@ -169,232 +222,215 @@ nav {
 }
 
 .nav-links a {
-    color: var(--header-text); /* UPDATED: Use variable */
-    font-weight: 500;
-    padding: 10px 0;
+    color: var(--header-text);
+    font-weight: 500; /* Typography: Standard weight */
+    font-size: 0.95rem; /* Typography: Slightly smaller nav links */
+    padding: calc(var(--spacing-unit) * 1.25) 0; /* Spacing: 10px top/bottom padding */
     position: relative;
     transition: color var(--transition-speed);
+    text-transform: uppercase; /* Consistency: Uppercase nav items */
+    letter-spacing: 0.5px; /* Spacing */
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--accent-yellow); /* UPDATED: Highlight color */
+    color: var(--accent-yellow);
 }
 
-.nav-links a.active::after,
-.nav-links a:hover::after {
+/* Underline effect */
+.nav-links a::after {
     content: '';
     position: absolute;
-    bottom: 0;
+    bottom: 5px; /* Position underline closer to text */
     left: 0;
     width: 100%;
     height: 2px;
-    background-color: var(--accent-yellow); /* UPDATED: Highlight color */
-    transform: scaleX(1);
-    transition: transform 0.3s;
+    background-color: var(--accent-yellow);
+    transform: scaleX(0); /* Hide by default */
+    transform-origin: center;
+    transition: transform 0.3s ease-out;
+}
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    transform: scaleX(1); /* Show on hover/active */
 }
 
+
 /* Dropdown Menu Styles */
-.dropdown {
-    position: relative;
-}
+.dropdown { position: relative; }
 
 .dropdown-content {
     position: absolute;
     top: 100%;
     left: 0;
-    min-width: 180px;
-    background-color: var(--header-bg); /* UPDATED: Use header bg */
+    /* Dropdown Size: Reduced min-width */
+    min-width: 170px;
+    background-color: var(--header-bg);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
     visibility: hidden;
     opacity: 0;
     transform: translateY(10px);
-    transition: all 0.3s ease;
+    transition: visibility 0s linear 0.3s, opacity 0.3s ease, transform 0.3s ease; /* Adjusted transition */
     z-index: 1;
-    border-radius: 4px;
+    border-radius: 0 0 var(--border-radius) var(--border-radius); /* Rounded bottom corners */
     overflow: hidden;
-    border-left: 3px solid var(--accent-green); /* UPDATED: Use accent green */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border */
+    border-top: none;
+    /* border-left: 3px solid var(--accent-green); */ /* Removed side border */
 }
 
-.dropdown-content li {
-    width: 100%;
-}
+.dropdown-content li { width: 100%; }
 
 .dropdown-content a {
-    padding: 12px 20px;
+    /* Dropdown Size: Reduced padding */
+    padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 2); /* 10px 16px */
     display: block;
-    color: var(--header-text); /* UPDATED: Use header text */
+    color: var(--header-text);
+    /* Dropdown Size: Reduced font size */
+    font-size: 0.9rem;
     transition: background 0.3s, color 0.3s;
-    position: relative;
-    padding-left: 30px; /* Add space for the indicator */
-}
-
-.dropdown-content a:before {
-    content: '→';
-    position: absolute;
-    left: 10px; /* Adjusted position */
-    color: var(--accent-green); /* UPDATED: Use accent green */
-    transition: color 0.3s;
+    /* Removed padding-left and :before pseudo-element for arrow */
 }
 
 .dropdown-content a:hover {
-    background-color: var(--accent-green); /* UPDATED: Use accent green */
+    background-color: var(--accent-green);
     color: var(--white);
 }
 
-.dropdown-content a:hover:before {
-    color: var(--white);
-}
-
-.dropdown-content a:hover::after { /* Prevent nav underline from showing */
-    display: none;
-}
+/* Prevent nav underline from showing in dropdown */
+.dropdown-content a::after { display: none; }
 
 .dropdown:hover .dropdown-content {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
+    transition-delay: 0s; /* Show immediately on hover */
 }
 
 .fa-chevron-down {
-    font-size: 0.8em;
-    margin-left: 5px;
+    font-size: 0.7em; /* Smaller chevron */
+    margin-left: calc(var(--spacing-unit) * 0.5); /* 4px */
 }
-
-/* CTA Button in Header */
-.cta-button {
-    flex: 1; /* Allow space */
-    text-align: right; /* Align button to the right */
-}
-/* NOTE: General button styles applied below via .btn.btn-primary */
 
 /* Mobile Menu Toggle */
 .menu-toggle {
-    display: none;
-    color: var(--header-text); /* UPDATED: Use variable */
+    display: none; /* Hidden on desktop */
+    color: var(--header-text);
     font-size: 1.5rem;
     cursor: pointer;
+    padding: var(--spacing-unit); /* Tappable area */
+    background: none;
+    border: none;
 }
 
 /* Header Responsive Styles */
 @media screen and (max-width: 992px) {
-    header .container {
-        flex-wrap: wrap;
-    }
     .nav-links {
-        gap: 20px;
+        gap: calc(var(--spacing-unit) * 2.5); /* 20px */
     }
 }
 
 @media screen and (max-width: 768px) {
     header .container {
-        justify-content: space-between;
         position: relative; /* Needed for absolute positioning of nav */
-        padding-top: 10px; /* Space for logo/buttons */
-        padding-bottom: 10px;
     }
     .logo {
-        flex: 0 0 auto;
-        order: 2;
-        position: absolute;
-        left: 50%;
-        top: 50%; /* Center vertically */
-        transform: translate(-50%, -50%);
-        z-index: 1;
+       flex-grow: 1; /* Allow logo to take space */
+       text-align: center; /* Center logo */
+       position: absolute; /* Position independently */
+       left: 50%;
+       top: 50%;
+       transform: translate(-50%, -50%);
+       width: auto; /* Let image size dictate */
+       z-index: 1; /* Ensure logo is clickable if overlaps */
     }
     .logo img {
-        height: 45px; /* Smaller logo on mobile */
+        height: 45px; /* Responsiveness: Smaller logo */
+        margin: 0 auto; /* Center within its container */
     }
     .menu-toggle {
-        display: block;
-        order: 1;
-        position: relative;
-        z-index: 2;
-        padding: 10px; /* Easier to tap */
+        display: block; /* Show hamburger */
+        order: -1; /* Move to the left */
+        z-index: 102; /* Above nav */
     }
     nav {
-        flex: 0 0 100%;
-        order: 4;
-        display: none; /* Hidden by default */
-        width: 100%;
+        /* Hide nav, position below header */
+        display: none;
         position: absolute;
-        top: 100%; /* Position below the header */
+        top: 100%; /* Position below the calculated header height */
         left: 0;
-        background-color: var(--header-bg); /* Use header bg */
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        width: 100%;
+        background-color: var(--header-bg);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        z-index: 101; /* Below toggle */
+        max-height: calc(100vh - 70px); /* Limit height */
+        overflow-y: auto; /* Allow scroll if needed */
     }
-    .cta-button {
-        flex: 0 0 auto;
-        order: 3;
-        position: relative;
-        z-index: 2;
-    }
-    .nav-open nav { /* Show nav when body has .nav-open */
+    /* Class added by JS to show menu */
+    nav.nav-open {
         display: block;
     }
     .nav-links {
         flex-direction: column;
         gap: 0;
-        padding: 10px 0;
-        align-items: center; /* Center links */
+        padding: var(--spacing-unit) 0; /* Spacing */
+        align-items: stretch; /* Full width links */
     }
     .nav-links li {
         width: 100%;
-        text-align: center;
+        text-align: left; /* Align text left */
     }
     .nav-links a {
-        padding: 15px 20px;
+        padding: calc(var(--spacing-unit) * 1.75) calc(var(--spacing-unit) * 2.5); /* 14px 20px */
         display: block;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         width: 100%;
+        font-size: 1rem; /* Typography: Slightly larger on mobile nav */
     }
      .nav-links li:last-child a {
         border-bottom: none;
     }
-    .nav-links a::after { /* Remove underline on mobile */
-        display: none;
-    }
+    .nav-links a::after { display: none; } /* Remove desktop underline on mobile */
 
     /* Mobile Dropdown */
     .dropdown-content {
-        position: static;
+        position: static; /* Remove absolute positioning */
         box-shadow: none;
         visibility: visible;
         opacity: 1;
         transform: none;
         max-height: 0; /* Collapse by default */
         overflow: hidden;
-        transition: max-height 0.3s ease;
-        background-color: rgba(0, 0, 0, 0.2); /* Darker background for nested items */
-        border-left: none; /* Remove side border */
+        transition: max-height 0.3s ease-out; /* Smooth expand/collapse */
+        background-color: rgba(0, 0, 0, 0.15); /* Darker background for nested items */
+        border: none;
         margin: 0;
         border-radius: 0;
+        padding-left: calc(var(--spacing-unit) * 2); /* Indent sub-menu items */
     }
-    .dropdown.active .dropdown-content { /* Expand when parent has .active (JS controlled) */
+    /* Class added by JS when dropdown parent is clicked */
+    .dropdown.active .dropdown-content {
         max-height: 500px; /* Allow space for items */
     }
     .dropdown-content a {
-        padding-left: 40px; /* Indent */
+        padding-top: calc(var(--spacing-unit) * 1.25); /* 10px */
+        padding-bottom: calc(var(--spacing-unit) * 1.25);
         color: var(--accent-yellow); /* Make sub-items stand out */
-        font-size: 0.9em;
+        font-size: 0.9rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
-    .dropdown-content a:before {
-       display: none; /* Remove arrow */
+     .dropdown-content li:last-child a {
+        border-bottom: none;
     }
-     .dropdown-content a:hover {
-        background-color: rgba(0, 0, 0, 0.3);
+    .dropdown-content a:hover {
+        background-color: rgba(0, 0, 0, 0.25);
         color: var(--white);
     }
 }
 
 @media screen and (max-width: 480px) {
-    .logo img {
-        height: 40px;
-    }
-    .cta-button .btn { /* Smaller button on small screens */
-        padding: 8px 16px;
-        font-size: 0.9rem;
-    }
+    .logo img { height: 40px; }
 }
 
 
@@ -403,8 +439,8 @@ nav {
    ======================================================================== */
 .btn {
     display: inline-block;
-    padding: 12px 30px; /* Base padding */
-    font-size: 1rem; /* Base font size */
+    padding: calc(var(--spacing-unit) * 1.5) calc(var(--spacing-unit) * 3.75); /* 12px 30px */
+    font-size: 1rem;
     font-weight: 600;
     text-align: center;
     text-decoration: none;
@@ -413,32 +449,36 @@ nav {
     border-radius: 50px; /* Pill shape */
     transition: all var(--transition-speed);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    line-height: 1.2; /* Ensure text fits */
+}
+/* Hierarchy: Ensure button text is clearly readable */
+.btn span {
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .btn-primary {
-    background-color: var(--button-primary-bg); /* UPDATED: Green */
-    color: var(--button-primary-text); /* UPDATED: White */
+    background-color: var(--button-primary-bg);
+    color: var(--button-primary-text);
 }
-
 .btn-primary:hover {
-    background-color: var(--button-secondary-bg); /* UPDATED: Red on hover */
-    color: var(--button-secondary-text); /* UPDATED: White */
+    background-color: var(--button-secondary-bg);
+    color: var(--button-secondary-text);
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Example for secondary button if needed */
 .btn-secondary {
-    background-color: var(--button-secondary-bg); /* UPDATED: Red */
-    color: var(--button-secondary-text); /* UPDATED: White */
+    background-color: var(--button-secondary-bg);
+    color: var(--button-secondary-text);
 }
-
 .btn-secondary:hover {
-    background-color: var(--accent-yellow); /* UPDATED: Yellow on hover */
-    color: var(--neutral-dark); /* UPDATED: Dark text for contrast */
+    background-color: var(--accent-yellow);
+    color: var(--neutral-dark);
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
+
 
 /* ========================================================================
    FAQ Section
