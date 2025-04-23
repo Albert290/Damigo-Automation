@@ -1297,7 +1297,7 @@ nav {
 
 /* Next/Submit Buttons - Step Specific */
 .next-btn, .submit-btn {
-    color: white;
+    color: black;
     margin-left: auto; /* Push to right if no back button */
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
