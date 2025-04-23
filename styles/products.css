@@ -2449,7 +2449,7 @@ nav {
 
 /* Stylish gradient buttons for each step */
 .next-btn, .submit-btn {
-    color: white;
+    color: black;
     position: relative;
     overflow: hidden;
     margin-left: auto;
