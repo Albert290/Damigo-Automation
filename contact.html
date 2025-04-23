@@ -166,43 +166,77 @@
             </div>
         </section>
 
-        <!-- Contact Form Section - Full Width Below -->
-        <section class="contact-form-section">
-            <div class="container">
-                <div class="contact-form">
-                    <h3>Send Message</h3>
-                    <form id="messageForm">
-                        <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" id="name" class="form-control" placeholder="Your Name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" id="email" class="form-control" placeholder="Your Email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" class="form-control" placeholder="Subject" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Message</label>
-                            <textarea id="message" class="form-control" placeholder="Your Message" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="submit-btn">Send Message</button>
-                    </form>
-                    
-                    <div class="success-message" id="success-message">
-                        <div class="success-icon">✓</div>
-                        <h3>Thank You!</h3>
-                        <p>Your message has been sent successfully. We'll get back to you soon!</p>
-                    </div>
+       <!-- Contact Form Section - Full Width Below -->
+<section class="contact-form-section">
+    <div class="container">
+        <h2>Send Us a Message</h2> <!-- Added a heading -->
+        <div class="contact-form">
+
+            <!-- ============================================================== -->
+            <!-- =============== START <FORM> ELEMENT ========================= -->
+            <!-- ============================================================== -->
+            <!-- Add id="contact-page-form" for JS targeting -->
+            <!-- Add the SAME Formspree action URL -->
+            <form id="contact-page-form" action="https://formspree.io/f/xrbqgbjq" method="POST">
+                <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+                <!-- ^^^ YOUR FORM SPREE LINK IS PLACED HERE in the 'action' ^^^ -->
+                <!-- ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ -->
+
+                <div class="form-group">
+                    <label for="contact-name">Full Name</label>
+                    <!-- *** ADDED name="name" *** -->
+                    <input type="text" id="contact-name" name="name" class="form-control" placeholder="Your Name" required>
                 </div>
+
+                <div class="form-group">
+                    <label for="contact-email">Email Address</label>
+                    <!-- *** ADDED name="email" *** -->
+                    <input type="email" id="contact-email" name="email" class="form-control" placeholder="Your Email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-subject">Subject</label>
+                    <!-- *** ADDED name="subject" *** -->
+                    <input type="text" id="contact-subject" name="subject" class="form-control" placeholder="Subject" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="contact-message">Message</label>
+                    <!-- *** ADDED name="message" *** -->
+                    <!-- Use a more specific ID like "contact-message" -->
+                    <textarea id="contact-message" name="message" class="form-control" placeholder="Your Message" required rows="5"></textarea> <!-- Added rows attribute -->
+                </div>
+
+                 <!-- Optional: Add a hidden field for Formspree's basic honeypot spam protection -->
+                 <input type="text" name="_gotcha" style="display:none">
+
+                 <!-- Add a hidden field to distinguish this form submission if needed -->
+                 <input type="hidden" name="_form_source" value="Contact Page Form">
+
+                <!-- Error Message Area (Initially hidden) -->
+                <div id="contact-error-message" style="color: red; margin-bottom: 15px; text-align: left; display: none;">
+                    <!-- Error messages will appear here -->
+                </div>
+
+                <!-- Submit button - type="submit" is correct here -->
+                <button type="submit" class="submit-btn" id="contact-submit-btn">Send Message</button>
+            </form>
+            <!-- ============================================================== -->
+            <!-- =============== END <FORM> ELEMENT =========================== -->
+            <!-- ============================================================== -->
+
+            <!-- Success Message Area (Initially hidden) -->
+            <!-- Use a more specific ID like "contact-success-message" -->
+            <div class="success-message" id="contact-success-message" style="display: none; margin-top: 20px; text-align: center;">
+                <div class="success-icon" style="font-size: 2em; color: green;">✓</div>
+                <h3>Thank You!</h3>
+                <p>Your message has been sent successfully. We'll get back to you soon!</p>
+                <!-- Optional: Button to maybe clear message or perform other action -->
+                <!-- <button type="button" id="reset-contact-form-view">Send Another</button> -->
             </div>
-        </section>
+        </div><!-- /.contact-form -->
+    </div><!-- /.container -->
+</section><!-- /.contact-form-section -->
     </main>    
     <!-- Footer would be here, already added with black background -->
     
@@ -305,103 +339,115 @@
         });
     </script>
     <script>
-        // Wait for the DOM to be fully loaded
-document.addEventListener('DOMContentLoaded', function() {
-    // Get references to the button and modal
-    const heroCtaButton = document.querySelector('.hero-cta .btn-primary');
-    const modal = document.querySelector('.modal');
-    const closeBtn = document.querySelector('.close-btn');
-    const closeModalBtn = document.querySelector('.close-modal-btn');
-    
-    // Function to open the modal
-    function openModal() {
-        // First display the modal with display:flex
-        modal.style.display = 'flex';
-        
-        // Force browser reflow to enable the transition
-        void modal.offsetWidth;
-        
-        // Then add the show class which sets opacity to 1
-        modal.classList.add('show');
-        
-        // Reset to first step if needed
-        resetToFirstStep();
-        
-        // Prevent page scrolling while modal is open
-        document.body.style.overflow = 'hidden';
-    }
-    
-    // Function to close the modal
-    function closeModal() {
-        // Remove the show class first (starts the opacity transition)
-        modal.classList.remove('show');
-        
-        // After transition completes, set display to none
-        setTimeout(() => {
-            modal.style.display = 'none';
-            document.body.style.overflow = '';
-        }, 300); // Match transition time to your CSS
-    }
-    
-    // Reset form to first step
-    function resetToFirstStep() {
-        // Hide all steps
-        const steps = document.querySelectorAll('.form-step');
-        steps.forEach(step => {
-            step.classList.remove('active');
+       document.addEventListener('DOMContentLoaded', function() {
+
+// --- MODAL FORM SCRIPT (Keep your existing modal script here) ---
+const heroCtaButton = document.querySelector('.hero-cta .btn-primary');
+const modal = document.querySelector('.modal'); // Ensure this targets the quote modal
+const closeBtn = document.querySelector('.close-btn'); // From modal
+const closeModalBtn = document.querySelector('.close-modal-btn'); // From modal success step
+
+// ... (rest of your existing modal open/close/navigation logic) ...
+// Make sure this logic correctly targets elements within the modal only
+// e.g., modal.querySelector('.next-btn') instead of document.querySelector('.next-btn')
+// if you have buttons with the same class outside the modal.
+
+
+// --- NEW CONTACT PAGE FORM SCRIPT ---
+const contactForm = document.getElementById('contact-page-form');
+const contactSuccessMessage = document.getElementById('contact-success-message');
+const contactErrorMessage = document.getElementById('contact-error-message');
+const contactSubmitButton = document.getElementById('contact-submit-btn');
+
+if (contactForm) {
+    contactForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission (page reload)
+
+        // Disable button and show loading state (optional)
+        if(contactSubmitButton) {
+            contactSubmitButton.disabled = true;
+            contactSubmitButton.textContent = 'Sending...';
+        }
+         // Clear previous messages
+        if(contactErrorMessage) contactErrorMessage.style.display = 'none';
+        if(contactSuccessMessage) contactSuccessMessage.style.display = 'none';
+
+
+        const formData = new FormData(contactForm);
+        const formAction = contactForm.getAttribute('action');
+
+        fetch(formAction, {
+            method: 'POST',
+            body: formData,
+            headers: {
+                'Accept': 'application/json' // Ask Formspree for a JSON response
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                // Success!
+                return response.json(); // Parse the JSON response from Formspree
+            } else {
+                // Server-side validation errors or other issues
+                return response.json().then(data => {
+                    // Throw an error object that includes the Formspree error details
+                    throw { status: response.status, data: data };
+                });
+            }
+        })
+        .then(data => {
+            // Handle SUCCESSFUL submission
+            console.log('Formspree success:', data);
+            contactForm.style.display = 'none'; // Hide the form
+            if (contactSuccessMessage) {
+                contactSuccessMessage.style.display = 'block'; // Show the success message
+            }
+             // You might want to reset the form if you don't hide it
+             // contactForm.reset();
+        })
+        .catch(error => {
+            // Handle FAILED submission (network error or Formspree error)
+            console.error('Form submission error:', error);
+            if (contactErrorMessage) {
+                let message = 'Oops! There was a problem submitting your form. Please try again later.';
+                // Check if it's a Formspree validation error
+                if (error.data && error.data.errors) {
+                    // Extract and display Formspree validation errors
+                     message = error.data.errors.map(err => err.message).join('<br>');
+                } else if (error.message) {
+                     // Network or other generic errors
+                     message = error.message;
+                }
+                contactErrorMessage.innerHTML = message;
+                contactErrorMessage.style.display = 'block'; // Show error message
+            }
+            // Re-enable button on error
+            if(contactSubmitButton) {
+                contactSubmitButton.disabled = false;
+                contactSubmitButton.textContent = 'Send Message';
+            }
         });
-        
-        // Show first step
-        const firstStep = document.getElementById('step1');
-        if (firstStep) {
-            firstStep.classList.add('active');
-        }
-        
-        // Reset progress bar if exists
-        const progressBar = document.querySelector('.progress');
-        if (progressBar) {
-            progressBar.style.width = '25%'; // Set to first step width
-        }
-        
-        // Reset active dots if they exist
-        const dots = document.querySelectorAll('.step-dot');
-        if (dots.length > 0) {
-            dots.forEach(dot => dot.classList.remove('active'));
-            dots[0].classList.add('active');
-        }
-    }
-    
-    // Add click event listener to hero CTA button
-    if (heroCtaButton) {
-        heroCtaButton.addEventListener('click', function(e) {
-            e.preventDefault(); // Prevent default anchor behavior
-            openModal();
-        });
-    }
-    
-    // Add click event listeners to close buttons
-    if (closeBtn) {
-        closeBtn.addEventListener('click', closeModal);
-    }
-    
-    if (closeModalBtn) {
-        closeModalBtn.addEventListener('click', closeModal);
-    }
-    
-    // Close modal when clicking outside modal content
-    modal.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            closeModal();
-        }
     });
-    
-    // Close modal on escape key
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.classList.contains('show')) {
-            closeModal();
-        }
-    });
-});
+}
+
+// Optional: Add logic for a 'Send Another' button if you add one
+// const resetButton = document.getElementById('reset-contact-form-view');
+// if(resetButton) {
+//     resetButton.addEventListener('click', () => {
+//         if(contactSuccessMessage) contactSuccessMessage.style.display = 'none';
+//         if(contactErrorMessage) contactErrorMessage.style.display = 'none';
+//         if(contactForm) {
+//             contactForm.reset();
+//             contactForm.style.display = 'block';
+//             if(contactSubmitButton) {
+//                  contactSubmitButton.disabled = false;
+//                  contactSubmitButton.textContent = 'Send Message';
+//             }
+//         }
+//     });
+// }
+
+}); // End DOMContentLoaded
     </script>
         <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
         <script src="script.js"></script>
