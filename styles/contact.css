@@ -192,7 +192,6 @@ nav {
     transform: scaleX(1);
     transition: transform 0.3s;
 }
-
 /* Dropdown Menu Styles */
 .dropdown {
     position: relative;
@@ -211,27 +210,35 @@ nav {
     transition: all 0.3s ease;
     z-index: 1;
     border-radius: 4px;
-    overflow: hidden;
+    overflow: hidden; /* Keep this to maintain rounded corners if needed */
     border-left: 3px solid var(--accent-green); /* UPDATED: Use accent green */
+    /* NOTE: No height or max-height is set, so it will naturally fit content */
 }
 
 .dropdown-content li {
     width: 100%;
 }
 
+/* --- MODIFIED RULE --- */
 .dropdown-content a {
-    padding: 12px 20px;
+    /* Reduced vertical padding to make each item shorter */
+    padding: 6px 20px; /* Was 12px 20px. Adjust 6px as needed (e.g., 8px, 5px) */
     display: block;
     color: var(--header-text); /* UPDATED: Use header text */
     transition: background 0.3s, color 0.3s;
     position: relative;
-    padding-left: 30px; /* Add space for the indicator */
+    /* Maintain left padding for the indicator */
+    padding-left: 30px;
 }
+/* --- END MODIFIED RULE --- */
+
 
 .dropdown-content a:before {
     content: '→';
     position: absolute;
     left: 10px; /* Adjusted position */
+    top: 50%; /* Vertically center arrow better with smaller padding */
+    transform: translateY(-50%); /* Vertically center arrow */
     color: var(--accent-green); /* UPDATED: Use accent green */
     transition: color 0.3s;
 }

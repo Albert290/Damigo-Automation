@@ -196,12 +196,11 @@ section:nth-of-type(even) {
 }
 
 /* ========================================================================
-   Header Styles - Copied from Index
+   Header Styles
    ======================================================================== */
-header {
-    background-color: var(--header-bg);
-    color: var(--header-text);
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+   header {
+    background-color: var(--header-bg); /* UPDATED: Use variable */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 100; 
@@ -213,69 +212,304 @@ header .container {
     align-items: center;
 }
 
-.logo { flex-shrink: 0; }
-.logo img { height: 45px; display: block; }
-
-nav { flex-grow: 1; display: flex; justify-content: flex-end; align-items: center; }
-.nav-links { display: flex; gap: 25px; margin-right: 25px; }
-.nav-links li { position: relative; }
-.nav-links a { color: var(--header-text); font-weight: 500; padding: 8px 5px; position: relative; transition: color var(--transition-speed); font-size: 0.95rem; }
-.nav-links a:hover, .nav-links a.active { color: var(--accent-yellow); }
-.nav-links a::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px; background-color: var(--accent-yellow); transform: scaleX(0); transition: transform 0.3s ease; transform-origin: left; }
-.nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
-
-.dropdown { position: relative; }
-.dropdown-content { position: absolute; top: calc(100% + 5px); left: 0; min-width: 200px; background-color: var(--white); color: var(--neutral-dark); box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); visibility: hidden; opacity: 0; transform: translateY(10px); transition: all 0.3s ease; z-index: 1; border-radius: var(--border-radius); overflow: hidden; border-top: 3px solid var(--accent-green); }
-.dropdown-content li { width: 100%; }
-.dropdown-content a { padding: 12px 20px; display: block; color: var(--neutral-dark); font-weight: 400; transition: background-color 0.3s, color 0.3s; font-size: 0.9rem; }
-.dropdown-content a:hover { background-color: var(--neutral-light); color: var(--primary-blue); }
-.dropdown-content a:hover::after { display: none; }
-.dropdown:hover .dropdown-content { visibility: visible; opacity: 1; transform: translateY(0); }
-.fa-chevron-down { font-size: 0.7em; margin-left: 4px; vertical-align: middle; }
-
-.cta-button-header { flex-shrink: 0; /* Apply .btn classes in HTML */ }
-
-.menu-toggle { display: none; color: var(--header-text); font-size: 1.8rem; cursor: pointer; background: none; border: none; padding: 5px; }
-
-/* Header Responsive */
-@media screen and (max-width: 992px) { .nav-links { gap: 15px; margin-right: 15px; } .nav-links a { font-size: 0.9rem; } }
-@media screen and (max-width: 768px) {
-    header .container { position: relative; }
-    .menu-toggle { display: block; order: 1; }
-    .logo { order: 2; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); }
-    .logo img { height: 40px; }
-    .cta-button-header { order: 3; }
-    .cta-button-header .btn { padding: 6px 14px; font-size: 0.85rem; }
-    nav { order: 4; position: absolute; top: 100%; left: 0; width: 100%; background-color: var(--header-bg); box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
-    body.nav-open nav { max-height: 100vh; }
-    .nav-links { flex-direction: column; align-items: stretch; gap: 0; margin: 0; padding: 10px 0; }
-    .nav-links li { width: 100%; text-align: left; }
-    .nav-links a { padding: 15px 20px; display: block; border-bottom: 1px solid rgba(255, 255, 255, 0.1); width: 100%; font-size: 1rem; }
-    .nav-links li:last-child a { border-bottom: none; }
-    .nav-links a::after { display: none; }
-    .nav-links a:hover, .nav-links a.active { background-color: rgba(255, 255, 255, 0.1); color: var(--accent-yellow); }
-    .dropdown-content { position: static; box-shadow: none; visibility: visible; opacity: 1; transform: none; max-height: 0; overflow: hidden; transition: max-height 0.3s ease; background-color: rgba(0, 0, 0, 0.1); border-top: none; border-radius: 0; margin-top: 0; }
-    .dropdown.active .dropdown-content { max-height: 500px; }
-    .dropdown-content a { padding-left: 35px; color: var(--white); font-size: 0.9em; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
-    .dropdown-content li:last-child a { border-bottom: none; }
-    .dropdown-content a:hover { background-color: rgba(0, 0, 0, 0.2); color: var(--accent-yellow); }
+.logo {
+    flex: 1;
 }
 
+.logo img {
+    height: 60px; /* NOTE: Reduced size slightly from 90px for typical header */
+    display: block;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.3)); /* Adjusted glow */
+}
+
+/* Navigation Styles */
+nav {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.nav-links li {
+    position: relative;
+}
+
+.nav-links a {
+    color: var(--header-text); /* UPDATED: Use variable */
+    font-weight: 500;
+    padding: 10px 0;
+    position: relative;
+    transition: color var(--transition-speed);
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    color: var(--accent-yellow); /* UPDATED: Highlight color */
+}
+
+.nav-links a.active::after,
+.nav-links a:hover::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-yellow); /* UPDATED: Highlight color */
+    transform: scaleX(1);
+    transition: transform 0.3s;
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 180px;
+    background-color: var(--header-bg); /* UPDATED: Use header bg */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    z-index: 1;
+    border-radius: 4px;
+    overflow: hidden;
+    border-left: 3px solid var(--accent-green); /* UPDATED: Use accent green */
+}
+
+.dropdown-content li {
+    width: 100%;
+}
+
+.dropdown-content a {
+    padding: 12px 20px;
+    display: block;
+    color: var(--header-text); /* UPDATED: Use header text */
+    transition: background 0.3s, color 0.3s;
+    position: relative;
+    padding-left: 30px; /* Add space for the indicator */
+}
+
+.dropdown-content a:before {
+    content: '→';
+    position: absolute;
+    left: 10px; /* Adjusted position */
+    color: var(--accent-green); /* UPDATED: Use accent green */
+    transition: color 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--accent-green); /* UPDATED: Use accent green */
+    color: var(--white);
+}
+
+.dropdown-content a:hover:before {
+    color: var(--white);
+}
+
+.dropdown-content a:hover::after { /* Prevent nav underline from showing */
+    display: none;
+}
+
+.dropdown:hover .dropdown-content {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fa-chevron-down {
+    font-size: 0.8em;
+    margin-left: 5px;
+}
+
+/* CTA Button in Header */
+.cta-button {
+    flex: 1; /* Allow space */
+    text-align: right; /* Align button to the right */
+}
+/* NOTE: General button styles applied below via .btn.btn-primary */
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    color: var(--header-text); /* UPDATED: Use variable */
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Header Responsive Styles */
+@media screen and (max-width: 992px) {
+    header .container {
+        flex-wrap: wrap;
+    }
+    .nav-links {
+        gap: 20px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    header .container {
+        justify-content: space-between;
+        position: relative; /* Needed for absolute positioning of nav */
+        padding-top: 10px; /* Space for logo/buttons */
+        padding-bottom: 10px;
+    }
+    .logo {
+        flex: 0 0 auto;
+        order: 2;
+        position: absolute;
+        left: 50%;
+        top: 50%; /* Center vertically */
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+    .logo img {
+        height: 45px; /* Smaller logo on mobile */
+    }
+    .menu-toggle {
+        display: block;
+        order: 1;
+        position: relative;
+        z-index: 2;
+        padding: 10px; /* Easier to tap */
+    }
+    nav {
+        flex: 0 0 100%;
+        order: 4;
+        display: none; /* Hidden by default */
+        width: 100%;
+        position: absolute;
+        top: 100%; /* Position below the header */
+        left: 0;
+        background-color: var(--header-bg); /* Use header bg */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .cta-button {
+        flex: 0 0 auto;
+        order: 3;
+        position: relative;
+        z-index: 2;
+    }
+    .nav-open nav { /* Show nav when body has .nav-open */
+        display: block;
+    }
+    .nav-links {
+        flex-direction: column;
+        gap: 0;
+        padding: 10px 0;
+        align-items: center; /* Center links */
+    }
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+    .nav-links a {
+        padding: 15px 20px;
+        display: block;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        width: 100%;
+    }
+     .nav-links li:last-child a {
+        border-bottom: none;
+    }
+    .nav-links a::after { /* Remove underline on mobile */
+        display: none;
+    }
+
+    /* Mobile Dropdown */
+    .dropdown-content {
+        position: static;
+        box-shadow: none;
+        visibility: visible;
+        opacity: 1;
+        transform: none;
+        max-height: 0; /* Collapse by default */
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+        background-color: rgba(0, 0, 0, 0.2); /* Darker background for nested items */
+        border-left: none; /* Remove side border */
+        margin: 0;
+        border-radius: 0;
+    }
+    .dropdown.active .dropdown-content { /* Expand when parent has .active (JS controlled) */
+        max-height: 500px; /* Allow space for items */
+    }
+    .dropdown-content a {
+        padding-left: 40px; /* Indent */
+        color: var(--accent-yellow); /* Make sub-items stand out */
+        font-size: 0.9em;
+    }
+    .dropdown-content a:before {
+       display: none; /* Remove arrow */
+    }
+     .dropdown-content a:hover {
+        background-color: rgba(0, 0, 0, 0.3);
+        color: var(--white);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .logo img {
+        height: 40px;
+    }
+    .cta-button .btn { /* Smaller button on small screens */
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
+
+
 /* ========================================================================
-   General Button Styles - Copied from Index
+   General Button Styles
    ======================================================================== */
-.btn { display: inline-block; padding: 10px 25px; font-size: 0.95rem; font-weight: 600; text-align: center; text-decoration: none; cursor: pointer; border: none; border-radius: 50px; transition: all var(--transition-speed); box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); letter-spacing: 0.5px; }
-.btn-primary { background-color: var(--button-primary-bg); color: var(--button-primary-text); }
-.btn-primary:hover { background-color: #a51a27; color: var(--button-primary-text); transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); }
-.btn-secondary { background-color: var(--button-secondary-bg); color: var(--button-secondary-text); }
-.btn-secondary:hover { background-color: #177d3a; color: var(--button-secondary-text); transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); }
-.btn-blue { background-color: var(--primary-blue); color: var(--white); }
-.btn-blue:hover { background-color: #075a8f; color: var(--white); transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); }
-.btn-yellow { background-color: var(--accent-yellow); color: var(--neutral-dark); }
-.btn-yellow:hover { background-color: #e6c600; color: var(--neutral-dark); transform: translateY(-2px); box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15); }
-.btn-outline-light { background-color: transparent; color: var(--white); border: 2px solid var(--white); }
-.btn-outline-light:hover { background-color: var(--white); color: var(--primary-blue); transform: translateY(-2px); }
-.btn-large { padding: 14px 35px; font-size: 1.1rem; }
+.btn {
+    display: inline-block;
+    padding: 12px 30px; /* Base padding */
+    font-size: 1rem; /* Base font size */
+    font-weight: 600;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    border-radius: 50px; /* Pill shape */
+    transition: all var(--transition-speed);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: var(--button-primary-bg); /* UPDATED: Green */
+    color: var(--button-primary-text); /* UPDATED: White */
+}
+
+.btn-primary:hover {
+    background-color: var(--button-secondary-bg); /* UPDATED: Red on hover */
+    color: var(--button-secondary-text); /* UPDATED: White */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Example for secondary button if needed */
+.btn-secondary {
+    background-color: var(--button-secondary-bg); /* UPDATED: Red */
+    color: var(--button-secondary-text); /* UPDATED: White */
+}
+
+.btn-secondary:hover {
+    background-color: var(--accent-yellow); /* UPDATED: Yellow on hover */
+    color: var(--neutral-dark); /* UPDATED: Dark text for contrast */
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
 
 //* ========================================================================
 Hero Section Styles
