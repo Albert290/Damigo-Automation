@@ -573,19 +573,7 @@ nav { display: flex; justify-content: flex-end; }
     line-height: 1.7; /* Readability */
     font-size: 0.95rem; /* Typography */
 }
-/* Optional: Add quote icon inside */
-.testimonial-text::before {
-    content: '\f10d'; /* Font Awesome quote-left */
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    position: absolute;
-    left: -5px; /* Adjust position */
-    top: -5px;
-    font-size: 1.5rem;
-    color: var(--neutral-border); /* Subtle quote color */
-    opacity: 0.8;
-    z-index: 0;
-}
+ 
 
 .testimonial-author {
     font-weight: 600;
