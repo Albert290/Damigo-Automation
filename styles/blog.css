@@ -1149,6 +1149,9 @@ nav {
   pointer-events: none;
 }
 
+.ytp-show-cards-title { display: none !important; }
+.ytp-chrome-top-buttons { opacity: 0 !important; }
+
 /* ===== Responsive Adjustments ===== */
 @media (max-width: 1024px) {
   .tools-container {
