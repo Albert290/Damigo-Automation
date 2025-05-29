@@ -275,3 +275,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+document.addEventListener("DOMContentLoaded", function() {
+  // Get all YouTube iframes
+  const videoContainers = document.querySelectorAll('.video-container');
+  
+  // Observe each video container
+  videoContainers.forEach(container => {
+    const iframe = container.querySelector('iframe');
+    
+    // Listen for YouTube API ready event
+    iframe.addEventListener('load', function() {
+      // Create YouTube player instance
+      const player = new YT.Player(iframe, {
+        events: {
+          'onStateChange': function(event) {
+            // When playing (state=1), add 'playing' class
+            if (event.data === YT.PlayerState.PLAYING) {
+              container.classList.add('playing');
+            } else {
+              container.classList.remove('playing');
+            }
+          }
+        }
+      });
+    });
+  });
+});
+
+// Load YouTube API
+const tag = document.createElement('script');
+tag.src = "https://www.youtube.com/iframe_api";
+const firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);

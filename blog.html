@@ -190,9 +190,16 @@
     <div class="tool-card">
       <h3 class="tool-title">Zoho CRM</h3>
       <div class="video-container">
-        <video controls class="tool-video">
+        <iframe 
+          class="youtube-embed"
+          loading="lazy"
+          data-src="https://www.youtube-nocookie.com/embed/_H61PMmLYLc?autoplay=0"
+          frameborder="0"
+          allow="accelerometer; encrypted-media; gyroscope"
+          allowfullscreen>
+        </iframe>
+        <video controls class="tool-video" style="display:none;">
           <source src="assets/images/zoho crm.mp4" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
       </div>
       <p class="tool-description">Streamline customer relationship management with Zoho CRM.</p>
@@ -202,60 +209,95 @@
     <div class="tool-card">
       <h3 class="tool-title">Zoho Invoice</h3>
       <div class="video-container">
-        <video controls class="tool-video">
+        <iframe 
+          class="youtube-embed"
+          loading="lazy"
+          data-src="https://www.youtube-nocookie.com/embed/tVMBCyCIuIs?autoplay=0"
+          frameborder="0"
+          allow="accelerometer; encrypted-media; gyroscope"
+          allowfullscreen>
+        </iframe>
+        <video controls class="tool-video" style="display:none;">
           <source src="assets/images/Zoho Invoice .mp4" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
       </div>
-      <p class="tool-description">creates professional invoices, sending them to customers, and managing payments.</p>
+      <p class="tool-description">Creates professional invoices, sending them to customers, and managing payments.</p>
     </div>
 
     <!-- Tool 3 -->
     <div class="tool-card">
       <h3 class="tool-title">Zoho Books</h3>
       <div class="video-container">
-        <video controls class="tool-video">
+        <iframe 
+          class="youtube-embed"
+          loading="lazy"
+          data-src="https://www.youtube-nocookie.com/embed/w9R1OdHB6kA?autoplay=0"
+          frameborder="0"
+          allow="accelerometer; encrypted-media; gyroscope"
+          allowfullscreen>
+        </iframe>
+        <video controls class="tool-video" style="display:none;">
           <source src="assets/images/Zoho Books .mp4" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
       </div>
-      <p class="tool-description">manage financial transactions, track income and expenses, and stay compliant with tax obligations.</p>
+      <p class="tool-description">Manage financial transactions, track income and expenses, and stay compliant with tax obligations.</p>
     </div>
 
-     <!-- Tool 4 -->
+    <!-- Tool 4 -->
     <div class="tool-card">
       <h3 class="tool-title">Zoho Expense</h3>
       <div class="video-container">
-        <video controls class="tool-video">
+        <iframe 
+          class="youtube-embed"
+          loading="lazy"
+          data-src="https://www.youtube-nocookie.com/embed/MgsbKXQMv0o?autoplay=0"
+          frameborder="0"
+          allow="accelerometer; encrypted-media; gyroscope"
+          allowfullscreen>
+        </iframe>
+        <video controls class="tool-video" style="display:none;">
           <source src="assets/images/Zoho Expense.mp4" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
       </div>
-      <p class="tool-description">helps employees record expenses, manage travel, and streamline the approval and reimbursement process.</p>
+      <p class="tool-description">Helps employees record expenses, manage travel, and streamline the approval and reimbursement process.</p>
     </div>
 
-     <!-- Tool 5 -->
-    <div class="tool-card">
+    <!-- Tool 5 -->
+   <div class="tool-card">
       <h3 class="tool-title">Zoho Commerce</h3>
       <div class="video-container">
-        <video controls class="tool-video">
+        <iframe 
+          class="youtube-embed"
+          loading="lazy"
+          data-src="https://www.youtube-nocookie.com/embed/XGPJDz5ZxnM?autoplay=0"
+          frameborder="0"
+          allow="accelerometer; encrypted-media; gyroscope"
+          allowfullscreen>
+        </iframe>
+        <video controls class="tool-video" style="display:none;">
           <source src="assets/images/Zoho Commerce .mp4" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
       </div>
-      <p class="tool-description">helps businesses build and manage their online stores.</p>
+      <p class="tool-description">Helps businesses build and manage their online stores.</p>
     </div>
 
-     <!-- Tool 6 -->
+    <!-- Tool 6 -->
     <div class="tool-card">
       <h3 class="tool-title">Zoho Billing</h3>
       <div class="video-container">
-        <video controls class="tool-video">
+        <iframe 
+          class="youtube-embed"
+          loading="lazy"
+          data-src="https://www.youtube-nocookie.com/embed/iDb1FMHghHQ?autoplay=0"
+          frameborder="0"
+          allow="accelerometer; encrypted-media; gyroscope"
+          allowfullscreen>
+        </iframe>
+        <video controls class="tool-video" style="display:none;">
           <source src="assets/images/Zoho Billing .mp4" type="video/mp4">
-          Your browser does not support the video tag.
         </video>
       </div>
-      <p class="tool-description">streamlines the entire billing workflow, offering features like automated invoice creation, expense tracking, and payment handling..</p>
+      <p class="tool-description">Streamlines the entire billing workflow, offering features like automated invoice creation, expense tracking, and payment handling..</p>
     </div>
   </div>
 </section>
@@ -608,5 +650,39 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
     </script>
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const lazyVideos = document.querySelectorAll(".youtube-embed");
+  
+  const lazyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const iframe = entry.target;
+        if (!iframe.src) {
+          iframe.src = iframe.dataset.src;
+          lazyObserver.unobserve(iframe);
+          
+          // Hide fallback if YouTube loads
+          const fallback = iframe.nextElementSibling;
+          fallback.style.display = "none";
+        }
+      }
+    });
+  }, {rootMargin: "200px"});
+
+  lazyVideos.forEach(iframe => lazyObserver.observe(iframe));
+
+  // Fallback for slow connections
+  setTimeout(() => {
+    document.querySelectorAll(".youtube-embed").forEach(iframe => {
+      if (!iframe.src) {
+        iframe.style.display = "none";
+        iframe.nextElementSibling.style.display = "block";
+      }
+    });
+  }, 3000); // Show local video after 3s if YouTube fails
+});
+</script>
+<script src="https://www.youtube.com/iframe_api"></script>
 </body>
 </html>
