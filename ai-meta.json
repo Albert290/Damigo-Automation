@@ -1,0 +1,132 @@
+{
+    "website_meta": {
+        "domain": "dmg.co.ke",
+        "title": "Damigo Automation Ltd - Zoho & Sage Implementation Experts Kenya",
+        "description": "Leading business automation consultancy in Kenya specializing in Zoho CRM, Books, Sage integration, and M-Pesa payment solutions.",
+        "language": "en-KE",
+        "last_updated": "2025-01-23",
+        "content_type": "business_website",
+        "industry": "business_automation_consulting",
+        "target_audience": "kenyan_businesses_seeking_automation"
+    },
+    "page_structure": {
+        "homepage": {
+            "url": "/",
+            "title": "Zoho Implementation Kenya | Business Automation Experts",
+            "purpose": "Main landing page showcasing services and value proposition",
+            "key_content": [
+                "hero_section",
+                "services_overview",
+                "client_testimonials",
+                "quote_request_form"
+            ]
+        },
+        "services": {
+            "url": "/services.html",
+            "title": "Zoho CRM Setup & Business Automation Services Kenya",
+            "purpose": "Detailed service descriptions and implementation process",
+            "key_content": [
+                "3_step_process",
+                "integration_showcase",
+                "client_testimonials"
+            ]
+        },
+        "products": {
+            "url": "/products.html",
+            "title": "Zoho CRM, Books & Projects Implementation Kenya",
+            "purpose": "Complete Zoho product suite overview",
+            "key_content": [
+                "product_categories",
+                "zoho_one_showcase",
+                "feature_comparisons"
+            ]
+        },
+        "portfolio": {
+            "url": "/portfolio.html",
+            "title": "300+ Success Stories | Zoho Implementation Results Kenya",
+            "purpose": "Client success stories and social proof",
+            "key_content": [
+                "client_logos",
+                "testimonials_slider",
+                "certifications"
+            ]
+        },
+        "blog": {
+            "url": "/blog.html",
+            "title": "Zoho Implementation Tips & Business Automation Blog Kenya",
+            "purpose": "Educational content and industry insights",
+            "key_content": [
+                "automation_insights",
+                "zoho_tutorials",
+                "video_content"
+            ]
+        },
+        "contact": {
+            "url": "/contact.html",
+            "title": "Free Zoho Consultation Kenya | Contact Certified Experts",
+            "purpose": "Contact information and consultation request",
+            "key_content": [
+                "contact_form",
+                "location_map",
+                "business_hours"
+            ]
+        },
+        "faq": {
+            "url": "/faq.html",
+            "title": "Zoho Implementation FAQ Kenya | Pricing & Timeline Questions",
+            "purpose": "Common questions and answers about services",
+            "key_content": [
+                "categorized_faqs",
+                "pricing_information",
+                "timeline_expectations"
+            ]
+        }
+    },
+    "key_entities": {
+        "business_name": "Damigo Automation Ltd",
+        "services": [
+            "Zoho CRM Implementation",
+            "Business Process Automation",
+            "Sage Integration",
+            "M-Pesa Integration"
+        ],
+        "location": "Westlands, Nairobi, Kenya",
+        "certifications": [
+            "Zoho Authorized Partner",
+            "Sage Certified Adviser"
+        ],
+        "contact_numbers": [
+            "+254733211511",
+            "+254722325104"
+        ],
+        "email_addresses": [
+            "info@dmg.co.ke",
+            "support@dmg.co.ke"
+        ]
+    },
+    "content_themes": [
+        "business_automation",
+        "zoho_implementation",
+        "sage_integration",
+        "kenyan_business_solutions",
+        "crm_customization",
+        "accounting_automation",
+        "local_payment_integration",
+        "tax_compliance_automation"
+    ],
+    "crawl_instructions": {
+        "priority_pages": [
+            "/",
+            "/services.html",
+            "/products.html",
+            "/contact.html"
+        ],
+        "update_frequency": {
+            "homepage": "weekly",
+            "services": "monthly",
+            "blog": "weekly",
+            "contact": "monthly"
+        },
+        "content_focus": "business_automation_services_kenya"
+    }
+}

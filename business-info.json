@@ -1,0 +1,111 @@
+{
+  "business": {
+    "name": "Damigo Automation Ltd",
+    "description": "Leading Zoho CRM and Sage implementation experts in Kenya specializing in business process automation, M-Pesa integration, and digital transformation.",
+    "founded": "2018",
+    "employees": "20+",
+    "clients_served": "300+",
+    "location": {
+      "address": "4th Floor Delta Corner Annex, Westlands",
+      "city": "Nairobi",
+      "country": "Kenya",
+      "coordinates": {
+        "latitude": -1.2921,
+        "longitude": 36.8219
+      }
+    },
+    "contact": {
+      "phone": ["+254733211511", "+254722325104"],
+      "email": ["info@dmg.co.ke", "support@dmg.co.ke"],
+      "website": "https://dmg.co.ke",
+      "social_media": {
+        "facebook": "https://www.facebook.com/743988165471805",
+        "twitter": "https://twitter.com/DMG_Automation",
+        "linkedin": "https://www.linkedin.com/company/108791701",
+        "instagram": "https://instagram.com/dmg_automation"
+      }
+    },
+    "certifications": [
+      "Zoho Authorized Partner",
+      "Sage Certified Adviser"
+    ],
+    "services": {
+      "primary": [
+        "Zoho CRM Implementation",
+        "Zoho Books Accounting Setup",
+        "Sage Integration",
+        "Business Process Automation",
+        "M-Pesa Payment Integration",
+        "KRA ETIMS Tax Compliance",
+        "WhatsApp Business Integration"
+      ],
+      "process": [
+        "Need Analysis & Strategy",
+        "Implementation & Customization", 
+        "Go-Live & Training",
+        "Ongoing Support"
+      ]
+    },
+    "products": {
+      "zoho_suite": [
+        "Zoho CRM - Customer relationship management",
+        "Zoho Books - Cloud accounting software",
+        "Zoho Projects - Project management",
+        "Zoho People - HR management",
+        "Zoho Analytics - Business intelligence",
+        "Zoho One - Complete business suite (45+ apps)"
+      ],
+      "integrations": [
+        "M-Pesa payment gateway",
+        "KRA ETIMS tax system",
+        "WhatsApp Business API",
+        "Local Kenyan banking systems"
+      ]
+    },
+    "target_market": {
+      "business_sizes": ["Small businesses", "Medium enterprises", "Large corporations"],
+      "industries": ["Manufacturing", "Retail", "Healthcare", "NGOs", "Churches", "Professional services"],
+      "geographic_focus": "Kenya, East Africa"
+    },
+    "success_stories": [
+      {
+        "client": "Precision Tracking",
+        "industry": "Subscription business",
+        "solution": "Automated recurring invoicing with Zoho Books",
+        "result": "Improved cash flow and time savings"
+      },
+      {
+        "client": "Ridgeways Baptist Church", 
+        "industry": "Religious organization",
+        "solution": "Paperless purchase requisition process",
+        "result": "Fast, transparent expense tracking"
+      },
+      {
+        "client": "Centre Point Hydraulic Enterprises",
+        "industry": "Manufacturing",
+        "solution": "Automated debt collection and payment tracking",
+        "result": "Streamlined credit sales management"
+      },
+      {
+        "client": "Rotary Club of Nairobi East",
+        "industry": "Non-profit",
+        "solution": "Member subscription and payment automation",
+        "result": "Simplified audit processes and efficient management"
+      }
+    ],
+    "competitive_advantages": [
+      "20+ years accounting experience",
+      "Local Kenya market expertise",
+      "Certified partnerships with Zoho and Sage",
+      "Proven 3-step implementation process",
+      "300+ successful implementations",
+      "Local integration specialists (M-Pesa, KRA ETIMS)",
+      "Comprehensive training and support"
+    ],
+    "pricing": {
+      "consultation": "Free initial consultation",
+      "approach": "Customized quotes based on business needs",
+      "payment_options": "Flexible payment plans available"
+    }
+  }
+}
