@@ -690,4 +690,195 @@ nav { display: flex; justify-content: flex-end; }
 .copyright p { margin: 0; } .footer-links-bottom a { color: rgba(255, 255, 255, 0.7); margin: 0 var(--spacing-unit); transition: color var(--transition-speed); } .footer-links-bottom a:hover { color: var(--accent-yellow); }
 /* Footer Responsive */
 @media (max-width: 768px) { .footer-content { gap: calc(var(--spacing-unit) * 4); } .footer-column { min-width: 45%; } .footer-bottom { flex-direction: column; text-align: center; } }
-@media (max-width: 576px) { .footer-column { min-width: 100%; } }
+@media (max-width: 576px) { .footer-column { min-width: 100%; } }/* Re
+lated Pages Section Styling */
+.related-pages {
+    background: linear-gradient(135deg, #F5F5F5 0%, #f8f9fa 100%);
+    position: relative;
+    overflow: hidden;
+    padding: 80px 0;
+}
+
+.related-pages::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #0974B0, #219E4A, #CE2232);
+}
+
+.related-pages .section-header {
+    text-align: center;
+    margin-bottom: 48px;
+    position: relative;
+}
+
+.related-pages .section-header h2 {
+    color: #333333;
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    position: relative;
+    display: inline-block;
+}
+
+.related-pages .section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #0974B0, #219E4A);
+    border-radius: 2px;
+}
+
+.related-pages .section-header .section-subtitle {
+    color: #5e6c84;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.related-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 32px;
+    margin-top: 48px;
+}
+
+.related-link-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(9, 116, 176, 0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid #dfe1e6;
+    position: relative;
+    overflow: hidden;
+}
+
+.related-link-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #0974B0, #219E4A);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.related-link-card:hover::before {
+    transform: scaleX(1);
+}
+
+.related-link-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 40px rgba(9, 116, 176, 0.15);
+    border-color: #0974B0;
+}
+
+.related-link-card i {
+    font-size: 3rem;
+    color: #0974B0;
+    margin-bottom: 24px;
+    transition: all 0.3s ease;
+}
+
+.related-link-card:hover i {
+    color: #219E4A;
+    transform: scale(1.1);
+}
+
+.related-link-card h3 {
+    margin-bottom: 16px;
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.related-link-card h3 a {
+    color: #333333;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.related-link-card h3 a:hover {
+    color: #0974B0;
+}
+
+.related-link-card p {
+    color: #5e6c84;
+    margin-bottom: 32px;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.link-arrow {
+    display: inline-flex;
+    align-items: center;
+    color: #0974B0;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    padding: 12px 24px;
+    border: 2px solid #0974B0;
+    border-radius: 25px;
+    background: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.link-arrow::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: #0974B0;
+    transition: left 0.3s ease;
+    z-index: -1;
+}
+
+.link-arrow:hover::before {
+    left: 0;
+}
+
+.link-arrow:hover {
+    color: #ffffff;
+    transform: translateX(5px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .related-links-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+    
+    .related-link-card {
+        padding: 32px;
+    }
+    
+    .related-link-card i {
+        font-size: 2.5rem;
+    }
+    
+    .related-pages .section-header h2 {
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .link-arrow {
+        padding: 8px 16px;
+        font-size: 0.9rem;
+    }
+}
