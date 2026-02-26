@@ -58,6 +58,51 @@ AOS.init({
     once: true, // whether animation should happen only once - while scrolling down
 });
 
+// WhatsApp Toggle Functionality
+const whatsappToggle = document.querySelector('.whatsapp-toggle');
+if (whatsappToggle) {
+    // Toggle expand/collapse on click
+    whatsappToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        const isExpanded = this.classList.contains('expanded');
+        
+        if (isExpanded) {
+            // If expanded, open WhatsApp
+            window.open('https://wa.me/254722325104', '_blank', 'noopener,noreferrer');
+        } else {
+            // If collapsed, expand it
+            this.classList.add('expanded');
+            this.setAttribute('aria-expanded', 'true');
+        }
+    });
+    
+    // Close when clicking outside
+    document.addEventListener('click', function(e) {
+        if (whatsappToggle.classList.contains('expanded') && 
+            !whatsappToggle.contains(e.target)) {
+            whatsappToggle.classList.remove('expanded');
+            whatsappToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+    
+    // Auto-collapse after 3 seconds of inactivity when expanded
+    let collapseTimer;
+    whatsappToggle.addEventListener('mouseenter', function() {
+        if (this.classList.contains('expanded')) {
+            clearTimeout(collapseTimer);
+        }
+    });
+    
+    whatsappToggle.addEventListener('mouseleave', function() {
+        if (this.classList.contains('expanded')) {
+            collapseTimer = setTimeout(() => {
+                whatsappToggle.classList.remove('expanded');
+                whatsappToggle.setAttribute('aria-expanded', 'false');
+            }, 3000);
+        }
+    });
+}
+
 // Note: The current CSS uses parent hover for desktop and JS toggle (.active class) for mobile.
 // Ensure your JS adds/removes the 'active' class to the '.dropdown' li on mobile click.
     // Update active state based on current page

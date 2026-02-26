@@ -177,16 +177,40 @@
                     <span class="analyze">Analyze.</span>
                     <span class="accelerate">Accelerate.</span>
                 </h1>
-                <!-- SEO: Added 'Sage' alongside 'Zoho' -->
-                <!-- Typography/Spacing: Paragraph provides context, spaced below H1 -->
-                <p>At Damigo Automation, we equip your business with smart financial systems powered by
+                <!-- Problem-Solution Focused Messaging -->
+                <p class="hero-problem">Drowning in manual invoicing and payment tracking? Spending hours on financial paperwork instead of growing your business?</p>
+                <p class="hero-solution">We automate your finance operations with 
                     <span class="zoho-span">
                         <img src="assets/images/zoho logo.png" alt="Zoho Logo" class="zoho-logo">
-                        <!-- SEO: Added Logo to alt -->
-                    </span>.
-                    From setup to optimization, we streamline your workflows, unlock insights, and keep you in control -
-                    every step of the way. <!-- SEO: Added 'business efficiency' -->
+                    </span> and Sage — saving you 20+ hours every month so you can focus on what matters most.
                 </p>
+               
+                <!-- Success Metrics -->
+                <div class="success-metrics">
+                    <div class="metric-item">
+                        <span class="metric-number">500+</span>
+                        <span class="metric-label">Hours Saved Monthly</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number">10,000+</span>
+                        <span class="metric-label">Automated Invoices</span>
+                    </div>
+                    <div class="metric-item">
+                        <span class="metric-number">48hrs</span>
+                        <span class="metric-label">Response Time</span>
+                    </div>
+                </div>
+                <!-- Certification Badges -->
+                <div class="hero-certifications">
+                    <div class="cert-badge-wrapper">
+                        <img src="assets/images/zoho.jpg" alt="Zoho Authorized Partner" class="hero-cert-badge">
+                        <span class="cert-label">Zoho Authorized Partner</span>
+                    </div>
+                    <div class="cert-badge-wrapper">
+                        <img src="assets/images/SageAccounting_Adviser-Certification-Badge.png" alt="Sage Certified Adviser" class="hero-cert-badge">
+                        <span class="cert-label">Sage Certified Adviser</span>
+                    </div>
+                </div>
             </div>
             <div class="hero-image">
                 <!-- TODO: Replace with relevant, optimized image -->
@@ -205,11 +229,57 @@
     </section> <!-- Close hero -->
 
 
-    <a href="https://wa.me/254722325104" class="whatsapp-link fixed" target="_blank" rel="noopener noreferrer"
-        aria-label="Chat on WhatsApp">
-        <i class="fab fa-whatsapp"></i>
-        <p>Message Us</p> <!-- Consistency: Capitalized 'Message Us' -->
-    </a>
+    <div class="whatsapp-wrapper">
+        <button class="whatsapp-toggle" aria-label="Toggle WhatsApp" aria-expanded="false">
+            <i class="fab fa-whatsapp"></i>
+            <span class="whatsapp-text">Chat with Us</span>
+        </button>
+        <a href="https://wa.me/254722325104" class="whatsapp-link-hidden" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp"></a>
+    </div>
+
+    <!-- Industries We Serve Section -->
+    <section class="industries-section section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Finance Solutions for Your Industry</h2>
+                <p class="subtitle">We specialize in automating financial operations for businesses that need precision and compliance</p>
+            </div>
+            <div class="industries-grid">
+                <a href="portfolio.html" class="industry-card industry-manufacturing" data-color="blue">
+                    <div class="industry-icon-wrapper">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Manufacturing</h3>
+                    <p>Inventory tracking, cost accounting, and supplier payment automation</p>
+                    <span class="view-cases">View Case Studies <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="portfolio.html" class="industry-card industry-retail" data-color="yellow">
+                    <div class="industry-icon-wrapper">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>Retail Business</h3>
+                    <p>Point of sale integration, invoice automation, and cash flow management</p>
+                    <span class="view-cases">View Case Studies <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="portfolio.html" class="industry-card industry-church" data-color="green">
+                    <div class="industry-icon-wrapper">
+                        <i class="fas fa-church"></i>
+                    </div>
+                    <h3>Churches & NGOs</h3>
+                    <p>Donation tracking, expense management, and transparent financial reporting</p>
+                    <span class="view-cases">View Case Studies <i class="fas fa-arrow-right"></i></span>
+                </a>
+                <a href="portfolio.html" class="industry-card industry-professional" data-color="red">
+                    <div class="industry-icon-wrapper">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <h3>Professional Services</h3>
+                    <p>Time billing, client invoicing, and project cost tracking automation</p>
+                    <span class="view-cases">View Case Studies <i class="fas fa-arrow-right"></i></span>
+                </a>
+            </div>
+        </div>
+    </section>
 
     <section id="about-zoho" class="about-zoho section-padding"> <!-- Spacing: Added standard section padding class -->
         <div class="container">
@@ -346,7 +416,7 @@
                 <div class="quick-link-card">
                     <i class="fas fa-trophy"></i>
                     <h3><a href="portfolio.html">Success Stories</a></h3>
-                    <p>See how we've helped 300+ businesses streamline their operations and boost efficiency.</p>
+                    <p>See how we've helped businesses across Kenya streamline their operations and boost efficiency.</p>
                     <a href="portfolio.html" class="link-arrow">View Portfolio →</a>
                 </div>
                 <div class="quick-link-card">
@@ -473,6 +543,7 @@
                         <input type="tel" id="phone" name="contact_phone" placeholder="+254 XXX XXXXXX">
                         <!-- Example placeholder -->
                     </div>
+                    <p class="form-note"><i class="fas fa-info-circle"></i> We'll get back to you within 24 business hours</p>
                     <div class="form-nav">
                         <button type="button" class="back-btn" data-prev="step3">Back</button>
                         <button type="submit" class="submit-btn" id="final-submit">Get My Quote</button>
@@ -486,7 +557,7 @@
                         <div class="success-icon">✓</div>
                         <h2>Thank You!</h2>
                         <p>Your quote request has been submitted successfully. Damigo Automation Ltd will review your
-                            needs and respond within 48 business hours.</p> <!-- Adjusted text -->
+                            needs and respond within 24 business hours.</p> <!-- Adjusted text -->
                         <button type="button" class="close-modal-btn">Close</button>
                     </div>
                 </div>
